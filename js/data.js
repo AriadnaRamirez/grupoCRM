@@ -1,3 +1,5 @@
+import { withBase } from "./base.js";
+
 export const company = {
   name: "Grupo CRM Extintores",
   tagline: "Extintores · Equipo contra incendios",
@@ -583,7 +585,7 @@ export function lookAlt(item) {
 }
 
 export function productUrl(sku) {
-  return `/producto?sku=${encodeURIComponent(sku)}#${encodeURIComponent(sku)}`;
+  return withBase(`/producto?sku=${encodeURIComponent(sku)}#${encodeURIComponent(sku)}`);
 }
 
 export function readSku() {

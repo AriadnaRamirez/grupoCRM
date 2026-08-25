@@ -1,5 +1,8 @@
+import { rebaseDocument } from "./base.js";
 import { mountShell, renderHome, renderProductos, renderProducto, renderServicios, renderNosotros, renderGaleria, renderHook, bindContact, bindMotion, bindErrorReturn } from "./ui.js";
 import { applySeo } from "./seo.js";
+
+rebaseDocument();
 
 function safe(fn) {
   try {
@@ -11,7 +14,10 @@ function safe(fn) {
 }
 
 const page = document.body.dataset.page;
-safe(() => mountShell(page));
+safe(() => {
+  mountShell(page);
+  rebaseDocument();
+});
 
 if (page === "inicio") safe(renderHome);
 else if (page === "productos") safe(renderProductos);

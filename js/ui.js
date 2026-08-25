@@ -1,5 +1,6 @@
 import { company, categories, products, services, sectors, faqs, clients, waUrl, safeDecode, catName, catCount, productBySku, productImg, productAlt, productUrl, readSku, relatedProducts, lookbook, lookAlt, lookFull, venues, carePoints, readyChecks, condo } from "./data.js";
 import { applySeo } from "./seo.js";
+import { rebaseDocument, withBase } from "./base.js";
 
 const fa = (cls) => `<i class="${cls}" aria-hidden="true"></i>`;
 const WA_ICON = fa("fa-brands fa-whatsapp wa-icon");
@@ -23,6 +24,7 @@ export function mountShell(page) {
   const footer = document.querySelector("[data-footer]");
   if (header) header.innerHTML = headerHTML(page);
   if (footer) footer.innerHTML = footerHTML();
+  rebaseDocument();
   bindChrome();
 }
 
@@ -44,8 +46,8 @@ const CAT_COVER = {
 };
 
 function absAsset(src) {
-  if (!src || /^https?:\/\//i.test(src) || src.startsWith("/")) return src;
-  return `/${src}`;
+  if (!src || /^https?:\/\//i.test(src)) return src;
+  return withBase(src.startsWith("/") ? src : `/${src}`);
 }
 
 function catCover(c) {
@@ -87,8 +89,9 @@ function bindBgMediaLoad(el, src) {
 
 function applyLazyBg(el) {
   if (!el) return;
-  const src = el.dataset.bg;
+  const src = withBase(el.dataset.bg);
   if (!src) return;
+  el.dataset.bg = src;
   const photo = el.querySelector(".slide__photo") || el;
   if (el.dataset.bgReady !== "1") {
     el.dataset.bgReady = "1";
@@ -117,7 +120,7 @@ function catalogExtendInner(defer = false) {
           : `<img src="${cover.src}" alt="${escapeAttr(cover.alt)}" loading="lazy" decoding="async">`
         : "";
       return `<li>
-        <a class="shop-dept" data-cat="${c.id}" href="/productos?cat=${c.id}#${c.id}">
+        <a class="shop-dept" data-cat="${c.id}" href="${withBase(`/productos?cat=${c.id}#${c.id}`)}">
           <span class="shop-dept__media${cover?.photo ? " shop-dept__media--photo" : ""}">
             ${img}
           </span>
@@ -149,7 +152,7 @@ function catalogPickerInner(current = "all") {
     })
     .join("");
   const allCard = `<li>
-    <a class="shop-dept shop-dept--all${current === "all" ? " is-active" : ""}" data-cat="all" href="/productos" aria-current="${current === "all" ? "page" : "false"}">
+    <a class="shop-dept shop-dept--all${current === "all" ? " is-active" : ""}" data-cat="all" href="${withBase("/productos")}" aria-current="${current === "all" ? "page" : "false"}">
       <span class="shop-dept__media shop-dept__media--mosaic shop-dept__media--photo">${mosaic}</span>
       <span class="shop-dept__body">
         <span class="shop-dept__rule" aria-hidden="true"></span>
@@ -167,7 +170,7 @@ function catalogPickerInner(current = "all") {
         ? `<img src="${cover.src}" alt="${escapeAttr(cover.alt)}" loading="lazy" decoding="async">`
         : "";
       return `<li>
-        <a class="shop-dept${active ? " is-active" : ""}" data-cat="${c.id}" href="/productos?cat=${c.id}#${c.id}" aria-current="${active ? "page" : "false"}">
+        <a class="shop-dept${active ? " is-active" : ""}" data-cat="${c.id}" href="${withBase(`/productos?cat=${c.id}#${c.id}`)}" aria-current="${active ? "page" : "false"}">
           <span class="shop-dept__media${cover?.photo ? " shop-dept__media--photo" : ""}">
             ${img}
           </span>
@@ -221,7 +224,7 @@ function headerHTML(page) {
       (id === "productos" && page === "producto") ||
       (id === "nosotros" && page === "servicios") ||
       (id === "blog" && page === "articulo");
-    return `<a class="${active ? "is-active" : ""}" href="${href}">${label}</a>`;
+    return `<a class="${active ? "is-active" : ""}" href="${withBase(href)}">${label}</a>`;
   };
   const catalogOpen = page === "productos" || page === "producto";
   return `
@@ -243,19 +246,19 @@ function headerHTML(page) {
       </div>
       <header class="site-header">
         <div class="wrap header__inner">
-          <a class="brand" href="/"><img src="/assets/img/logo-crm.png" alt="Grupo CRM Extintores" width="243" height="52"></a>
+          <a class="brand" href="${withBase("/")}"><img src="${withBase("/assets/img/logo-crm.png")}" alt="Grupo CRM Extintores" width="243" height="52"></a>
           <nav class="nav" id="menu">
             ${item("/", "inicio", "Inicio")}
             ${item("/nosotros", "nosotros", "Nosotros")}
             <div class="nav-drop">
-              <a class="nav-drop__link ${catalogOpen ? "is-active" : ""}" href="/productos">Catálogo</a>
+              <a class="nav-drop__link ${catalogOpen ? "is-active" : ""}" href="${withBase("/productos")}">Catálogo</a>
               <button type="button" class="nav-drop__toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-catalogo" aria-label="Ver categorías del catálogo">
                 ${CHEV_DOWN}
               </button>
               <div class="nav-drop__menu" id="nav-catalogo">
                 <div class="wrap mega__inner">
                   ${catalogExtendInner(true)}
-                  <p class="nav-drop__all"><a class="btn btn-red" href="/productos">Ver catálogo</a></p>
+                  <p class="nav-drop__all"><a class="btn btn-red" href="${withBase("/productos")}">Ver catálogo</a></p>
                 </div>
               </div>
             </div>
@@ -264,7 +267,7 @@ function headerHTML(page) {
             ${item("/contacto", "contacto", "Contacto")}
           </nav>
           <div class="header__end">
-            <form class="nav-search" action="/productos" method="get" role="search">
+            <form class="nav-search" action="${withBase("/productos")}" method="get" role="search">
               <div class="nav-search__field">
                 <label class="sr-only" for="nav-search-q">Buscar equipo</label>
                 <input id="nav-search-q" type="search" name="q" placeholder="Buscar equipo o SKU" autocomplete="off" data-nav-search>
@@ -283,14 +286,14 @@ function headerHTML(page) {
 }
 
 function footerHTML() {
-  const catLinks = categories.map((c) => `<li><a href="/productos?cat=${c.id}#${c.id}">${c.name}</a></li>`).join("");
+  const catLinks = categories.map((c) => `<li><a href="${withBase(`/productos?cat=${c.id}#${c.id}`)}">${c.name}</a></li>`).join("");
   return `
     <footer class="site-footer">
       <div class="wrap footer-grid">
         <div class="footer-brand">
-          <a class="footer-mark" href="/">
-            <img class="footer-mark__flame" src="/assets/img/logo-crm-flame.png" alt="Grupo CRM Extintores" width="112" height="154" loading="lazy" decoding="async">
-            <img class="footer-mark__crm" src="/assets/img/logo-crm-wordmark.png" alt="" width="286" height="87" loading="lazy" decoding="async">
+          <a class="footer-mark" href="${withBase("/")}">
+            <img class="footer-mark__flame" src="${withBase("/assets/img/logo-crm-flame.png")}" alt="Grupo CRM Extintores" width="112" height="154" loading="lazy" decoding="async">
+            <img class="footer-mark__crm" src="${withBase("/assets/img/logo-crm-wordmark.png")}" alt="" width="286" height="87" loading="lazy" decoding="async">
           </a>
           <p class="footer-brand__about">${company.about} ${company.slogan}</p>
           <p class="footer-social">
@@ -301,21 +304,21 @@ function footerHTML() {
         <nav aria-label="Productos">
           <h3>Productos</h3>
           <ul>
-            <li><a href="/productos">Ver equipos</a></li>
+            <li><a href="${withBase("/productos")}">Ver equipos</a></li>
             ${catLinks}
           </ul>
         </nav>
         <nav aria-label="Empresa">
           <h3>Empresa</h3>
           <ul>
-            <li><a href="/">Inicio</a></li>
-            <li><a href="/nosotros">Nosotros</a></li>
-            <li><a href="/nosotros#servicios">Servicios</a></li>
-            <li><a href="/galeria">Galería</a></li>
-            <li><a href="/blog">Blog</a></li>
-            <li><a href="/contacto">Contacto</a></li>
-            <li><a href="/aviso-privacidad">Aviso de privacidad</a></li>
-            <li><a href="/mapa-sitio">Mapa de sitio</a></li>
+            <li><a href="${withBase("/")}">Inicio</a></li>
+            <li><a href="${withBase("/nosotros")}">Nosotros</a></li>
+            <li><a href="${withBase("/nosotros#servicios")}">Servicios</a></li>
+            <li><a href="${withBase("/galeria")}">Galería</a></li>
+            <li><a href="${withBase("/blog")}">Blog</a></li>
+            <li><a href="${withBase("/contacto")}">Contacto</a></li>
+            <li><a href="${withBase("/aviso-privacidad")}">Aviso de privacidad</a></li>
+            <li><a href="${withBase("/mapa-sitio")}">Mapa de sitio</a></li>
           </ul>
         </nav>
         <nav aria-label="Contacto">
@@ -332,7 +335,7 @@ function footerHTML() {
       </div>
       <div class="wrap footer-legal">
         <p class="copy">© ${new Date().getFullYear()} Grupo CRM Extintores. Todos los derechos reservados.</p>
-        <p class="copy"><a href="/aviso-privacidad">Aviso de privacidad</a> · ${company.coverage}</p>
+        <p class="copy"><a href="${withBase("/aviso-privacidad")}">Aviso de privacidad</a> · ${company.coverage}</p>
       </div>
     </footer>
     <a class="wa-float" href="${waUrl()}" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp ${company.whatsappShow}, se abre en una ventana nueva">${WA_ICON}<span>WhatsApp</span></a>`;
@@ -490,7 +493,7 @@ function bindNavSearch(closeMenu) {
       closeMenu?.(false);
       return;
     }
-    const url = new URL("/productos", location.origin);
+    const url = new URL(withBase("/productos"), location.origin);
     if (q) url.searchParams.set("q", q);
     location.assign(`${url.pathname}${url.search}`);
   };
@@ -860,7 +863,7 @@ export function renderHomeCats() {
         ? `<span class="cat-tile__media"><img src="${cover.src}" alt="${escapeAttr(cover.alt)}" loading="lazy" decoding="async"></span>`
         : "";
       return `<li>
-        <a class="cat-tile" data-cat="${c.id}" href="/productos?cat=${c.id}#${c.id}">
+        <a class="cat-tile" data-cat="${c.id}" href="${withBase(`/productos?cat=${c.id}#${c.id}`)}">
           ${media}
           <span class="cat-tile__body">
             <span class="cat-tile__rule" aria-hidden="true"></span>
@@ -906,7 +909,7 @@ export function renderHomeCatalog() {
         <section class="shop-block" data-cat="${c.id}">
           <header class="shop-block__head">
             <h3>${c.name}</h3>
-            <a class="shop-more" href="/productos?cat=${c.id}#${c.id}">${c.seeAll} <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            <a class="shop-more" href="${withBase(`/productos?cat=${c.id}#${c.id}`)}">${c.seeAll} <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
           </header>
           <div class="shop-grid shop-grid--4">${items.map((p) => productCard(p, { quote: true })).join("")}</div>
         </section>`;
@@ -1054,7 +1057,7 @@ export function bindLookbook() {
     root.innerHTML = `
       <figure class="lookbook__hero">
         <button type="button" class="lookbook__open" data-lb-open aria-label="Ver ${escapeAttr(item.title)} en grande">
-          <img src="${item.src}" alt="${escapeAttr(lookAlt(item))}" loading="lazy" decoding="async">
+          <img src="${absAsset(item.src)}" alt="${escapeAttr(lookAlt(item))}" loading="lazy" decoding="async">
         </button>
         <figcaption>
           <p class="lookbook__count">${pad(index + 1)} / ${pad(lookbook.length)}</p>
@@ -1069,7 +1072,7 @@ export function bindLookbook() {
             .map(
               (thumb, i) => `
             <button type="button" class="lookbook__thumb${start + i === index ? " is-active" : ""}" data-lb-goto="${start + i}" aria-label="${escapeAttr(thumb.title)}" aria-current="${start + i === index ? "true" : "false"}">
-              <img src="${thumb.src}" alt="" loading="lazy" decoding="async">
+              <img src="${absAsset(thumb.src)}" alt="" loading="lazy" decoding="async">
             </button>`
             )
             .join("")}
@@ -1119,7 +1122,7 @@ function clientTile(c) {
   const logos = (c.logos || [])
     .map(
       (logo) =>
-        `<img src="${logo.src}" alt="${escapeAttr(logo.alt)}" loading="lazy" decoding="async">`
+        `<img src="${absAsset(logo.src)}" alt="${escapeAttr(logo.alt)}" loading="lazy" decoding="async">`
     )
     .join("");
   const media = `<span class="client-tile__media${c.ink ? " is-ink" : ""}${ (c.logos || []).length > 1 ? " is-pair" : ""}">${logos}</span>`;
@@ -1138,7 +1141,7 @@ function clientRailCard(c, { inert = false } = {}) {
     .map((logo) => {
       const round = c.round && !pair ? ' class="is-round"' : "";
       const alt = inert ? "" : escapeAttr(logo.alt);
-      return `<img${round} src="${logo.src}" alt="${alt}" width="160" height="72" decoding="async">`;
+      return `<img${round} src="${absAsset(logo.src)}" alt="${alt}" width="160" height="72" decoding="async">`;
     })
     .join("");
   const cls = [
@@ -1397,7 +1400,7 @@ export function bindErrorReturn() {
     left -= 1;
     if (left <= 0) {
       window.clearInterval(timer);
-      location.assign("index.html");
+      location.assign(withBase("/"));
       return;
     }
     paint();
@@ -1438,7 +1441,7 @@ function homeGalleryPicks() {
 }
 
 function peekCard(item, i, { caption = false } = {}) {
-  const src = lookFull(item);
+  const src = absAsset(lookFull(item));
   return `<button type="button" class="peek-rail__card" data-lb-open="${i}" aria-label="Ver ${escapeAttr(item.title)} en grande">
     <img src="${src}" alt="${escapeAttr(lookAlt(item))}" width="480" height="600" loading="lazy" decoding="async">
     ${caption ? `<span class="peek-rail__cap"><strong>${item.title}</strong></span>` : ""}
@@ -1512,7 +1515,7 @@ export function renderProducto() {
       <section class="error-page">
         <div class="wrap error-page__box">
           <figure class="error-page__figure">
-            <img src="assets/img/mascot-inspector-crm.png" width="283" height="379" alt="Inspector CRM, mascota de Grupo CRM Extintores" loading="lazy" decoding="async">
+            <img src="${withBase("/assets/img/mascot-inspector-crm.png")}" width="283" height="379" alt="Inspector CRM, mascota de Grupo CRM Extintores" loading="lazy" decoding="async">
           </figure>
           <div class="error-page__copy">
             <p class="kicker">Equipo</p>
@@ -1521,7 +1524,7 @@ export function renderProducto() {
             <hr class="rule rule-left">
             <p>Ese artículo no está en el catálogo. Le proponemos el equivalente.</p>
             <p class="error-page__actions">
-              <a class="btn btn-red" href="/productos">${fa("fa-solid fa-boxes-stacked")} Ver equipos</a>
+              <a class="btn btn-red" href="${withBase("/productos")}">${fa("fa-solid fa-boxes-stacked")} Ver equipos</a>
               <a class="btn btn-wa" href="${waUrl("Hola, no encontré un producto y quiero cotizar.")}" target="_blank" rel="noopener noreferrer">${WA_ICON} Cotizar</a>
             </p>
           </div>
@@ -1548,7 +1551,7 @@ export function renderProducto() {
     .join("");
   root.innerHTML = `
     <div class="wrap ficha-wrap">
-      <p class="ficha-crumb"><a href="/productos">Catálogo</a> · <a href="/productos?cat=${p.cat}">${catName(p.cat)}</a></p>
+      <p class="ficha-crumb"><a href="${withBase("/productos")}">Catálogo</a> · <a href="${withBase(`/productos?cat=${p.cat}`)}">${catName(p.cat)}</a></p>
       <article class="ficha" data-cat="${p.cat}">
         <div class="ficha__grid">
           <figure class="ficha__photo">
@@ -1568,7 +1571,7 @@ export function renderProducto() {
             <table class="specs">${specs.map(([k, v]) => `<tr><th>${k}</th><td>${v}</td></tr>`).join("")}</table>
             <div class="actions">
               <a class="btn btn-wa" href="${waUrl(`Hola, quiero cotizar ${p.sku} — ${p.title}`)}" target="_blank" rel="noopener noreferrer">${WA_ICON}<span>Cotizar</span></a>
-              <a class="btn btn-ink" href="/contacto?sku=${encodeURIComponent(p.sku)}">${fa("fa-solid fa-envelope")}<span>Pedir cotización</span></a>
+              <a class="btn btn-ink" href="${withBase(`/contacto?sku=${encodeURIComponent(p.sku)}`)}">${fa("fa-solid fa-envelope")}<span>Pedir cotización</span></a>
             </div>
           </div>
         </div>
@@ -1812,10 +1815,10 @@ function paintLightbox() {
   if (!item) return;
   const stage = lightbox.el.querySelector(".lightbox__stage");
   const img = lightbox.el.querySelector("[data-lb-img]");
-  const src = lookFull(item);
+  const src = absAsset(lookFull(item));
   let next = src;
   try {
-    next = new URL(src, location.href).href;
+    next = new URL(src, location.origin).href;
   } catch {
     next = src || "";
   }
@@ -1902,7 +1905,7 @@ export function renderGaleria() {
       ? list
           .map(
             (item, i) => `<button type="button" class="gallery-tile" data-lb="${i}" aria-label="Ver ${escapeAttr(item.title)} en grande">
-              <img src="${lookFull(item)}" alt="${escapeAttr(lookAlt(item))}" loading="lazy" decoding="async" width="480" height="360">
+              <img src="${absAsset(lookFull(item))}" alt="${escapeAttr(lookAlt(item))}" loading="lazy" decoding="async" width="480" height="360">
               <span class="gallery-tile__cap">
                 <strong>${item.title}</strong>
               </span>

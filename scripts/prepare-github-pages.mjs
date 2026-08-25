@@ -63,12 +63,16 @@ function copyTree(from, to) {
 function withBase(text) {
   if (!base) return text;
   const alt = prefixes.join("|");
+  const pages = "productos|producto|nosotros|galeria|contacto|aviso-privacidad|mapa-sitio|servicios|index";
   return text
     .replace(new RegExp(`([\\"'=(])/(${alt})(?=/|[\\"'?#)\\s]|$)`, "g"), `$1${base}/$2`)
     .replace(new RegExp(`(\`)/(${alt})(?=/|[\\\`?#]|$)`, "g"), `$1${base}/$2`)
     .replace(/href="\/"/g, `href="${base}/"`)
     .replace(/href='\/'/g, `href='${base}/'`)
-    .replace(/path: "\/"/g, `path: "${base}/"`);
+    .replace(/path: "\/"/g, `path: "${base}/"`)
+    .replace(/((?:href|src|data-bg|data-src)=["'])(?!\/|#|https?:|data:|mailto:|tel:|javascript:)((?:assets|css|js)\/)/g, `$1${base}/$2`)
+    .replace(/(url\(["']?)(?!\/|https?:|data:)((?:assets|css|js)\/)/g, `$1${base}/$2`)
+    .replace(new RegExp(`href=(["'])(?:\\./)?(${pages})\\.html`, "g"), `href=$1${base}/$2.html`);
 }
 
 function rewriteFiles(dir) {
@@ -96,7 +100,6 @@ rmSync(out, { recursive: true, force: true });
 mkdirSync(out, { recursive: true });
 copyTree(root, out);
 writeFileSync(join(out, ".nojekyll"), "");
-rewriteFiles(out);
 
 for (const name of pageNames) prettyPage(name, name);
 
@@ -108,6 +111,8 @@ if (existsSync(blogDir)) {
     prettyPage(`blog/${slug}`, join("blog", slug));
   }
 }
+
+rewriteFiles(out);
 
 const rel = relative(root, out) || "dist-pages";
 console.log(`GitHub Pages bundle in ${rel} (base ${base || "/"})`);

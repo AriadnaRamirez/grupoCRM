@@ -13,6 +13,7 @@ import {
   blogPosts,
   blogPostBySlug,
 } from "./data.js";
+import { basePath } from "./base.js";
 
 function abs(path) {
   if (!path) return SITE.origin;
@@ -233,7 +234,12 @@ function resolvePage(page) {
   if (page === "articulo") {
     const slug =
       document.body.dataset.article ||
-      location.pathname.replace(/^\/blog\/?/, "").replace(/\.html$/i, "");
+      location.pathname
+        .replace(new RegExp(`^${basePath() || ""}`), "")
+        .replace(/^\/blog\/?/, "")
+        .replace(/\/index\.html$/i, "")
+        .replace(/\.html$/i, "")
+        .replace(/\/$/, "");
     const post = blogPostBySlug(slug);
     if (!post) return { ...pageSeo.articulo };
     return {

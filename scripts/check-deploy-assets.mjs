@@ -29,6 +29,8 @@ const extras = [
   "js/ui.js",
   "js/data.js",
   "js/seo.js",
+  "js/base.js",
+  "js/pages-base.js",
   "index.html",
   "nosotros.html",
   "productos.html",

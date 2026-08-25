@@ -232,7 +232,8 @@ function headerHTML(page) {
       <div class="site-topbar">
         <div class="wrap topbar__inner">
           <div class="topbar__left">
-            <a class="topbar__tel" href="${waUrl()}" target="_blank" rel="noopener noreferrer">${WA_ICON}<span>${company.whatsappShow}</span></a>
+            <a class="topbar__tel" href="tel:${company.phoneTel}" aria-label="Llámenos al ${company.phone}">${PHONE_ICON}<span>${company.phone}</span></a>
+            <a class="topbar__tel" href="${waUrl()}" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp ${company.whatsappShow}">${WA_ICON}<span>${company.whatsappShow}</span></a>
             <a class="topbar__tel" href="mailto:${company.email}">${MAIL_ICON}<span class="topbar__full">${company.email}</span><span class="topbar__short">Correo</span></a>
           </div>
           <div class="topbar__right">
@@ -267,6 +268,10 @@ function headerHTML(page) {
             ${item("/contacto", "contacto", "Contacto")}
           </nav>
           <div class="header__end">
+            <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="menu">
+              <span class="sr-only">Abrir menú</span>
+              <span class="nav-toggle__icon" aria-hidden="true"><span></span><span></span><span></span></span>
+            </button>
             <form class="nav-search" action="${withBase("/productos")}" method="get" role="search">
               <div class="nav-search__field">
                 <label class="sr-only" for="nav-search-q">Buscar equipo</label>
@@ -274,11 +279,7 @@ function headerHTML(page) {
                 <button type="submit" aria-label="Buscar">${SEARCH_ICON}</button>
               </div>
             </form>
-            <a class="header__cta" href="${waUrl()}" target="_blank" rel="noopener noreferrer">${WA_ICON} Cotizar</a>
-            <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="menu">
-              <span class="sr-only">Abrir menú</span>
-              <span class="nav-toggle__icon" aria-hidden="true"><span></span><span></span><span></span></span>
-            </button>
+            <a class="header__cta" href="${waUrl()}" target="_blank" rel="noopener noreferrer" aria-label="Cotizar por WhatsApp">${WA_ICON} <span>Cotizar</span></a>
           </div>
         </div>
       </header>
@@ -1553,7 +1554,7 @@ export function renderProducto() {
             <table class="specs">${specs.map(([k, v]) => `<tr><th>${k}</th><td>${v}</td></tr>`).join("")}</table>
             <div class="actions">
               <a class="btn btn-wa" href="${waUrl(`Hola, quiero cotizar ${p.sku} — ${p.title}`)}" target="_blank" rel="noopener noreferrer">${WA_ICON}<span>Cotizar por WhatsApp</span></a>
-              <a class="btn btn-ink" href="${withBase(`/contacto?sku=${encodeURIComponent(p.sku)}`)}">${fa("fa-solid fa-envelope")}<span>Pedir cotización</span></a>
+              <a class="btn btn-ink" href="${withBase(`/contacto?sku=${encodeURIComponent(p.sku)}`)}">${WA_ICON}<span>Pedir cotización</span></a>
             </div>
           </div>
         </div>

@@ -72,8 +72,8 @@
   --text-base: 0.9rem;
   --text-md: 0.95rem;
   --text-lg: 1rem;
-  --text-nav: 0.875rem;
-  --text-nav-panel: 1rem;
+  --text-nav: 0.8125rem;
+  --text-nav-panel: 0.9375rem;
   --text-topbar: 0.875rem;
   --text-nav-cta: 0.8125rem;
   --text-xl: clamp(1.35rem, 2.2vw, 1.75rem);

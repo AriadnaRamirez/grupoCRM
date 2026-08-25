@@ -1,0 +1,16 @@
+{
+  "name": "grupo-crm-extintores",
+  "private": true,
+  "type": "module",
+  "description": "Sitio estático de Grupo CRM Extintores. Después se porta a WordPress.",
+  "scripts": {
+    "start": "npx --yes serve -l 5500",
+    "export:wp": "node scripts/export-wordpress.mjs",
+    "seo:sitemap": "node scripts/seo-sitemap.mjs",
+    "check:assets": "node scripts/check-deploy-assets.mjs"
+  },
+  "devDependencies": {
+    "onnxruntime-node": "^1.17.3",
+    "sharp": "^0.35.3"
+  }
+}

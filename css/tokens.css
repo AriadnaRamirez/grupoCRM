@@ -1,0 +1,173 @@
+/* ==========================================================================
+   Grupo CRM Extintores — Design System
+   Fuente única de verdad: color, tipografía, espaciado, radios, sombras.
+   ========================================================================== */
+
+:root {
+  /* — Brand — */
+  --ink: #202020;
+  --red: #a91430;
+  --red-dark: #861028;
+  --blue: #1e2538;
+  --blue-dark: #171c2b;
+  --navy: #1a2031;
+  --gold: #f7b000;
+  --blue-soft: #e6e8ee;
+  --wa: #1f8a4d;
+  --wa-dark: #176b3c;
+  --wa-soft: #e7f5ec;
+
+  /* — Neutrals — */
+  --muted: #717171;
+  --line: #e4e4e4;
+  --line-strong: #d5dae3;
+  --line-muted: #d8d8d8;
+  --line-subtle: #eceef2;
+  --canvas: #ffffff;
+  --soft: #f6f6f5;
+  --white: #ffffff;
+  --placeholder: #9a9a9a;
+
+  /* — Semantic — */
+  --text: var(--ink);
+  --text-muted: var(--muted);
+  --text-inverse: var(--white);
+  --text-kicker: var(--red);
+  --bg: var(--canvas);
+  --bg-soft: var(--soft);
+  --bg-inverse: var(--navy);
+  --border: var(--line);
+  --border-strong: var(--line-strong);
+  --accent: var(--red);
+  --accent-hover: var(--red-dark);
+  --focus-color: var(--blue);
+
+  /* — Category palette — */
+  --cat-all: var(--ink);
+  --cat-all-soft: #f0f0f0;
+  --cat-extintores: var(--red);
+  --cat-extintores-soft: #f8e8ec;
+  --cat-chalecos: var(--gold);
+  --cat-chalecos-soft: #fff8e0;
+  --cat-senalamiento-vial: var(--muted);
+  --cat-senalamiento-vial-soft: #f0f0f0;
+  --cat-gabinetes-herrajes: var(--blue);
+  --cat-gabinetes-herrajes-soft: var(--blue-soft);
+  --cat-botiquines: var(--red-dark);
+  --cat-botiquines-soft: #f4e6e9;
+  --cat-equipo-proteccion: var(--ink);
+  --cat-equipo-proteccion-soft: #f0f0f0;
+
+  /* — Typography — */
+  --font: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --leading-tight: 1.15;
+  --leading-body: 1.6;
+  --tracking-tight: -0.03em;
+  --tracking-kicker: 0.16em;
+  --tracking-wide: 0.14em;
+  --text-xs: 0.68rem;
+  --text-sm: 0.78rem;
+  --text-base: 0.9rem;
+  --text-md: 0.95rem;
+  --text-lg: 1rem;
+  --text-nav: 0.875rem;
+  --text-nav-panel: 1rem;
+  --text-topbar: 0.875rem;
+  --text-nav-cta: 0.8125rem;
+  --text-xl: clamp(1.35rem, 2.2vw, 1.75rem);
+  --text-2xl: clamp(1.6rem, 2.4vw, 2.2rem);
+  --text-3xl: clamp(2rem, 4.4vw, 3.4rem);
+
+  /* — Layout — */
+  --wrap: 1120px;
+  --gutter: max(24px, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
+  --section-pad: 72px;
+  --section-pad-sm: 48px;
+  --content-narrow: 640px;
+  --content-medium: 38rem;
+  --content-wide: 40rem;
+
+  /* — Spacing — */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-9: 40px;
+  --space-10: 48px;
+  --space-11: 56px;
+  --space-12: 72px;
+
+  /* — Radius — */
+  --r-xs: 4px;
+  --r-sm: 8px;
+  --r-md: 10px;
+  --r: 14px;
+  --r-lg: 20px;
+  --r-pill: 999px;
+
+  /* — Elevation — */
+  --shadow-sm: 0 2px 12px rgba(26, 32, 49, 0.05);
+  --shadow: 0 10px 30px rgba(32, 32, 32, 0.06);
+  --shadow-md: 0 10px 28px rgba(22, 32, 51, 0.12);
+  --shadow-lg: 0 24px 48px rgba(32, 32, 32, 0.08);
+
+  /* — Motion — */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration: 0.28s;
+  --duration-fast: 0.18s;
+  --duration-reveal: 0.72s;
+  --duration-slow: 0.95s;
+
+  /* — Z-index — */
+  --z-sticky: 14;
+  --z-dropdown: 50;
+  --z-chrome: 60;
+  --z-skip: 10000;
+
+  /* — Focus — */
+  --focus-ring: 2px solid var(--focus-color);
+  --focus-offset: 3px;
+
+  /* — Components — */
+  --btn-min-h: 48px;
+  --btn-pad-x: 20px;
+  --btn-pad-y: 10px;
+  --btn-radius: var(--r-xs);
+  --rule-w: 56px;
+  --rule-h: 3px;
+}
+
+@media (max-width: 1023px) {
+  :root {
+    --gutter: max(20px, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
+  }
+}
+@media (max-width: 760px) {
+  :root {
+    --gutter: max(16px, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
+    --section-pad: 40px;
+    --section-pad-sm: 28px;
+    --btn-min-h: 44px;
+    --text-sm: 0.72rem;
+    --text-topbar: 0.8125rem;
+    --tracking-kicker: 0.12em;
+    --text-3xl: 1.55rem;
+    --text-2xl: 1.28rem;
+  }
+}
+@media (max-width: 389px) {
+  :root {
+    --gutter: max(16px, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
+    --section-pad: 32px;
+    --section-pad-sm: 24px;
+    --text-3xl: 1.38rem;
+    --text-2xl: 1.18rem;
+  }
+}

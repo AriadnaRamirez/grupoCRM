@@ -1,0 +1,4 @@
+# Cloudflare Pages + Netlify: no publicar dumps de desarrollo.
+/wordpress-export/* /404.html 404
+/.tmp-verify/* /404.html 404
+/node_modules/* /404.html 404

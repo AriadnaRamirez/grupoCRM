@@ -1,0 +1,23 @@
+---
+description: Crop venue photos from the bottom; never apply that crop to catalog, logo, or Inspector CRM.
+globs: css/**/*.css,**/*.html
+alwaysApply: true
+---
+
+# Photo crop: bottom-up
+
+When a **venue / decorative photo** is cropped into a frame (`object-fit: cover` or `background-size: cover`), keep the lowest part visible:
+
+- `object-position: center bottom`
+- `background-position: center bottom`
+
+Applies to: galleries, lookbook, home/Nosotros instalaciones sliders, about-head, contact/home decorative photos, blog article images, real venue client photos.
+
+**Do not** change crop on:
+
+- Catalog product photos (shop cards, product detail, category tiles that show SKUs)
+- Logo
+- Inspector CRM / mascot / character art
+- Circular client logos
+
+Do not revert the instalaciones slider to a black-bar grid.

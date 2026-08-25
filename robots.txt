@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /wordpress-export/
+Disallow: /404
+Disallow: /404.html
+
+Sitemap: https://www.crmextintores.com/sitemap.xml

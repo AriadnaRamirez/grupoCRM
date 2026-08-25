@@ -1,0 +1,16 @@
+node_modules/
+.DS_Store
+Thumbs.db
+.env
+.env.*
+!.env.example
+.tmp-verify/
+wordpress-export/
+assets/inspo/
+assets/img/catalog/_jpg-backup/
+assets/img/catalog/_pdf/
+assets/img/catalog/_preview/
+assets/img/catalog/_src/
+assets/img/catalog/_*-report.json
+assets/img/catalog/*.jpg
+scripts/models/

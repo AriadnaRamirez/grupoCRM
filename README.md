@@ -55,6 +55,8 @@ El menú y el sitemap usan URLs limpias (`/nosotros`, `/productos`, `/blog/...`)
 - **Vercel** — `vercel.json` con `cleanUrls`
 - **Apache / cPanel** — `.htaccess` reescribe `/nosotros` → `nosotros.html`
 
-No uses GitHub Pages en un subpath (`usuario.github.io/repo/`): las rutas `/css` y `/productos` no coincidirían.
+**GitHub Pages** — el workflow `.github/workflows/pages.yml` publica un bundle con base `/grupoCRM` y carpetas para URLs limpias. En el repo: Settings → Pages → Source: **GitHub Actions**. La preview queda en `https://AriadnaRamirez.github.io/grupoCRM/`.
+
+Para el dominio final (`www.crmextintores.com`) usa Netlify, Cloudflare Pages, Vercel o Apache; esas rutas van en la raíz (`/css`, `/productos`).
 
 Tras el DNS: HTTPS, HTTP→HTTPS, Search Console y Analytics. Las cabeceras (nosniff, Referrer-Policy, SAMEORIGIN) ya van en `_headers` / `netlify.toml`.

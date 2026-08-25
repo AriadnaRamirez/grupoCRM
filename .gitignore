@@ -21,4 +21,5 @@ assets/img/catalog/_preview/
 assets/img/catalog/_src/
 assets/img/catalog/_*-report.json
 assets/img/catalog/*.jpg
+dist-pages/
 scripts/models/

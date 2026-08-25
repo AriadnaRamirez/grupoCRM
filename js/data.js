@@ -5,7 +5,7 @@ export const company = {
   tagline: "Extintores · Equipo contra incendios",
   slogan: "Protección, prevención y respuesta.",
   about:
-    "Venta, recarga e instalación en CDMX y Estado de México.",
+    "Lo acompañamos con venta, recarga e instalación en CDMX y Estado de México.",
   phone: "56 5947 4605",
   phoneTel: "5659474605",
   phoneAlt: "56 6748 1489",
@@ -26,12 +26,12 @@ export const company = {
   website: "www.crmextintores.com",
   websiteUrl: "https://www.crmextintores.com",
   payments: "Aceptamos pagos con tarjeta de crédito y meses sin intereses.",
-  hook: "Agenda tu inspección sin costo.",
-  pitch: "Evita multas y cumple con Protección Civil.",
+  hook: "Agende su visita de revisión, sin costo.",
+  pitch: "Cumpla con Protección Civil y evite multas.",
   mision:
-    "Abastecer a condominios, restaurantes y empresas con extintores y equipo contra incendio, y acompañarlos para que cumplan.",
+    "Acompañar a condominios, restaurantes y empresas con extintores y equipo contra incendio, y estar con ellos hasta que todo quede en regla.",
   vision:
-    "Ser la empresa a la que acuden cuando necesitan cumplir: por la respuesta y el equipo listo en sitio.",
+    "Ser la empresa de confianza a la que acuden cuando necesitan cumplir, por nuestra respuesta y por el equipo listo en su sitio.",
   valores: ["Confianza", "Seguridad", "Calidad", "Lealtad", "Trabajo en equipo"],
 };
 
@@ -47,13 +47,13 @@ export const pageSeo = {
     path: "/",
     title: "Extintores y recarga en CDMX | Grupo CRM Extintores",
     description:
-      "Extintores, recarga e inspección sin costo en CDMX y Estado de México. Evite multas de Protección Civil. Cotice por WhatsApp 55 5438 3241.",
+      "Extintores, recarga y primera visita sin costo en CDMX y Estado de México. Cumpla con Protección Civil y evite multas. Cotice por WhatsApp 55 5438 3241.",
   },
   nosotros: {
     path: "/nosotros",
     title: "Nosotros | Grupo CRM Extintores",
     description:
-      "Empresa 100% mexicana. Le ayudamos a cumplir con Protección Civil: venta, recarga e instalación en CDMX y Estado de México. Cotice hoy.",
+      "Empresa 100% mexicana. Lo acompañamos para cumplir con Protección Civil: venta, recarga e instalación en CDMX y Estado de México. Con gusto lo atendemos.",
   },
   productos: {
     path: "/productos",
@@ -77,13 +77,13 @@ export const pageSeo = {
     path: "/contacto",
     title: "Contacto y cotización por WhatsApp | Grupo CRM Extintores",
     description:
-      "Pida su cotización por WhatsApp 55 5438 3241. Inspección sin costo en la primera visita. Chamixto 131, Cuajimalpa, CDMX.",
+      "Pida su cotización por WhatsApp 55 5438 3241. Con gusto lo atendemos y la primera visita de revisión es sin costo. Chamixto 131, Cuajimalpa, CDMX.",
   },
   servicios: {
     path: "/servicios",
     title: "Venta, recarga e instalación de extintores | Grupo CRM",
     description:
-      "Venta, recarga e instalación de extintores para que su negocio cumpla. Inspección sin costo. WhatsApp 55 5438 3241.",
+      "Venta, recarga e instalación de extintores para que su negocio cumpla. Primera visita sin costo. WhatsApp 55 5438 3241.",
   },
   mapa: {
     path: "/mapa-sitio",
@@ -151,9 +151,9 @@ export const blogPosts = [
     title: "Extintor de 6 kg: tipos, usos y cómo cotizar | Grupo CRM",
     heading: "Extintor de 6 kg: tipos, usos y cómo cotizar",
     description:
-      "Guía del extintor de 6 kg (PQS, CO₂, agua y automático). Pida cotización por WhatsApp en CDMX y Estado de México, sin precios inventados.",
+      "Guía del extintor de 6 kg (PQS, CO₂, agua y automático). Pida su cotización por WhatsApp en CDMX y Estado de México, con el precio real de su caso.",
     kicker: "Catálogo",
-    excerpt: "PQS, CO₂, agua y qué implica un extintor automático. Cotice el equipo que sí le sirve.",
+    excerpt: "PQS, CO₂, agua y qué implica un extintor automático. Le ayudamos a elegir el que de verdad necesita.",
     datePublished: "2026-08-24",
     image: "/assets/img/catalog/CRM-0004.png",
     imageAlt: "Extintor de PQS ABC de 6.0 kg",
@@ -239,7 +239,7 @@ function shot(stem, title, note, venue) {
 export const lookbook = [
   shot("galeria-extintores-sitio", "Listos en su comercio", "Extintores instalados en un establecimiento.", "campo"),
   shot("galeria-salon-eventos", "Salón de eventos", "Protección en salón, restaurante y bar.", "gastronomia"),
-  shot("galeria-bar", "Bar y terraza", "Extintores en bar y terraza.", "gastronomia"),
+  shot("galeria-bar", "Bar y terraza", "Extintores a la mano en la barra y la terraza.", "gastronomia"),
   shot("galeria-comercio", "Comercio e industria", "Suministro e instalación en almacén y punto de venta.", "locales"),
   shot("galeria-deportivo", "Instalación deportiva", "Extintores y gabinetes en un campo y academia de fútbol.", "campo"),
   shot("galeria-gabinetes-sitio", "Punto de incendio", "Gabinetes y portaextintores listos para instalar en su sitio.", "campo"),
@@ -248,20 +248,20 @@ export const lookbook = [
   shot("galeria-obra", "Obra en construcción", "Equipo en sitio para proteger a su cuadrilla.", "industria"),
   shot("galeria-local", "Local comercial", "Extintor en el acceso de un negocio de alimentos.", "locales"),
   shot("galeria-escuela", "Escuela", "Extintores en el patio de un colegio.", "educacion"),
-  shot("galeria-escuela-patio", "Revisión en colegio", "Equipos agrupados en sitio.", "educacion"),
+  shot("galeria-escuela-patio", "Revisión en colegio", "Revisamos todos los equipos del plantel en una sola visita.", "educacion"),
   shot("galeria-showroom", "Sala de exhibición", "Extintores en una agencia, listos para instalar.", "automotriz"),
   shot("galeria-showroom-muro", "Agencia automotriz", "Punto de incendio junto al acceso de la sala de exhibición.", "automotriz"),
-  shot("galeria-restaurante", "Restaurante", "Extintores en restaurante y bar.", "gastronomia"),
+  shot("galeria-restaurante", "Restaurante", "Extintores discretos y bien colocados en el comedor y la barra.", "gastronomia"),
   shot("galeria-panaderia", "Panadería", "Extintores en un local de insumos y repostería.", "locales"),
-  shot("galeria-cafeteria", "Cafetería", "Extintor en un café.", "gastronomia"),
+  shot("galeria-cafeteria", "Cafetería", "Un café pequeño también puede estar en regla.", "gastronomia"),
   shot("galeria-clinica", "Clínica", "Extintor en el acceso de un consultorio.", "locales"),
   shot("galeria-transporte", "Flota de transporte", "Extintores en el patio de una empresa de transporte.", "transporte"),
   shot("galeria-vapiano", "Restaurante en plaza", "Extintores PQS y CO₂ en un restaurante de plaza comercial.", "gastronomia"),
   shot("galeria-almacen", "Almacén", "Extintores portátiles y unidad móvil en un almacén industrial.", "industria"),
-  shot("galeria-campus", "Campus", "Extintores en un instituto.", "educacion"),
+  shot("galeria-campus", "Campus", "Extintores en los accesos de un instituto, para cuidar a sus alumnos.", "educacion"),
   shot("galeria-cocina", "Cocina comercial", "Extintor tipo K para aceites y grasas en una cocina.", "gastronomia"),
-  shot("galeria-bodega", "Bodega", "Extintores en una bodega industrial.", "industria"),
-  shot("galeria-entrega", "Entrega a su sitio", "Equipo listo para suministro, cargado en unidad.", "campo"),
+  shot("galeria-bodega", "Bodega", "Cobertura completa en una bodega industrial.", "industria"),
+  shot("galeria-entrega", "Entrega a su sitio", "Cargamos su equipo y se lo llevamos hasta la puerta.", "campo"),
   shot("galeria-lavanderia", "Lavandería", "Extintor y señalamiento instalados en un local de lavado.", "locales"),
   shot("galeria-estacionamiento", "Estacionamiento", "Extintores en un estacionamiento cubierto.", "locales"),
   shot("galeria-trailer", "Unidad de carga", "Extintores en patio de una empresa de transporte a granel.", "transporte"),
@@ -269,7 +269,7 @@ export const lookbook = [
   shot("galeria-comedor", "Terraza de restaurante", "Extintores en el comedor de un restaurante y salón.", "gastronomia"),
   shot("galeria-alberca", "Alberca", "Extintores junto a una alberca cubierta.", "campo"),
   shot("galeria-madereria", "Maderería", "Extintores en un almacén de tableros.", "industria"),
-  shot("galeria-evento", "Jornada en sitio", "Capacitación y demostración con el equipo que usted va a usar.", "campo"),
+  shot("galeria-evento", "Jornada en sitio", "Revisión y demostración con el mismo equipo que usted va a usar.", "campo"),
   shot("galeria-inventario", "Listos para recargar", "Extintores preparados para suministro y recarga en su negocio.", "campo"),
 ];
 
@@ -362,7 +362,6 @@ export const clients = [
     name: "Transportes Calzada S.A. de C.V.",
     group: "transporte",
     note: "Flota, tráiler y camioneta",
-    url: "https://transcalzada.mx",
     logos: [{ src: "/assets/img/clients/transportes-calzada.png", alt: "Logo de Transportes Calzada S.A. de C.V." }],
   },
   {
@@ -431,27 +430,27 @@ export const clients = [
 export const faqs = [
   {
     q: "¿Qué equipo puedo cotizar?",
-    a: "Extintores, chalecos, señalamientos, gabinetes, botiquines y protección. Si no lo ve, escríbanos.",
+    a: "Extintores, chalecos, señalamientos, gabinetes, botiquines y equipo de protección. Si no encuentra algo, escríbanos y con gusto lo buscamos por usted.",
   },
   {
     q: "¿En qué zonas atienden?",
-    a: "Ciudad de México y Estado de México. Chamixto 131, Col. Loma del Padre, Cuajimalpa.",
+    a: "Atendemos toda la Ciudad de México y el Estado de México. Nos encuentra en Chamixto 131, Col. Loma del Padre, Cuajimalpa.",
   },
   {
     q: "¿Cómo pido una cotización?",
-    a: "WhatsApp 55 5438 3241, teléfono o el formulario. Aceptamos tarjeta y meses sin intereses.",
+    a: "Como le resulte más cómodo: WhatsApp 55 5438 3241, teléfono o el formulario de esta página. Aceptamos tarjeta y meses sin intereses.",
   },
   {
     q: "¿Cuál es el horario de atención?",
-    a: "Lunes a viernes, 9:00–18:00. Fuera de horario, deje su mensaje y le respondemos al siguiente día hábil.",
+    a: "Lunes a viernes, de 9:00 a 18:00. Si nos escribe fuera de ese horario, le respondemos al siguiente día hábil.",
   },
   {
     q: "¿Me ayudan a cumplir con Protección Civil en mi condominio?",
-    a: "Sí. Revisamos extintores, señalamientos y puntos de incendio. La primera visita es sin costo.",
+    a: "Claro que sí. Revisamos extintores, señalamientos y puntos de incendio, y le decimos con claridad qué le falta. La primera visita es sin costo.",
   },
   {
     q: "¿Qué extintor necesito?",
-    a: "Clase A sólidos, B líquidos, C eléctricos, K cocinas. En cada ficha está la clase.",
+    a: "Depende de lo que quiera proteger: clase A para sólidos, B para líquidos, C para equipo eléctrico y K para cocinas. En cada ficha viene la clase y, si tiene dudas, con gusto lo orientamos.",
   },
 ];
 
@@ -459,86 +458,86 @@ export const services = [
   {
     icon: "fa-solid fa-fire-extinguisher",
     title: "Venta de extintores",
-    text: "Equipos nuevos para condominio, cocina u oficina.",
+    text: "Equipos nuevos y certificados para su condominio, cocina u oficina.",
   },
   {
     icon: "fa-solid fa-rotate",
     title: "Recarga de extintores",
-    text: "Para que no falle en una inspección.",
+    text: "A tiempo, para que su equipo nunca falle en una inspección.",
   },
   {
     icon: "fa-solid fa-screwdriver-wrench",
     title: "Instalación de extintores",
-    text: "Colocamos extintores y puntos de incendio en su sitio.",
+    text: "Colocamos sus extintores y puntos de incendio donde deben ir.",
   },
   {
     icon: "fa-solid fa-signs-post",
     title: "Señalamientos",
-    text: "Emergencia y vialidad, para dejar el inmueble en regla.",
+    text: "De emergencia y vialidad, para dejar su inmueble en regla.",
   },
   {
     icon: "fa-solid fa-kit-medical",
     title: "Botiquines",
-    text: "Tres tamaños de pared.",
+    text: "Tres tamaños de pared, según el tamaño de su negocio.",
   },
   {
     icon: "fa-solid fa-clipboard-check",
     title: "Revisión en sitio",
-    text: "Primera visita sin costo.",
+    text: "La primera visita es sin costo y sin compromiso.",
   },
 ];
 
 export const carePoints = [
   { icon: "fa-solid fa-certificate", title: "Equipos certificados" },
   { icon: "fa-solid fa-location-dot", title: "CDMX y Estado de México" },
-  { icon: "fa-solid fa-credit-card", title: "Tarjeta y MSI" },
-  { icon: "fa-solid fa-headset", title: "Seguimiento" },
+  { icon: "fa-solid fa-credit-card", title: "Tarjeta y meses sin intereses" },
+  { icon: "fa-solid fa-headset", title: "Seguimiento cercano" },
 ];
 
 export const readyChecks = [
-  "Extintores vencidos",
-  "Señalética incorrecta",
-  "Sin programa de Protección Civil",
-  "Brigadas no capacitadas",
+  "¿Extintores vencidos?",
+  "¿Señalética incorrecta?",
+  "¿Sin programa de Protección Civil?",
+  "¿Brigadas sin capacitar?",
 ];
 
 export const condo = {
   title: "Atención a condominios",
-  lead: "Ayudamos a administradores y comités a cumplir y evitar sanciones.",
+  lead: "Acompañamos a administradores y comités para cumplir con Protección Civil y evitar sanciones.",
   readyLabel: "¿Su condominio está listo?",
-  warning: "Estas fallas pueden generar multas o clausuras. Las revisamos sin costo.",
+  warning: "Estos detalles pueden derivar en multas o clausuras. Con gusto los revisamos con usted, sin costo.",
 };
 
 export const sectors = [
   {
     icon: "fa-solid fa-city",
     name: "Condominios",
-    text: "Áreas comunes listas ante Protección Civil.",
+    text: "Dejamos las áreas comunes listas para Protección Civil.",
   },
   {
     icon: "fa-solid fa-utensils",
     name: "Restaurantes",
-    text: "Cocinas y parrillas con tipo K.",
+    text: "Cocinas y parrillas protegidas con extintor tipo K.",
   },
   {
     icon: "fa-solid fa-building",
     name: "Oficinas",
-    text: "Pasillos, cómputo y botiquines.",
+    text: "Pasillos, áreas de cómputo y botiquines a la mano.",
   },
   {
     icon: "fa-solid fa-briefcase",
     name: "Empresas",
-    text: "Comercios, almacenes e industria.",
+    text: "Comercios, almacenes e industria, del tamaño que sean.",
   },
   {
     icon: "fa-solid fa-hospital",
     name: "Clínicas",
-    text: "Extintores y botiquines en accesos.",
+    text: "Extintores y botiquines en accesos y salas de espera.",
   },
   {
     icon: "fa-solid fa-graduation-cap",
     name: "Escuelas",
-    text: "Patios, aulas y accesos.",
+    text: "Patios, aulas y accesos, pensando en los niños.",
   },
 ];
 

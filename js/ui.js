@@ -205,7 +205,7 @@ export function renderCatalogExtend() {
           <p class="kicker">Equipo contra incendio</p>
           <h1>Catálogo</h1>
           <hr class="rule" aria-hidden="true">
-          <p class="catalog-head__lead">Extintores, señalamientos, gabinetes y protección.</p>
+          <p class="catalog-head__lead">Extintores, señalamientos, gabinetes y equipo de protección. Si no sabe cuál le conviene, con gusto lo orientamos.</p>
         </header>`
       : "";
     const inner = isProductos ? catalogPickerInner(catalogCatFromUrl()) : catalogExtendInner();
@@ -700,12 +700,12 @@ export function renderCatalog(root, { limit = 0, cat = "all", fireClass = "all",
   let list = filterProducts({ cat, fireClass, query });
   if (limit) list = list.slice(0, limit);
   root.className = "shop-grid";
-  root.innerHTML = list.map(productCard).join("") || `<p class="shop-empty">No encontramos ese equipo. <a href="${waUrl("Hola, no encontré el equipo que busco y quiero orientación.")}" target="_blank" rel="noopener noreferrer">Escríbanos</a> y le ayudamos a elegir.</p>`;
+  root.innerHTML = list.map(productCard).join("") || `<p class="shop-empty">No encontramos ese equipo en el catálogo. <a href="${waUrl("Hola, no encontré el equipo que busco y quiero orientación.")}" target="_blank" rel="noopener noreferrer">Escríbanos</a> y con gusto le ayudamos a elegir el adecuado.</p>`;
   const count = document.querySelector("[data-count]");
   if (count) {
     count.textContent = list.length
       ? `${list.length} producto${list.length === 1 ? "" : "s"}`
-      : "Sin resultados";
+      : "Sin coincidencias por ahora";
   }
 }
 
@@ -1296,7 +1296,6 @@ function bindClientRail(root) {
   let offset = 0;
   let raf = 0;
   let last = 0;
-  let paused = false;
 
   function isCollage() {
     return mqCollage.matches;
@@ -1311,11 +1310,6 @@ function bindClientRail(root) {
   function tick(ts) {
     if (isCollage()) {
       stopAuto();
-      return;
-    }
-    if (paused) {
-      last = ts;
-      raf = window.requestAnimationFrame(tick);
       return;
     }
     const half = Math.max(track.scrollWidth, track.offsetWidth) / 2;
@@ -1350,18 +1344,6 @@ function bindClientRail(root) {
     if (!collage) startAuto();
   }
 
-  root.addEventListener("mouseenter", () => {
-    paused = true;
-  });
-  root.addEventListener("mouseleave", () => {
-    paused = false;
-  });
-  root.addEventListener("focusin", () => {
-    paused = true;
-  });
-  root.addEventListener("focusout", (event) => {
-    if (!root.contains(event.relatedTarget)) paused = false;
-  });
   mqCollage.addEventListener("change", setMode);
   root._clientRailStop = stopAuto;
   setMode();
@@ -1522,10 +1504,10 @@ export function renderProducto() {
             <p class="error-page__code">404</p>
             <h1>No encontramos ese equipo</h1>
             <hr class="rule rule-left">
-            <p>Ese artículo no está en el catálogo. Le proponemos el equivalente.</p>
+            <p>Ese artículo ya no está en el catálogo, pero con gusto le mostramos el equipo equivalente.</p>
             <p class="error-page__actions">
               <a class="btn btn-red" href="${withBase("/productos")}">${fa("fa-solid fa-boxes-stacked")} Ver equipos</a>
-              <a class="btn btn-wa" href="${waUrl("Hola, no encontré un producto y quiero cotizar.")}" target="_blank" rel="noopener noreferrer">${WA_ICON} Cotizar</a>
+              <a class="btn btn-wa" href="${waUrl("Hola, no encontré un producto y quiero cotizar.")}" target="_blank" rel="noopener noreferrer">${WA_ICON} Escríbanos por WhatsApp</a>
             </p>
           </div>
         </div>
@@ -1570,14 +1552,14 @@ export function renderProducto() {
             </div>
             <table class="specs">${specs.map(([k, v]) => `<tr><th>${k}</th><td>${v}</td></tr>`).join("")}</table>
             <div class="actions">
-              <a class="btn btn-wa" href="${waUrl(`Hola, quiero cotizar ${p.sku} — ${p.title}`)}" target="_blank" rel="noopener noreferrer">${WA_ICON}<span>Cotizar</span></a>
+              <a class="btn btn-wa" href="${waUrl(`Hola, quiero cotizar ${p.sku} — ${p.title}`)}" target="_blank" rel="noopener noreferrer">${WA_ICON}<span>Cotizar por WhatsApp</span></a>
               <a class="btn btn-ink" href="${withBase(`/contacto?sku=${encodeURIComponent(p.sku)}`)}">${fa("fa-solid fa-envelope")}<span>Pedir cotización</span></a>
             </div>
           </div>
         </div>
       </article>
     </div>
-    ${related ? `<section class="section shop-related"><div class="wrap wrap-shop"><div class="shop-block__head"><h3>También le puede interesar</h3></div><div class="shop-grid">${related}</div></div></section>` : ""}`;
+    ${related ? `<section class="section shop-related"><div class="wrap wrap-shop"><div class="shop-block__head"><h3>Esto también le puede servir</h3></div><div class="shop-grid">${related}</div></div></section>` : ""}`;
   root.setAttribute("aria-busy", "false");
 }
 
@@ -1623,7 +1605,7 @@ export function renderSectors() {
       <header class="sectors__head">
         <p class="kicker">Sectores</p>
         <h2>Giros que atendemos</h2>
-        <p>Condominios, restaurantes, oficinas, empresas, clínicas y escuelas.</p>
+        <p>Condominios, restaurantes, oficinas, empresas, clínicas y escuelas. Si su giro no aparece, pregúntenos con confianza.</p>
       </header>
       <ul class="sectors__grid" aria-label="Sectores que atendemos">${cards}</ul>`;
   });
@@ -1639,8 +1621,8 @@ export function condominiosHTML() {
         <h2>${condo.title}</h2>
         <p class="condos__lead">${condo.lead}</p>
         <div class="condos__actions">
-          <a class="btn btn-red" href="${waUrl("Hola, quiero agendar mi inspección sin costo.")}" target="_blank" rel="noopener noreferrer">${WA_ICON} Agendar</a>
-          <a class="btn btn-ghost" href="${waUrl()}" target="_blank" rel="noopener noreferrer">${WA_ICON} Cotizar</a>
+          <a class="btn btn-red" href="${waUrl("Hola, quiero agendar mi visita de revisión sin costo.")}" target="_blank" rel="noopener noreferrer">${WA_ICON} Agendar visita</a>
+          <a class="btn btn-ghost" href="${waUrl()}" target="_blank" rel="noopener noreferrer">${WA_ICON} Pedir cotización</a>
         </div>
       </div>
       <div class="condos__panel">
@@ -1664,10 +1646,10 @@ export function hookRevisionHTML() {
         <p class="kicker">Primera visita</p>
         <h2>${company.hook}</h2>
         <hr class="rule rule-left hook__rule" aria-hidden="true">
-        <p>Vamos a su sitio y le decimos qué falta.</p>
+        <p>Con mucho gusto vamos a su negocio, revisamos sus extintores y le decimos con claridad qué le hace falta. Usted elige el día y la hora; nosotros llegamos puntuales, sin compromiso.</p>
       </div>
       <div class="hook__actions">
-        <a class="btn btn-red" href="${waUrl("Hola, quiero agendar mi inspección sin costo.")}" target="_blank" rel="noopener noreferrer">${WA_ICON} Agendar</a>
+        <a class="btn btn-red" href="${waUrl("Hola, quiero agendar mi visita de revisión sin costo.")}" target="_blank" rel="noopener noreferrer">${WA_ICON} Agendar visita</a>
         <a class="btn btn-ghost hook__phone" href="tel:${company.phoneTel}">${PHONE_ICON} Llamar ${company.phone}</a>
       </div>
     </div>`;
@@ -1898,7 +1880,7 @@ export function renderGaleria() {
     if (count) {
       count.textContent = list.length
         ? `${list.length} fotografía${list.length === 1 ? "" : "s"}`
-        : "Sin resultados";
+        : "Aún no hay fotografías aquí";
     }
     mosaic.setAttribute("aria-busy", "true");
     mosaic.innerHTML = list.length
@@ -1912,7 +1894,7 @@ export function renderGaleria() {
             </button>`
           )
           .join("")
-      : `<p class="shop-empty">No hay fotografías en esta categoría.</p>`;
+      : `<p class="shop-empty">Todavía no tenemos fotografías de este giro. Con gusto le mostramos trabajos parecidos por WhatsApp.</p>`;
     mosaic.setAttribute("aria-busy", "false");
     bindMotion();
   };
@@ -1989,7 +1971,7 @@ export function bindContact() {
     formStatus(form, "", "");
     const data = new FormData(form);
     if (String(data.get("website") || "").trim()) {
-      formStatus(form, "ok", "Recibimos su solicitud.");
+      formStatus(form, "ok", "Recibimos su solicitud. Gracias por escribirnos.");
       return;
     }
     const nombre = String(data.get("nombre") || "").trim();
@@ -2008,19 +1990,19 @@ export function bindContact() {
     if (telField instanceof HTMLInputElement) telField.value = telRaw;
     if (msgField instanceof HTMLTextAreaElement) msgField.value = mensaje;
     if (nombre.length < 2) {
-      if (nombreField instanceof HTMLInputElement) nombreField.setCustomValidity("Escriba su nombre.");
+      if (nombreField instanceof HTMLInputElement) nombreField.setCustomValidity("Por favor, escriba su nombre.");
     }
     if (correo && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo)) {
-      if (correoField instanceof HTMLInputElement) correoField.setCustomValidity("Escriba un correo válido o déjelo vacío.");
+      if (correoField instanceof HTMLInputElement) correoField.setCustomValidity("Revise su correo, por favor, o déjelo vacío si prefiere.");
     }
     if (digits.length < 8 || digits.length > 15) {
-      if (telField instanceof HTMLInputElement) telField.setCustomValidity("Escriba un teléfono de 8 a 15 dígitos.");
+      if (telField instanceof HTMLInputElement) telField.setCustomValidity("Escriba un teléfono de 8 a 15 dígitos, por favor. Es para poder responderle.");
     }
     if (mensaje.length < 8) {
       if (msgField instanceof HTMLTextAreaElement) msgField.setCustomValidity("Cuéntenos brevemente qué requiere.");
     }
     if (privField instanceof HTMLInputElement && !privField.checked) {
-      privField.setCustomValidity("Acepte el aviso de privacidad para continuar.");
+      privField.setCustomValidity("Acepte el aviso de privacidad para poder continuar.");
     }
     if (!form.checkValidity()) {
       form.reportValidity();
@@ -2056,12 +2038,12 @@ export function bindContact() {
       formStatus(
         form,
         "error",
-        `No se pudo abrir WhatsApp. <a href="${url}" target="_blank" rel="noopener noreferrer">Ábralo aquí</a> o marque ${company.whatsappShow}.`
+        `No pudimos abrir WhatsApp. <a href="${url}" target="_blank" rel="noopener noreferrer">Ábralo aquí</a> o márquenos al ${company.whatsappShow}; con gusto lo atendemos.`
       );
       resetSubmit(btn);
       return;
     }
-    formStatus(form, "ok", "WhatsApp se abrió con su consulta.");
+    formStatus(form, "ok", "Listo, abrimos WhatsApp con su mensaje. En cuanto lo envíe, le respondemos.");
     window.setTimeout(() => resetSubmit(btn), 1200);
   });
 }

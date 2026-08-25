@@ -140,7 +140,7 @@ export const blogPosts = [
     kicker: "Cobertura",
     excerpt: "Empresa mexicana para condominios, restaurantes y oficinas en CDMX y Estado de México.",
     datePublished: "2026-08-24",
-    image: "/assets/img/galeria-extintores-sitio.png",
+    image: "/assets/img/crop/galeria-extintores-sitio.jpg",
     imageAlt: "Extintores instalados en un establecimiento",
   },
   {

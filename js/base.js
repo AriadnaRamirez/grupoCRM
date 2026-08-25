@@ -1,4 +1,5 @@
 const REPO = "grupoCRM";
+const SITE_PAGES = /^(nosotros|productos|producto|galeria|contacto|aviso-privacidad|mapa-sitio|servicios|404)$/;
 
 export function basePath() {
   if (typeof location === "undefined") return "";
@@ -7,6 +8,22 @@ export function basePath() {
     return first ? `/${first}` : `/${REPO}`;
   }
   return "";
+}
+
+function githubPageFile(pathname, base) {
+  if (!base || !pathname) return pathname;
+  let rest = pathname;
+  if (pathname === base || pathname.startsWith(`${base}/`)) {
+    rest = pathname.slice(base.length) || "/";
+  }
+  if (!rest || rest === "/") return pathname;
+  if (/\.[a-z0-9]+$/i.test(rest)) return pathname;
+  const segs = rest.split("/").filter(Boolean);
+  const last = segs[segs.length - 1];
+  if (SITE_PAGES.test(last) || (segs[0] === "blog" && segs.length === 2)) {
+    return `${pathname.replace(/\/$/, "")}.html`;
+  }
+  return pathname;
 }
 
 export function withBase(path) {
@@ -29,8 +46,12 @@ export function withBase(path) {
     return `${pathname}${search}${hash}`;
   }
 
-  if (pathname === base || pathname.startsWith(`${base}/`)) return `${pathname}${search}${hash}`;
-  if (pathname.startsWith("/")) return `${base}${pathname}${search}${hash}`;
+  if (pathname === base || pathname.startsWith(`${base}/`)) {
+    return `${githubPageFile(pathname, base)}${search}${hash}`;
+  }
+  if (pathname.startsWith("/")) {
+    return `${githubPageFile(`${base}${pathname === "/" ? "/" : pathname}`, base)}${search}${hash}`;
+  }
   if (/^(assets|css|js)\//.test(pathname) || /^\.\//.test(pathname)) {
     return `${base}/${pathname.replace(/^\.\//, "")}${search}${hash}`;
   }

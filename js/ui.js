@@ -1657,7 +1657,7 @@ export function renderProducto() {
             <table class="specs">${specs.map(([k, v]) => `<tr><th>${k}</th><td>${v}</td></tr>`).join("")}</table>
             <div class="actions">
               <a class="btn btn-wa" href="${waUrl(`Hola, quiero cotizar ${p.sku} — ${p.title}`)}" target="_blank" rel="noopener noreferrer">${WA_ICON}<span>Cotizar por WhatsApp</span></a>
-              <a class="btn btn-ink" href="${withBase(`/contacto?sku=${encodeURIComponent(p.sku)}`)}">${WA_ICON}<span>Pedir cotización</span></a>
+              <a class="btn btn-ink" href="tel:${company.phoneTel}" aria-label="Llámenos al ${company.phone}">${PHONE_ICON}<span>Llámenos</span></a>
             </div>
           </div>
         </div>

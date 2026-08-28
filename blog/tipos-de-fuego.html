@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  
+
+  
+  <script>
+  /* pages-base */
+  /* Sync into HTML with: node scripts/inject-pages-base.mjs */
+  (function () {
+    if (typeof location === "undefined" || !/\.github\.io$/i.test(location.hostname)) return;
+    var first = location.pathname.split("/").filter(Boolean)[0] || "grupoCRM";
+    var base = "/" + first;
+    if (/\.html$/i.test(location.pathname) && !/\/404\.html$/i.test(location.pathname)) {
+      var clean = location.pathname.replace(/\/index\.html$/i, "/").replace(/\.html$/i, "");
+      if (clean !== location.pathname) {
+        location.replace(clean + location.search + location.hash);
+        return;
+      }
+    }
+    function fix(value) {
+      if (!value || /^(https?:|data:|mailto:|tel:|javascript:|#)/i.test(value)) return value;
+      var hashIdx = value.indexOf("#");
+      var hash = hashIdx === -1 ? "" : value.slice(hashIdx);
+      var before = hashIdx === -1 ? value : value.slice(0, hashIdx);
+      var qIdx = before.indexOf("?");
+      var search = qIdx === -1 ? "" : before.slice(qIdx);
+      var pathname = qIdx === -1 ? before : before.slice(0, qIdx);
+      if (pathname === "/") pathname = base + "/";
+      else if (pathname.charAt(0) === "/") {
+        if (!(pathname === base || pathname.indexOf(base + "/") === 0)) pathname = base + pathname;
+        if (!/\/404\.html$/i.test(pathname)) {
+          pathname = pathname.replace(/\/index\.html$/i, "/").replace(/\.html$/i, "");
+        }
+      } else {
+        var rel = pathname.replace(/^\.\//, "");
+        if (/^(aviso-privacidad|contacto|galeria|mapa-sitio|nosotros|producto|productos|servicios|index)\.html$/i.test(rel)) {
+          var name = rel.replace(/\.html$/i, "");
+          pathname = name === "index" ? base + "/" : base + "/" + name;
+        } else if (/^blog\/[\w-]+\.html$/i.test(rel)) {
+          pathname = base + "/" + rel.replace(/\.html$/i, "");
+        } else {
+          return value;
+        }
+      }
+      return pathname + search + hash;
+    }
+    function apply(el) {
+      if (!el || !el.getAttribute) return;
+      ["href", "src", "data-bg", "data-src", "action"].forEach(function (attr) {
+        var current = el.getAttribute(attr);
+        if (!current) return;
+        var next = fix(current);
+        if (next !== current) el.setAttribute(attr, next);
+      });
+      ["srcset", "data-srcset"].forEach(function (attr) {
+        var current = el.getAttribute(attr);
+        if (!current) return;
+        var next = current.split(",").map(function (part) {
+          var trimmed = part.trim();
+          if (!trimmed) return trimmed;
+          var bits = trimmed.split(/\s+/);
+          var url = bits.shift();
+          var updated = fix(url);
+          return bits.length ? updated + " " + bits.join(" ") : updated;
+        }).join(", ");
+        if (next !== current) el.setAttribute(attr, next);
+      });
+      var style = el.getAttribute("style");
+      if (style && style.indexOf("url(") !== -1) {
+        el.setAttribute(
+          "style",
+          style.replace(/url\((['"]?)([^'")]+)\1\)/g, function (_, quote, url) {
+            return "url(" + quote + fix(url) + quote + ")";
+          })
+        );
+      }
+    }
+    if (!document.querySelector("base")) {
+      var tag = document.createElement("base");
+      tag.href = base + "/";
+      var head = document.head || document.documentElement;
+      head.insertBefore(tag, head.firstChild);
+    }
+    function applyTree(root) {
+      if (!root || root.nodeType !== 1) return;
+      apply(root);
+      if (root.querySelectorAll) {
+        root.querySelectorAll("[href], [src], [srcset], [data-bg], [data-src], [data-srcset], [action], [style]").forEach(apply);
+      }
+    }
+    new MutationObserver(function (records) {
+      records.forEach(function (record) {
+        record.addedNodes.forEach(applyTree);
+      });
+    }).observe(document.documentElement, { childList: true, subtree: true });
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", function () {
+        applyTree(document.documentElement);
+      });
+    } else {
+      applyTree(document.documentElement);
+    }
+  })();
+  </script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Tipos de fuego y cómo elegir el extintor correcto | Grupo CRM</title>
+  <meta name="description" content="Clases de fuego A, B, C y K, y qué extintor le conviene: PQS ABC, CO₂, agua o tipo K. Guía para negocios en CDMX y Estado de México.">
+  <meta name="author" content="Grupo CRM Extintores">
+  <meta name="theme-color" content="#C11234">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.crmextintores.com/blog/tipos-de-fuego">
+  <link rel="alternate" hreflang="es-MX" href="https://www.crmextintores.com/blog/tipos-de-fuego">
+  <link rel="alternate" hreflang="x-default" href="https://www.crmextintores.com/blog/tipos-de-fuego">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="es_MX">
+  <meta property="og:site_name" content="Grupo CRM Extintores">
+  <meta property="og:title" content="Tipos de fuego y cómo elegir el extintor correcto | Grupo CRM">
+  <meta property="og:description" content="Clases de fuego A, B, C y K, y qué extintor le conviene: PQS ABC, CO₂, agua o tipo K. Guía para negocios en CDMX y Estado de México.">
+  <meta property="og:url" content="https://www.crmextintores.com/blog/tipos-de-fuego">
+  <meta property="og:image" content="https://www.crmextintores.com/assets/img/catalog/CRM-0003.png">
+  <meta property="og:image:alt" content="Extintor Grupo CRM de polvo químico seco ABC">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tipos de fuego y cómo elegir el extintor correcto | Grupo CRM">
+  <meta name="twitter:description" content="Clases de fuego A, B, C y K, y qué extintor le conviene: PQS ABC, CO₂, agua o tipo K. Guía para negocios en CDMX y Estado de México.">
+  <meta name="twitter:image" content="https://www.crmextintores.com/assets/img/catalog/CRM-0003.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preload" as="image" type="image/webp" href="/assets/img/opt/catalog/CRM-0003-800.webp" fetchpriority="high">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/img/favicon.png">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body data-page="articulo" data-article="tipos-de-fuego">
+  <a class="skip-link" href="#contenido">Ir al contenido</a>
+  <div data-header></div>
+  <main id="contenido">
+  <article class="section article-page">
+    <div class="wrap wrap-article">
+      <p class="article-crumb"><a href="/">Inicio</a> · <a href="/blog">Blog</a> · Tipos de fuego</p>
+      <header class="article-measure">
+        <p class="kicker">Guía práctica</p>
+        <h1>Tipos de fuego y cómo elegir el mejor extintor</h1>
+        <hr class="rule rule-left">
+        <p class="muted">La clase de fuego (A, B, C o K) dice qué se está quemando. El agente del extintor dice con qué puede apagarlo. Si elige mal, el conato no se controla y puede agravar el daño.</p>
+      </header>
+      <figure class="article-hero article-hero--sku">
+        <picture>
+          <source type="image/webp" srcset="/assets/img/opt/catalog/CRM-0003-400.webp 400w, /assets/img/opt/catalog/CRM-0003-800.webp 800w" sizes="(min-width: 800px) 720px, 100vw">
+          <img src="/assets/img/opt/catalog/CRM-0003-800.webp" alt="Extintor Grupo CRM de polvo químico seco ABC" width="800" height="800" decoding="async" fetchpriority="high">
+        </picture>
+      </figure>
+      <div class="article-measure">
+        <p>En una inspección le van a pedir el equipo correcto para su giro, no “cualquier rojo en la pared”. Esta guía le ayuda a leer la etiqueta y a armar el juego de extintores de un condominio, un restaurante, una oficina o un almacén en CDMX y Estado de México.</p>
+
+        <h2>Las cuatro clases que verá en el catálogo</h2>
+        <p>En México, los extintores portátiles de comercio e industria se marcan con letras. Cada letra es un tipo de combustible:</p>
+        <h3>Clase A · Sólidos</h3>
+        <p>Papel, madera, cartón, tela, basura y plásticos ordinarios. Es el fuego de una papelera, un almacén de empaque o un área de archivo. El agua y el <a href="/producto?sku=CRM-0004">PQS ABC</a> sí sirven. El CO₂, no: no enfría bien un sólido que sigue ardiendo por dentro.</p>
+        <h3>Clase B · Líquidos inflamables</h3>
+        <p>Gasolina, thinner, pinturas, alcoholes y aceites minerales. Típico de talleres, estacionamientos y cuartos de aseo con solventes. Aquí entra el PQS ABC y el <a href="/producto?sku=CRM-0006">CO₂</a>. Nunca agua: esparce el líquido y agranda el charco en llamas.</p>
+        <h3>Clase C · Equipo eléctrico</h3>
+        <p>Cortocircuito y equipos energizados: tableros, contactos, computadoras, subestaciones. El agente no debe ser conductor. El PQS ABC y el CO₂ cubren clase C; el agua, no. Corte la energía si puede hacerlo sin riesgo, pero el extintor de clase C está pensado para cuando el equipo sigue con corriente.</p>
+        <h3>Clase K · Cocinas</h3>
+        <p>Aceites y grasas de origen animal o vegetal: freidoras, parrillas, marmitas. El <a href="/producto?sku=CRM-0012">extintor tipo K</a> saponifica la grasa y baja la temperatura. Un PQS o un CO₂ no sustituyen al tipo K en una cocina comercial. El agua sobre aceite caliente es peligrosa.</p>
+        <p>Existe la clase D (metales combustibles) en industria muy específica. No la manejamos en el catálogo de portátiles; si su proceso la requiere, se lo decimos con claridad.</p>
+
+        <h2>Qué extintor le conviene, según el agente</h2>
+        <h3>Polvo químico seco ABC</h3>
+        <p>Es el más pedido para pasillos, estacionamientos, locales y áreas comunes: cubre A, B y C. Deja residuo; no es el primero que pondríamos encima de un servidor o un archivo valioso. Capacidades habituales: 4.5 kg, 6.0 kg y 9.0 kg. El de 6 kg es el que más se instala; lo detallamos en la guía del <a href="/blog/extintor-6-kg">extintor de 6 kg</a>.</p>
+        <h3>CO₂</h3>
+        <p>Clases B y C, sin polvo. Lo recomendamos en salas de cómputo, laboratorios y tableros. No sirve para un fuego de madera o papel (clase A) ni para una freidora (K).</p>
+        <h3>Agente limpio (HFC-236fa)</h3>
+        <p>Clases A, B y C, sin residuo. Tiene sentido en museos, bibliotecas, racks y equipo de alto valor. Cuesta más que el PQS; se cotiza por el riesgo real, no “por si acaso”.</p>
+        <h3>Agua a presión</h3>
+        <p>Solo clase A. Útil en madererías, almacenes de cartón y áreas de residuos. <strong>No lo use en eléctricos ni en cocinas.</strong></p>
+        <h3>Tipo K</h3>
+        <p>Solo para la línea de fuego de cocina. En un restaurante suele ir el tipo K junto a la estufa o la freidora, y PQS ABC (o CO₂) en el comedor, el almacén y el cuarto de máquinas.</p>
+
+        <h2>Cómo elegir según su negocio</h2>
+        <ul>
+          <li><strong>Condominio u oficina:</strong> PQS ABC en pasillos, caseta y estacionamiento. Si hay cuarto de cómputo o tablero grande, sume un CO₂.</li>
+          <li><strong>Restaurante o cocina:</strong> tipo K en el área de fuego y PQS ABC en el resto del local.</li>
+          <li><strong>Comercio o plaza:</strong> PQS ABC como base; CO₂ o agente limpio si hay equipo eléctrico expuesto.</li>
+          <li><strong>Almacén o taller:</strong> PQS ABC, y agua si el combustible principal es sólido (madera, cartón). Unidades móviles cuando el recinto es grande.</li>
+        </ul>
+        <p>El tamaño también cuenta: un 1 o 2 kg automotriz no cubre un pasillo; un 6 kg de PQS es el punto de partida de la mayoría de inmuebles. La visita de revisión, sin costo, sirve para ver distancias, gabinetes y recargas vencidas.</p>
+        <p>En el <a href="/productos?cat=extintores#extintores">catálogo de extintores</a> puede filtrar por clase de fuego. Si tiene dudas, con gusto lo asesoramos y dejamos el equipo listo en sitio.</p>
+        <p>Saber elegir no sustituye saber operar: cuando el conato ya empezó, siga la guía de <a href="/blog/como-usar-un-extintor">cómo usar un extintor</a> y evacúe si el fuego crece.</p>
+
+        <div class="article-cta">
+          <p>Cuéntenos su giro —condominio, restaurante u oficina— y le decimos qué extintor le corresponde, con cotización el mismo día.</p>
+          <p class="actions">
+            <a class="btn btn-wa" href="https://wa.me/525554383241?text=Hola%2C%20quiero%20orientaci%C3%B3n%20para%20elegir%20el%20extintor%20seg%C3%BAn%20el%20tipo%20de%20fuego%20de%20mi%20negocio." target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Cotizar por WhatsApp</a>
+            <a class="btn btn-ink" href="/productos?cat=extintores#extintores">Ver extintores</a>
+          </p>
+        </div>
+
+        <aside class="article-related">
+          <h2>Siga leyendo</h2>
+          <ul>
+            <li><a href="/blog/como-usar-un-extintor">Cómo usar un extintor</a></li>
+            <li><a href="/blog/extintor-6-kg">Extintor de 6 kg: tipos y cotización</a></li>
+            <li><a href="/blog/nom-002-stps-2010">NOM-002-STPS-2010 y señalización</a></li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </article>
+  <section class="hook" data-hook></section>
+  </main>
+  <div data-footer></div>
+  <script type="module" src="/js/main.js" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
+</body>
+</html>

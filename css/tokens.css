@@ -6,8 +6,8 @@
 :root {
   /* — Brand — */
   --ink: #202020;
-  --red: #a91430;
-  --red-dark: #861028;
+  --red: #c11234;
+  --red-dark: #9a0e29;
   --blue: #1e2538;
   --blue-dark: #171c2b;
   --navy: #1a2031;
@@ -46,7 +46,7 @@
   --cat-all: var(--ink);
   --cat-all-soft: #f0f0f0;
   --cat-extintores: var(--red);
-  --cat-extintores-soft: #f8e8ec;
+  --cat-extintores-soft: #f9eaed;
   --cat-chalecos: var(--gold);
   --cat-chalecos-soft: #fff8e0;
   --cat-senalamiento-vial: var(--muted);
@@ -54,7 +54,7 @@
   --cat-gabinetes-herrajes: var(--blue);
   --cat-gabinetes-herrajes-soft: var(--blue-soft);
   --cat-botiquines: var(--red-dark);
-  --cat-botiquines-soft: #f4e6e9;
+  --cat-botiquines-soft: #f6e4e8;
   --cat-equipo-proteccion: var(--ink);
   --cat-equipo-proteccion-soft: #f0f0f0;
 

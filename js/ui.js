@@ -37,7 +37,7 @@ const HOME_VALUE_ICONS = [
 ];
 
 const CAT_COVER = {
-  extintores: { src: "/assets/img/categoria-extintores.png", alt: "Extintor montado en pared", photo: true },
+  extintores: { src: "/assets/img/catalog/CRM-0003.png", alt: "Extintor Grupo CRM de polvo químico seco ABC", photo: false },
   chalecos: { src: "/assets/img/categoria-chalecos.png", alt: "Brigada con chalecos de seguridad", photo: true },
   "senalamiento-vial": { src: "/assets/img/categoria-senalamiento-vial.png", alt: "Señalamientos viales", photo: true },
   "gabinetes-herrajes": { src: "/assets/img/categoria-gabinetes-herrajes.png", alt: "Gabinete para extintor", photo: true },
@@ -86,12 +86,29 @@ function catFile(cover) {
   return String(cover?.src || "").split("/").pop().replace(/\.(png|jpe?g|webp)$/i, "");
 }
 
+function catSku(cover) {
+  const match = String(cover?.src || "").match(/CRM-\d{4}/i);
+  return match ? match[0].toUpperCase() : "";
+}
+
+function isCatalogCover(cover) {
+  return /\/catalog\/CRM-\d{4}/i.test(String(cover?.src || ""));
+}
+
 function catImg(cover, width = 480) {
+  if (isCatalogCover(cover)) {
+    const sku = catSku(cover);
+    return sku ? catalogImg(sku, width <= 400 ? 400 : 800) : absAsset(cover?.src);
+  }
   const file = catFile(cover);
   return file ? absAsset(`/assets/img/opt/${file}-${width}.webp`) : absAsset(cover?.src);
 }
 
 function catSrcset(cover) {
+  if (isCatalogCover(cover)) {
+    const sku = catSku(cover);
+    return sku ? catalogSrcset(sku) : "";
+  }
   const file = catFile(cover);
   if (!file) return "";
   return [480, 960].map((w) => `${absAsset(`/assets/img/opt/${file}-${w}.webp`)} ${w}w`).join(", ");
@@ -868,19 +885,24 @@ export function bindCatalog(defaultCat = "all") {
   const catalogLayout = document.querySelector("[data-catalog-layout]");
   if (classRoot) {
     const classes = [
-      { id: "all", label: "Todas las clases" },
-      { id: "A", label: "Sólidos (A)" },
-      { id: "B", label: "Líquidos (B)" },
-      { id: "C", label: "Eléctricos (C)" },
-      { id: "K", label: "Cocinas (K)" },
+      { id: "all", label: "Todas las clases", hint: "" },
+      { id: "A", label: "Sólidos", hint: "Papel, madera, cartón y textiles" },
+      { id: "B", label: "Líquidos inflamables", hint: "Gasolina, solventes, pinturas y aceites" },
+      { id: "C", label: "Equipo eléctrico", hint: "Cortocircuito y equipos energizados" },
+      { id: "K", label: "Cocinas", hint: "Aceites y grasas de origen animal o vegetal" },
     ];
     classRoot.innerHTML = classes
-      .map(
-        (item) => `<button type="button" class="shop-chip" data-class="${item.id}" aria-pressed="false">
+      .map((item) => {
+        const hint = item.hint
+          ? `<span class="shop-chip__hint">${item.hint}</span>`
+          : "";
+        const copy = `<span class="shop-chip__copy"><span class="shop-chip__name">${item.label}</span>${hint}</span>`;
+        const aria = item.hint ? ` aria-label="Clase ${item.id}: ${item.label}. ${item.hint}"` : "";
+        return `<button type="button" class="shop-chip" data-class="${item.id}" aria-pressed="false"${aria}>
           ${item.id === "all" ? "" : `<span class="shop-chip__letter">${item.id}</span>`}
-          ${item.label}
-        </button>`
-      )
+          ${copy}
+        </button>`;
+      })
       .join("");
   }
   const setCat = (next) => {
@@ -968,7 +990,7 @@ export function renderHomeCats() {
     .map((c) => {
       const cover = catCover(c);
       const media = cover
-        ? `<span class="cat-tile__media"><picture><source type="image/webp" srcset="${catSrcset(cover)}" sizes="(min-width: 900px) 180px, 45vw"><img src="${catImg(cover)}" alt="${escapeAttr(cover.alt)}" width="480" height="320" loading="lazy" decoding="async"></picture></span>`
+        ? `<span class="cat-tile__media${cover.photo ? "" : " cat-tile__media--sku"}"><picture><source type="image/webp" srcset="${catSrcset(cover)}" sizes="(min-width: 900px) 180px, 45vw"><img src="${catImg(cover)}" alt="${escapeAttr(cover.alt)}" width="480" height="320" loading="lazy" decoding="async"></picture></span>`
         : "";
       return `<li>
         <a class="cat-tile" data-cat="${c.id}" href="${withBase(`/productos?cat=${c.id}#${c.id}`)}">
@@ -1768,12 +1790,17 @@ export function renderHook() {
 function paintServices() {
   document.querySelectorAll("[data-services]").forEach((root) => {
     root.innerHTML = services
-      .map(
-        (s) => `<li class="svc-card">
+      .map((s) => {
+        const items = Array.isArray(s.items) && s.items.length
+          ? `<ul class="svc-card__courses">${s.items.map((item) => `<li>${item}</li>`).join("")}</ul>`
+          : "";
+        const extra = items ? " svc-card--courses" : "";
+        return `<li class="svc-card${extra}">
           ${fa(`${s.icon} svc-card__icon`)}
           <h3>${s.title}</h3>
-        </li>`
-      )
+          ${items}
+        </li>`;
+      })
       .join("");
   });
 }

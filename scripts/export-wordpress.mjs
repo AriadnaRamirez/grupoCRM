@@ -194,10 +194,10 @@ const html = `<!DOCTYPE html>
   <title>Catálogo · ${company.name}</title>
   <style>
     body { font-family: Arial, sans-serif; color: #202020; max-width: 960px; margin: 0 auto; padding: 24px; }
-    h1 { color: #a91430; }
+    h1 { color: #c11234; }
     h2 { color: #1e2538; border-bottom: 2px solid #f7b000; padding-bottom: 6px; }
     h4 { color: #1e2538; margin: 12px 0 4px; text-transform: uppercase; font-size: 13px; letter-spacing: .08em; }
-    .sku { color: #a91430; font-weight: 700; margin: 0; }
+    .sku { color: #c11234; font-weight: 700; margin: 0; }
     .crm-ficha { display: grid; grid-template-columns: 220px 1fr; gap: 20px; border: 1px solid #dce3ee; border-radius: 12px; padding: 16px; margin: 16px 0; }
     .crm-ficha img { width: 100%; height: auto; object-fit: contain; background: #fff; }
     .aviso { background: #f8e9ec; padding: 12px 16px; border-radius: 8px; }

@@ -2,7 +2,7 @@ import { withBase } from "./base.js";
 
 export const company = {
   name: "Grupo CRM Extintores",
-  tagline: "Extintores · Equipo contra incendios",
+  tagline: "Extintores y equipos de seguridad",
   slogan: "Protección, prevención y respuesta.",
   about:
     "Lo acompañamos con venta, recarga e instalación en CDMX y Estado de México.",
@@ -29,16 +29,16 @@ export const company = {
   hook: "Agende su visita de revisión, sin costo.",
   pitch: "Cumpla con Protección Civil y evite multas.",
   mision:
-    "Acompañar a condominios, restaurantes y empresas con extintores y equipo contra incendio, y estar con ellos hasta que todo quede en regla.",
+    "Abastecer extintores y equipo contra incendio de alta calidad, que satisfagan las necesidades de nuestros clientes, mientras fomentamos la seguridad, la integridad y la capacitación constante a nuestros clientes y colaboradores.",
   vision:
-    "Ser la empresa de confianza a la que acuden cuando necesitan cumplir, por nuestra respuesta y por el equipo listo en su sitio.",
+    "Ser la empresa líder en el mercado, reconocida por nuestra excelencia en el servicio y compromiso en el abastecimiento de extintores y de equipo contra incendios.",
   valores: ["Confianza", "Seguridad", "Calidad", "Lealtad", "Trabajo en equipo"],
 };
 
 export const SITE = {
   origin: "https://www.crmextintores.com",
   locale: "es_MX",
-  themeColor: "#A91430",
+  themeColor: "#C11234",
   ogImage: "/assets/img/logo-crm.png",
 };
 
@@ -101,7 +101,7 @@ export const pageSeo = {
     path: "/blog",
     title: "Blog de extintores y equipo contra incendios | Grupo CRM",
     description:
-      "Guías de extintores en CDMX y Estado de México: cómo usarlos, tipos de 6 kg, NOM-002-STPS-2010 y equipo contra incendios. Cotice con Grupo CRM.",
+      "Guías de extintores en CDMX y Estado de México: tipos de fuego, cómo elegir el equipo, cómo usarlo, NOM-002-STPS-2010 y botiquines. Cotice con Grupo CRM.",
   },
   articulo: {
     path: "/blog",
@@ -119,6 +119,19 @@ export const pageSeo = {
 };
 
 export const blogPosts = [
+  {
+    slug: "tipos-de-fuego",
+    path: "/blog/tipos-de-fuego",
+    title: "Tipos de fuego y cómo elegir el extintor correcto | Grupo CRM",
+    heading: "Tipos de fuego y cómo elegir el mejor extintor",
+    description:
+      "Clases de fuego A, B, C y K, y qué extintor le conviene: PQS ABC, CO₂, agua o tipo K. Guía para negocios en CDMX y Estado de México.",
+    kicker: "Guía práctica",
+    excerpt: "Qué cubre cada clase de fuego y cómo elegir PQS ABC, CO₂, agua o tipo K según su condominio, restaurante u oficina.",
+    datePublished: "2026-08-27",
+    image: "/assets/img/catalog/CRM-0003.png",
+    imageAlt: "Extintor Grupo CRM de polvo químico seco ABC",
+  },
   {
     slug: "como-usar-un-extintor",
     path: "/blog/como-usar-un-extintor",
@@ -450,7 +463,7 @@ export const faqs = [
   },
   {
     q: "¿Qué extintor necesito?",
-    a: "Depende de lo que quiera proteger: clase A para sólidos, B para líquidos, C para equipo eléctrico y K para cocinas. En cada ficha viene la clase y, si tiene dudas, con gusto lo orientamos.",
+    a: 'Depende de lo que quiera proteger: clase A para sólidos, B para líquidos, C para equipo eléctrico y K para cocinas. En el blog explicamos <a href="/blog/tipos-de-fuego">cómo elegir el extintor</a>. En cada ficha viene la clase y, si tiene dudas, con gusto lo orientamos.',
   },
 ];
 
@@ -484,6 +497,19 @@ export const services = [
     icon: "fa-solid fa-clipboard-check",
     title: "Revisión en sitio",
     text: "La primera visita es sin costo y sin compromiso.",
+  },
+  {
+    icon: "fa-solid fa-chalkboard-user",
+    title: "Cursos y capacitaciones",
+    text: "Formamos brigadas para que su inmueble quede listo ante una emergencia.",
+    items: [
+      "Primeros auxilios",
+      "Combate contra incendios",
+      "Búsqueda y rescate",
+      "Evacuación de inmueble",
+      "Atención de emergencias de materiales peligrosos",
+      "Conformación de brigadas",
+    ],
   },
 ];
 

@@ -115,6 +115,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preload" as="image" type="image/webp" href="/assets/img/opt/catalog/CRM-0004-800.webp" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="/assets/img/favicon.png">
   <link rel="apple-touch-icon" href="/assets/img/favicon.png">
@@ -135,7 +136,10 @@
         <p class="muted">El extintor de 6 kg es el más pedido para comercios, oficinas y áreas comunes. El precio depende del agente, la recarga y la instalación. Con gusto se lo cotizamos por WhatsApp, según lo que su inmueble necesita.</p>
       </header>
       <figure class="article-hero">
-        <img src="/assets/img/catalog/CRM-0004.png" alt="Extintor de PQS ABC de 6.0 kg" width="960" height="540" decoding="async">
+        <picture>
+          <source type="image/webp" srcset="/assets/img/opt/catalog/CRM-0004-400.webp 400w, /assets/img/opt/catalog/CRM-0004-800.webp 800w" sizes="(min-width: 800px) 720px, 100vw">
+          <img src="/assets/img/opt/catalog/CRM-0004-800.webp" alt="Extintor de PQS ABC de 6.0 kg" width="960" height="540" decoding="async" fetchpriority="high">
+        </picture>
       </figure>
       <div class="article-measure">
         <h2>Para qué sirve un extintor de 6 kg</h2>

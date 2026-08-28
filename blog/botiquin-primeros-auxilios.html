@@ -115,6 +115,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preload" as="image" type="image/webp" href="/assets/img/opt/categoria-botiquines-960.webp" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="/assets/img/favicon.png">
   <link rel="apple-touch-icon" href="/assets/img/favicon.png">
@@ -135,7 +136,10 @@
         <p class="muted">El botiquín de primeros auxilios va con los extintores y las señales. En Grupo CRM hay tres tamaños de pared, para oficina, escuela o planta.</p>
       </header>
       <figure class="article-hero">
-        <img src="/assets/img/categoria-botiquines.png" alt="Botiquín de emergencia de pared" width="960" height="540" decoding="async">
+        <picture>
+          <source type="image/webp" srcset="/assets/img/opt/categoria-botiquines-480.webp 480w, /assets/img/opt/categoria-botiquines-960.webp 960w" sizes="(min-width: 800px) 720px, 100vw">
+          <img src="/assets/img/opt/categoria-botiquines-960.webp" alt="Botiquín de emergencia de pared" width="960" height="540" decoding="async" fetchpriority="high">
+        </picture>
       </figure>
       <div class="article-measure">
         <h2>Por qué pedirlo junto con el equipo contra incendios</h2>

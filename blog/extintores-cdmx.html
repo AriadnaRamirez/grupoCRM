@@ -115,6 +115,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preload" as="image" type="image/webp" href="/assets/img/opt/crop/galeria-extintores-sitio-1280.webp" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="/assets/img/favicon.png">
   <link rel="apple-touch-icon" href="/assets/img/favicon.png">
@@ -135,7 +136,10 @@
         <p class="muted">Grupo CRM Extintores es una empresa 100% mexicana. Vendemos, recargamos e instalamos extintores y equipo contra incendios en la Ciudad de México y el Estado de México.</p>
       </header>
       <figure class="article-hero">
-        <img src="/assets/img/crop/galeria-extintores-sitio.jpg" alt="Extintores instalados en un establecimiento" width="960" height="540" decoding="async">
+        <picture>
+          <source type="image/webp" srcset="/assets/img/opt/crop/galeria-extintores-sitio-800.webp 800w, /assets/img/opt/crop/galeria-extintores-sitio-1280.webp 1280w, /assets/img/opt/crop/galeria-extintores-sitio-1600.webp 1600w" sizes="(min-width: 800px) 720px, 100vw">
+          <img src="/assets/img/opt/crop/galeria-extintores-sitio-800.webp" alt="Extintores instalados en un establecimiento" width="960" height="540" decoding="async" fetchpriority="high">
+        </picture>
       </figure>
       <div class="article-measure">
         <h2>Qué pedimos cuando nos buscan por “extintores CDMX”</h2>

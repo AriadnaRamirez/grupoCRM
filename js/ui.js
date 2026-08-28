@@ -73,7 +73,8 @@ function catalogSrcset(sku) {
 }
 
 function lookThumbSrc(item) {
-  return absAsset(item?.src || lookFull(item));
+  const stem = lookStem(item);
+  return stem ? absAsset(`/assets/img/opt/crop/${stem}-800.webp`) : absAsset(item?.src || lookFull(item));
 }
 
 function lookFullOpt(item) {
@@ -81,24 +82,51 @@ function lookFullOpt(item) {
   return stem ? absAsset(`/assets/img/opt/full/${stem}-1400.webp`) : absAsset(lookFull(item));
 }
 
-function catOptWebp(cover) {
-  const file = String(cover?.src || "").split("/").pop().replace(/\.(png|jpe?g|webp)$/i, "");
-  return file ? absAsset(`/assets/img/opt/${file}-480.webp`) : "";
+function catFile(cover) {
+  return String(cover?.src || "").split("/").pop().replace(/\.(png|jpe?g|webp)$/i, "");
+}
+
+function catImg(cover, width = 480) {
+  const file = catFile(cover);
+  return file ? absAsset(`/assets/img/opt/${file}-${width}.webp`) : absAsset(cover?.src);
+}
+
+function catSrcset(cover) {
+  const file = catFile(cover);
+  if (!file) return "";
+  return [480, 960].map((w) => `${absAsset(`/assets/img/opt/${file}-${w}.webp`)} ${w}w`).join(", ");
+}
+
+function catalogImg(sku, width = 400) {
+  return absAsset(`/assets/img/opt/catalog/${sku}-${width}.webp`);
+}
+
+function clientFile(src) {
+  return String(src || "").split("/").pop().replace(/\.(png|jpe?g|webp)$/i, "");
 }
 
 function clientSrcset(src) {
-  const file = String(src || "").split("/").pop().replace(/\.(png|jpe?g|webp)$/i, "");
+  const file = clientFile(src);
   if (!file) return "";
   return [160, 320].map((w) => `${absAsset(`/assets/img/opt/clients/${file}-${w}.webp`)} ${w}w`).join(", ");
 }
 
 function clientPicture(logo, { alt = "", extra = "", lazy = false } = {}) {
-  const src = absAsset(logo.src);
+  const file = clientFile(logo.src);
+  const src = file ? absAsset(`/assets/img/opt/clients/${file}-160.webp`) : absAsset(logo.src);
   const srcset = clientSrcset(logo.src);
   const loading = lazy ? ' loading="lazy"' : "";
   return `<picture>
     <source type="image/webp" srcset="${srcset}" sizes="160px">
     <img${extra} src="${src}" alt="${alt}" width="160" height="72"${loading} decoding="async">
+  </picture>`;
+}
+
+function lookPicture(item, { sizes, lazy = true, width = 480, height = 360, alt = "", extra = "" } = {}) {
+  const loading = lazy ? ' loading="lazy"' : "";
+  return `<picture>
+    <source type="image/webp" srcset="${cropSrcset(lookStem(item))}" sizes="${sizes}">
+    <img src="${lookThumbSrc(item)}" alt="${escapeAttr(alt)}" width="${width}" height="${height}"${loading} decoding="async"${extra}>
   </picture>`;
 }
 
@@ -181,11 +209,12 @@ function catalogExtendInner(defer = false) {
     .map((c) => {
       const cover = catCover(c);
       const n = catCount(c.id);
-      const webp = cover ? catOptWebp(cover) : "";
+      const webp = cover ? catSrcset(cover) : "";
+      const fallback = cover ? catImg(cover) : "";
       const img = cover
         ? defer
-          ? `<picture><source type="image/webp" data-srcset="${webp}"><img data-src="${cover.src}" alt="${escapeAttr(cover.alt)}" decoding="async"></picture>`
-          : `<picture><source type="image/webp" srcset="${webp}"><img src="${cover.src}" alt="${escapeAttr(cover.alt)}" loading="lazy" decoding="async"></picture>`
+          ? `<picture><source type="image/webp" data-srcset="${webp}" sizes="(min-width: 900px) 160px, 30vw"><img data-src="${fallback}" alt="${escapeAttr(cover.alt)}" decoding="async"></picture>`
+          : `<picture><source type="image/webp" srcset="${webp}" sizes="(min-width: 900px) 160px, 30vw"><img src="${fallback}" alt="${escapeAttr(cover.alt)}" loading="lazy" decoding="async"></picture>`
         : "";
       return `<li>
         <a class="shop-dept" data-cat="${c.id}" href="${withBase(`/productos?cat=${c.id}#${c.id}`)}">
@@ -216,9 +245,10 @@ function catalogPickerInner(current = "all") {
   const mosaic = categories
     .map((c) => {
       const cover = catCover(c);
-      const webp = cover ? catOptWebp(cover) : "";
+      const webp = cover ? catSrcset(cover) : "";
+      const fallback = cover ? catImg(cover) : "";
       return cover
-        ? `<picture><source type="image/webp" srcset="${webp}"><img src="${cover.src}" alt="" aria-hidden="true" loading="lazy" decoding="async"></picture>`
+        ? `<picture><source type="image/webp" srcset="${webp}" sizes="80px"><img src="${fallback}" alt="" aria-hidden="true" loading="lazy" decoding="async"></picture>`
         : "";
     })
     .join("");
@@ -237,9 +267,10 @@ function catalogPickerInner(current = "all") {
       const cover = catCover(c);
       const n = catCount(c.id);
       const active = current === c.id;
-      const webp = cover ? catOptWebp(cover) : "";
+      const webp = cover ? catSrcset(cover) : "";
+      const fallback = cover ? catImg(cover) : "";
       const img = cover
-        ? `<picture><source type="image/webp" srcset="${webp}"><img src="${cover.src}" alt="${escapeAttr(cover.alt)}" loading="lazy" decoding="async"></picture>`
+        ? `<picture><source type="image/webp" srcset="${webp}" sizes="(min-width: 900px) 160px, 30vw"><img src="${fallback}" alt="${escapeAttr(cover.alt)}" loading="lazy" decoding="async"></picture>`
         : "";
       return `<li>
         <a class="shop-dept${active ? " is-active" : ""}" data-cat="${c.id}" href="${withBase(`/productos?cat=${c.id}#${c.id}`)}" aria-current="${active ? "page" : "false"}">
@@ -731,7 +762,7 @@ export function productCard(p, { quote = false } = {}) {
         <span class="shop-item__media">
           <picture>
             <source type="image/webp" srcset="${catalogSrcset(p.sku)}" sizes="(min-width: 1024px) 220px, 45vw">
-            <img src="${absAsset(productImg(p))}" alt="${escapeAttr(productAlt(p))}" width="400" height="400" loading="lazy" decoding="async">
+            <img src="${catalogImg(p.sku)}" alt="${escapeAttr(productAlt(p))}" width="400" height="400" loading="lazy" decoding="async">
           </picture>
         </span>
         <span class="shop-item__info">
@@ -937,7 +968,7 @@ export function renderHomeCats() {
     .map((c) => {
       const cover = catCover(c);
       const media = cover
-        ? `<span class="cat-tile__media"><picture><source type="image/webp" srcset="${catOptWebp(cover)}"><img src="${cover.src}" alt="${escapeAttr(cover.alt)}" width="480" height="320" loading="lazy" decoding="async"></picture></span>`
+        ? `<span class="cat-tile__media"><picture><source type="image/webp" srcset="${catSrcset(cover)}" sizes="(min-width: 900px) 180px, 45vw"><img src="${catImg(cover)}" alt="${escapeAttr(cover.alt)}" width="480" height="320" loading="lazy" decoding="async"></picture></span>`
         : "";
       return `<li>
         <a class="cat-tile" data-cat="${c.id}" href="${withBase(`/productos?cat=${c.id}#${c.id}`)}">
@@ -1134,7 +1165,7 @@ export function bindLookbook() {
     root.innerHTML = `
       <figure class="lookbook__hero">
         <button type="button" class="lookbook__open" data-lb-open aria-label="Ver ${escapeAttr(item.title)} en grande">
-          <img src="${absAsset(item.src)}" alt="${escapeAttr(lookAlt(item))}" loading="lazy" decoding="async">
+          ${lookPicture(item, { sizes: "(min-width: 900px) 640px, 100vw", width: 800, height: 600, alt: lookAlt(item) })}
         </button>
         <figcaption>
           <p class="lookbook__count">${pad(index + 1)} / ${pad(lookbook.length)}</p>
@@ -1149,7 +1180,7 @@ export function bindLookbook() {
             .map(
               (thumb, i) => `
             <button type="button" class="lookbook__thumb${start + i === index ? " is-active" : ""}" data-lb-goto="${start + i}" aria-label="${escapeAttr(thumb.title)}" aria-current="${start + i === index ? "true" : "false"}">
-              <img src="${absAsset(thumb.src)}" alt="" loading="lazy" decoding="async">
+              <img src="${lookThumbSrc(thumb)}" alt="" loading="lazy" decoding="async">
             </button>`
             )
             .join("")}
@@ -1491,12 +1522,8 @@ function homeGalleryPicks() {
 }
 
 function peekCard(item, i, { caption = false } = {}) {
-  const stem = lookStem(item);
   return `<button type="button" class="peek-rail__card" data-lb-open="${i}" aria-label="Ver ${escapeAttr(item.title)} en grande">
-    <picture>
-      <source type="image/webp" srcset="${cropSrcset(stem)}" sizes="(min-width: 900px) 210px, 58vw">
-      <img src="${lookThumbSrc(item)}" alt="${escapeAttr(lookAlt(item))}" width="480" height="600" loading="lazy" decoding="async">
-    </picture>
+    ${lookPicture(item, { sizes: "(min-width: 900px) 210px, 58vw", width: 480, height: 600, alt: lookAlt(item) })}
     ${caption ? `<span class="peek-rail__cap"><strong>${item.title}</strong></span>` : ""}
   </button>`;
 }
@@ -1570,7 +1597,7 @@ export function renderProducto() {
           <figure class="error-page__figure">
             <picture>
               <source type="image/webp" srcset="${withBase("/assets/img/opt/mascot-inspector-crm.webp")}">
-              <img src="${withBase("/assets/img/mascot-inspector-crm.png")}" width="283" height="379" alt="Inspector CRM, mascota de Grupo CRM Extintores" loading="lazy" decoding="async">
+              <img src="${withBase("/assets/img/opt/mascot-inspector-crm.webp")}" width="283" height="379" alt="Inspector CRM, mascota de Grupo CRM Extintores" loading="lazy" decoding="async">
             </picture>
           </figure>
           <div class="error-page__copy">
@@ -1613,7 +1640,7 @@ export function renderProducto() {
           <figure class="ficha__photo">
             <picture>
               <source type="image/webp" srcset="${catalogSrcset(p.sku)}" sizes="(min-width: 900px) 420px, 90vw">
-              <img src="${absAsset(productImg(p))}" alt="${escapeAttr(productAlt(p, { detail: true }))}" width="800" height="800" decoding="async" fetchpriority="high">
+              <img src="${catalogImg(p.sku, 800)}" alt="${escapeAttr(productAlt(p, { detail: true }))}" width="800" height="800" decoding="async" fetchpriority="high">
             </picture>
           </figure>
           <div class="ficha__copy">
@@ -1964,10 +1991,7 @@ export function renderGaleria() {
       ? list
           .map(
             (item, i) => `<button type="button" class="gallery-tile" data-lb="${i}" aria-label="Ver ${escapeAttr(item.title)} en grande">
-              <picture>
-                <source type="image/webp" srcset="${cropSrcset(lookStem(item))}" sizes="(min-width: 900px) 280px, 45vw">
-                <img src="${lookThumbSrc(item)}" alt="${escapeAttr(lookAlt(item))}" loading="lazy" decoding="async" width="480" height="360">
-              </picture>
+              ${lookPicture(item, { sizes: "(min-width: 900px) 280px, 45vw", width: 480, height: 360, alt: lookAlt(item) })}
               <span class="gallery-tile__cap">
                 <strong>${item.title}</strong>
               </span>

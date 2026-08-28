@@ -115,6 +115,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preload" as="image" type="image/webp" href="/assets/img/opt/categoria-senalamiento-vial-960.webp" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="/assets/img/favicon.png">
   <link rel="apple-touch-icon" href="/assets/img/favicon.png">
@@ -135,7 +136,10 @@
         <p class="muted">La NOM-002-STPS-2010 fija condiciones de prevención y protección contra incendios en centros de trabajo. Aquí va lo práctico: extintores visibles, señales claras y un punto de reunión conocido.</p>
       </header>
       <figure class="article-hero">
-        <img src="/assets/img/categoria-senalamiento-vial.png" alt="Señalamientos de seguridad y vialidad" width="960" height="540" decoding="async">
+        <picture>
+          <source type="image/webp" srcset="/assets/img/opt/categoria-senalamiento-vial-480.webp 480w, /assets/img/opt/categoria-senalamiento-vial-960.webp 960w" sizes="(min-width: 800px) 720px, 100vw">
+          <img src="/assets/img/opt/categoria-senalamiento-vial-960.webp" alt="Señalamientos de seguridad y vialidad" width="960" height="540" decoding="async" fetchpriority="high">
+        </picture>
       </figure>
       <div class="article-measure">
         <h2>Qué cubre la NOM-002-STPS-2010</h2>

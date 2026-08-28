@@ -115,6 +115,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preload" as="image" type="image/webp" href="/assets/img/opt/categoria-extintores-960.webp" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="/assets/img/favicon.png">
   <link rel="apple-touch-icon" href="/assets/img/favicon.png">
@@ -135,7 +136,10 @@
         <p class="muted">Un extintor portátil sirve para un fuego pequeño y reciente. Si crece, evacúe y marque al 911. En inglés se le llama fire extinguisher; aquí lo que importa es el agente y la clase de fuego.</p>
       </header>
       <figure class="article-hero">
-        <img src="/assets/img/categoria-extintores.png" alt="Extintor montado en pared" width="960" height="540" decoding="async">
+        <picture>
+          <source type="image/webp" srcset="/assets/img/opt/categoria-extintores-480.webp 480w, /assets/img/opt/categoria-extintores-960.webp 960w" sizes="(min-width: 800px) 720px, 100vw">
+          <img src="/assets/img/opt/categoria-extintores-960.webp" alt="Extintor montado en pared" width="960" height="540" decoding="async" fetchpriority="high">
+        </picture>
       </figure>
       <div class="article-measure">
         <h2>Qué es un fuego incipiente y un conato de incendio</h2>

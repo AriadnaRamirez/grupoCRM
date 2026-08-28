@@ -47,7 +47,9 @@ for (const file of list(join(root, "assets/img/catalog"), /^CRM-\d{4}\.png$/i)) 
 
 for (const file of list(join(root, "assets/img"), /^categoria-.*\.(png|jpe?g)$/i)) {
   const stem = parse(file).name;
-  jobs.push([file, join(outRoot, `${stem}-480.webp`), { width: 480, flatten: true }]);
+  for (const width of [480, 960]) {
+    jobs.push([file, join(outRoot, `${stem}-${width}.webp`), { width, flatten: true }]);
+  }
 }
 
 const mascot = join(root, "assets/img/mascot-inspector-crm.png");

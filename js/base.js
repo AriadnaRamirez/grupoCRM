@@ -1,5 +1,5 @@
 const REPO = "grupoCRM";
-const SITE_PAGES = /^(nosotros|productos|producto|galeria|contacto|aviso-privacidad|mapa-sitio|servicios|404)$/;
+const PAGE_FILE = /^(aviso-privacidad|contacto|galeria|mapa-sitio|nosotros|producto|productos|servicios|index)\.html$/i;
 
 export function basePath() {
   if (typeof location === "undefined") return "";
@@ -8,22 +8,6 @@ export function basePath() {
     return first ? `/${first}` : `/${REPO}`;
   }
   return "";
-}
-
-function githubPageFile(pathname, base) {
-  if (!base || !pathname) return pathname;
-  let rest = pathname;
-  if (pathname === base || pathname.startsWith(`${base}/`)) {
-    rest = pathname.slice(base.length) || "/";
-  }
-  if (!rest || rest === "/") return pathname;
-  if (/\.[a-z0-9]+$/i.test(rest)) return pathname;
-  const segs = rest.split("/").filter(Boolean);
-  const last = segs[segs.length - 1];
-  if (SITE_PAGES.test(last) || (segs[0] === "blog" && segs.length === 2)) {
-    return `${pathname.replace(/\/$/, "")}.html`;
-  }
-  return pathname;
 }
 
 export function withBase(path) {
@@ -47,13 +31,21 @@ export function withBase(path) {
   }
 
   if (pathname === base || pathname.startsWith(`${base}/`)) {
-    return `${githubPageFile(pathname, base)}${search}${hash}`;
+    return `${pathname}${search}${hash}`;
   }
   if (pathname.startsWith("/")) {
-    return `${githubPageFile(`${base}${pathname === "/" ? "/" : pathname}`, base)}${search}${hash}`;
+    return `${base}${pathname === "/" ? "/" : pathname}${search}${hash}`;
   }
   if (/^(assets|css|js)\//.test(pathname) || /^\.\//.test(pathname)) {
     return `${base}/${pathname.replace(/^\.\//, "")}${search}${hash}`;
+  }
+  const rel = pathname.replace(/^\.\//, "");
+  if (PAGE_FILE.test(rel)) {
+    const name = rel.replace(/\.html$/i, "");
+    return `${base}/${name === "index" ? "" : name}${search}${hash}`;
+  }
+  if (/^blog\/[\w-]+\.html$/i.test(rel)) {
+    return `${base}/${rel.replace(/\.html$/i, "")}${search}${hash}`;
   }
   return `${pathname}${search}${hash}`;
 }

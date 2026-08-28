@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   
 
+  
   <script>
   /* pages-base */
   /* Sync into HTML with: node scripts/inject-pages-base.mjs */
@@ -11,19 +12,12 @@
     if (typeof location === "undefined" || !/\.github\.io$/i.test(location.hostname)) return;
     var first = location.pathname.split("/").filter(Boolean)[0] || "grupoCRM";
     var base = "/" + first;
-    var pages = /^(nosotros|productos|producto|galeria|contacto|aviso-privacidad|mapa-sitio|servicios|404)$/;
-    function pageFile(pathname) {
-      if (!pathname) return pathname;
-      var rest = pathname;
-      if (pathname === base || pathname.indexOf(base + "/") === 0) rest = pathname.slice(base.length) || "/";
-      if (!rest || rest === "/") return pathname;
-      if (/\.[a-z0-9]+$/i.test(rest)) return pathname;
-      var segs = rest.split("/").filter(Boolean);
-      var last = segs[segs.length - 1];
-      if (pages.test(last) || (segs[0] === "blog" && segs.length === 2)) {
-        return pathname.replace(/\/$/, "") + ".html";
+    if (/\.html$/i.test(location.pathname) && !/\/404\.html$/i.test(location.pathname)) {
+      var clean = location.pathname.replace(/\/index\.html$/i, "/").replace(/\.html$/i, "");
+      if (clean !== location.pathname) {
+        location.replace(clean + location.search + location.hash);
+        return;
       }
-      return pathname;
     }
     function fix(value) {
       if (!value || /^(https?:|data:|mailto:|tel:|javascript:|#)/i.test(value)) return value;
@@ -36,10 +30,21 @@
       if (pathname === "/") pathname = base + "/";
       else if (pathname.charAt(0) === "/") {
         if (!(pathname === base || pathname.indexOf(base + "/") === 0)) pathname = base + pathname;
+        if (!/\/404\.html$/i.test(pathname)) {
+          pathname = pathname.replace(/\/index\.html$/i, "/").replace(/\.html$/i, "");
+        }
       } else {
-        return value;
+        var rel = pathname.replace(/^\.\//, "");
+        if (/^(aviso-privacidad|contacto|galeria|mapa-sitio|nosotros|producto|productos|servicios|index)\.html$/i.test(rel)) {
+          var name = rel.replace(/\.html$/i, "");
+          pathname = name === "index" ? base + "/" : base + "/" + name;
+        } else if (/^blog\/[\w-]+\.html$/i.test(rel)) {
+          pathname = base + "/" + rel.replace(/\.html$/i, "");
+        } else {
+          return value;
+        }
       }
-      return pageFile(pathname) + search + hash;
+      return pathname + search + hash;
     }
     function apply(el) {
       if (!el || !el.getAttribute) return;
@@ -78,17 +83,25 @@
       var head = document.head || document.documentElement;
       head.insertBefore(tag, head.firstChild);
     }
+    function applyTree(root) {
+      if (!root || root.nodeType !== 1) return;
+      apply(root);
+      if (root.querySelectorAll) {
+        root.querySelectorAll("[href], [src], [srcset], [data-bg], [data-src], [data-srcset], [action], [style]").forEach(apply);
+      }
+    }
     new MutationObserver(function (records) {
       records.forEach(function (record) {
-        record.addedNodes.forEach(function (node) {
-          if (node.nodeType !== 1) return;
-          apply(node);
-          if (node.querySelectorAll) {
-              node.querySelectorAll("[href], [src], [srcset], [data-bg], [data-src], [data-srcset], [action], [style]").forEach(apply);
-          }
-        });
+        record.addedNodes.forEach(applyTree);
       });
     }).observe(document.documentElement, { childList: true, subtree: true });
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", function () {
+        applyTree(document.documentElement);
+      });
+    } else {
+      applyTree(document.documentElement);
+    }
   })();
   </script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">

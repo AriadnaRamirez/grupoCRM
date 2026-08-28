@@ -72,7 +72,15 @@ function withBase(text) {
     .replace(/path: "\/"/g, `path: "${base}/"`)
     .replace(/((?:href|src|data-bg|data-src)=["'])(?!\/|#|https?:|data:|mailto:|tel:|javascript:)((?:assets|css|js)\/)/g, `$1${base}/$2`)
     .replace(/(url\(["']?)(?!\/|https?:|data:)((?:assets|css|js)\/)/g, `$1${base}/$2`)
-    .replace(new RegExp(`href=(["'])(?:\\./)?(${pages})\\.html`, "g"), `href=$1${base}/$2.html`);
+    .replace(new RegExp(`\\b(href|action)=(["'])(?:\\./)?(${pages})\\.html`, "g"), (_, attr, quote, page) => {
+      const dest = page === "index" ? `${base}/` : `${base}/${page}`;
+      return `${attr}=${quote}${dest}`;
+    })
+    .replace(new RegExp(`${base.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}/(${pages})\\.html`, "g"), (_, page) => (
+      page === "index" ? `${base}/` : `${base}/${page}`
+    ))
+    .replace(new RegExp(`\\b(href|action)=(["'])(?:\\./)?blog/([\\w-]+)\\.html`, "g"), `$1=$2${base}/blog/$3`)
+    .replace(new RegExp(`${base.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}/blog/([\\w-]+)\\.html`, "g"), `${base}/blog/$1`);
 }
 
 function rewriteFiles(dir) {
@@ -101,7 +109,11 @@ mkdirSync(out, { recursive: true });
 copyTree(root, out);
 writeFileSync(join(out, ".nojekyll"), "");
 
-for (const name of pageNames) prettyPage(name, name);
+for (const name of pageNames) {
+  prettyPage(name, name);
+  const dup = join(out, `${name}.html`);
+  if (existsSync(dup)) rmSync(dup);
+}
 
 const blogDir = join(out, "blog");
 if (existsSync(blogDir)) {
@@ -109,6 +121,7 @@ if (existsSync(blogDir)) {
     if (!name.endsWith(".html") || name === "index.html") continue;
     const slug = name.replace(/\.html$/i, "");
     prettyPage(`blog/${slug}`, join("blog", slug));
+    rmSync(join(out, "blog", name));
   }
 }
 

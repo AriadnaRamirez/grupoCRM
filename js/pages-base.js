@@ -41,6 +41,19 @@
       var next = fix(current);
       if (next !== current) el.setAttribute(attr, next);
     });
+    ["srcset", "data-srcset"].forEach(function (attr) {
+      var current = el.getAttribute(attr);
+      if (!current) return;
+      var next = current.split(",").map(function (part) {
+        var trimmed = part.trim();
+        if (!trimmed) return trimmed;
+        var bits = trimmed.split(/\s+/);
+        var url = bits.shift();
+        var updated = fix(url);
+        return bits.length ? updated + " " + bits.join(" ") : updated;
+      }).join(", ");
+      if (next !== current) el.setAttribute(attr, next);
+    });
     var style = el.getAttribute("style");
     if (style && style.indexOf("url(") !== -1) {
       el.setAttribute(
@@ -63,7 +76,7 @@
         if (node.nodeType !== 1) return;
         apply(node);
         if (node.querySelectorAll) {
-          node.querySelectorAll("[href], [src], [data-bg], [data-src], [action], [style]").forEach(apply);
+            node.querySelectorAll("[href], [src], [srcset], [data-bg], [data-src], [data-srcset], [action], [style]").forEach(apply);
         }
       });
     });

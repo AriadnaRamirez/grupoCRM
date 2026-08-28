@@ -1,6 +1,6 @@
 import { company, categories, products, services, sectors, faqs, clients, waUrl, safeDecode, catName, catCount, productBySku, productImg, productAlt, productUrl, readSku, relatedProducts, lookbook, lookAlt, lookFull, venues, carePoints, readyChecks, condo } from "./data.js";
 import { applySeo } from "./seo.js";
-import { rebaseDocument, withBase } from "./base.js";
+import { rebaseDocument, rebaseSrcset, withBase } from "./base.js";
 
 const fa = (cls) => `<i class="${cls}" aria-hidden="true"></i>`;
 const WA_ICON = fa("fa-brands fa-whatsapp wa-icon");
@@ -50,6 +50,58 @@ function absAsset(src) {
   return withBase(src.startsWith("/") ? src : `/${src}`);
 }
 
+function lookStem(item) {
+  const src = String(item?.src || item?.full || "");
+  const match = src.match(/galeria-[^./]+/);
+  return match ? match[0] : "";
+}
+
+function srcsetOf(prefix, stem, widths) {
+  return widths.map((w) => `${absAsset(`${prefix}${stem}-${w}.webp`)} ${w}w`).join(", ");
+}
+
+function cropSrcset(stem) {
+  return srcsetOf("/assets/img/opt/crop/", stem, [800, 1280, 1600]);
+}
+
+function fullSrcset(stem) {
+  return srcsetOf("/assets/img/opt/full/", stem, [800, 1400]);
+}
+
+function catalogSrcset(sku) {
+  return srcsetOf("/assets/img/opt/catalog/", sku, [400, 800]);
+}
+
+function lookThumbSrc(item) {
+  return absAsset(item?.src || lookFull(item));
+}
+
+function lookFullOpt(item) {
+  const stem = lookStem(item);
+  return stem ? absAsset(`/assets/img/opt/full/${stem}-1400.webp`) : absAsset(lookFull(item));
+}
+
+function catOptWebp(cover) {
+  const file = String(cover?.src || "").split("/").pop().replace(/\.(png|jpe?g|webp)$/i, "");
+  return file ? absAsset(`/assets/img/opt/${file}-480.webp`) : "";
+}
+
+function clientSrcset(src) {
+  const file = String(src || "").split("/").pop().replace(/\.(png|jpe?g|webp)$/i, "");
+  if (!file) return "";
+  return [160, 320].map((w) => `${absAsset(`/assets/img/opt/clients/${file}-${w}.webp`)} ${w}w`).join(", ");
+}
+
+function clientPicture(logo, { alt = "", extra = "", lazy = false } = {}) {
+  const src = absAsset(logo.src);
+  const srcset = clientSrcset(logo.src);
+  const loading = lazy ? ' loading="lazy"' : "";
+  return `<picture>
+    <source type="image/webp" srcset="${srcset}" sizes="160px">
+    <img${extra} src="${src}" alt="${alt}" width="160" height="72"${loading} decoding="async">
+  </picture>`;
+}
+
 function catCover(c) {
   const cover = CAT_COVER[c.id];
   if (cover && typeof cover === "object" && cover.src) {
@@ -63,9 +115,18 @@ function catCover(c) {
 function applyLazySrc(img) {
   if (!img) return;
   const src = img.dataset.src;
-  if (!src || img.getAttribute("src") === src) return;
-  img.src = src;
-  img.removeAttribute("data-src");
+  if (src && img.getAttribute("src") !== src) {
+    img.src = /^https?:/i.test(src) ? src : withBase(src);
+    img.removeAttribute("data-src");
+  }
+  if (img.dataset.srcset) {
+    img.srcset = rebaseSrcset(img.dataset.srcset);
+    img.removeAttribute("data-srcset");
+  }
+  img.closest("picture")?.querySelectorAll("source[data-srcset]").forEach((source) => {
+    source.srcset = rebaseSrcset(source.dataset.srcset);
+    source.removeAttribute("data-srcset");
+  });
 }
 
 function bindBgMediaLoad(el, src) {
@@ -89,10 +150,16 @@ function bindBgMediaLoad(el, src) {
 
 function applyLazyBg(el) {
   if (!el) return;
-  const src = withBase(el.dataset.bg);
-  if (!src) return;
-  el.dataset.bg = src;
+  if (el.dataset.bg) el.dataset.bg = withBase(el.dataset.bg);
   const photo = el.querySelector(".slide__photo") || el;
+  const img = photo.querySelector("img");
+  if (img) {
+    applyLazySrc(img);
+    bindMediaLoad(el);
+    return;
+  }
+  const src = el.dataset.bg;
+  if (!src) return;
   if (el.dataset.bgReady !== "1") {
     el.dataset.bgReady = "1";
     const url = `url("${src}")`;
@@ -114,10 +181,11 @@ function catalogExtendInner(defer = false) {
     .map((c) => {
       const cover = catCover(c);
       const n = catCount(c.id);
+      const webp = cover ? catOptWebp(cover) : "";
       const img = cover
         ? defer
-          ? `<img data-src="${cover.src}" alt="${escapeAttr(cover.alt)}" decoding="async">`
-          : `<img src="${cover.src}" alt="${escapeAttr(cover.alt)}" loading="lazy" decoding="async">`
+          ? `<picture><source type="image/webp" data-srcset="${webp}"><img data-src="${cover.src}" alt="${escapeAttr(cover.alt)}" decoding="async"></picture>`
+          : `<picture><source type="image/webp" srcset="${webp}"><img src="${cover.src}" alt="${escapeAttr(cover.alt)}" loading="lazy" decoding="async"></picture>`
         : "";
       return `<li>
         <a class="shop-dept" data-cat="${c.id}" href="${withBase(`/productos?cat=${c.id}#${c.id}`)}">
@@ -148,7 +216,10 @@ function catalogPickerInner(current = "all") {
   const mosaic = categories
     .map((c) => {
       const cover = catCover(c);
-      return cover ? `<img src="${cover.src}" alt="" aria-hidden="true" loading="lazy" decoding="async">` : "";
+      const webp = cover ? catOptWebp(cover) : "";
+      return cover
+        ? `<picture><source type="image/webp" srcset="${webp}"><img src="${cover.src}" alt="" aria-hidden="true" loading="lazy" decoding="async"></picture>`
+        : "";
     })
     .join("");
   const allCard = `<li>
@@ -166,8 +237,9 @@ function catalogPickerInner(current = "all") {
       const cover = catCover(c);
       const n = catCount(c.id);
       const active = current === c.id;
+      const webp = cover ? catOptWebp(cover) : "";
       const img = cover
-        ? `<img src="${cover.src}" alt="${escapeAttr(cover.alt)}" loading="lazy" decoding="async">`
+        ? `<picture><source type="image/webp" srcset="${webp}"><img src="${cover.src}" alt="${escapeAttr(cover.alt)}" loading="lazy" decoding="async"></picture>`
         : "";
       return `<li>
         <a class="shop-dept${active ? " is-active" : ""}" data-cat="${c.id}" href="${withBase(`/productos?cat=${c.id}#${c.id}`)}" aria-current="${active ? "page" : "false"}">
@@ -543,6 +615,7 @@ const MEDIA_WRAP = [
   ".about-mv-band__figure",
   ".home-contact__photo",
   ".peek-rail__card",
+  ".slide__photo",
   ".work-slide",
   ".error-page__figure",
   ".blog-card__media",
@@ -656,7 +729,10 @@ export function productCard(p, { quote = false } = {}) {
     <article class="shop-item shop-item--quote" data-cat="${p.cat}">
       <a class="shop-item__link" href="${href}" onclick="${remember}">
         <span class="shop-item__media">
-          <img src="${absAsset(productImg(p))}" alt="${escapeAttr(productAlt(p))}" width="3840" height="3840" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="${catalogSrcset(p.sku)}" sizes="(min-width: 1024px) 220px, 45vw">
+            <img src="${absAsset(productImg(p))}" alt="${escapeAttr(productAlt(p))}" width="400" height="400" loading="lazy" decoding="async">
+          </picture>
         </span>
         <span class="shop-item__info">
           <span class="shop-item__sku"><i class="shop-item__swatch" aria-hidden="true"></i>${p.sku}</span>
@@ -861,7 +937,7 @@ export function renderHomeCats() {
     .map((c) => {
       const cover = catCover(c);
       const media = cover
-        ? `<span class="cat-tile__media"><img src="${cover.src}" alt="${escapeAttr(cover.alt)}" loading="lazy" decoding="async"></span>`
+        ? `<span class="cat-tile__media"><picture><source type="image/webp" srcset="${catOptWebp(cover)}"><img src="${cover.src}" alt="${escapeAttr(cover.alt)}" width="480" height="320" loading="lazy" decoding="async"></picture></span>`
         : "";
       return `<li>
         <a class="cat-tile" data-cat="${c.id}" href="${withBase(`/productos?cat=${c.id}#${c.id}`)}">
@@ -1121,10 +1197,7 @@ export function bindLookbook() {
 
 function clientTile(c) {
   const logos = (c.logos || [])
-    .map(
-      (logo) =>
-        `<img src="${absAsset(logo.src)}" alt="${escapeAttr(logo.alt)}" loading="lazy" decoding="async">`
-    )
+    .map((logo) => clientPicture(logo, { alt: escapeAttr(logo.alt), lazy: true }))
     .join("");
   const media = `<span class="client-tile__media${c.ink ? " is-ink" : ""}${ (c.logos || []).length > 1 ? " is-pair" : ""}">${logos}</span>`;
   const body = `<span class="client-tile__body"><strong>${c.name}</strong></span>`;
@@ -1142,7 +1215,7 @@ function clientRailCard(c, { inert = false } = {}) {
     .map((logo) => {
       const round = c.round && !pair ? ' class="is-round"' : "";
       const alt = inert ? "" : escapeAttr(logo.alt);
-      return `<img${round} src="${absAsset(logo.src)}" alt="${alt}" width="160" height="72" decoding="async">`;
+      return clientPicture(logo, { alt, extra: round });
     })
     .join("");
   const cls = [
@@ -1404,12 +1477,6 @@ const HOME_CONTACT_GALLERY = [
   "galeria-bodega",
 ];
 
-function lookStem(item) {
-  const src = lookFull(item) || item?.src || "";
-  const match = String(src).match(/galeria-[^./]+/);
-  return match ? match[0] : "";
-}
-
 function homeGalleryPicks() {
   const available = lookbook.filter((item) => !HOME_GALLERY_USED.has(lookStem(item)));
   const picks = HOME_CONTACT_GALLERY.map((stem) => available.find((item) => lookStem(item) === stem)).filter(Boolean);
@@ -1424,9 +1491,12 @@ function homeGalleryPicks() {
 }
 
 function peekCard(item, i, { caption = false } = {}) {
-  const src = absAsset(lookFull(item));
+  const stem = lookStem(item);
   return `<button type="button" class="peek-rail__card" data-lb-open="${i}" aria-label="Ver ${escapeAttr(item.title)} en grande">
-    <img src="${src}" alt="${escapeAttr(lookAlt(item))}" width="480" height="600" loading="lazy" decoding="async">
+    <picture>
+      <source type="image/webp" srcset="${cropSrcset(stem)}" sizes="(min-width: 900px) 210px, 58vw">
+      <img src="${lookThumbSrc(item)}" alt="${escapeAttr(lookAlt(item))}" width="480" height="600" loading="lazy" decoding="async">
+    </picture>
     ${caption ? `<span class="peek-rail__cap"><strong>${item.title}</strong></span>` : ""}
   </button>`;
 }
@@ -1498,7 +1568,10 @@ export function renderProducto() {
       <section class="error-page">
         <div class="wrap error-page__box">
           <figure class="error-page__figure">
-            <img src="${withBase("/assets/img/mascot-inspector-crm.png")}" width="283" height="379" alt="Inspector CRM, mascota de Grupo CRM Extintores" loading="lazy" decoding="async">
+            <picture>
+              <source type="image/webp" srcset="${withBase("/assets/img/opt/mascot-inspector-crm.webp")}">
+              <img src="${withBase("/assets/img/mascot-inspector-crm.png")}" width="283" height="379" alt="Inspector CRM, mascota de Grupo CRM Extintores" loading="lazy" decoding="async">
+            </picture>
           </figure>
           <div class="error-page__copy">
             <p class="kicker">Equipo</p>
@@ -1538,7 +1611,10 @@ export function renderProducto() {
       <article class="ficha" data-cat="${p.cat}">
         <div class="ficha__grid">
           <figure class="ficha__photo">
-            <img src="${absAsset(productImg(p))}" alt="${escapeAttr(productAlt(p, { detail: true }))}" width="3840" height="3840" decoding="async" fetchpriority="high">
+            <picture>
+              <source type="image/webp" srcset="${catalogSrcset(p.sku)}" sizes="(min-width: 900px) 420px, 90vw">
+              <img src="${absAsset(productImg(p))}" alt="${escapeAttr(productAlt(p, { detail: true }))}" width="800" height="800" decoding="async" fetchpriority="high">
+            </picture>
           </figure>
           <div class="ficha__copy">
             <p class="kicker">${catName(p.cat)}</p>
@@ -1798,7 +1874,7 @@ function paintLightbox() {
   if (!item) return;
   const stage = lightbox.el.querySelector(".lightbox__stage");
   const img = lightbox.el.querySelector("[data-lb-img]");
-  const src = absAsset(lookFull(item));
+  const src = lookFullOpt(item);
   let next = src;
   try {
     next = new URL(src, location.origin).href;
@@ -1888,7 +1964,10 @@ export function renderGaleria() {
       ? list
           .map(
             (item, i) => `<button type="button" class="gallery-tile" data-lb="${i}" aria-label="Ver ${escapeAttr(item.title)} en grande">
-              <img src="${absAsset(lookFull(item))}" alt="${escapeAttr(lookAlt(item))}" loading="lazy" decoding="async" width="480" height="360">
+              <picture>
+                <source type="image/webp" srcset="${cropSrcset(lookStem(item))}" sizes="(min-width: 900px) 280px, 45vw">
+                <img src="${lookThumbSrc(item)}" alt="${escapeAttr(lookAlt(item))}" loading="lazy" decoding="async" width="480" height="360">
+              </picture>
               <span class="gallery-tile__cap">
                 <strong>${item.title}</strong>
               </span>

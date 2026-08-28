@@ -1147,8 +1147,30 @@ body.is-nav-open { overflow: hidden; }
   backface-visibility: hidden;
   transform: translateZ(0);
 }
-.slide--low .slide__photo {
-  background-position: center bottom;
+.slide__photo picture,
+.slide__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.slide__photo img {
+  object-fit: cover;
+  object-position: center bottom;
+}
+.shop-item__media picture,
+.cat-tile__media picture,
+.peek-rail__card picture,
+.ficha__photo picture,
+.gallery-tile picture,
+.home-contact__photo picture,
+.shop-dept__media picture,
+.about-teaser__mascot picture,
+.error-page__figure picture,
+.client-rail__media picture,
+.client-tile__media picture {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 .slide::before {
   content: "";
@@ -5532,6 +5554,9 @@ body[data-page="error"] [data-footer] { flex: 0 0 auto; margin-top: auto; }
     width: 100%;
     height: 100%;
     background-position: center bottom;
+  }
+  .hero-slider:not(.home-gallery) .slide__photo img {
+    object-position: center bottom;
   }
   .hero-slider:not(.home-gallery) .slide::before {
     inset: 0;

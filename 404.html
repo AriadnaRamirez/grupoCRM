@@ -2,6 +2,8 @@
 <html lang="es-MX">
 <head>
   <meta charset="UTF-8">
+  
+
   <script>
   /* pages-base */
   /* Sync into HTML with: node scripts/inject-pages-base.mjs */
@@ -47,55 +49,17 @@
         var next = fix(current);
         if (next !== current) el.setAttribute(attr, next);
       });
-      var style = el.getAttribute("style");
-      if (style && style.indexOf("url(") !== -1) {
-        el.setAttribute(
-          "style",
-          style.replace(/url\((['"]?)([^'")]+)\1\)/g, function (_, quote, url) {
-            return "url(" + quote + fix(url) + quote + ")";
-          })
-        );
-      }
-    }
-    if (!document.querySelector("base")) {
-      var tag = document.createElement("base");
-      tag.href = base + "/";
-      var head = document.head || document.documentElement;
-      head.insertBefore(tag, head.firstChild);
-    }
-    new MutationObserver(function (records) {
-      records.forEach(function (record) {
-        record.addedNodes.forEach(function (node) {
-          if (node.nodeType !== 1) return;
-          apply(node);
-          if (node.querySelectorAll) {
-            node.querySelectorAll("[href], [src], [data-bg], [data-src], [action], [style]").forEach(apply);
-          }
-        });
-      });
-    }).observe(document.documentElement, { childList: true, subtree: true });
-  })();
-  </script>
-  <script>
-  /* pages-base */
-  /* Sync into HTML with: node scripts/inject-pages-base.mjs */
-  (function () {
-    if (typeof location === "undefined" || !/\.github\.io$/i.test(location.hostname)) return;
-    var first = location.pathname.split("/").filter(Boolean)[0] || "grupoCRM";
-    var base = "/" + first;
-    function fix(value) {
-      if (!value || /^(https?:|data:|mailto:|tel:|javascript:|#)/i.test(value)) return value;
-      if (value === base || value.indexOf(base + "/") === 0) return value;
-      if (value === "/") return base + "/";
-      if (value.charAt(0) === "/") return base + value;
-      return value;
-    }
-    function apply(el) {
-      if (!el || !el.getAttribute) return;
-      ["href", "src", "data-bg", "data-src", "action"].forEach(function (attr) {
+      ["srcset", "data-srcset"].forEach(function (attr) {
         var current = el.getAttribute(attr);
         if (!current) return;
-        var next = fix(current);
+        var next = current.split(",").map(function (part) {
+          var trimmed = part.trim();
+          if (!trimmed) return trimmed;
+          var bits = trimmed.split(/\s+/);
+          var url = bits.shift();
+          var updated = fix(url);
+          return bits.length ? updated + " " + bits.join(" ") : updated;
+        }).join(", ");
         if (next !== current) el.setAttribute(attr, next);
       });
       var style = el.getAttribute("style");
@@ -120,14 +84,14 @@
           if (node.nodeType !== 1) return;
           apply(node);
           if (node.querySelectorAll) {
-            node.querySelectorAll("[href], [src], [data-bg], [data-src], [action], [style]").forEach(apply);
+              node.querySelectorAll("[href], [src], [srcset], [data-bg], [data-src], [data-srcset], [action], [style]").forEach(apply);
           }
         });
       });
     }).observe(document.documentElement, { childList: true, subtree: true });
   })();
   </script>
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Página no encontrada | Grupo CRM Extintores</title>
   <meta name="description" content="Esta página no existe. Vuelva al inicio de Grupo CRM Extintores para cotizar extintores y equipo contra incendio en CDMX.">
   <meta name="robots" content="noindex, nofollow">

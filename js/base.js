@@ -64,13 +64,34 @@ function rebaseValue(value) {
   return next === value ? value : next;
 }
 
+export function rebaseSrcset(value) {
+  if (!value) return value;
+  return String(value)
+    .split(",")
+    .map((part) => {
+      const trimmed = part.trim();
+      if (!trimmed) return trimmed;
+      const bits = trimmed.split(/\s+/);
+      const url = bits.shift();
+      const next = withBase(url);
+      return bits.length ? `${next} ${bits.join(" ")}` : next;
+    })
+    .join(", ");
+}
+
 export function rebaseDocument(root = document) {
   if (!basePath() || !root?.querySelectorAll) return;
-  root.querySelectorAll("[href], [src], [data-bg], [data-src], [action]").forEach((el) => {
+  root.querySelectorAll("[href], [src], [srcset], [data-bg], [data-src], [data-srcset], [action]").forEach((el) => {
     ["href", "src", "data-bg", "data-src", "action"].forEach((attr) => {
       const current = el.getAttribute(attr);
       if (!current) return;
       const next = rebaseValue(current);
+      if (next !== current) el.setAttribute(attr, next);
+    });
+    ["srcset", "data-srcset"].forEach((attr) => {
+      const current = el.getAttribute(attr);
+      if (!current) return;
+      const next = rebaseSrcset(current);
       if (next !== current) el.setAttribute(attr, next);
     });
     const style = el.getAttribute("style");

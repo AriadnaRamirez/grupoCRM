@@ -2,6 +2,8 @@
 <html lang="es-MX">
 <head>
   <meta charset="UTF-8">
+  
+
   <script>
   /* pages-base */
   /* Sync into HTML with: node scripts/inject-pages-base.mjs */
@@ -47,6 +49,19 @@
         var next = fix(current);
         if (next !== current) el.setAttribute(attr, next);
       });
+      ["srcset", "data-srcset"].forEach(function (attr) {
+        var current = el.getAttribute(attr);
+        if (!current) return;
+        var next = current.split(",").map(function (part) {
+          var trimmed = part.trim();
+          if (!trimmed) return trimmed;
+          var bits = trimmed.split(/\s+/);
+          var url = bits.shift();
+          var updated = fix(url);
+          return bits.length ? updated + " " + bits.join(" ") : updated;
+        }).join(", ");
+        if (next !== current) el.setAttribute(attr, next);
+      });
       var style = el.getAttribute("style");
       if (style && style.indexOf("url(") !== -1) {
         el.setAttribute(
@@ -69,14 +84,14 @@
           if (node.nodeType !== 1) return;
           apply(node);
           if (node.querySelectorAll) {
-            node.querySelectorAll("[href], [src], [data-bg], [data-src], [action], [style]").forEach(apply);
+              node.querySelectorAll("[href], [src], [srcset], [data-bg], [data-src], [data-srcset], [action], [style]").forEach(apply);
           }
         });
       });
     }).observe(document.documentElement, { childList: true, subtree: true });
   })();
   </script>
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Extintores y recarga en CDMX | Grupo CRM Extintores</title>
   <meta name="description" content="Extintores, recarga y primera visita sin costo en CDMX y Estado de México. Cumpla con Protección Civil y evite multas. Cotice por WhatsApp 55 5438 3241.">
   <meta name="author" content="Grupo CRM Extintores">
@@ -102,7 +117,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="preload" as="image" href="assets/img/crop/galeria-evento.jpg" fetchpriority="high">
+  <link rel="preload" as="image" type="image/webp" href="assets/img/opt/crop/galeria-evento-1280.webp" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <link rel="apple-touch-icon" href="assets/img/favicon.png">
@@ -128,7 +143,12 @@
 
   <section class="hero-slider" id="inicio" data-slider aria-roledescription="carrusel" aria-label="Presentación de Grupo CRM Extintores">
     <article class="slide slide--low is-active" data-bg="assets/img/crop/galeria-evento.jpg">
-      <span class="slide__photo media-load" aria-hidden="true" style="background-image:url('assets/img/crop/galeria-evento.jpg')"></span>
+      <span class="slide__photo media-load" aria-hidden="true">
+        <picture>
+          <source type="image/webp" srcset="assets/img/opt/crop/galeria-evento-800.webp 800w, assets/img/opt/crop/galeria-evento-1280.webp 1280w, assets/img/opt/crop/galeria-evento-1600.webp 1600w" sizes="(max-width: 760px) 100vw, min(50vw, 720px)">
+          <img src="assets/img/crop/galeria-evento.jpg" alt="" width="1600" height="716" fetchpriority="high" decoding="async">
+        </picture>
+      </span>
       <div class="wrap">
         <div class="hero-copy">
           <h1>Cumpla con Protección Civil y evite multas.</h1>
@@ -141,7 +161,12 @@
       </div>
     </article>
     <article class="slide" data-bg="assets/img/crop/galeria-inventario.jpg">
-      <span class="slide__photo" aria-hidden="true"></span>
+      <span class="slide__photo" aria-hidden="true">
+        <picture>
+          <source type="image/webp" data-srcset="assets/img/opt/crop/galeria-inventario-800.webp 800w, assets/img/opt/crop/galeria-inventario-1280.webp 1280w, assets/img/opt/crop/galeria-inventario-1600.webp 1600w" sizes="(max-width: 760px) 100vw, min(50vw, 720px)">
+          <img data-src="assets/img/crop/galeria-inventario.jpg" alt="" width="1600" height="1083" decoding="async">
+        </picture>
+      </span>
       <div class="wrap">
         <div class="hero-copy">
           <h2>El equipo que su negocio necesita.</h2>
@@ -154,7 +179,12 @@
       </div>
     </article>
     <article class="slide" data-bg="assets/img/crop/galeria-extintores-sitio.jpg">
-      <span class="slide__photo" aria-hidden="true"></span>
+      <span class="slide__photo" aria-hidden="true">
+        <picture>
+          <source type="image/webp" data-srcset="assets/img/opt/crop/galeria-extintores-sitio-800.webp 800w, assets/img/opt/crop/galeria-extintores-sitio-1280.webp 1280w, assets/img/opt/crop/galeria-extintores-sitio-1600.webp 1600w" sizes="(max-width: 760px) 100vw, min(50vw, 720px)">
+          <img data-src="assets/img/crop/galeria-extintores-sitio.jpg" alt="" width="1600" height="1082" decoding="async">
+        </picture>
+      </span>
       <div class="wrap">
         <div class="hero-copy">
           <h2>Su primera visita es sin costo.</h2>
@@ -196,7 +226,7 @@
   <section class="section section--tight section--nosotros" id="nosotros">
     <div class="wrap about-teaser">
       <figure class="about-teaser__mascot">
-        <img src="assets/img/mascot-inspector-crm.png" width="283" height="379" alt="Inspector CRM, mascota de Grupo CRM Extintores" loading="lazy" decoding="async">
+        <img src="assets/img/opt/mascot-inspector-crm.webp" width="283" height="379" alt="Inspector CRM, mascota de Grupo CRM Extintores" loading="lazy" decoding="async">
       </figure>
       <div>
         <p class="kicker">¿Quiénes somos?</p>
@@ -313,7 +343,10 @@
         </form>
       </div>
       <figure class="home-contact__photo">
-        <img src="assets/img/full/galeria-comercio.jpg" width="1200" height="1600" alt="Extintores instalados en un comercio por Grupo CRM" loading="lazy" decoding="async">
+        <picture>
+          <source type="image/webp" srcset="assets/img/opt/full/galeria-comercio-800.webp 800w, assets/img/opt/full/galeria-comercio-1400.webp 1400w" sizes="(min-width: 901px) 420px, 100vw">
+          <img src="assets/img/opt/full/galeria-comercio-800.webp" width="800" height="748" alt="Extintores instalados en un comercio por Grupo CRM" loading="lazy" decoding="async">
+        </picture>
       </figure>
     </div>
   </section>

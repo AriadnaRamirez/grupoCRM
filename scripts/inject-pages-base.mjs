@@ -8,7 +8,7 @@ const snippet = `  <script>\n  /* pages-base */\n${boot
   .split("\n")
   .map((line) => `  ${line}`)
   .join("\n")}\n  </script>\n`;
-const block = /\n\s*<script>\s*\/\* pages-base \*\/[\s\S]*?<\/script>\n/;
+const block = /<script>\s*\/\* pages-base \*\/[\s\S]*?<\/script>\s*/g;
 
 function walk(dir, files = []) {
   for (const name of readdirSync(dir)) {
@@ -28,7 +28,7 @@ for (const file of walk(root)) {
     console.warn("skip (no charset)", file);
     continue;
   }
-  html = html.replace(/(<meta charset="UTF-8">\s*\n)/i, `$1${snippet}`);
+  html = html.replace(/(<meta charset="UTF-8">\s*\r?\n)/i, `$1${snippet}`);
   writeFileSync(file, html);
   changed += 1;
 }

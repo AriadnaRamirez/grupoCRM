@@ -1538,7 +1538,7 @@ export function bindErrorReturn() {
 }
 
 const HOME_GALLERY_USED = new Set([
-  "galeria-evento",
+  "galeria-vapiano",
   "galeria-inventario",
   "galeria-extintores-sitio",
 ]);
@@ -1546,7 +1546,7 @@ const HOME_GALLERY_USED = new Set([
 const HOME_CONTACT_GALLERY = [
   "galeria-deportivo",
   "galeria-restaurante",
-  "galeria-vapiano",
+  "galeria-campus",
   "galeria-automotriz",
   "galeria-bodega",
 ];

@@ -104,6 +104,14 @@
     }
   })();
   </script>
+  <style id="css-boot">
+  /* css-boot: hide until local CSS + header are ready */
+  html:not(.is-booted) { visibility: hidden; background: #fff; }
+  </style>
+  <noscript><style>html { visibility: visible !important; }</style></noscript>
+  <script>setTimeout(function () { document.documentElement.classList.add("is-booted"); }, 4000);</script>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Blog de extintores y equipo contra incendios | Grupo CRM</title>
   <meta name="description" content="Guías de extintores en CDMX y Estado de México: cómo usarlos, tipos de 6 kg, NOM-002-STPS-2010 y equipo contra incendios. Cotice con Grupo CRM.">
@@ -128,11 +136,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="/assets/img/favicon.png">
   <link rel="apple-touch-icon" href="/assets/img/favicon.png">
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=optional" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=optional"></noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
 </head>
 <body data-page="blog">
   <a class="skip-link" href="#contenido">Ir al contenido</a>
@@ -140,8 +149,13 @@
   <main id="contenido">
   <section class="section blog-hub">
     <div class="wrap">
-      <p class="kicker">Guías</p>
-      <h1>Blog de extintores y equipo contra incendios</h1>
+      <header class="blog-hub__head">
+        <div>
+          <p class="kicker">Guías</p>
+          <h1>Blog de extintores y equipo contra incendios</h1>
+        </div>
+        <a class="blog-hub__cta" href="/contacto">Pida su cotización <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a>
+      </header>
       <hr class="rule rule-left">
       <p class="blog-hub__lead">Orientación clara y sin tecnicismos para quien busca extintores en la Ciudad de México o el Estado de México. Somos una empresa 100% mexicana: venta, recarga e instalación.</p>
       <p class="blog-hub__lead">Aquí le explicamos los tipos de fuego y cómo elegir el extintor, cómo usarlo, qué pide la NOM-002-STPS-2010 en la práctica y cómo armar el equipo contra incendios de un local, un condominio o una oficina. Si algo no le queda claro, escríbanos con confianza.</p>
@@ -149,11 +163,12 @@
         <article class="blog-card">
           <a class="blog-card__media blog-card__media--sku" href="/blog/tipos-de-fuego">
             <picture>
-              <source type="image/webp" srcset="/assets/img/opt/catalog/CRM-0003-400.webp 400w, /assets/img/opt/catalog/CRM-0003-800.webp 800w" sizes="(min-width: 800px) 360px, 100vw">
+              <source type="image/webp" srcset="/assets/img/opt/catalog/CRM-0003-400.webp 400w, /assets/img/opt/catalog/CRM-0003-800.webp 800w" sizes="(min-width: 900px) 360px, 50vw">
               <img src="/assets/img/opt/catalog/CRM-0003-400.webp" alt="Extintor Grupo CRM de polvo químico seco ABC" width="800" height="800" loading="lazy" decoding="async">
             </picture>
           </a>
           <div class="blog-card__body">
+            <time class="blog-card__date" datetime="2026-08-27">27 de agosto de 2026</time>
             <p class="kicker">Guía práctica</p>
             <h2><a href="/blog/tipos-de-fuego">Tipos de fuego y cómo elegir el mejor extintor</a></h2>
             <p>Qué cubre cada clase de fuego y cómo elegir PQS ABC, CO₂, agua o tipo K según su condominio, restaurante u oficina.</p>
@@ -163,11 +178,12 @@
         <article class="blog-card">
           <a class="blog-card__media" href="/blog/como-usar-un-extintor">
             <picture>
-              <source type="image/webp" srcset="/assets/img/opt/categoria-extintores-480.webp 480w, /assets/img/opt/categoria-extintores-960.webp 960w" sizes="(min-width: 800px) 360px, 100vw">
+              <source type="image/webp" srcset="/assets/img/opt/categoria-extintores-480.webp 480w, /assets/img/opt/categoria-extintores-960.webp 960w" sizes="(min-width: 900px) 360px, 50vw">
               <img src="/assets/img/opt/categoria-extintores-480.webp" alt="Extintor montado en pared" width="800" height="450" loading="lazy" decoding="async">
             </picture>
           </a>
           <div class="blog-card__body">
+            <time class="blog-card__date" datetime="2026-08-24">24 de agosto de 2026</time>
             <p class="kicker">Guía práctica</p>
             <h2><a href="/blog/como-usar-un-extintor">Cómo usar un extintor ante un conato de incendio</a></h2>
             <p>Partes del extintor, qué contiene y cómo actuar solo si el fuego sigue en su etapa inicial.</p>
@@ -177,11 +193,12 @@
         <article class="blog-card">
           <a class="blog-card__media" href="/blog/extintores-cdmx">
             <picture>
-              <source type="image/webp" srcset="/assets/img/opt/crop/galeria-extintores-sitio-800.webp 800w, /assets/img/opt/crop/galeria-extintores-sitio-1280.webp 1280w" sizes="(min-width: 800px) 360px, 100vw">
+              <source type="image/webp" srcset="/assets/img/opt/crop/galeria-extintores-sitio-800.webp 800w, /assets/img/opt/crop/galeria-extintores-sitio-1280.webp 1280w" sizes="(min-width: 900px) 360px, 50vw">
               <img src="/assets/img/opt/crop/galeria-extintores-sitio-800.webp" alt="Extintores instalados en un establecimiento" width="800" height="450" loading="lazy" decoding="async">
             </picture>
           </a>
           <div class="blog-card__body">
+            <time class="blog-card__date" datetime="2026-08-24">24 de agosto de 2026</time>
             <p class="kicker">Cobertura</p>
             <h2><a href="/blog/extintores-cdmx">Extintores en CDMX y Estado de México</a></h2>
             <p>Empresa mexicana para condominios, restaurantes y oficinas en CDMX y Estado de México.</p>
@@ -191,11 +208,12 @@
         <article class="blog-card">
           <a class="blog-card__media" href="/blog/extintor-6-kg">
             <picture>
-              <source type="image/webp" srcset="/assets/img/opt/catalog/CRM-0004-400.webp 400w, /assets/img/opt/catalog/CRM-0004-800.webp 800w" sizes="(min-width: 800px) 360px, 100vw">
+              <source type="image/webp" srcset="/assets/img/opt/catalog/CRM-0004-400.webp 400w, /assets/img/opt/catalog/CRM-0004-800.webp 800w" sizes="(min-width: 900px) 360px, 50vw">
               <img src="/assets/img/opt/catalog/CRM-0004-400.webp" alt="Extintor de PQS ABC de 6.0 kg" width="800" height="450" loading="lazy" decoding="async">
             </picture>
           </a>
           <div class="blog-card__body">
+            <time class="blog-card__date" datetime="2026-08-24">24 de agosto de 2026</time>
             <p class="kicker">Catálogo</p>
             <h2><a href="/blog/extintor-6-kg">Extintor de 6 kg: tipos, usos y cómo cotizar</a></h2>
             <p>PQS, CO₂, agua y qué implica un extintor automático. Le ayudamos a elegir el que de verdad necesita.</p>
@@ -205,11 +223,12 @@
         <article class="blog-card">
           <a class="blog-card__media" href="/blog/nom-002-stps-2010">
             <picture>
-              <source type="image/webp" srcset="/assets/img/opt/categoria-senalamiento-vial-480.webp 480w, /assets/img/opt/categoria-senalamiento-vial-960.webp 960w" sizes="(min-width: 800px) 360px, 100vw">
+              <source type="image/webp" srcset="/assets/img/opt/categoria-senalamiento-vial-480.webp 480w, /assets/img/opt/categoria-senalamiento-vial-960.webp 960w" sizes="(min-width: 900px) 360px, 50vw">
               <img src="/assets/img/opt/categoria-senalamiento-vial-480.webp" alt="Señalamientos de seguridad y vialidad" width="800" height="450" loading="lazy" decoding="async">
             </picture>
           </a>
           <div class="blog-card__body">
+            <time class="blog-card__date" datetime="2026-08-24">24 de agosto de 2026</time>
             <p class="kicker">Normatividad</p>
             <h2><a href="/blog/nom-002-stps-2010">NOM-002-STPS-2010: señalización y punto de reunión</a></h2>
             <p>Prevención en centros de trabajo, señales del extintor, punto de reunión y botiquín.</p>
@@ -219,11 +238,12 @@
         <article class="blog-card">
           <a class="blog-card__media" href="/blog/botiquin-primeros-auxilios">
             <picture>
-              <source type="image/webp" srcset="/assets/img/opt/categoria-botiquines-480.webp 480w, /assets/img/opt/categoria-botiquines-960.webp 960w" sizes="(min-width: 800px) 360px, 100vw">
+              <source type="image/webp" srcset="/assets/img/opt/categoria-botiquines-480.webp 480w, /assets/img/opt/categoria-botiquines-960.webp 960w" sizes="(min-width: 900px) 360px, 50vw">
               <img src="/assets/img/opt/categoria-botiquines-480.webp" alt="Botiquín de emergencia de pared" width="800" height="450" loading="lazy" decoding="async">
             </picture>
           </a>
           <div class="blog-card__body">
+            <time class="blog-card__date" datetime="2026-08-24">24 de agosto de 2026</time>
             <p class="kicker">Catálogo</p>
             <h2><a href="/blog/botiquin-primeros-auxilios">Botiquín de primeros auxilios para su negocio</a></h2>
             <p>Tres tamaños de pared para completar el equipo de emergencia de su local o empresa.</p>

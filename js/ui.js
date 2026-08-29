@@ -1,4 +1,4 @@
-import { company, categories, products, services, sectors, faqs, clients, waUrl, safeDecode, catName, catCount, productBySku, productImg, productAlt, productUrl, readSku, relatedProducts, lookbook, lookAlt, lookFull, venues, carePoints, readyChecks, condo } from "./data.js";
+import { company, categories, products, services, courses, sectors, faqs, clients, waUrl, safeDecode, catName, catCount, productBySku, productImg, productAlt, productUrl, readSku, relatedProducts, lookbook, lookAlt, lookFull, venues, carePoints, readyChecks, condo } from "./data.js";
 import { applySeo } from "./seo.js";
 import { rebaseDocument, rebaseSrcset, withBase } from "./base.js";
 
@@ -10,7 +10,16 @@ const PHONE_ICON = fa("fa-solid fa-phone phone-icon");
 const MAIL_ICON = fa("fa-solid fa-envelope mail-icon");
 const SEARCH_ICON = fa("fa-solid fa-magnifying-glass");
 const CHEV_DOWN = fa("fa-solid fa-chevron-down nav-drop__chevron");
-const LOC_ICON = fa("fa-solid fa-location-dot topbar__pin");
+
+function topIcon(name, inner) {
+  return `<svg class="topbar__icon topbar__icon--${name}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${inner}</svg>`;
+}
+const TOPBAR_PHONE = topIcon("phone", `<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>`);
+const TOPBAR_WA = topIcon("whatsapp", `<path d="M8.2 19.2A9 9 0 1 0 4.9 16L4 20.6Z"/><path d="M9.3 8.7h1.5l.6 1.6-1.1.6a6 6 0 0 0 3.1 3.1l.6-1.1 1.6.6v1.5c0 .4-.3.8-.7.9-3 .4-4.7-1.3-5.1-4.3-.1-.4.2-.8.5-.9Z"/>`);
+const TOPBAR_MAIL = topIcon("mail", `<rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>`);
+const TOPBAR_PIN = topIcon("pin", `<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>`);
+const TOPBAR_FB = topIcon("facebook", `<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>`);
+const TOPBAR_IG = topIcon("instagram", `<rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>`);
 
 function escapeAttr(value) {
   return String(value ?? "")
@@ -38,11 +47,11 @@ const HOME_VALUE_ICONS = [
 
 const CAT_COVER = {
   extintores: { src: "/assets/img/catalog/CRM-0003.png", alt: "Extintor Grupo CRM de polvo químico seco ABC", photo: false },
-  chalecos: { src: "/assets/img/categoria-chalecos.png", alt: "Brigada con chalecos de seguridad", photo: true },
-  "senalamiento-vial": { src: "/assets/img/categoria-senalamiento-vial.png", alt: "Señalamientos viales", photo: true },
-  "gabinetes-herrajes": { src: "/assets/img/categoria-gabinetes-herrajes.png", alt: "Gabinete para extintor", photo: true },
-  botiquines: { src: "/assets/img/categoria-botiquines.png", alt: "Botiquín de emergencia", photo: true },
-  "equipo-proteccion": { src: "/assets/img/categoria-equipo-proteccion.png", alt: "Equipo de protección personal", photo: true },
+  chalecos: { src: "/assets/img/catalog/CRM-0020.png", alt: "Chaleco de malla para brigadas Grupo CRM", photo: false },
+  "senalamiento-vial": { src: "/assets/img/catalog/CRM-0023.png", alt: "Cono vial flexible Grupo CRM", photo: false },
+  "gabinetes-herrajes": { src: "/assets/img/catalog/CRM-0040.png", alt: "Gabinete para extintor Grupo CRM", photo: false },
+  botiquines: { src: "/assets/img/catalog/CRM-0047.png", alt: "Botiquín metálico de pared Grupo CRM", photo: false },
+  "equipo-proteccion": { src: "/assets/img/catalog/CRM-0054.png", alt: "Casco de seguridad Grupo CRM", photo: false },
 };
 
 function absAsset(src) {
@@ -72,9 +81,11 @@ function catalogSrcset(sku) {
   return srcsetOf("/assets/img/opt/catalog/", sku, [400, 800]);
 }
 
-function lookThumbSrc(item) {
+function lookThumbSrc(item, variant = "crop") {
   const stem = lookStem(item);
-  return stem ? absAsset(`/assets/img/opt/crop/${stem}-800.webp`) : absAsset(item?.src || lookFull(item));
+  if (!stem) return absAsset(item?.src || lookFull(item));
+  const folder = variant === "full" ? "full" : "crop";
+  return absAsset(`/assets/img/opt/${folder}/${stem}-800.webp`);
 }
 
 function lookFullOpt(item) {
@@ -139,11 +150,15 @@ function clientPicture(logo, { alt = "", extra = "", lazy = false } = {}) {
   </picture>`;
 }
 
-function lookPicture(item, { sizes, lazy = true, width = 480, height = 360, alt = "", extra = "" } = {}) {
+function lookPicture(item, { sizes, lazy = true, width = 480, height, alt = "", extra = "", variant = "crop" } = {}) {
   const loading = lazy ? ' loading="lazy"' : "";
+  const stem = lookStem(item);
+  const srcset = variant === "full" ? fullSrcset(stem) : cropSrcset(stem);
+  const src = lookThumbSrc(item, variant);
+  const dims = height ? ` width="${width}" height="${height}"` : ` width="${width}"`;
   return `<picture>
-    <source type="image/webp" srcset="${cropSrcset(lookStem(item))}" sizes="${sizes}">
-    <img src="${lookThumbSrc(item)}" alt="${escapeAttr(alt)}" width="${width}" height="${height}"${loading} decoding="async"${extra}>
+    <source type="image/webp" srcset="${srcset}" sizes="${sizes}">
+    <img src="${src}" alt="${escapeAttr(alt)}"${dims}${loading} decoding="async"${extra}>
   </picture>`;
 }
 
@@ -235,7 +250,7 @@ function catalogExtendInner(defer = false) {
         : "";
       return `<li>
         <a class="shop-dept" data-cat="${c.id}" href="${withBase(`/productos?cat=${c.id}#${c.id}`)}">
-          <span class="shop-dept__media${cover?.photo ? " shop-dept__media--photo" : ""}">
+          <span class="shop-dept__media${cover?.photo ? " shop-dept__media--photo" : " shop-dept__media--sku"}">
             ${img}
           </span>
           <span class="shop-dept__body">
@@ -291,7 +306,7 @@ function catalogPickerInner(current = "all") {
         : "";
       return `<li>
         <a class="shop-dept${active ? " is-active" : ""}" data-cat="${c.id}" href="${withBase(`/productos?cat=${c.id}#${c.id}`)}" aria-current="${active ? "page" : "false"}">
-          <span class="shop-dept__media${cover?.photo ? " shop-dept__media--photo" : ""}">
+          <span class="shop-dept__media${cover?.photo ? " shop-dept__media--photo" : " shop-dept__media--sku"}">
             ${img}
           </span>
           <span class="shop-dept__body">
@@ -352,15 +367,15 @@ function headerHTML(page) {
       <div class="site-topbar">
         <div class="wrap topbar__inner">
           <div class="topbar__left">
-            <a class="topbar__tel" href="tel:${company.phoneTel}" aria-label="Llámenos al ${company.phone}">${PHONE_ICON}<span>${company.phone}</span></a>
-            <a class="topbar__tel" href="${waUrl()}" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp ${company.whatsappShow}">${WA_ICON}<span>${company.whatsappShow}</span></a>
-            <a class="topbar__tel" href="mailto:${company.email}">${MAIL_ICON}<span class="topbar__full">${company.email}</span><span class="topbar__short">Correo</span></a>
+            <a class="topbar__tel" href="tel:${company.phoneTel}" aria-label="Llámenos al ${company.phone}">${TOPBAR_PHONE}<span>${company.phone}</span></a>
+            <a class="topbar__tel" href="${waUrl()}" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp ${company.whatsappShow}">${TOPBAR_WA}<span>${company.whatsappShow}</span></a>
+            <a class="topbar__tel" href="mailto:${company.email}">${TOPBAR_MAIL}<span class="topbar__full">${company.email}</span><span class="topbar__short">Correo</span></a>
           </div>
           <div class="topbar__right">
-            <p class="topbar__place">${LOC_ICON}<span class="topbar__full">${company.location}</span><span class="topbar__short">CDMX y Edo. Mex</span></p>
+            <p class="topbar__place">${TOPBAR_PIN}<span class="topbar__full">${company.location}</span><span class="topbar__short">CDMX y Edo. Mex</span></p>
             <p class="topbar__social">
-              <a href="${company.facebookUrl}" target="_blank" rel="noopener noreferrer" aria-label="Facebook, se abre en una ventana nueva">${FB_ICON}</a>
-              <a href="${company.instagramUrl}" target="_blank" rel="noopener noreferrer" aria-label="Instagram, se abre en una ventana nueva">${IG_ICON}</a>
+              <a href="${company.facebookUrl}" target="_blank" rel="noopener noreferrer" aria-label="Facebook, se abre en una ventana nueva">${TOPBAR_FB}</a>
+              <a href="${company.instagramUrl}" target="_blank" rel="noopener noreferrer" aria-label="Instagram, se abre en una ventana nueva">${TOPBAR_IG}</a>
             </p>
           </div>
         </div>
@@ -387,18 +402,21 @@ function headerHTML(page) {
             ${item("/blog", "blog", "Blog")}
             ${item("/contacto", "contacto", "Contacto")}
           </nav>
+          <form class="nav-search" action="${withBase("/productos")}" method="get" role="search">
+            <div class="nav-search__field">
+              <label class="sr-only" for="nav-search-q">Buscar equipo</label>
+              <input id="nav-search-q" type="search" name="q" placeholder="Buscar equipo" autocomplete="off" data-nav-search>
+              <button type="submit" aria-label="Buscar">
+                ${SEARCH_ICON}
+                <span class="nav-search__label">Buscar</span>
+              </button>
+            </div>
+          </form>
           <div class="header__end">
             <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="menu">
               <span class="sr-only">Abrir menú</span>
               <span class="nav-toggle__icon" aria-hidden="true"><span></span><span></span><span></span></span>
             </button>
-            <form class="nav-search" action="${withBase("/productos")}" method="get" role="search">
-              <div class="nav-search__field">
-                <label class="sr-only" for="nav-search-q">Buscar equipo</label>
-                <input id="nav-search-q" type="search" name="q" placeholder="Buscar equipo o SKU" autocomplete="off" data-nav-search>
-                <button type="submit" aria-label="Buscar">${SEARCH_ICON}</button>
-              </div>
-            </form>
             <a class="header__cta" href="${waUrl()}" target="_blank" rel="noopener noreferrer" aria-label="Cotizar por WhatsApp">${WA_ICON} <span>Cotizar</span></a>
           </div>
         </div>
@@ -435,6 +453,7 @@ function footerHTML() {
             <li><a href="${withBase("/")}">Inicio</a></li>
             <li><a href="${withBase("/nosotros")}">Nosotros</a></li>
             <li><a href="${withBase("/nosotros#servicios")}">Servicios</a></li>
+            <li><a href="${withBase("/nosotros#cursos")}">Cursos</a></li>
             <li><a href="${withBase("/galeria")}">Galería</a></li>
             <li><a href="${withBase("/blog")}">Blog</a></li>
             <li><a href="${withBase("/contacto")}">Contacto</a></li>
@@ -631,6 +650,7 @@ const REVEAL_SEL = [
   ".about-head__media",
   ".feature-card",
   ".svc-home__intro",
+  ".cursos-home__head",
   ".shop-block",
   ".trust--logos .trust__head",
   ".cat-band__head",
@@ -658,7 +678,6 @@ const MEDIA_WRAP = [
   ".photo-frame",
   ".about-teaser__mascot",
   ".about-head__media",
-  ".about-origin__media",
   ".about-field__grid figure",
   ".about-mv-band__figure",
   ".home-contact__photo",
@@ -770,9 +789,7 @@ export function productCard(p, { quote = false } = {}) {
     .filter(Boolean);
   const classLine = classes.length ? `Clase ${classes.join(" · ")}` : "";
   const quoteBtn = `<a class="shop-item__quote${quote ? "" : " shop-item__quote--wa"}" href="${quoteUrl(p)}" target="_blank" rel="noopener noreferrer">${WA_ICON} Cotizar</a>`;
-  const detail = quote
-    ? ""
-    : `<span class="shop-item__more">Ver detalle <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>`;
+  const detail = `<a class="shop-item__more" href="${href}" onclick="${remember}">Ver detalle <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>`;
   return `
     <article class="shop-item shop-item--quote" data-cat="${p.cat}">
       <a class="shop-item__link" href="${href}" onclick="${remember}">
@@ -785,12 +802,16 @@ export function productCard(p, { quote = false } = {}) {
         <span class="shop-item__info">
           <span class="shop-item__sku"><i class="shop-item__swatch" aria-hidden="true"></i>${p.sku}</span>
           <h3>${p.title}</h3>
-          ${meta ? `<span class="shop-item__meta">${meta}</span>` : ""}
-          ${classLine ? `<span class="shop-item__class">${classLine}</span>` : ""}
-          ${detail}
+          <span class="shop-item__copy">
+            ${meta ? `<span class="shop-item__meta">${meta}</span>` : ""}
+            ${classLine ? `<span class="shop-item__class">${classLine}</span>` : ""}
+          </span>
         </span>
       </a>
-      ${quoteBtn}
+      <span class="shop-item__actions">
+        ${detail}
+        ${quoteBtn}
+      </span>
     </article>`;
 }
 
@@ -1591,6 +1612,7 @@ export function renderHome() {
   renderHomeCats();
   renderHomeCatalog();
   paintServices();
+  paintCursos();
   renderCarePoints();
   renderClientLogos();
   renderCompactSectors();
@@ -1790,23 +1812,38 @@ export function renderHook() {
 function paintServices() {
   document.querySelectorAll("[data-services]").forEach((root) => {
     root.innerHTML = services
-      .map((s) => {
-        const items = Array.isArray(s.items) && s.items.length
-          ? `<ul class="svc-card__courses">${s.items.map((item) => `<li>${item}</li>`).join("")}</ul>`
-          : "";
-        const extra = items ? " svc-card--courses" : "";
-        return `<li class="svc-card${extra}">
-          ${fa(`${s.icon} svc-card__icon`)}
-          <h3>${s.title}</h3>
-          ${items}
-        </li>`;
-      })
+      .map(
+        (s) => `<li class="svc-card">
+            ${fa(`${s.icon} svc-card__icon`)}
+            <h3>${s.title}</h3>
+          </li>`
+      )
       .join("");
+  });
+}
+
+function courseShots() {
+  return lookbook.filter((item) => item.venue === "cursos");
+}
+
+function paintCursos() {
+  document.querySelectorAll("[data-cursos]").forEach((root) => {
+    if (!courses?.items?.length) {
+      root.innerHTML = "";
+      return;
+    }
+    root.innerHTML = courses.items.map((name) => `<li class="cursos-home__item">${name}</li>`).join("");
+  });
+  const shots = courseShots();
+  document.querySelectorAll("[data-cursos-strip]").forEach((root) => {
+    if (!shots.length) return;
+    bindPeekRail(root, shots, { caption: true });
   });
 }
 
 export function renderServicios() {
   paintServices();
+  paintCursos();
   renderCarePoints();
   renderCompactSectors();
   renderHook();
@@ -1833,6 +1870,7 @@ export function renderNosotros() {
     inspectorVals.innerHTML = company.valores.map((x) => `<li>${x}</li>`).join("");
   }
   paintServices();
+  paintCursos();
   renderCarePoints();
   renderCompactSectors();
   renderClientLogos();
@@ -2018,7 +2056,7 @@ export function renderGaleria() {
       ? list
           .map(
             (item, i) => `<button type="button" class="gallery-tile" data-lb="${i}" aria-label="Ver ${escapeAttr(item.title)} en grande">
-              ${lookPicture(item, { sizes: "(min-width: 900px) 280px, 45vw", width: 480, height: 360, alt: lookAlt(item) })}
+              ${lookPicture(item, { sizes: "(min-width: 1100px) 25vw, (min-width: 760px) 30vw, 50vw", width: 800, height: 600, alt: lookAlt(item), variant: "crop" })}
               <span class="gallery-tile__cap">
                 <strong>${item.title}</strong>
               </span>
@@ -2029,6 +2067,17 @@ export function renderGaleria() {
     mosaic.setAttribute("aria-busy", "false");
     bindMotion();
   };
+
+  const requested = new URLSearchParams(location.search).get("giro")
+    || (location.hash || "").replace(/^#/, "");
+  if (requested && venues.some((chip) => chip.id === requested)) {
+    venue = requested;
+    filters?.querySelectorAll(".shop-chip").forEach((chip) => {
+      const on = chip.dataset.venue === venue;
+      chip.classList.toggle("is-active", on);
+      chip.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+  }
 
   filters?.addEventListener("click", (e) => {
     const btn = e.target.closest("[data-venue]");

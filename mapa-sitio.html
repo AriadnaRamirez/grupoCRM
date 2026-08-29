@@ -104,6 +104,14 @@
     }
   })();
   </script>
+  <style id="css-boot">
+  /* css-boot: hide until local CSS + header are ready */
+  html:not(.is-booted) { visibility: hidden; background: #fff; }
+  </style>
+  <noscript><style>html { visibility: visible !important; }</style></noscript>
+  <script>setTimeout(function () { document.documentElement.classList.add("is-booted"); }, 4000);</script>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Mapa de sitio | Grupo CRM Extintores</title>
   <meta name="description" content="Encuentre equipos, servicios y contacto para cotizar extintores con Grupo CRM en CDMX y Estado de México.">
@@ -128,11 +136,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <link rel="apple-touch-icon" href="assets/img/favicon.png">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=optional" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=optional"></noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
 </head>
 <body data-page="mapa">
   <a class="skip-link" href="#contenido">Ir al contenido</a>
@@ -151,6 +160,7 @@
             <li><a href="index.html">Inicio</a></li>
             <li><a href="nosotros.html">Nosotros</a></li>
             <li><a href="nosotros.html#servicios">Servicios</a></li>
+            <li><a href="nosotros.html#cursos">Cursos y capacitaciones</a></li>
             <li><a href="galeria.html">Galería</a></li>
             <li><a href="/blog">Blog</a></li>
             <li><a href="mapa-sitio.html">Mapa de sitio</a></li>
@@ -174,6 +184,7 @@
             <li><a href="index.html#nosotros">¿Quiénes somos?</a></li>
             <li><a href="index.html#catalogo">Productos</a></li>
             <li><a href="index.html#servicios">Servicios</a></li>
+            <li><a href="index.html#cursos">Cursos y capacitaciones</a></li>
             <li><a href="index.html#revision">Atención a condominios</a></li>
             <li><a href="index.html#clientes">Nuestros clientes</a></li>
             <li><a href="index.html#faqs">Preguntas frecuentes</a></li>

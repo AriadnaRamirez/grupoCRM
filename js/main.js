@@ -34,4 +34,6 @@ else if (page === "contacto") {
 
 safe(() => applySeo(page));
 safe(bindMotion);
-document.documentElement.classList.add("is-booted");
+requestAnimationFrame(() => {
+  document.documentElement.classList.add("is-booted");
+});

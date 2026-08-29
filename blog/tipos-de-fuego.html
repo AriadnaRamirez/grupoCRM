@@ -104,6 +104,14 @@
     }
   })();
   </script>
+  <style id="css-boot">
+  /* css-boot: hide until local CSS + header are ready */
+  html:not(.is-booted) { visibility: hidden; background: #fff; }
+  </style>
+  <noscript><style>html { visibility: visible !important; }</style></noscript>
+  <script>setTimeout(function () { document.documentElement.classList.add("is-booted"); }, 4000);</script>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Tipos de fuego y cómo elegir el extintor correcto | Grupo CRM</title>
   <meta name="description" content="Clases de fuego A, B, C y K, y qué extintor le conviene: PQS ABC, CO₂, agua o tipo K. Guía para negocios en CDMX y Estado de México.">
@@ -129,11 +137,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="preload" as="image" type="image/webp" href="/assets/img/opt/catalog/CRM-0003-800.webp" fetchpriority="high">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="/assets/img/favicon.png">
   <link rel="apple-touch-icon" href="/assets/img/favicon.png">
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=optional" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=optional"></noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
 </head>
 <body data-page="articulo" data-article="tipos-de-fuego">
   <a class="skip-link" href="#contenido">Ir al contenido</a>
@@ -146,7 +155,121 @@
         <p class="kicker">Guía práctica</p>
         <h1>Tipos de fuego y cómo elegir el mejor extintor</h1>
         <hr class="rule rule-left">
-        <p class="muted">La clase de fuego (A, B, C o K) dice qué se está quemando. El agente del extintor dice con qué puede apagarlo. Si elige mal, el conato no se controla y puede agravar el daño.</p>
+        <p class="article-dek">La clase de fuego (A, B, C o K) dice qué se está quemando. El agente del extintor dice con qué puede apagarlo. Si elige mal, el conato no se controla y puede agravar el daño.</p>
+      </header>
+      <figure class="article-hero article-hero--sku">
+        <picture>
+          <source type="image/webp" srcset="/assets/img/opt/catalog/CRM-0003-400.webp 400w, /assets/img/opt/catalog/CRM-0003-800.webp 800w" sizes="(min-width: 800px) 720px, 100vw">
+          <img src="/assets/img/opt/catalog/CRM-0003-800.webp" alt="Extintor Grupo CRM de polvo químico seco ABC" width="800" height="800" decoding="async" fetchpriority="high">
+        </picture>
+        <figcaption>En la etiqueta del extintor aparecen las clases de fuego que cubre. Léala antes de colgarlo.</figcaption>
+      </figure>
+      <div class="article-measure">
+        <p>En una inspección le van a pedir el equipo correcto para su giro, no “cualquier rojo en la pared”. Esta guía le ayuda a leer la etiqueta y a armar el juego de extintores de un condominio, un restaurante, una oficina o un almacén en CDMX y Estado de México.</p>
+
+        <h2>Las cuatro clases que verá en el catálogo</h2>
+        <p>En México, los extintores portátiles de comercio e industria se marcan con letras. Cada letra es un tipo de combustible:</p>
+        <div class="article-class-grid">
+          <article class="article-class" data-class="a">
+            <span class="article-class__letter">A</span>
+            <div>
+              <h3>Sólidos</h3>
+              <p>Papel, madera, cartón, tela, basura y plásticos ordinarios. Agua y PQS ABC sí sirven. El CO₂ no enfría un sólido que sigue ardiendo por dentro.</p>
+            </div>
+          </article>
+          <article class="article-class" data-class="b">
+            <span class="article-class__letter">B</span>
+            <div>
+              <h3>Líquidos inflamables</h3>
+              <p>Gasolina, thinner, pinturas, alcoholes y aceites minerales. PQS ABC y CO₂. Nunca agua: esparce el charco en llamas.</p>
+            </div>
+          </article>
+          <article class="article-class" data-class="c">
+            <span class="article-class__letter">C</span>
+            <div>
+              <h3>Equipo eléctrico</h3>
+              <p>Tableros, contactos, computadoras. El agente no debe ser conductor: PQS ABC y CO₂. El agua, no.</p>
+            </div>
+          </article>
+          <article class="article-class" data-class="k">
+            <span class="article-class__letter">K</span>
+            <div>
+              <h3>Cocinas</h3>
+              <p>Aceites y grasas de freidoras, parrillas y marmitas. Solo el <a href="/producto?sku=CRM-0012">tipo K</a> saponifica la grasa. El agua sobre aceite caliente es peligrosa.</p>
+            </div>
+          </article>
+        </div>
+        <p>Existe la clase D (metales combustibles) en industria muy específica. No la manejamos en el catálogo de portátiles; si su proceso la requiere, se lo decimos con claridad.</p>
+
+        <h2>Qué extintor le conviene, según el agente</h2>
+        <ul class="article-pick-grid">
+          <li class="article-pick">
+            <span class="article-pick__mark">PQS</span>
+            <div>
+              <h3>Polvo químico seco ABC</h3>
+              <p>El más pedido para pasillos, estacionamientos y locales: cubre A, B y C. Deja residuo. Capacidades habituales: 4.5, 6.0 y 9.0 kg. El de 6 kg es el que más se instala; lo detallamos en la guía del <a href="/blog/extintor-6-kg">extintor de 6 kg</a>.</p>
+            </div>
+          </li>
+          <li class="article-pick">
+            <span class="article-pick__mark">CO₂</span>
+            <div>
+              <h3>Bióxido de carbono</h3>
+              <p>Clases B y C, sin polvo. Salas de cómputo, laboratorios y tableros. No sirve para madera o papel (A) ni para una freidora (K).</p>
+            </div>
+          </li>
+          <li class="article-pick">
+            <span class="article-pick__mark">HFC</span>
+            <div>
+              <h3>Agente limpio</h3>
+              <p>Clases A, B y C, sin residuo. Museos, bibliotecas, racks y equipo de alto valor. Se cotiza por el riesgo real, no “por si acaso”.</p>
+            </div>
+          </li>
+          <li class="article-pick">
+            <span class="article-pick__mark">H₂O</span>
+            <div>
+              <h3>Agua a presión</h3>
+              <p>Solo clase A. Madererías, almacenes de cartón y residuos. <strong>No lo use en eléctricos ni en cocinas.</strong></p>
+            </div>
+          </li>
+        </ul>
+        <p>El tipo K va solo en la línea de fuego de cocina. En un restaurante suele ir junto a la estufa o la freidora, y PQS ABC (o CO₂) en el comedor, el almacén y el cuarto de máquinas.</p>
+
+        <h2>Cómo elegir según su negocio</h2>
+        <ul class="article-pick-grid">
+          <li class="article-pick">
+            <span class="article-pick__mark">1</span>
+            <div>
+              <h3>Condominio u oficina</h3>
+              <p>PQS ABC en pasillos, caseta y estacionamiento. Si hay cuarto de cómputo o tablero grande, sume un CO₂.</p>
+            </div>
+          </li>
+          <li class="article-pick">
+            <span class="article-pick__mark">2</span>
+            <div>
+              <h3>Restaurante o cocina</h3>
+              <p>Tipo K en el área de fuego y PQS ABC en el resto del local.</p>
+            </div>
+          </li>
+          <li class="article-pick">
+            <span class="article-pick__mark">3</span>
+            <div>
+              <h3>Comercio o plaza</h3>
+              <p>PQS ABC como base; CO₂ o agente limpio si hay equipo eléctrico expuesto.</p>
+            </div>
+          </li>
+          <li class="article-pick">
+            <span class="article-pick__mark">4</span>
+            <div>
+              <h3>Almacén o taller</h3>
+              <p>PQS ABC, y agua si el combustible principal es sólido. Unidades móviles cuando el recinto es grande.</p>
+            </div>
+          </li>
+        </ul>
+        <p>El tamaño también cuenta: un 1 o 2 kg automotriz no cubre un pasillo; un 6 kg de PQS es el punto de partida de la mayoría de inmuebles. La visita de revisión, sin costo, sirve para ver distancias, gabinetes y recargas vencidas.</p>
+        <div class="article-callout">
+          <p>En el <a href="/productos?cat=extintores#extintores">catálogo de extintores</a> puede filtrar por clase de fuego. Si tiene dudas, con gusto lo asesoramos y dejamos el equipo listo en sitio.</p>
+        </div>
+        <p>Saber elegir no sustituye saber operar: cuando el conato ya empezó, siga la guía de <a href="/blog/como-usar-un-extintor">cómo usar un extintor</a> y evacúe si el fuego crece.</p>
       </header>
       <figure class="article-hero article-hero--sku">
         <picture>

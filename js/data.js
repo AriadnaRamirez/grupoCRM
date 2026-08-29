@@ -235,14 +235,15 @@ export const venues = [
   { id: "industria", name: "Industria" },
   { id: "transporte", name: "Transporte" },
   { id: "campo", name: "En sitio" },
+  { id: "cursos", name: "Cursos" },
 ];
 
-function shot(stem, title, note, venue) {
+function shot(stem, title, note, venue, kicker = "Instalación") {
   return {
     src: `/assets/img/crop/${stem}.jpg`,
     full: `/assets/img/full/${stem}.jpg`,
     fit: "cover",
-    kicker: "Instalación",
+    kicker,
     title,
     note,
     venue,
@@ -284,6 +285,14 @@ export const lookbook = [
   shot("galeria-madereria", "Maderería", "Extintores en un almacén de tableros.", "industria"),
   shot("galeria-evento", "Jornada en sitio", "Revisión y demostración con el mismo equipo que usted va a usar.", "campo"),
   shot("galeria-inventario", "Listos para recargar", "Extintores preparados para suministro y recarga en su negocio.", "campo"),
+  shot("galeria-curso-brigada", "Conformación de brigadas", "Participantes y equipo al cierre de una capacitación de Grupo CRM.", "cursos", "Capacitación"),
+  shot("galeria-curso-combate", "Combate contra incendios", "Práctica con extintor, con instructor en sitio.", "cursos", "Capacitación"),
+  shot("galeria-curso-primeros-auxilios", "Primeros auxilios", "Práctica de vendaje y atención inicial en un curso de brigada.", "cursos", "Capacitación"),
+  shot("galeria-curso-rescate", "Búsqueda y rescate", "Inmovilización en tabla durante el curso de brigada.", "cursos", "Capacitación"),
+  shot("galeria-curso-co2", "Uso del extintor", "Descarga controlada durante la capacitación.", "cursos", "Capacitación"),
+  shot("galeria-curso-instructivo", "Capacitación en sitio", "Revisión del procedimiento junto al extintor.", "cursos", "Capacitación"),
+  shot("galeria-curso-campo", "Entrenamiento en campo", "Ejercicio de brigada en condiciones reales.", "cursos", "Capacitación"),
+  shot("galeria-curso-comunidad", "Jornada de prevención", "Demostración de equipo de emergencia con la comunidad.", "cursos", "Capacitación"),
 ];
 
 export function lookFull(item) {
@@ -498,20 +507,20 @@ export const services = [
     title: "Revisión en sitio",
     text: "La primera visita es sin costo y sin compromiso.",
   },
-  {
-    icon: "fa-solid fa-chalkboard-user",
-    title: "Cursos y capacitaciones",
-    text: "Formamos brigadas para que su inmueble quede listo ante una emergencia.",
-    items: [
-      "Primeros auxilios",
-      "Combate contra incendios",
-      "Búsqueda y rescate",
-      "Evacuación de inmueble",
-      "Atención de emergencias de materiales peligrosos",
-      "Conformación de brigadas",
-    ],
-  },
 ];
+
+export const courses = {
+  title: "Cursos y capacitaciones",
+  lead: "Formamos brigadas en su sitio para que su personal sepa cómo actuar ante una emergencia.",
+  items: [
+    "Primeros auxilios",
+    "Combate contra incendios",
+    "Búsqueda y rescate",
+    "Evacuación de inmueble",
+    "Atención de emergencias de materiales peligrosos",
+    "Conformación de brigadas",
+  ],
+};
 
 export const carePoints = [
   { icon: "fa-solid fa-certificate", title: "Equipos certificados" },

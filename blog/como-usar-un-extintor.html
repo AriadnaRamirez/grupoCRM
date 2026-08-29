@@ -104,6 +104,14 @@
     }
   })();
   </script>
+  <style id="css-boot">
+  /* css-boot: hide until local CSS + header are ready */
+  html:not(.is-booted) { visibility: hidden; background: #fff; }
+  </style>
+  <noscript><style>html { visibility: visible !important; }</style></noscript>
+  <script>setTimeout(function () { document.documentElement.classList.add("is-booted"); }, 4000);</script>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Cómo usar un extintor ante un conato de incendio | Grupo CRM</title>
   <meta name="description" content="Aprenda a usar un extintor, sus partes y qué contiene. Qué es un fuego incipiente y cuándo evacuar. Atención en CDMX y Estado de México.">
@@ -129,11 +137,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="preload" as="image" type="image/webp" href="/assets/img/opt/categoria-extintores-960.webp" fetchpriority="high">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="/assets/img/favicon.png">
   <link rel="apple-touch-icon" href="/assets/img/favicon.png">
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=optional" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=optional"></noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
 </head>
 <body data-page="articulo" data-article="como-usar-un-extintor">
   <a class="skip-link" href="#contenido">Ir al contenido</a>
@@ -146,7 +155,115 @@
         <p class="kicker">Guía práctica</p>
         <h1>Cómo usar un extintor ante un conato de incendio</h1>
         <hr class="rule rule-left">
-        <p class="muted">Un extintor portátil sirve para un fuego pequeño y reciente. Si crece, evacúe y marque al 911. En inglés se le llama fire extinguisher; aquí lo que importa es el agente y la clase de fuego.</p>
+        <p class="article-dek">Un extintor portátil sirve para un fuego pequeño y reciente. Si crece, evacúe y marque al 911. En inglés se le llama fire extinguisher; aquí lo que importa es el agente y la clase de fuego.</p>
+      </header>
+      <figure class="article-hero">
+        <picture>
+          <source type="image/webp" srcset="/assets/img/opt/categoria-extintores-480.webp 480w, /assets/img/opt/categoria-extintores-960.webp 960w" sizes="(min-width: 800px) 720px, 100vw">
+          <img src="/assets/img/opt/categoria-extintores-960.webp" alt="Extintor montado en pared" width="960" height="540" decoding="async" fetchpriority="high">
+        </picture>
+        <figcaption>El equipo debe estar visible, con acceso libre y la etiqueta de clase de fuego de frente.</figcaption>
+      </figure>
+      <div class="article-measure">
+        <h2>Qué es un fuego incipiente y un conato de incendio</h2>
+        <p>Un <strong>fuego incipiente</strong> es el que acaba de iniciar: aún es pequeño, está contenido y una persona capacitada puede intentar controlarlo con el extintor correcto, sin ponerse en riesgo.</p>
+        <p>Un <strong>conato de incendio</strong> es ese mismo principio de fuego: humo o llamas en un bote, un trapo, una papelera o un equipo, todavía sin extenderse a techos, ductos o habitaciones vecinas.</p>
+        <div class="article-callout article-callout--warn">
+          <p>Si el humo es denso, el fuego rebasa el extintor, no tiene salida a su espalda o no está seguro del tipo de fuego, no intente combatirlo. Saque a las personas, cierre puertas al salir si puede y llame al 911.</p>
+        </div>
+
+        <h2>Partes de un extintor</h2>
+        <p>Antes de usarlo, reconozca el equipo. En un extintor portátil de presión contenida suele ver:</p>
+        <ul class="article-pick-grid">
+          <li class="article-pick">
+            <span class="article-pick__mark">1</span>
+            <div>
+              <h3>Manija o palanca</h3>
+              <p>Al oprimirla sale el agente.</p>
+            </div>
+          </li>
+          <li class="article-pick">
+            <span class="article-pick__mark">2</span>
+            <div>
+              <h3>Seguro (pasador)</h3>
+              <p>Evita una descarga accidental. Hay que retirarlo para operar.</p>
+            </div>
+          </li>
+          <li class="article-pick">
+            <span class="article-pick__mark">3</span>
+            <div>
+              <h3>Manguera o boquilla</h3>
+              <p>Dirige el chorro a la base de las llamas.</p>
+            </div>
+          </li>
+          <li class="article-pick">
+            <span class="article-pick__mark">4</span>
+            <div>
+              <h3>Manómetro</h3>
+              <p>En PQS o agua indica si hay presión. El CO₂ no lleva este tipo de manómetro.</p>
+            </div>
+          </li>
+          <li class="article-pick">
+            <span class="article-pick__mark">5</span>
+            <div>
+              <h3>Cilindro</h3>
+              <p>El tanque que guarda el agente.</p>
+            </div>
+          </li>
+          <li class="article-pick">
+            <span class="article-pick__mark">6</span>
+            <div>
+              <h3>Etiqueta</h3>
+              <p>Clase de fuego (A, B, C, K), agente y vigencia.</p>
+            </div>
+          </li>
+        </ul>
+        <p>Revise el manómetro y la etiqueta en cada visita de mantenimiento. Un extintor descargado o vencido no sirve en la inspección ni en un conato.</p>
+
+        <h2>Qué contiene el extintor</h2>
+        <p>El contenido no es “polvo genérico”. El agente define contra qué fuego puede usarlo:</p>
+        <ul class="article-pick-grid">
+          <li class="article-pick">
+            <span class="article-pick__mark">PQS</span>
+            <div>
+              <h3>Polvo químico seco ABC</h3>
+              <p>Sólidos, líquidos inflamables y equipo eléctrico. El más común en comercios y condominios.</p>
+            </div>
+          </li>
+          <li class="article-pick">
+            <span class="article-pick__mark">CO₂</span>
+            <div>
+              <h3>Bióxido de carbono</h3>
+              <p>Líquidos y eléctricos; no deja residuo. Cómputo, tableros y laboratorios.</p>
+            </div>
+          </li>
+          <li class="article-pick">
+            <span class="article-pick__mark">H₂O</span>
+            <div>
+              <h3>Agua</h3>
+              <p>Solo clase A (papel, madera, textiles). No lo use en eléctricos ni en grasas.</p>
+            </div>
+          </li>
+          <li class="article-pick">
+            <span class="article-pick__mark">K</span>
+            <div>
+              <h3>Tipo K</h3>
+              <p>Aceites y grasas de cocina.</p>
+            </div>
+          </li>
+        </ul>
+        <p>Vea las fichas en el <a href="/productos?cat=extintores#extintores">catálogo de extintores</a>, la guía de <a href="/blog/tipos-de-fuego">tipos de fuego</a> y la del <a href="/blog/extintor-6-kg">extintor de 6 kg</a> si necesita elegir capacidad.</p>
+
+        <h2>Cómo usar un extintor</h2>
+        <p>Solo si el fuego sigue siendo un conato, el extintor es el adecuado y usted tiene una ruta de salida a la espalda:</p>
+        <ol class="article-steps">
+          <li>Quite el seguro tirando del pasador.</li>
+          <li>Apunte la manguera a la <strong>base</strong> de las llamas, no a la punta del humo.</li>
+          <li>Oprima la palanca con pulso firme.</li>
+          <li>Barra de lado a lado hasta cubrir el combustible.</li>
+        </ol>
+        <p>Mantenga una distancia prudente, no dé la espalda al fuego y deje el área ventilada cuando el agente lo permita. Después del uso, el equipo debe recargarse; no lo cuelgue “a medias”.</p>
+        <p>Esta guía no sustituye una brigada ni a bomberos. En CDMX y Estado de México, si el conato se sale de control, evacúe y deje el combate a profesionales.</p>
       </header>
       <figure class="article-hero">
         <picture>

@@ -104,6 +104,14 @@
     }
   })();
   </script>
+  <style id="css-boot">
+  /* css-boot: hide until local CSS + header are ready */
+  html:not(.is-booted) { visibility: hidden; background: #fff; }
+  </style>
+  <noscript><style>html { visibility: visible !important; }</style></noscript>
+  <script>setTimeout(function () { document.documentElement.classList.add("is-booted"); }, 4000);</script>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Extintores en CDMX y Estado de México | Grupo CRM Extintores</title>
   <meta name="description" content="Venta, recarga e instalación de extintores y equipo contra incendios en la Ciudad de México y el Estado de México. Cotice con Grupo CRM.">
@@ -129,11 +137,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="preload" as="image" type="image/webp" href="/assets/img/opt/crop/galeria-extintores-sitio-1280.webp" fetchpriority="high">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="/assets/img/favicon.png">
   <link rel="apple-touch-icon" href="/assets/img/favicon.png">
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=optional" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=optional"></noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
 </head>
 <body data-page="articulo" data-article="extintores-cdmx">
   <a class="skip-link" href="#contenido">Ir al contenido</a>
@@ -146,7 +155,66 @@
         <p class="kicker">Cobertura</p>
         <h1>Extintores en CDMX y Estado de México</h1>
         <hr class="rule rule-left">
-        <p class="muted">Grupo CRM Extintores es una empresa 100% mexicana. Vendemos, recargamos e instalamos extintores y equipo contra incendios en la Ciudad de México y el Estado de México.</p>
+        <p class="article-dek">Grupo CRM Extintores es una empresa 100% mexicana. Vendemos, recargamos e instalamos extintores y equipo contra incendios en la Ciudad de México y el Estado de México.</p>
+      </header>
+      <figure class="article-hero">
+        <picture>
+          <source type="image/webp" srcset="/assets/img/opt/crop/galeria-extintores-sitio-800.webp 800w, /assets/img/opt/crop/galeria-extintores-sitio-1280.webp 1280w, /assets/img/opt/crop/galeria-extintores-sitio-1600.webp 1600w" sizes="(min-width: 800px) 720px, 100vw">
+          <img src="/assets/img/opt/crop/galeria-extintores-sitio-800.webp" alt="Extintores instalados en un establecimiento" width="960" height="540" decoding="async" fetchpriority="high">
+        </picture>
+        <figcaption>Dejamos sus equipos listos en sitio, en CDMX y Estado de México.</figcaption>
+      </figure>
+      <div class="article-measure">
+        <h2>Qué pedimos cuando nos buscan por “extintores CDMX”</h2>
+        <p>Casi siempre es lo mismo: una inspección de Protección Civil, un extintor vencido o un local que abre y aún no tiene el equipo. Atendemos condominios, restaurantes, oficinas, clínicas, escuelas y comercios en CDMX y en municipios del Estado de México.</p>
+        <div class="article-callout">
+          <p>La primera visita la hacemos sin costo: revisamos extintores, puntos de incendio y lo que falte para que el inmueble esté en regla. Luego le dejamos una cotización clara. Aceptamos tarjeta y meses sin intereses.</p>
+        </div>
+
+        <h2>Extintores y el resto del equipo contra incendios</h2>
+        <p>Un extintor solo no arma el programa. El equipo contra incendios de un negocio suele incluir:</p>
+        <ul class="article-pick-grid">
+          <li class="article-pick">
+            <span class="article-pick__mark">1</span>
+            <div>
+              <h3>Extintores</h3>
+              <p><a href="/productos?cat=extintores#extintores">PQS, CO₂, tipo K, agua y unidades móviles</a>, según el riesgo.</p>
+            </div>
+          </li>
+          <li class="article-pick">
+            <span class="article-pick__mark">2</span>
+            <div>
+              <h3>Gabinetes</h3>
+              <p><a href="/productos?cat=gabinetes-herrajes#gabinetes-herrajes">Gabinetes y portaextintores</a> para dejar el punto visible y accesible.</p>
+            </div>
+          </li>
+          <li class="article-pick">
+            <span class="article-pick__mark">3</span>
+            <div>
+              <h3>Señalamientos</h3>
+              <p><a href="/productos?cat=senalamiento-vial#senalamiento-vial">Emergencia y vialidad</a>, para que el equipo se encuentre a tiempo.</p>
+            </div>
+          </li>
+          <li class="article-pick">
+            <span class="article-pick__mark">4</span>
+            <div>
+              <h3>Botiquín y protección</h3>
+              <p><a href="/productos?cat=botiquines#botiquines">Botiquines</a> de pared y <a href="/productos?cat=equipo-proteccion#equipo-proteccion">detectores, lámparas, cascos</a>.</p>
+            </div>
+          </li>
+        </ul>
+        <p>Si no sabe por dónde empezar, escríbanos: le decimos qué hay que reponer y qué puede esperar.</p>
+
+        <h2>Ciudad de México y Estado de México</h2>
+        <p>Operamos desde Cuajimalpa (Chamixto 131, Col. Loma del Padre) y nos desplazamos en la Ciudad de México y el Estado de México. El horario de oficina es lunes a viernes, de 9:00 a 18:00. Fuera de horario puede dejar su mensaje por WhatsApp.</p>
+        <p>En la <a href="/galeria">galería</a> puede ver instalaciones en restaurantes, escuelas, agencias y bodegas. En <a href="/nosotros">Nosotros</a> están la venta, la recarga y la instalación.</p>
+
+        <h2>Cómo cotizar</h2>
+        <ol class="article-steps">
+          <li>Mándenos fotos de sus extintores, el giro del inmueble y la alcaldía o municipio.</li>
+          <li>Le respondemos con el equipo y el servicio.</li>
+          <li>También puede usar el formulario de <a href="/contacto">contacto</a>.</li>
+        </ol>
       </header>
       <figure class="article-hero">
         <picture>

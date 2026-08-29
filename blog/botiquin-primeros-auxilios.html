@@ -104,6 +104,14 @@
     }
   })();
   </script>
+  <style id="css-boot">
+  /* css-boot: hide until local CSS + header are ready */
+  html:not(.is-booted) { visibility: hidden; background: #fff; }
+  </style>
+  <noscript><style>html { visibility: visible !important; }</style></noscript>
+  <script>setTimeout(function () { document.documentElement.classList.add("is-booted"); }, 4000);</script>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Botiquín de primeros auxilios para empresas | Grupo CRM</title>
   <meta name="description" content="Botiquines metálicos de pared para oficinas, escuelas y comercios. Complemento del equipo contra incendios. Cotice en CDMX y Estado de México.">
@@ -129,11 +137,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="preload" as="image" type="image/webp" href="/assets/img/opt/categoria-botiquines-960.webp" fetchpriority="high">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="/assets/img/favicon.png">
   <link rel="apple-touch-icon" href="/assets/img/favicon.png">
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=optional" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=optional"></noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
 </head>
 <body data-page="articulo" data-article="botiquin-primeros-auxilios">
   <a class="skip-link" href="#contenido">Ir al contenido</a>
@@ -146,7 +155,74 @@
         <p class="kicker">Catálogo</p>
         <h1>Botiquín de primeros auxilios: cómo elegirlo para su negocio</h1>
         <hr class="rule rule-left">
-        <p class="muted">El botiquín de primeros auxilios va con los extintores y las señales. En Grupo CRM hay tres tamaños de pared, para oficina, escuela o planta.</p>
+        <p class="article-dek">El botiquín de primeros auxilios va con los extintores y las señales. En Grupo CRM hay tres tamaños de pared, para oficina, escuela o planta.</p>
+      </header>
+      <figure class="article-hero">
+        <picture>
+          <source type="image/webp" srcset="/assets/img/opt/categoria-botiquines-480.webp 480w, /assets/img/opt/categoria-botiquines-960.webp 960w" sizes="(min-width: 800px) 720px, 100vw">
+          <img src="/assets/img/opt/categoria-botiquines-960.webp" alt="Botiquín de emergencia de pared" width="960" height="540" decoding="async" fetchpriority="high">
+        </picture>
+        <figcaption>Sitio fijo, señalado y con un responsable de reponer material.</figcaption>
+      </figure>
+      <div class="article-measure">
+        <h2>Por qué pedirlo junto con el equipo contra incendios</h2>
+        <p>En una inspección de Protección Civil o en un centro de trabajo que sigue la <a href="/blog/nom-002-stps-2010">NOM-002-STPS-2010</a>, el botiquín suele revisarse con los extintores: que exista, que se vea y que alguien sepa usarlo. No apaga un conato; sí atiende un corte, una quemadura menor o un desmayo mientras llega ayuda.</p>
+        <div class="article-callout">
+          <p>Colóquelo en un sitio fijo, señalado, fuera de la cocina abierta y lejos de la humedad. Designe a un responsable de reponer material.</p>
+        </div>
+
+        <h2>Tamaños en catálogo</h2>
+        <p>Los tres son metálicos de pared, en lámina troquelada y esmaltada:</p>
+        <ul class="article-pick-grid">
+          <li class="article-pick">
+            <span class="article-pick__mark">S</span>
+            <div>
+              <h3>Chico</h3>
+              <p><a href="/producto?sku=CRM-0046">17 × 23 × 6 cm</a> — hogar, oficina chica o mostrador.</p>
+            </div>
+          </li>
+          <li class="article-pick">
+            <span class="article-pick__mark">M</span>
+            <div>
+              <h3>Mediano</h3>
+              <p><a href="/producto?sku=CRM-0047">20 × 30 × 7 cm</a> — comercios, escuelas y talleres.</p>
+            </div>
+          </li>
+          <li class="article-pick">
+            <span class="article-pick__mark">L</span>
+            <div>
+              <h3>Grande</h3>
+              <p><a href="/producto?sku=CRM-0048">25 × 35 × 7.5 cm</a> — industria, centros comerciales y obras.</p>
+            </div>
+          </li>
+        </ul>
+        <p>Vea la línea completa en <a href="/productos?cat=botiquines#botiquines">botiquines</a>. El contenido (gasas, antiséptico, guantes) se define con usted según el giro; no vendemos un “kit milagroso” genérico en esta ficha.</p>
+
+        <h2>Cómo armar el punto de emergencia</h2>
+        <p>En muchos locales de CDMX y Estado de México dejamos juntos el extintor, el gabinete y el botiquín, con lámpara de emergencia en pasillos. Eso se cotiza en una sola visita.</p>
+        <ul class="article-pick-grid">
+          <li class="article-pick">
+            <span class="article-pick__mark">1</span>
+            <div>
+              <h3>Extintores</h3>
+              <p><a href="/productos?cat=extintores#extintores">Vigentes y recargados</a>, según el giro.</p>
+            </div>
+          </li>
+          <li class="article-pick">
+            <span class="article-pick__mark">2</span>
+            <div>
+              <h3>Detección e iluminación</h3>
+              <p><a href="/productos?cat=equipo-proteccion#equipo-proteccion">Detector de humo y lámpara de emergencia</a> si el recinto lo necesita.</p>
+            </div>
+          </li>
+          <li class="article-pick">
+            <span class="article-pick__mark">3</span>
+            <div>
+              <h3>Brigada</h3>
+              <p>Señales y, si aplica, <a href="/producto?sku=CRM-0034">brazalete de brigadista</a>.</p>
+            </div>
+          </li>
+        </ul>
       </header>
       <figure class="article-hero">
         <picture>

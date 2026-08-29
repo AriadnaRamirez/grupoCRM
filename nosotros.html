@@ -104,6 +104,14 @@
     }
   })();
   </script>
+  <style id="css-boot">
+  /* css-boot: hide until local CSS + header are ready */
+  html:not(.is-booted) { visibility: hidden; background: #fff; }
+  </style>
+  <noscript><style>html { visibility: visible !important; }</style></noscript>
+  <script>setTimeout(function () { document.documentElement.classList.add("is-booted"); }, 4000);</script>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Nosotros | Grupo CRM Extintores</title>
   <meta name="description" content="Empresa 100% mexicana. Lo acompañamos para cumplir con Protección Civil: venta, recarga e instalación en CDMX y Estado de México. Con gusto lo atendemos.">
@@ -129,10 +137,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="preload" as="image" type="image/webp" href="assets/img/opt/full/galeria-extintores-sitio-800.webp" fetchpriority="high">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <link rel="apple-touch-icon" href="assets/img/favicon.png">
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=optional" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=optional"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'" crossorigin="anonymous" referrerpolicy="no-referrer">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
 </head>
@@ -156,10 +164,9 @@
       <header class="about-head">
         <div class="about-head__copy">
           <p class="kicker">¿Quiénes somos?</p>
-          <h1>Lo visitamos, lo asesoramos y lo dejamos en regla</h1>
-          <p class="about-head__slogan">Extintores y equipos de seguridad. Empresa 100% mexicana.</p>
+          <h1>Somos Grupo CRM, <span class="about-head__line">una empresa 100% mexicana</span></h1>
           <hr class="rule rule-left">
-          <p class="about-head__lead">Hacemos venta, recarga e instalación en CDMX y Estado de México. Lo acompañamos para cumplir con Protección Civil y dejamos su equipo listo en sitio, explicándole cada paso.</p>
+          <p class="about-head__lead">Empresa 100% mexicana, dedicada a la venta y/o recarga de extintores y equipo contra incendios. Atendemos CDMX y Estado de México.</p>
           <div class="about-head__actions">
             <a class="btn btn-red" href="contacto.html"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Pedir cotización</a>
             <a class="btn btn-ink" href="productos.html"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i> Ver equipos</a>
@@ -175,37 +182,27 @@
 
       <ul class="about-facts">
         <li>
-          <i class="fa-solid fa-location-dot about-facts__icon" aria-hidden="true"></i>
-          <span class="kicker">Domicilio</span>
+          <span class="about-facts__head">
+            <i class="fa-solid fa-location-dot about-facts__icon" aria-hidden="true"></i>
+            <span class="kicker">Domicilio</span>
+          </span>
           <strong><a href="https://www.google.com/maps/search/?api=1&query=Chamixto+131+Col.+Loma+del+Padre+Cuajimalpa+Ciudad+de+M%C3%A9xico" target="_blank" rel="noopener noreferrer">Chamixto 131, Col. Loma del Padre, Alcaldía Cuajimalpa, Ciudad de México</a></strong>
         </li>
         <li>
-          <i class="fa-solid fa-clock about-facts__icon" aria-hidden="true"></i>
-          <span class="kicker">Horario</span>
+          <span class="about-facts__head">
+            <i class="fa-solid fa-clock about-facts__icon" aria-hidden="true"></i>
+            <span class="kicker">Horario</span>
+          </span>
           <strong>Lunes a viernes, 9:00–18:00</strong>
         </li>
         <li>
-          <i class="fa-brands fa-whatsapp about-facts__icon" aria-hidden="true"></i>
-          <span class="kicker">WhatsApp</span>
+          <span class="about-facts__head">
+            <i class="fa-brands fa-whatsapp about-facts__icon" aria-hidden="true"></i>
+            <span class="kicker">WhatsApp</span>
+          </span>
           <strong><a href="https://wa.me/525554383241" target="_blank" rel="noopener noreferrer">55 5438 3241</a></strong>
         </li>
       </ul>
-
-      <section class="about-origin" aria-labelledby="about-origin-title">
-        <figure class="about-origin__media media-load">
-          <picture>
-            <source type="image/webp" srcset="assets/img/opt/full/galeria-entrega-800.webp 800w, assets/img/opt/full/galeria-entrega-1400.webp 1400w" sizes="(min-width: 901px) 420px, 100vw">
-            <img src="assets/img/opt/full/galeria-entrega-800.webp" width="640" height="480" alt="Extintores de Grupo CRM cargados en la unidad, listos para llevar a su negocio" loading="lazy" decoding="async">
-          </picture>
-        </figure>
-        <div class="about-origin__copy">
-          <p class="kicker">¿Por qué existimos?</p>
-          <h2 id="about-origin-title">Para que cumplir no sea un trámite a solas</h2>
-          <hr class="rule rule-left" aria-hidden="true">
-          <p>Sabemos que en un condominio, un restaurante o una empresa cumplir con Protección Civil se siente como un pendiente más. Y no basta con comprar los extintores: hay que tenerlos vigentes, bien colocados y listos el día de la inspección.</p>
-          <p>Ahí entramos nosotros. Grupo CRM es una empresa 100% mexicana que atiende la Ciudad de México y el Estado de México: vendemos, recargamos e instalamos, y lo acompañamos con gusto hasta que su negocio queda en regla.</p>
-        </div>
-      </section>
 
       <section class="about-mv-band" aria-label="Misión, visión y valores">
         <figure class="about-mv-band__figure">
@@ -227,11 +224,11 @@
         </figure>
         <div class="about-mv-band__cards">
           <div class="about-mv-note about-mv-note--mision">
-            <p class="about-mv-note__label">Misión</p>
+            <p class="kicker">Misión</p>
             <p data-mision></p>
           </div>
           <div class="about-mv-note about-mv-note--vision">
-            <p class="about-mv-note__label">Visión</p>
+            <p class="kicker">Visión</p>
             <p data-vision></p>
           </div>
         </div>
@@ -299,12 +296,27 @@
           <div class="svc-home__intro">
             <p class="kicker">¿Qué hacemos?</p>
             <h2>Venta, recarga e instalación</h2>
-            <p class="svc-home__lead">También señalamientos, botiquines, cursos y el seguimiento para avisarle cuándo toca recargar.</p>
+            <p class="svc-home__lead">También señalamientos, botiquines y el seguimiento para avisarle cuándo toca recargar.</p>
             <ul class="svc-home__points" data-care aria-label="Por qué cotizar con Grupo CRM"></ul>
           </div>
           <ul class="svc-hover-grid" data-services></ul>
         </div>
       </div>
+    </div>
+
+    <div class="cursos-home" id="cursos">
+      <div class="wrap">
+        <header class="cursos-home__head">
+          <div class="cursos-home__copy">
+            <p class="kicker">Capacitación</p>
+            <h2>Cursos y capacitaciones</h2>
+            <p class="cursos-home__lead">Formamos brigadas en su sitio para que su personal sepa cómo actuar ante una emergencia.</p>
+          </div>
+          <a class="cat-band__more cat-band__more--ghost" href="galeria.html?giro=cursos">Ver galería <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        </header>
+        <ul class="cursos-home__list" data-cursos></ul>
+      </div>
+      <div class="cursos-home__strip" data-cursos-strip aria-roledescription="carrusel" aria-label="Fotografías de capacitaciones"></div>
     </div>
 
     <div class="wrap">

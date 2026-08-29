@@ -104,6 +104,14 @@
     }
   })();
   </script>
+  <style id="css-boot">
+  /* css-boot: hide until local CSS + header are ready */
+  html:not(.is-booted) { visibility: hidden; background: #fff; }
+  </style>
+  <noscript><style>html { visibility: visible !important; }</style></noscript>
+  <script>setTimeout(function () { document.documentElement.classList.add("is-booted"); }, 4000);</script>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Extintores y recarga en CDMX | Grupo CRM Extintores</title>
   <meta name="description" content="Extintores, recarga y primera visita sin costo en CDMX y Estado de México. Cumpla con Protección Civil y evite multas. Cotice por WhatsApp 55 5438 3241.">
@@ -131,10 +139,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="preload" as="image" type="image/webp" href="assets/img/opt/crop/galeria-evento-1280.webp" fetchpriority="high">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <link rel="apple-touch-icon" href="assets/img/favicon.png">
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=optional" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=optional"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'" crossorigin="anonymous" referrerpolicy="no-referrer">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
 </head>
@@ -242,10 +250,10 @@
         <img src="assets/img/opt/mascot-inspector-crm.webp" width="283" height="379" alt="Inspector CRM, mascota de Grupo CRM Extintores" loading="lazy" decoding="async">
       </figure>
       <div>
-        <p class="kicker">¿Quiénes somos?</p>
-        <h2>Somos una empresa 100% mexicana</h2>
+        <p class="kicker">Grupo CRM</p>
+        <h2>¿Quiénes somos?</h2>
         <hr class="rule rule-left">
-        <p class="muted">Nos encargamos de la venta, la recarga y la instalación, para que usted se ocupe de su negocio.</p>
+        <p class="muted">Empresa 100% mexicana, dedicada a la venta y/o recarga de extintores y equipo contra incendios.</p>
         <ul class="value-grid" data-values></ul>
         <p><a class="btn btn-ink" href="nosotros.html"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Conozca Grupo CRM</a></p>
       </div>
@@ -267,7 +275,9 @@
     <div class="wrap wrap-shop shop-home__best">
       <header class="cat-band__head">
         <div>
+          <p class="kicker">Catálogo</p>
           <h2>Más vendidos</h2>
+          <p>Estos son los equipos que más nos piden para dejar su negocio listo ante una inspección. Extintores de uso general, señalamientos y protección básica; si no es lo que necesita, con gusto lo asesoramos.</p>
         </div>
         <a class="cat-band__more" href="productos.html">Ver todo <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
       </header>
@@ -298,12 +308,27 @@
       <div class="svc-home__intro">
         <p class="kicker">¿Qué hacemos?</p>
         <h2>Venta, recarga e instalación</h2>
-        <p class="svc-home__lead">También señalamientos, botiquines, cursos y el seguimiento para avisarle cuándo toca recargar.</p>
+        <p class="svc-home__lead">También señalamientos, botiquines y el seguimiento para avisarle cuándo toca recargar.</p>
         <ul class="svc-home__points" data-care aria-label="Por qué cotizar con Grupo CRM"></ul>
         <p class="svc-home__cta"><a class="cat-band__more cat-band__more--ghost" href="nosotros.html#servicios">Ver servicios <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></p>
       </div>
       <ul class="svc-hover-grid" data-services></ul>
     </div>
+  </section>
+
+  <section class="section cursos-home" id="cursos">
+    <div class="wrap">
+      <header class="cursos-home__head">
+        <div class="cursos-home__copy">
+          <p class="kicker">Capacitación</p>
+          <h2>Cursos y capacitaciones</h2>
+          <p class="cursos-home__lead">Formamos brigadas en su sitio para que su personal sepa cómo actuar ante una emergencia.</p>
+        </div>
+        <a class="cat-band__more cat-band__more--ghost" href="galeria.html?giro=cursos">Ver galería <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+      </header>
+      <ul class="cursos-home__list" data-cursos></ul>
+    </div>
+    <div class="cursos-home__strip" data-cursos-strip aria-roledescription="carrusel" aria-label="Fotografías de capacitaciones"></div>
   </section>
 
   <section class="contact-band home-contact" id="contacto">
@@ -320,9 +345,11 @@
   <section class="contact-band home-contact home-contact--form">
     <div class="wrap home-contact__layout">
       <div class="home-contact__form-col">
-        <p class="kicker">Contacto</p>
-        <h2>Pida su cotización</h2>
-        <p class="muted">Cuéntenos qué necesita y le respondemos el mismo día. Sin compromiso.</p>
+        <div class="contact-info__head">
+          <p class="kicker">Contacto</p>
+          <h2>Pida su cotización</h2>
+          <p class="contact-lead">Cuéntenos qué necesita y le respondemos el mismo día. Sin compromiso.</p>
+        </div>
         <form class="contact-form" data-contact>
           <label class="contact-form__half">Nombre <input name="nombre" required minlength="2" autocomplete="name" placeholder="Su nombre"></label>
           <label class="contact-form__half">Empresa o condominio <input name="empresa" autocomplete="organization" placeholder="Opcional"></label>

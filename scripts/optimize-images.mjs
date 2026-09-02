@@ -24,16 +24,9 @@ async function writeWebp(input, output, { width, flatten } = {}) {
 
 const jobs = [];
 
-for (const file of list(join(root, "assets/img/crop"), /\.jpe?g$/i)) {
-  const stem = parse(file).name;
-  for (const width of [800, 1280, 1600]) {
-    jobs.push([file, join(outRoot, "crop", `${stem}-${width}.webp`), { width }]);
-  }
-}
-
 for (const file of list(join(root, "assets/img/full"), /\.jpe?g$/i)) {
   const stem = parse(file).name;
-  for (const width of [800, 1400]) {
+  for (const width of [800, 1400, 1600]) {
     jobs.push([file, join(outRoot, "full", `${stem}-${width}.webp`), { width }]);
   }
 }
@@ -48,13 +41,20 @@ for (const file of list(join(root, "assets/img/catalog"), /^CRM-\d{4}\.png$/i)) 
 for (const file of list(join(root, "assets/img"), /^categoria-.*\.(png|jpe?g)$/i)) {
   const stem = parse(file).name;
   for (const width of [480, 960]) {
-    jobs.push([file, join(outRoot, `${stem}-${width}.webp`), { width, flatten: true }]);
+    jobs.push([file, join(outRoot, `${stem}-${width}.webp`), { width }]);
   }
 }
 
-const mascot = join(root, "assets/img/mascot-inspector-crm.png");
-if (existsSync(mascot)) {
-  jobs.push([mascot, join(outRoot, "mascot-inspector-crm.webp"), { width: 400 }]);
+for (const stem of [
+  "mascot-inspector-extintor",
+  "mascot-inspector-senala",
+  "mascot-inspector-ok",
+  "mascot-404-llama",
+]) {
+  const mascot = join(root, "assets/img", `${stem}.png`);
+  if (existsSync(mascot)) {
+    jobs.push([mascot, join(outRoot, `${stem}.webp`), { width: 640 }]);
+  }
 }
 
 for (const file of list(join(root, "assets/img/clients"), /\.(png|jpe?g)$/i)) {

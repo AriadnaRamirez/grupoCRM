@@ -15,16 +15,6 @@
     X-Frame-Options = "SAMEORIGIN"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
 
-[[headers]]
-  for = "/wordpress-export/*"
-  [headers.values]
-    X-Robots-Tag = "noindex, nofollow"
-
-[[redirects]]
-  from = "/wordpress-export/*"
-  to = "/404"
-  status = 404
-
 [[redirects]]
   from = "/.tmp-verify/*"
   to = "/404"

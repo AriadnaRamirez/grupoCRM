@@ -1,5 +1,5 @@
 import { rebaseDocument } from "./base.js";
-import { mountShell, renderHome, renderProductos, renderProducto, renderServicios, renderNosotros, renderGaleria, renderHook, bindContact, bindMotion, bindErrorReturn } from "./ui.js";
+import { mountShell, renderHome, renderProductos, renderProducto, renderServicios, renderNosotros, renderGaleria, renderHook, bindContact, bindMotion, bindErrorReturn } from "./ui.js?v=donde-trab";
 import { applySeo } from "./seo.js";
 
 rebaseDocument();
@@ -34,6 +34,10 @@ else if (page === "contacto") {
 
 safe(() => applySeo(page));
 safe(bindMotion);
+document.querySelectorAll("[aria-busy='true']").forEach((el) => {
+  if (el.querySelector(".skel, .skel-card, .skel-tile, .skel-dept, .skel-ficha, .header-skel")) return;
+  el.setAttribute("aria-busy", "false");
+});
 requestAnimationFrame(() => {
   document.documentElement.classList.add("is-booted");
 });

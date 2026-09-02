@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  
+
+  
+  <script>
+  /* pages-base */
+  /* Sync into HTML with: node scripts/inject-pages-base.mjs */
+  (function () {
+    if (typeof location === "undefined" || !/\.github\.io$/i.test(location.hostname)) return;
+    var first = location.pathname.split("/").filter(Boolean)[0] || "grupoCRM";
+    var base = "/" + first;
+    if (/\.html$/i.test(location.pathname) && !/\/404\.html$/i.test(location.pathname)) {
+      var clean = location.pathname.replace(/\/index\.html$/i, "/").replace(/\.html$/i, "");
+      if (clean !== location.pathname) {
+        location.replace(clean + location.search + location.hash);
+        return;
+      }
+    }
+    function fix(value) {
+      if (!value || /^(https?:|data:|mailto:|tel:|javascript:|#)/i.test(value)) return value;
+      var hashIdx = value.indexOf("#");
+      var hash = hashIdx === -1 ? "" : value.slice(hashIdx);
+      var before = hashIdx === -1 ? value : value.slice(0, hashIdx);
+      var qIdx = before.indexOf("?");
+      var search = qIdx === -1 ? "" : before.slice(qIdx);
+      var pathname = qIdx === -1 ? before : before.slice(0, qIdx);
+      if (pathname === "/") pathname = base + "/";
+      else if (pathname.charAt(0) === "/") {
+        if (!(pathname === base || pathname.indexOf(base + "/") === 0)) pathname = base + pathname;
+        if (!/\/404\.html$/i.test(pathname)) {
+          pathname = pathname.replace(/\/index\.html$/i, "/").replace(/\.html$/i, "");
+        }
+      } else {
+        var rel = pathname.replace(/^\.\//, "");
+        if (/^(aviso-privacidad|contacto|galeria|mapa-sitio|nosotros|producto|productos|servicios|index)\.html$/i.test(rel)) {
+          var name = rel.replace(/\.html$/i, "");
+          pathname = name === "index" ? base + "/" : base + "/" + name;
+        } else if (/^blog\/[\w-]+\.html$/i.test(rel)) {
+          pathname = base + "/" + rel.replace(/\.html$/i, "");
+        } else {
+          return value;
+        }
+      }
+      return pathname + search + hash;
+    }
+    function apply(el) {
+      if (!el || !el.getAttribute) return;
+      ["href", "src", "data-bg", "data-src", "action"].forEach(function (attr) {
+        var current = el.getAttribute(attr);
+        if (!current) return;
+        var next = fix(current);
+        if (next !== current) el.setAttribute(attr, next);
+      });
+      ["srcset", "data-srcset"].forEach(function (attr) {
+        var current = el.getAttribute(attr);
+        if (!current) return;
+        var next = current.split(",").map(function (part) {
+          var trimmed = part.trim();
+          if (!trimmed) return trimmed;
+          var bits = trimmed.split(/\s+/);
+          var url = bits.shift();
+          var updated = fix(url);
+          return bits.length ? updated + " " + bits.join(" ") : updated;
+        }).join(", ");
+        if (next !== current) el.setAttribute(attr, next);
+      });
+      var style = el.getAttribute("style");
+      if (style && style.indexOf("url(") !== -1) {
+        el.setAttribute(
+          "style",
+          style.replace(/url\((['"]?)([^'")]+)\1\)/g, function (_, quote, url) {
+            return "url(" + quote + fix(url) + quote + ")";
+          })
+        );
+      }
+    }
+    if (!document.querySelector("base")) {
+      var tag = document.createElement("base");
+      tag.href = base + "/";
+      var head = document.head || document.documentElement;
+      head.insertBefore(tag, head.firstChild);
+    }
+    function applyTree(root) {
+      if (!root || root.nodeType !== 1) return;
+      apply(root);
+      if (root.querySelectorAll) {
+        root.querySelectorAll("[href], [src], [srcset], [data-bg], [data-src], [data-srcset], [action], [style]").forEach(apply);
+      }
+    }
+    new MutationObserver(function (records) {
+      records.forEach(function (record) {
+        record.addedNodes.forEach(applyTree);
+      });
+    }).observe(document.documentElement, { childList: true, subtree: true });
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", function () {
+        applyTree(document.documentElement);
+      });
+    } else {
+      applyTree(document.documentElement);
+    }
+  })();
+  </script>
+  <style id="css-boot">
+  /* css-boot: hide until local CSS + header are ready */
+  html:not(.is-css):not(.is-booted):not(.is-boot-error) { visibility: hidden; background: #fff; }
+  </style>
+  <noscript><style>html { visibility: visible !important; }</style></noscript>
+  <script>setTimeout(function () { document.documentElement.classList.add("is-booted"); }, 4000);</script>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/main.css?v=blog-read">
+  <script>document.documentElement.classList.add("is-css");</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>NOM-154-SCFI-2005: recarga y mantenimiento de extintores | Grupo CRM</title>
+  <meta name="description" content="Qué implica la NOM-154-SCFI-2005 para recargar y dar mantenimiento a extintores. Qué pedirle a quien le da servicio en CDMX y Estado de México.">
+  <meta name="author" content="Grupo CRM Extintores">
+  <meta name="theme-color" content="#D51A32">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.crmextintores.com/blog/nom-154-scfi-2005">
+  <link rel="alternate" hreflang="es-MX" href="https://www.crmextintores.com/blog/nom-154-scfi-2005">
+  <link rel="alternate" hreflang="x-default" href="https://www.crmextintores.com/blog/nom-154-scfi-2005">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="es_MX">
+  <meta property="og:site_name" content="Grupo CRM Extintores">
+  <meta property="og:title" content="NOM-154-SCFI-2005: recarga y mantenimiento de extintores | Grupo CRM">
+  <meta property="og:description" content="Qué implica la NOM-154-SCFI-2005 para recargar y dar mantenimiento a extintores. Qué pedirle a quien le da servicio en CDMX y Estado de México.">
+  <meta property="og:url" content="https://www.crmextintores.com/blog/nom-154-scfi-2005">
+  <meta property="og:image" content="https://www.crmextintores.com/assets/img/full/blog-nom-154.jpg">
+  <meta property="og:image:alt" content="Gabinete de manguera y extintor para servicio contra incendio">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="NOM-154-SCFI-2005: recarga y mantenimiento de extintores | Grupo CRM">
+  <meta name="twitter:description" content="Qué implica la NOM-154-SCFI-2005 para recargar y dar mantenimiento a extintores. Qué pedirle a quien le da servicio en CDMX y Estado de México.">
+  <meta name="twitter:image" content="https://www.crmextintores.com/assets/img/full/blog-nom-154.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preload" as="image" type="image/webp" href="/assets/img/opt/full/blog-nom-154-1400.webp" fetchpriority="high">
+  <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/img/favicon.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=optional" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=optional"></noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
+</head>
+<body data-page="articulo" data-article="nom-154-scfi-2005">
+  <a class="skip-link" href="#contenido">Ir al contenido</a>
+  <div data-header></div>
+  <main id="contenido">
+  <article class="section article-page">
+    <div class="wrap wrap-article">
+      <p class="article-crumb"><a href="/">Inicio</a> · <a href="/blog">Blog</a> · NOM-154-SCFI-2005</p>
+      <header class="article-measure">
+        <p class="kicker">Normatividad</p>
+        <h1>NOM-154-SCFI-2005: recarga y mantenimiento de extintores</h1>
+        <hr class="rule rule-left">
+        <p class="article-dek">Es la norma que regula cómo se da servicio a un extintor en México: mantenimiento, recarga y evidencia. Si Protección Civil le pide “extintores vigentes”, esto es lo que está revisando.</p>
+      </header>
+      <figure class="article-hero">
+        <picture>
+          <source type="image/webp" srcset="/assets/img/opt/full/blog-nom-154-800.webp 800w, /assets/img/opt/full/blog-nom-154-1400.webp 1400w, /assets/img/opt/full/blog-nom-154-1600.webp 1600w" sizes="(min-width: 800px) 720px, 100vw">
+          <img src="/assets/img/opt/full/blog-nom-154-1400.webp" alt="Gabinete de manguera y extintor para servicio contra incendio" width="1400" height="933" decoding="async" fetchpriority="high">
+        </picture>
+        <figcaption>Un extintor sin servicio vigente no sirve en la inspección ni en un conato.</figcaption>
+      </figure>
+      <div class="article-measure">
+        <h2>Qué cubre la NOM-154-SCFI-2005</h2>
+        <p>La NOM-154-SCFI-2005 es la Norma Oficial Mexicana de Economía (antes SCFI) sobre el <strong>servicio de mantenimiento y recarga</strong> de extintores. No le dice a usted qué tipo de extintor comprar; le dice a quien recarga cómo debe hacerlo: procedimiento, agente, presión, etiqueta y registro.</p>
+        <div class="article-callout">
+          <p>Esta página no reproduce el texto oficial. Un consultor o su unidad interna deben revisar la versión vigente. Grupo CRM recarga y da mantenimiento a extintores en CDMX y Estado de México; la primera visita es sin costo.</p>
+        </div>
+        <p>Grupo CRM es una empresa verificada por <a href="https://amecire.org/portal/" target="_blank" rel="noopener noreferrer">AMECIRE</a> (Asociación Mexicana de Equipos Contra Incendio y Recargadores de Extintores, A.C.), organismo de capacitación y consultoría ligado a esta certificación.</p>
+
+        <h2>Por qué le importa a su negocio</h2>
+        <p>En una inspección casi no preguntan el nombre de la norma. Preguntan si el extintor tiene etiqueta de servicio, si el manómetro está en rango y si hay evidencia de quién lo recargó. Si el servicio no se hizo bien, el equipo “se ve rojo” y aun así no pasa.</p>
+        <p>No es lo mismo pintar un manómetro o cambiar una etiqueta que recargar con el agente correcto, revisar sello, manguera y válvula, y dejar constancia. Eso es lo que la NOM-154 ordena del lado de quien da el servicio.</p>
+
+        <h2>Qué se revisa en la práctica</h2>
+        <ul class="article-pick-grid">
+          <li class="article-pick">
+            <span class="article-pick__mark">1</span>
+            <div>
+              <h3>Mantenimiento y recarga</h3>
+              <p>El plazo lo marca la norma y el tipo de extintor. En inspecciones piden servicio vigente, no “lo recargamos cuando se vea vacío”.</p>
+            </div>
+          </li>
+          <li class="article-pick">
+            <span class="article-pick__mark">2</span>
+            <div>
+              <h3>Prueba hidrostática</h3>
+              <p>El cilindro se prueba a intervalos según el equipo. Si ya tocó, recargar sin esa prueba no deja el extintor en regla.</p>
+            </div>
+          </li>
+          <li class="article-pick">
+            <span class="article-pick__mark">3</span>
+            <div>
+              <h3>Etiqueta y sello</h3>
+              <p>Debe leerse de frente: fecha, tipo de servicio y quién lo hizo. Un sello roto o una etiqueta genérica suelen bastar para observar el punto.</p>
+            </div>
+          </li>
+          <li class="article-pick">
+            <span class="article-pick__mark">4</span>
+            <div>
+              <h3>Evidencia</h3>
+              <p>Guarde la orden o el reporte. En condominios y restaurantes es lo primero que piden junto a la bitácora.</p>
+            </div>
+          </li>
+        </ul>
+
+        <h2>Qué pedirle a quien le recarga</h2>
+        <ol class="article-steps">
+          <li>Que trabaje el servicio bajo la NOM-154-SCFI-2005, no “a ojo”.</li>
+          <li>Que le deje etiqueta legible y un comprobante con fecha y tipo de trabajo.</li>
+          <li>Que le diga si toca prueba hidrostática o si el cilindro ya no sirve.</li>
+          <li>Que instale de nuevo el equipo en su sitio, visible y con acceso libre.</li>
+        </ol>
+        <div class="article-callout article-callout--warn">
+          <p>Desconfíe si le ofrecen recargar “sin recoger el extintor” o si solo le cambian la calcomanía. El agente, la presión y el sello importan tanto como el color del cilindro.</p>
+        </div>
+
+        <h2>Cómo se relaciona con la NOM-002 y Protección Civil</h2>
+        <p>Son piezas distintas. La <a href="/blog/nom-002-stps-2010">NOM-002-STPS-2010</a> habla del centro de trabajo: prevención, señales y punto de reunión. La NOM-154-SCFI-2005 habla de <em>cómo</em> se da mantenimiento al extintor. Protección Civil del municipio o de la Ciudad aplica su reglamento y, en la visita, cruza ambas: que el equipo exista, se vea y esté servido.</p>
+        <p>Si le pidieron “dejar el inmueble en regla”, suele faltar el combo: extintores con servicio vigente, <a href="/productos?cat=gabinetes-herrajes#gabinetes-herrajes">gabinete o soporte</a>, señalamientos y, si aplica, <a href="/blog/botiquin-primeros-auxilios">botiquín</a>. Eso revisamos en sitio.</p>
+
+        <h2>Cómo lo hacemos en Grupo CRM</h2>
+        <p>Vamos a su negocio en CDMX o Estado de México, revisamos cada extintor y le decimos qué se recarga, qué se sustituye y qué ya no conviene reparar. Cotizamos el mismo día. Aceptamos tarjeta y meses sin intereses.</p>
+        <p>Si aún no tiene claro el tipo, empiece por la guía de <a href="/blog/tipos-de-fuego">clases de fuego</a> o por el <a href="/blog/extintor-6-kg">extintor de 6 kg</a>, el que más se instala en pasillos y locales.</p>
+
+        <div class="article-cta">
+          <p>¿Le pidieron recargar o dejar evidencia de servicio? Con gusto revisamos sus extintores en sitio.</p>
+          <p class="actions">
+            <a class="btn btn-wa" href="https://wa.me/525667481489?text=Hola%2C%20quiero%20recargar%20o%20dar%20mantenimiento%20a%20mis%20extintores%20con%20NOM-154." target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Agendar visita</a>
+            <a class="btn btn-ink" href="tel:5667481489" aria-label="Llámenos al 56 6748 1489"><i class="fa-solid fa-phone phone-icon" aria-hidden="true"></i> Llámenos</a>
+          </p>
+        </div>
+
+        <aside class="article-related">
+          <h2>Siga leyendo</h2>
+          <ul>
+            <li><a href="/blog/nom-002-stps-2010">NOM-002-STPS-2010: señalización y punto de reunión</a></li>
+            <li><a href="/blog/extintores-cdmx">Extintores en CDMX y Estado de México</a></li>
+            <li><a href="/blog/tipos-de-fuego">Tipos de fuego y cómo elegir el extintor</a></li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </article>
+  <section class="hook" data-hook></section>
+  </main>
+  <div data-footer></div>
+  <script type="module" src="/js/main.js?v=wa-hover" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
+</body>
+</html>

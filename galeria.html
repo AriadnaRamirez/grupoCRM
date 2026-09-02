@@ -105,17 +105,18 @@
   </script>
   <style id="css-boot">
   /* css-boot: hide until local CSS + header are ready */
-  html:not(.is-booted) { visibility: hidden; background: #fff; }
+  html:not(.is-css):not(.is-booted):not(.is-boot-error) { visibility: hidden; background: #fff; }
   </style>
   <noscript><style>html { visibility: visible !important; }</style></noscript>
   <script>setTimeout(function () { document.documentElement.classList.add("is-booted"); }, 4000);</script>
-  <link rel="stylesheet" href="css/tokens.css">
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/tokens.css?v=ribbon-gold">
+  <link rel="stylesheet" href="css/main.css?v=wa-hover">
+  <script>document.documentElement.classList.add("is-css");</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Galería de instalaciones | Grupo CRM Extintores</title>
   <meta name="description" content="Vea cómo quedan extintores e instalaciones en negocios de CDMX y Estado de México. ¿Quiere el mismo resultado? Cotice con Grupo CRM.">
   <meta name="author" content="Grupo CRM Extintores">
-  <meta name="theme-color" content="#C11234">
+  <meta name="theme-color" content="#D51A32">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.crmextintores.com/galeria">
   <link rel="alternate" hreflang="es-MX" href="https://www.crmextintores.com/galeria">
@@ -173,6 +174,6 @@
   </section>
   </main>
   <div data-footer></div>
-  <script type="module" src="js/main.js" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
+  <script type="module" src="js/main.js?v=wa-hover" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
 </body>
 </html>

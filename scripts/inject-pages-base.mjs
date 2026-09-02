@@ -2,7 +2,7 @@ import { readFileSync, writeFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 
 const root = process.cwd();
-const skip = new Set(["dist-pages", "node_modules", ".git", ".tmp-verify", "wordpress-export"]);
+const skip = new Set(["dist-pages", "node_modules", ".git", ".tmp-verify"]);
 const boot = readFileSync(join(root, "js", "pages-base.js"), "utf8").trim();
 const snippet = `  <script>\n  /* pages-base */\n${boot
   .split("\n")

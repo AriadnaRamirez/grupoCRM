@@ -15,6 +15,7 @@ const skip = new Set([
   ".git",
   ".tmp-verify",
   "wordpress-export",
+  "assets/inspo",
 ]);
 
 const pageNames = [

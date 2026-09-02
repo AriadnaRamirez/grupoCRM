@@ -106,17 +106,18 @@
   </script>
   <style id="css-boot">
   /* css-boot: hide until local CSS + header are ready */
-  html:not(.is-booted) { visibility: hidden; background: #fff; }
+  html:not(.is-css):not(.is-booted):not(.is-boot-error) { visibility: hidden; background: #fff; }
   </style>
   <noscript><style>html { visibility: visible !important; }</style></noscript>
   <script>setTimeout(function () { document.documentElement.classList.add("is-booted"); }, 4000);</script>
   <link rel="stylesheet" href="/css/tokens.css">
-  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/main.css?v=blog-read">
+  <script>document.documentElement.classList.add("is-css");</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Extintores en CDMX y Estado de México | Grupo CRM Extintores</title>
   <meta name="description" content="Venta, recarga e instalación de extintores y equipo contra incendios en la Ciudad de México y el Estado de México. Cotice con Grupo CRM.">
   <meta name="author" content="Grupo CRM Extintores">
-  <meta name="theme-color" content="#C11234">
+  <meta name="theme-color" content="#D51A32">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.crmextintores.com/blog/extintores-cdmx">
   <link rel="alternate" hreflang="es-MX" href="https://www.crmextintores.com/blog/extintores-cdmx">
@@ -127,16 +128,16 @@
   <meta property="og:title" content="Extintores en CDMX y Estado de México | Grupo CRM Extintores">
   <meta property="og:description" content="Venta, recarga e instalación de extintores y equipo contra incendios en la Ciudad de México y el Estado de México. Cotice con Grupo CRM.">
   <meta property="og:url" content="https://www.crmextintores.com/blog/extintores-cdmx">
-  <meta property="og:image" content="https://www.crmextintores.com/assets/img/crop/galeria-extintores-sitio.jpg">
-  <meta property="og:image:alt" content="Extintores instalados en un establecimiento">
+  <meta property="og:image" content="https://www.crmextintores.com/assets/img/full/blog-cdmx.jpg">
+  <meta property="og:image:alt" content="Panorama urbano de la Ciudad de México">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Extintores en CDMX y Estado de México | Grupo CRM Extintores">
   <meta name="twitter:description" content="Venta, recarga e instalación de extintores y equipo contra incendios en la Ciudad de México y el Estado de México. Cotice con Grupo CRM.">
-  <meta name="twitter:image" content="https://www.crmextintores.com/assets/img/crop/galeria-extintores-sitio.jpg">
+  <meta name="twitter:image" content="https://www.crmextintores.com/assets/img/full/blog-cdmx.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="preload" as="image" type="image/webp" href="/assets/img/opt/crop/galeria-extintores-sitio-1280.webp" fetchpriority="high">
+  <link rel="preload" as="image" type="image/webp" href="/assets/img/opt/full/blog-cdmx-1400.webp" fetchpriority="high">
   <link rel="icon" type="image/png" href="/assets/img/favicon.png">
   <link rel="apple-touch-icon" href="/assets/img/favicon.png">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=optional" media="print" onload="this.media='all'">
@@ -159,8 +160,8 @@
       </header>
       <figure class="article-hero">
         <picture>
-          <source type="image/webp" srcset="/assets/img/opt/crop/galeria-extintores-sitio-800.webp 800w, /assets/img/opt/crop/galeria-extintores-sitio-1280.webp 1280w, /assets/img/opt/crop/galeria-extintores-sitio-1600.webp 1600w" sizes="(min-width: 800px) 720px, 100vw">
-          <img src="/assets/img/opt/crop/galeria-extintores-sitio-800.webp" alt="Extintores instalados en un establecimiento" width="960" height="540" decoding="async" fetchpriority="high">
+          <source type="image/webp" srcset="/assets/img/opt/full/blog-cdmx-800.webp 800w, /assets/img/opt/full/blog-cdmx-1400.webp 1400w, /assets/img/opt/full/blog-cdmx-1600.webp 1600w" sizes="(min-width: 800px) 720px, 100vw">
+          <img src="/assets/img/opt/full/blog-cdmx-1400.webp" alt="Panorama urbano de la Ciudad de México" width="1400" height="933" decoding="async" fetchpriority="high">
         </picture>
         <figcaption>Dejamos sus equipos listos en sitio, en CDMX y Estado de México.</figcaption>
       </figure>
@@ -215,39 +216,10 @@
           <li>Le respondemos con el equipo y el servicio.</li>
           <li>También puede usar el formulario de <a href="/contacto">contacto</a>.</li>
         </ol>
-      </header>
-      <figure class="article-hero">
-        <picture>
-          <source type="image/webp" srcset="/assets/img/opt/crop/galeria-extintores-sitio-800.webp 800w, /assets/img/opt/crop/galeria-extintores-sitio-1280.webp 1280w, /assets/img/opt/crop/galeria-extintores-sitio-1600.webp 1600w" sizes="(min-width: 800px) 720px, 100vw">
-          <img src="/assets/img/opt/crop/galeria-extintores-sitio-800.webp" alt="Extintores instalados en un establecimiento" width="960" height="540" decoding="async" fetchpriority="high">
-        </picture>
-      </figure>
-      <div class="article-measure">
-        <h2>Qué pedimos cuando nos buscan por “extintores CDMX”</h2>
-        <p>Casi siempre es lo mismo: una inspección de Protección Civil, un extintor vencido o un local que abre y aún no tiene el equipo. Atendemos condominios, restaurantes, oficinas, clínicas, escuelas y comercios en CDMX y en municipios del Estado de México.</p>
-        <p>La primera visita la hacemos sin costo: revisamos extintores, puntos de incendio y lo que falte para que el inmueble esté en regla. Luego le dejamos una cotización clara. Aceptamos tarjeta y meses sin intereses.</p>
-
-        <h2>Extintores y el resto del equipo contra incendios</h2>
-        <p>Un extintor solo no arma el programa. El equipo contra incendios de un negocio suele incluir:</p>
-        <ul>
-          <li><a href="/productos?cat=extintores#extintores">Extintores</a> PQS, CO₂, tipo K, agua y unidades móviles, según el riesgo.</li>
-          <li><a href="/productos?cat=gabinetes-herrajes#gabinetes-herrajes">Gabinetes y portaextintores</a> para dejar el punto visible y accesible.</li>
-          <li><a href="/productos?cat=senalamiento-vial#senalamiento-vial">Señalamientos</a> de emergencia y vialidad.</li>
-          <li><a href="/productos?cat=botiquines#botiquines">Botiquines</a> de pared y <a href="/productos?cat=equipo-proteccion#equipo-proteccion">equipo de protección</a> (detectores, lámparas, cascos).</li>
-        </ul>
-        <p>Si no sabe por dónde empezar, escríbanos: le decimos qué hay que reponer y qué puede esperar.</p>
-
-        <h2>Ciudad de México y Estado de México</h2>
-        <p>Operamos desde Cuajimalpa (Chamixto 131, Col. Loma del Padre) y nos desplazamos en la Ciudad de México y el Estado de México. El horario de oficina es lunes a viernes, de 9:00 a 18:00. Fuera de horario puede dejar su mensaje por WhatsApp.</p>
-        <p>En la <a href="/galeria">galería</a> puede ver instalaciones en restaurantes, escuelas, agencias y bodegas. En <a href="/nosotros">Nosotros</a> están la venta, la recarga y la instalación.</p>
-
-        <h2>Cómo cotizar</h2>
-        <p>Mándenos fotos de sus extintores, el giro del inmueble y la alcaldía o municipio. Le respondemos con el equipo y el servicio. También puede usar el formulario de <a href="/contacto">contacto</a>.</p>
-
         <div class="article-cta">
           <p>Cotice con nosotros sus extintores y su equipo contra incendios en CDMX o Estado de México. Con gusto lo asesoramos.</p>
           <p class="actions">
-            <a class="btn btn-wa" href="https://wa.me/525554383241?text=Hola%2C%20quiero%20cotizar%20extintores%20y%20equipo%20contra%20incendios%20en%20CDMX%20o%20Estado%20de%20M%C3%A9xico." target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp 55 5438 3241</a>
+            <a class="btn btn-wa" href="https://wa.me/525667481489?text=Hola%2C%20quiero%20cotizar%20extintores%20y%20equipo%20contra%20incendios%20en%20CDMX%20o%20Estado%20de%20M%C3%A9xico." target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp 56 6748 1489</a>
             <a class="btn btn-ink" href="/productos">Ver catálogo</a>
           </p>
         </div>
@@ -255,6 +227,7 @@
         <aside class="article-related">
           <h2>Siga leyendo</h2>
           <ul>
+            <li><a href="/blog/nom-154-scfi-2005">NOM-154-SCFI-2005: recarga y mantenimiento</a></li>
             <li><a href="/blog/tipos-de-fuego">Tipos de fuego y cómo elegir el extintor</a></li>
             <li><a href="/blog/como-usar-un-extintor">Cómo usar un extintor</a></li>
             <li><a href="/blog/extintor-6-kg">Extintor de 6 kg</a></li>
@@ -266,6 +239,6 @@
   <section class="hook" data-hook></section>
   </main>
   <div data-footer></div>
-  <script type="module" src="/js/main.js" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
+  <script type="module" src="/js/main.js?v=wa-hover" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
 </body>
 </html>

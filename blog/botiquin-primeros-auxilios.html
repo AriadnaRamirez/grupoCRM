@@ -106,17 +106,18 @@
   </script>
   <style id="css-boot">
   /* css-boot: hide until local CSS + header are ready */
-  html:not(.is-booted) { visibility: hidden; background: #fff; }
+  html:not(.is-css):not(.is-booted):not(.is-boot-error) { visibility: hidden; background: #fff; }
   </style>
   <noscript><style>html { visibility: visible !important; }</style></noscript>
   <script>setTimeout(function () { document.documentElement.classList.add("is-booted"); }, 4000);</script>
   <link rel="stylesheet" href="/css/tokens.css">
-  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/main.css?v=blog-read">
+  <script>document.documentElement.classList.add("is-css");</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Botiquín de primeros auxilios para empresas | Grupo CRM</title>
   <meta name="description" content="Botiquines metálicos de pared para oficinas, escuelas y comercios. Complemento del equipo contra incendios. Cotice en CDMX y Estado de México.">
   <meta name="author" content="Grupo CRM Extintores">
-  <meta name="theme-color" content="#C11234">
+  <meta name="theme-color" content="#D51A32">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.crmextintores.com/blog/botiquin-primeros-auxilios">
   <link rel="alternate" hreflang="es-MX" href="https://www.crmextintores.com/blog/botiquin-primeros-auxilios">
@@ -127,16 +128,16 @@
   <meta property="og:title" content="Botiquín de primeros auxilios para empresas | Grupo CRM">
   <meta property="og:description" content="Botiquines metálicos de pared para oficinas, escuelas y comercios. Complemento del equipo contra incendios. Cotice en CDMX y Estado de México.">
   <meta property="og:url" content="https://www.crmextintores.com/blog/botiquin-primeros-auxilios">
-  <meta property="og:image" content="https://www.crmextintores.com/assets/img/categoria-botiquines.png">
-  <meta property="og:image:alt" content="Botiquín de emergencia de pared">
+  <meta property="og:image" content="https://www.crmextintores.com/assets/img/full/blog-botiquin.jpg">
+  <meta property="og:image:alt" content="Botiquín de primeros auxilios de pared">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Botiquín de primeros auxilios para empresas | Grupo CRM">
   <meta name="twitter:description" content="Botiquines metálicos de pared para oficinas, escuelas y comercios. Complemento del equipo contra incendios. Cotice en CDMX y Estado de México.">
-  <meta name="twitter:image" content="https://www.crmextintores.com/assets/img/categoria-botiquines.png">
+  <meta name="twitter:image" content="https://www.crmextintores.com/assets/img/full/blog-botiquin.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="preload" as="image" type="image/webp" href="/assets/img/opt/categoria-botiquines-960.webp" fetchpriority="high">
+  <link rel="preload" as="image" type="image/webp" href="/assets/img/opt/full/blog-botiquin-1400.webp" fetchpriority="high">
   <link rel="icon" type="image/png" href="/assets/img/favicon.png">
   <link rel="apple-touch-icon" href="/assets/img/favicon.png">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=optional" media="print" onload="this.media='all'">
@@ -159,8 +160,8 @@
       </header>
       <figure class="article-hero">
         <picture>
-          <source type="image/webp" srcset="/assets/img/opt/categoria-botiquines-480.webp 480w, /assets/img/opt/categoria-botiquines-960.webp 960w" sizes="(min-width: 800px) 720px, 100vw">
-          <img src="/assets/img/opt/categoria-botiquines-960.webp" alt="Botiquín de emergencia de pared" width="960" height="540" decoding="async" fetchpriority="high">
+          <source type="image/webp" srcset="/assets/img/opt/full/blog-botiquin-800.webp 800w, /assets/img/opt/full/blog-botiquin-1400.webp 1400w, /assets/img/opt/full/blog-botiquin-1600.webp 1600w" sizes="(min-width: 800px) 720px, 100vw">
+          <img src="/assets/img/opt/full/blog-botiquin-1400.webp" alt="Botiquín de primeros auxilios de pared" width="1400" height="933" decoding="async" fetchpriority="high">
         </picture>
         <figcaption>Sitio fijo, señalado y con un responsable de reponer material.</figcaption>
       </figure>
@@ -223,39 +224,11 @@
             </div>
           </li>
         </ul>
-      </header>
-      <figure class="article-hero">
-        <picture>
-          <source type="image/webp" srcset="/assets/img/opt/categoria-botiquines-480.webp 480w, /assets/img/opt/categoria-botiquines-960.webp 960w" sizes="(min-width: 800px) 720px, 100vw">
-          <img src="/assets/img/opt/categoria-botiquines-960.webp" alt="Botiquín de emergencia de pared" width="960" height="540" decoding="async" fetchpriority="high">
-        </picture>
-      </figure>
-      <div class="article-measure">
-        <h2>Por qué pedirlo junto con el equipo contra incendios</h2>
-        <p>En una inspección de Protección Civil o en un centro de trabajo que sigue la <a href="/blog/nom-002-stps-2010">NOM-002-STPS-2010</a>, el botiquín suele revisarse con los extintores: que exista, que se vea y que alguien sepa usarlo. No apaga un conato; sí atiende un corte, una quemadura menor o un desmayo mientras llega ayuda.</p>
-        <p>Colóquelo en un sitio fijo, señalado, fuera de la cocina abierta y lejos de la humedad. Designe a un responsable de reponer material.</p>
-
-        <h2>Tamaños en catálogo</h2>
-        <p>Los tres son metálicos de pared, en lámina troquelada y esmaltada:</p>
-        <ul>
-          <li><a href="/producto?sku=CRM-0046">Chico (17 × 23 × 6 cm)</a> — hogar, oficina chica o mostrador.</li>
-          <li><a href="/producto?sku=CRM-0047">Mediano (20 × 30 × 7 cm)</a> — comercios, escuelas y talleres.</li>
-          <li><a href="/producto?sku=CRM-0048">Grande (25 × 35 × 7.5 cm)</a> — industria, centros comerciales y obras.</li>
-        </ul>
-        <p>Vea la línea completa en <a href="/productos?cat=botiquines#botiquines">botiquines</a>. El contenido (gasas, antiséptico, guantes) se define con usted según el giro; no vendemos un “kit milagroso” genérico en esta ficha.</p>
-
-        <h2>Cómo armar el punto de emergencia</h2>
-        <p>En muchos locales de CDMX y Estado de México dejamos juntos el extintor, el gabinete y el botiquín, con lámpara de emergencia en pasillos. Eso se cotiza en una sola visita.</p>
-        <ul>
-          <li><a href="/productos?cat=extintores#extintores">Extintores</a> vigentes y recargados.</li>
-          <li><a href="/productos?cat=equipo-proteccion#equipo-proteccion">Detector de humo y lámpara de emergencia</a> si el recinto lo necesita.</li>
-          <li>Señales y, si aplica, <a href="/producto?sku=CRM-0034">brazalete de brigadista</a>.</li>
-        </ul>
 
         <div class="article-cta">
           <p>Si gusta, cotizamos su botiquín y sus extintores en un mismo pedido.</p>
           <p class="actions">
-            <a class="btn btn-wa" href="https://wa.me/525554383241?text=Hola%2C%20quiero%20cotizar%20botiqu%C3%ADn%20de%20primeros%20auxilios%20y%20equipo%20contra%20incendios." target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Cotizar botiquín</a>
+            <a class="btn btn-wa" href="https://wa.me/525667481489?text=Hola%2C%20quiero%20cotizar%20botiqu%C3%ADn%20de%20primeros%20auxilios%20y%20equipo%20contra%20incendios." target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Cotizar botiquín</a>
             <a class="btn btn-ink" href="/productos?cat=botiquines#botiquines">Ver botiquines</a>
           </p>
         </div>
@@ -274,6 +247,6 @@
   <section class="hook" data-hook></section>
   </main>
   <div data-footer></div>
-  <script type="module" src="/js/main.js" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
+  <script type="module" src="/js/main.js?v=wa-hover" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
 </body>
 </html>

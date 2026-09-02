@@ -5,7 +5,6 @@ Thumbs.db
 .env.*
 !.env.example
 .tmp-verify/
-wordpress-export/
 assets/inspo/
 assets/img/galeria-*.png
 assets/img/hero-extintores.jpg

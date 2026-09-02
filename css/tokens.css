@@ -6,12 +6,13 @@
 :root {
   /* — Brand — */
   --ink: #202020;
-  --red: #c11234;
-  --red-dark: #9a0e29;
+  --red: #d51a32;
+  --red-dark: #aa1227;
   --blue: #1e2538;
   --blue-dark: #171c2b;
   --navy: #1a2031;
   --gold: #f7b000;
+  --orange: #f26b1c;
   --blue-soft: #e6e8ee;
   --wa: #1f8a4d;
   --wa-dark: #176b3c;
@@ -40,6 +41,8 @@
   --border-strong: var(--line-strong);
   --accent: var(--red);
   --accent-hover: var(--red-dark);
+  --brand-ribbon: linear-gradient(90deg, var(--red) 0%, var(--orange) 48%, var(--gold) 100%);
+  --brand-ribbon-y: linear-gradient(180deg, var(--red) 0%, var(--orange) 48%, var(--gold) 100%);
   --focus-color: var(--blue);
 
   /* — Category palette — */
@@ -47,8 +50,8 @@
   --cat-all-soft: #f0f0f0;
   --cat-extintores: var(--red);
   --cat-extintores-soft: #f9eaed;
-  --cat-chalecos: var(--gold);
-  --cat-chalecos-soft: #fff8e0;
+  --cat-chalecos: var(--navy);
+  --cat-chalecos-soft: #e8eaef;
   --cat-senalamiento-vial: var(--muted);
   --cat-senalamiento-vial-soft: #f0f0f0;
   --cat-gabinetes-herrajes: var(--blue);
@@ -67,6 +70,7 @@
   --tracking-tight: -0.03em;
   --tracking-kicker: 0.16em;
   --tracking-wide: 0.14em;
+  --text-min: 0.75rem;
   --text-xs: 0.68rem;
   --text-sm: 0.78rem;
   --text-base: 0.9rem;
@@ -76,9 +80,12 @@
   --text-nav-panel: 0.9375rem;
   --text-topbar: 0.875rem;
   --text-nav-cta: 0.8125rem;
-  --text-xl: clamp(1.35rem, 2.2vw, 1.75rem);
-  --text-2xl: clamp(1.6rem, 2.4vw, 2.2rem);
-  --text-3xl: clamp(2rem, 4.4vw, 3.4rem);
+  --text-xl: clamp(1.55rem, 1.2rem + 1.6vw, 2.1rem);
+  --text-2xl: clamp(1.85rem, 1.25rem + 2vw, 2.55rem);
+  --text-3xl: clamp(2.1rem, 1.4rem + 2.6vw, 3.4rem);
+  /* Display titles: same language as home hero + Inspector + catalog */
+  --display: clamp(1.75rem, 1.2rem + 2vw, 2.55rem);
+  --tracking-display: -0.035em;
 
   /* — Layout — */
   --wrap: 1120px;
@@ -102,6 +109,14 @@
   --space-10: 56px;
   --space-11: 64px;
   --space-12: 80px;
+
+  /* Type stack: kicker → title → rule → lead → block → CTA */
+  --stack-kicker: var(--space-3); /* 12 — kicker to title */
+  --stack-title: var(--space-6);  /* 24 — title to red rule */
+  --stack-rule: var(--space-6);   /* 24 — rule to lead */
+  --stack-lead: var(--space-8);   /* 32 — lead to cards / next block */
+  --stack-cta: var(--space-8);    /* 32 — block to button */
+  --stack-head: var(--space-8);   /* 32 — whole head to following content */
 
   /* — Radius — */
   --r-xs: 4px;
@@ -142,6 +157,7 @@
   --btn-radius: var(--r-xs);
   --rule-w: 56px;
   --rule-h: 3px;
+  --ribbon-h: 3px;
 }
 
 @media (max-width: 1023px) {
@@ -154,12 +170,24 @@
     --gutter: max(16px, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
     --section-pad: 40px;
     --section-pad-sm: 28px;
+    --stack-title: var(--space-5);
+    --stack-rule: var(--space-5);
+    --stack-lead: var(--space-6);
+    --stack-cta: var(--space-6);
+    --stack-head: var(--space-6);
     --btn-min-h: 44px;
-    --text-sm: 0.72rem;
-    --text-topbar: 0.8125rem;
+    --text-min: 0.8125rem;
+    --text-xs: var(--text-min);
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-md: 1rem;
+    --text-lg: 1.0625rem;
+    --text-topbar: 0.875rem;
+    --text-nav: 1rem;
+    --text-nav-cta: 0.9375rem;
     --tracking-kicker: 0.12em;
-    --text-3xl: 1.55rem;
-    --text-2xl: 1.28rem;
+    --text-3xl: 1.625rem;
+    --text-2xl: 1.375rem;
   }
 }
 @media (max-width: 389px) {
@@ -167,7 +195,5 @@
     --gutter: max(16px, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
     --section-pad: 32px;
     --section-pad-sm: 24px;
-    --text-3xl: 1.38rem;
-    --text-2xl: 1.18rem;
   }
 }

@@ -106,17 +106,28 @@
   </script>
   <style id="css-boot">
   /* css-boot: hide until local CSS + header are ready */
-  html:not(.is-booted) { visibility: hidden; background: #fff; }
+  html:not(.is-css):not(.is-booted):not(.is-boot-error) { visibility: hidden; background: #fff; }
   </style>
   <noscript><style>html { visibility: visible !important; }</style></noscript>
   <script>setTimeout(function () { document.documentElement.classList.add("is-booted"); }, 4000);</script>
+  <script>
+  /* 404-base: this document is also served at nested missing URLs */
+  (function () {
+    if (typeof location === "undefined" || document.querySelector("base")) return;
+    var tag = document.createElement("base");
+    tag.href = "/";
+    var head = document.head || document.documentElement;
+    head.insertBefore(tag, head.firstChild);
+  })();
+  </script>
   <link rel="stylesheet" href="css/tokens.css">
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/main.css?v=wa-hover">
+  <script>document.documentElement.classList.add("is-css");</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Página no encontrada | Grupo CRM Extintores</title>
   <meta name="description" content="Esta página no existe. Vuelva al inicio de Grupo CRM Extintores para cotizar extintores y equipo contra incendio en CDMX.">
   <meta name="robots" content="noindex, nofollow">
-  <meta name="theme-color" content="#C11234">
+  <meta name="theme-color" content="#D51A32">
   <link rel="canonical" href="https://www.crmextintores.com/404">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -135,8 +146,8 @@
     <div class="wrap error-page__box">
       <figure class="error-page__figure">
         <picture>
-          <source type="image/webp" srcset="assets/img/opt/mascot-inspector-crm.webp">
-          <img src="assets/img/opt/mascot-inspector-crm.webp" width="283" height="379" alt="Inspector CRM, mascota de Grupo CRM Extintores" decoding="async">
+          <source type="image/webp" srcset="assets/img/opt/mascot-404-llama.webp?v=cutout">
+          <img src="assets/img/opt/mascot-404-llama.webp?v=cutout" width="568" height="682" alt="Llama de Grupo CRM apagándose a sí misma con un extintor" decoding="async">
         </picture>
       </figure>
       <div class="error-page__copy">
@@ -148,12 +159,12 @@
         <p class="error-page__return" data-error-return role="status">Regresa al inicio en <span data-error-seconds>10</span> segundos</p>
         <p class="error-page__actions">
           <a class="btn btn-red" href="index.html"><i class="fa-solid fa-house" aria-hidden="true"></i> Volver al inicio</a>
-          <a class="btn btn-ink" href="https://wa.me/525554383241" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Escríbanos por WhatsApp</a>
+          <a class="btn btn-ink" href="https://wa.me/525667481489" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Escríbanos por WhatsApp</a>
         </p>
       </div>
     </div>
   </main>
   <div data-footer></div>
-  <script type="module" src="js/main.js" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
+  <script type="module" src="js/main.js?v=wa-hover" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
 </body>
 </html>

@@ -33,28 +33,24 @@ const homeNeed = [
   "assets/img/logo-crm-flame.png",
   "assets/img/logo-crm-wordmark.png",
   "assets/img/favicon.png",
-  "assets/img/mascot-inspector-crm.png",
+  "assets/img/mascot-inspector-extintor.png",
+  "assets/img/mascot-inspector-senala.png",
+  "assets/img/mascot-inspector-ok.png",
   "assets/img/categoria-extintores.png",
   "assets/img/categoria-chalecos.png",
   "assets/img/categoria-senalamiento-vial.png",
   "assets/img/categoria-gabinetes-herrajes.png",
   "assets/img/categoria-botiquines.png",
   "assets/img/categoria-equipo-proteccion.png",
-  "assets/img/crop/galeria-evento.jpg",
-  "assets/img/crop/galeria-inventario.jpg",
-  "assets/img/crop/galeria-extintores-sitio.jpg",
+  "assets/img/full/galeria-evento.jpg",
+  "assets/img/full/galeria-inventario.jpg",
+  "assets/img/full/galeria-extintores-sitio.jpg",
   "assets/img/full/galeria-comercio.jpg",
   "assets/img/full/galeria-deportivo.jpg",
   "assets/img/full/galeria-restaurante.jpg",
   "assets/img/full/galeria-vapiano.jpg",
   "assets/img/full/galeria-automotriz.jpg",
   "assets/img/full/galeria-bodega.jpg",
-  "assets/img/crop/galeria-deportivo.jpg",
-  "assets/img/crop/galeria-restaurante.jpg",
-  "assets/img/crop/galeria-vapiano.jpg",
-  "assets/img/crop/galeria-automotriz.jpg",
-  "assets/img/crop/galeria-bodega.jpg",
-  "assets/img/crop/galeria-comercio.jpg",
 ];
 const skus = [
   "CRM-0003", "CRM-0006", "CRM-0012", "CRM-0004",
@@ -83,8 +79,6 @@ console.log("count", cat.length, "total", mb(cat.reduce((s, r) => s + r.bytes, 0
 console.log("avg", kb(cat.reduce((s, r) => s + r.bytes, 0) / Math.max(cat.length, 1)));
 console.log("max", mb(Math.max(0, ...cat.map((r) => r.bytes))));
 
-const crop = rows.filter((r) => r.p.includes("/crop/"));
 const full = rows.filter((r) => r.p.includes("/full/"));
-console.log("\n=== CROP vs FULL ===");
-console.log("crop", crop.length, mb(crop.reduce((s, r) => s + r.bytes, 0)));
+console.log("\n=== FULL GALLERY ===");
 console.log("full", full.length, mb(full.reduce((s, r) => s + r.bytes, 0)));

@@ -1,4 +1,4 @@
-import { company, categories, products, services, courses, sectors, faqs, clients, waUrl, safeDecode, catName, catCount, productBySku, productImg, productAlt, productUrl, readSku, relatedProducts, lookbook, lookAlt, lookFull, venues, carePoints, readyChecks, condo } from "./data.js";
+import { company, categories, products, services, courses, sectors, faqs, reviews, clients, waUrl, safeDecode, catName, catCount, productBySku, productImg, productAlt, productUrl, readSku, relatedProducts, lookbook, lookAlt, lookFull, venues, carePoints, readyChecks, condo } from "./data.js?v=svc-venta-instalar";
 import { applySeo } from "./seo.js";
 import { rebaseDocument, rebaseSrcset, withBase } from "./base.js";
 
@@ -11,21 +11,38 @@ const MAIL_ICON = fa("fa-solid fa-envelope mail-icon");
 const SEARCH_ICON = fa("fa-solid fa-magnifying-glass");
 const CHEV_DOWN = fa("fa-solid fa-chevron-down nav-drop__chevron");
 
-function topIcon(name, inner) {
-  return `<svg class="topbar__icon topbar__icon--${name}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${inner}</svg>`;
+function topIcon(name, faClass) {
+  return fa(`${faClass} topbar__icon topbar__icon--${name}`);
 }
-const TOPBAR_PHONE = topIcon("phone", `<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>`);
-const TOPBAR_WA = topIcon("whatsapp", `<path d="M8.2 19.2A9 9 0 1 0 4.9 16L4 20.6Z"/><path d="M9.3 8.7h1.5l.6 1.6-1.1.6a6 6 0 0 0 3.1 3.1l.6-1.1 1.6.6v1.5c0 .4-.3.8-.7.9-3 .4-4.7-1.3-5.1-4.3-.1-.4.2-.8.5-.9Z"/>`);
-const TOPBAR_MAIL = topIcon("mail", `<rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>`);
-const TOPBAR_PIN = topIcon("pin", `<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>`);
-const TOPBAR_FB = topIcon("facebook", `<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>`);
-const TOPBAR_IG = topIcon("instagram", `<rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>`);
+const TOPBAR_PHONE = topIcon("phone", "fa-solid fa-phone");
+const TOPBAR_WA = topIcon("whatsapp", "fa-brands fa-whatsapp");
+const TOPBAR_MAIL = topIcon("mail", "fa-solid fa-envelope");
+const TOPBAR_PIN = topIcon("pin", "fa-solid fa-location-dot");
+const TOPBAR_FB = topIcon("facebook", "fa-brands fa-facebook-f");
+const TOPBAR_IG = topIcon("instagram", "fa-brands fa-instagram");
 
 function escapeAttr(value) {
   return String(value ?? "")
     .replace(/&/g, "&amp;")
     .replace(/"/g, "&quot;")
     .replace(/</g, "&lt;");
+}
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+function reviewInitials(name) {
+  const skip = new Set(["de", "del", "la", "las", "los", "y", "sa", "cv"]);
+  const parts = String(name || "")
+    .split(/\s+/)
+    .filter((part) => part && !skip.has(part.toLowerCase().replace(/\./g, "")));
+  const first = parts[0]?.[0] || "";
+  const second = parts[1]?.[0] || parts[0]?.[1] || "";
+  return (first + second).toUpperCase();
 }
 
 export function mountShell(page) {
@@ -35,6 +52,7 @@ export function mountShell(page) {
   if (footer) footer.innerHTML = footerHTML();
   rebaseDocument();
   bindChrome();
+  bindBackTop();
 }
 
 const HOME_VALUE_ICONS = [
@@ -46,12 +64,12 @@ const HOME_VALUE_ICONS = [
 ];
 
 const CAT_COVER = {
-  extintores: { src: "/assets/img/catalog/CRM-0003.png", alt: "Extintor Grupo CRM de polvo químico seco ABC", photo: false },
-  chalecos: { src: "/assets/img/catalog/CRM-0020.png", alt: "Chaleco de malla para brigadas Grupo CRM", photo: false },
-  "senalamiento-vial": { src: "/assets/img/catalog/CRM-0023.png", alt: "Cono vial flexible Grupo CRM", photo: false },
-  "gabinetes-herrajes": { src: "/assets/img/catalog/CRM-0040.png", alt: "Gabinete para extintor Grupo CRM", photo: false },
-  botiquines: { src: "/assets/img/catalog/CRM-0047.png", alt: "Botiquín metálico de pared Grupo CRM", photo: false },
-  "equipo-proteccion": { src: "/assets/img/catalog/CRM-0054.png", alt: "Casco de seguridad Grupo CRM", photo: false },
+  extintores: { src: "/assets/img/categoria-extintores.png", alt: "Extintor Grupo CRM de polvo químico seco ABC", photo: true },
+  chalecos: { src: "/assets/img/categoria-chalecos.png", alt: "Chaleco de malla para brigadas Grupo CRM", photo: true },
+  "senalamiento-vial": { src: "/assets/img/categoria-senalamiento-vial.png", alt: "Cono vial flexible Grupo CRM", photo: true },
+  "gabinetes-herrajes": { src: "/assets/img/categoria-gabinetes-herrajes.png", alt: "Gabinete para extintor Grupo CRM", photo: true },
+  botiquines: { src: "/assets/img/categoria-botiquines.png", alt: "Botiquín metálico de pared Grupo CRM", photo: true },
+  "equipo-proteccion": { src: "/assets/img/categoria-equipo-proteccion.png", alt: "Casco de seguridad Grupo CRM", photo: true },
 };
 
 function absAsset(src) {
@@ -61,7 +79,7 @@ function absAsset(src) {
 
 function lookStem(item) {
   const src = String(item?.src || item?.full || "");
-  const match = src.match(/galeria-[^./]+/);
+  const match = src.match(/(?:galeria|foto|hero)-[^./]+/);
   return match ? match[0] : "";
 }
 
@@ -69,23 +87,18 @@ function srcsetOf(prefix, stem, widths) {
   return widths.map((w) => `${absAsset(`${prefix}${stem}-${w}.webp`)} ${w}w`).join(", ");
 }
 
-function cropSrcset(stem) {
-  return srcsetOf("/assets/img/opt/crop/", stem, [800, 1280, 1600]);
-}
-
 function fullSrcset(stem) {
-  return srcsetOf("/assets/img/opt/full/", stem, [800, 1400]);
+  return srcsetOf("/assets/img/opt/full/", stem, [800, 1400, 1600]);
 }
 
 function catalogSrcset(sku) {
   return srcsetOf("/assets/img/opt/catalog/", sku, [400, 800]);
 }
 
-function lookThumbSrc(item, variant = "crop") {
+function lookThumbSrc(item) {
   const stem = lookStem(item);
   if (!stem) return absAsset(item?.src || lookFull(item));
-  const folder = variant === "full" ? "full" : "crop";
-  return absAsset(`/assets/img/opt/${folder}/${stem}-800.webp`);
+  return absAsset(`/assets/img/opt/full/${stem}-800.webp`);
 }
 
 function lookFullOpt(item) {
@@ -150,11 +163,11 @@ function clientPicture(logo, { alt = "", extra = "", lazy = false } = {}) {
   </picture>`;
 }
 
-function lookPicture(item, { sizes, lazy = true, width = 480, height, alt = "", extra = "", variant = "crop" } = {}) {
+function lookPicture(item, { sizes, lazy = true, width = 480, height, alt = "", extra = "" } = {}) {
   const loading = lazy ? ' loading="lazy"' : "";
   const stem = lookStem(item);
-  const srcset = variant === "full" ? fullSrcset(stem) : cropSrcset(stem);
-  const src = lookThumbSrc(item, variant);
+  const srcset = fullSrcset(stem);
+  const src = lookThumbSrc(item);
   const dims = height ? ` width="${width}" height="${height}"` : ` width="${width}"`;
   return `<picture>
     <source type="image/webp" srcset="${srcset}" sizes="${sizes}">
@@ -287,11 +300,11 @@ function catalogPickerInner(current = "all") {
   const allCard = `<li>
     <a class="shop-dept shop-dept--all${current === "all" ? " is-active" : ""}" data-cat="all" href="${withBase("/productos")}" aria-current="${current === "all" ? "page" : "false"}">
       <span class="shop-dept__media shop-dept__media--mosaic shop-dept__media--photo">${mosaic}</span>
-      <span class="shop-dept__body">
-        <span class="shop-dept__rule" aria-hidden="true"></span>
-        <strong>Todos</strong>
-        <span class="shop-dept__n">${products.length} productos</span>
-      </span>
+          <span class="shop-dept__body">
+            <span class="shop-dept__rule" aria-hidden="true"></span>
+            <strong>Todos<span class="shop-dept__paren"> (${products.length})</span></strong>
+            <span class="shop-dept__n">${products.length} productos</span>
+          </span>
     </a>
   </li>`;
   const cards = categories
@@ -311,7 +324,7 @@ function catalogPickerInner(current = "all") {
           </span>
           <span class="shop-dept__body">
             <span class="shop-dept__rule" aria-hidden="true"></span>
-            <strong>${c.name}</strong>
+            <strong>${c.name}<span class="shop-dept__paren"> (${n})</span></strong>
             <span class="shop-dept__n">${n} producto${n === 1 ? "" : "s"}</span>
           </span>
         </a>
@@ -335,18 +348,10 @@ function syncCatalogPicker(root, current) {
 export function renderCatalogExtend() {
   document.querySelectorAll("[data-catalog-extend]").forEach((root) => {
     const isProductos = document.body.dataset.page === "productos";
-    const title = isProductos
-      ? `<header class="catalog-head">
-          <p class="kicker">Equipo contra incendio</p>
-          <h1>Catálogo</h1>
-          <hr class="rule" aria-hidden="true">
-          <p class="catalog-head__lead">Extintores, señalamientos, gabinetes y equipo de protección. Si no sabe cuál le conviene, con gusto lo orientamos.</p>
-        </header>`
-      : "";
     const inner = isProductos ? catalogPickerInner(catalogCatFromUrl()) : catalogExtendInner();
     root.classList.toggle("catalog-picker", isProductos);
     if (isProductos) root.classList.toggle("is-all-active", catalogCatFromUrl() === "all");
-    root.innerHTML = `<div class="wrap mega__inner">${title}${inner}</div>`;
+    root.innerHTML = `<div class="wrap mega__inner">${inner}</div>`;
     root.setAttribute("aria-busy", "false");
     bindMediaLoad(root);
   });
@@ -454,6 +459,7 @@ function footerHTML() {
             <li><a href="${withBase("/nosotros")}">Nosotros</a></li>
             <li><a href="${withBase("/nosotros#servicios")}">Servicios</a></li>
             <li><a href="${withBase("/nosotros#cursos")}">Cursos</a></li>
+            <li><a href="${withBase("/#resenas")}">Reseñas</a></li>
             <li><a href="${withBase("/galeria")}">Galería</a></li>
             <li><a href="${withBase("/blog")}">Blog</a></li>
             <li><a href="${withBase("/contacto")}">Contacto</a></li>
@@ -466,6 +472,7 @@ function footerHTML() {
           <ul>
             <li><a href="${company.mapsUrl}" target="_blank" rel="noopener noreferrer">${fa("fa-solid fa-location-dot")} ${company.address}</a></li>
             <li><a href="tel:${company.phoneTel}">${PHONE_ICON} ${company.phone}</a></li>
+            <li><a href="tel:${company.phoneAltTel}">${PHONE_ICON} ${company.phoneAlt}</a></li>
             <li><a href="${waUrl()}" target="_blank" rel="noopener noreferrer">${WA_ICON} ${company.whatsappShow}</a></li>
             <li class="footer-hide-sm"><a href="${company.websiteUrl}" target="_blank" rel="noopener noreferrer">${fa("fa-solid fa-globe")} ${company.website}</a></li>
             <li><a href="mailto:${company.email}">${MAIL_ICON} ${company.email}</a></li>
@@ -478,7 +485,30 @@ function footerHTML() {
         <p class="copy"><a href="${withBase("/aviso-privacidad")}">Aviso de privacidad</a> · ${company.coverage}</p>
       </div>
     </footer>
-    <a class="wa-float" href="${waUrl()}" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp ${company.whatsappShow}, se abre en una ventana nueva">${WA_ICON}<span>WhatsApp</span></a>`;
+    <div class="page-floats">
+      <button type="button" class="back-top" data-back-top aria-label="Volver arriba">
+        ${fa("fa-solid fa-chevron-up")}
+      </button>
+      <a class="wa-float" href="${waUrl()}" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp ${company.whatsappShow}, se abre en una ventana nueva">${WA_ICON}<span>Escríbanos</span></a>
+    </div>`;
+}
+
+function bindBackTop() {
+  const btn = document.querySelector("[data-back-top]");
+  if (!btn || btn.dataset.bound === "1") return;
+  btn.dataset.bound = "1";
+  const update = () => {
+    const on = window.scrollY > 360;
+    btn.classList.toggle("is-on", on);
+    btn.setAttribute("aria-hidden", on ? "false" : "true");
+    btn.tabIndex = on ? 0 : -1;
+  };
+  btn.addEventListener("click", () => {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, left: 0, behavior: reduce ? "auto" : "smooth" });
+  });
+  update();
+  window.addEventListener("scroll", update, { passive: true });
 }
 
 const NAV_DESKTOP_MQ = "(min-width: 1024px)";
@@ -648,17 +678,16 @@ const REVEAL_SEL = [
   ".hook",
   ".about-teaser",
   ".about-head__media",
-  ".feature-card",
   ".svc-home__intro",
   ".cursos-home__head",
+  ".cursos-home__photo",
   ".shop-block",
   ".trust--logos .trust__head",
+  ".reviews__head",
   ".cat-band__head",
   ".home-contact__peek-head",
-  ".home-contact__photo",
-  ".home-contact__gallery-wrap",
+  ".shop-hero__copy",
   ".peek-rail",
-  ".home-contact__form-col",
   ".section-intro",
   ".blog-card",
   ".article-page .article-measure",
@@ -679,14 +708,22 @@ const MEDIA_WRAP = [
   ".about-teaser__mascot",
   ".about-head__media",
   ".about-field__grid figure",
+  ".about-mosaic__grid figure",
+  ".about-train__photo",
   ".about-mv-band__figure",
   ".home-contact__photo",
   ".peek-rail__card",
+  ".cursos-home__photo",
+  ".svc-showcase__photo",
   ".slide__photo",
+  ".shop-hero__photo",
   ".work-slide",
   ".error-page__figure",
   ".blog-card__media",
   ".article-hero",
+  ".review__avatar",
+  ".article-figure",
+  ".hook__photo",
 ].join(",");
 
 const MEDIA_SKIP = ".brand, .footer-mark, .contact-cta-row, .nav-toggle, .slide-btn, .peek-rail__btn, .client-rail, .lightbox";
@@ -770,6 +807,32 @@ export function bindMotion() {
   };
   requestAnimationFrame(() => requestAnimationFrame(arm));
   window.setTimeout(arm, 120);
+  bindScrollWash();
+}
+
+function bindScrollWash() {
+  const nodes = [...document.querySelectorAll("[data-scroll-wash]")];
+  if (!nodes.length) return;
+  let ticking = false;
+  const paint = () => {
+    ticking = false;
+    const vh = window.innerHeight || 1;
+    nodes.forEach((el) => {
+      const r = el.getBoundingClientRect();
+      const visible = Math.min(r.bottom, vh) - Math.max(r.top, 0);
+      const ratio = Math.max(0, visible) / Math.max(1, Math.min(r.height, vh));
+      const eased = ratio * ratio * (3 - 2 * ratio);
+      el.style.setProperty("--wash", eased.toFixed(3));
+    });
+  };
+  const onScroll = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(paint);
+  };
+  paint();
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll, { passive: true });
 }
 
 function quoteUrl(p) {
@@ -789,7 +852,7 @@ export function productCard(p, { quote = false } = {}) {
     .filter(Boolean);
   const classLine = classes.length ? `Clase ${classes.join(" · ")}` : "";
   const quoteBtn = `<a class="shop-item__quote${quote ? "" : " shop-item__quote--wa"}" href="${quoteUrl(p)}" target="_blank" rel="noopener noreferrer">${WA_ICON} Cotizar</a>`;
-  const detail = `<a class="shop-item__more" href="${href}" onclick="${remember}">Ver detalle <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>`;
+  const detail = `<a class="shop-item__more" href="${href}" onclick="${remember}"><i class="fa-solid fa-eye" aria-hidden="true"></i> Ver detalle</a>`;
   return `
     <article class="shop-item shop-item--quote" data-cat="${p.cat}">
       <a class="shop-item__link" href="${href}" onclick="${remember}">
@@ -798,6 +861,7 @@ export function productCard(p, { quote = false } = {}) {
             <source type="image/webp" srcset="${catalogSrcset(p.sku)}" sizes="(min-width: 1024px) 220px, 45vw">
             <img src="${catalogImg(p.sku)}" alt="${escapeAttr(productAlt(p))}" width="400" height="400" loading="lazy" decoding="async">
           </picture>
+          <span class="shop-item__go" aria-hidden="true">Ver detalle</span>
         </span>
         <span class="shop-item__info">
           <span class="shop-item__sku"><i class="shop-item__swatch" aria-hidden="true"></i>${p.sku}</span>
@@ -903,15 +967,17 @@ export function bindCatalog(defaultCat = "all") {
   if (navSearch && query) navSearch.value = query;
   const classRoot = document.querySelector("[data-class-filters]");
   const classPanel = document.querySelector("[data-class-panel]");
+  const classSelect = document.querySelector("[data-class-select]");
+  const classDetail = document.querySelector("[data-class-detail]");
   const catalogLayout = document.querySelector("[data-catalog-layout]");
+  const classes = [
+    { id: "all", label: "Todas", hint: "" },
+    { id: "A", label: "Sólidos", hint: "Papel, madera, cartón y textiles" },
+    { id: "B", label: "Líquidos inflamables", hint: "Gasolina, solventes, pinturas y aceites" },
+    { id: "C", label: "Equipo eléctrico", hint: "Cortocircuito y equipos energizados" },
+    { id: "K", label: "Cocinas", hint: "Aceites y grasas de origen animal o vegetal" },
+  ];
   if (classRoot) {
-    const classes = [
-      { id: "all", label: "Todas las clases", hint: "" },
-      { id: "A", label: "Sólidos", hint: "Papel, madera, cartón y textiles" },
-      { id: "B", label: "Líquidos inflamables", hint: "Gasolina, solventes, pinturas y aceites" },
-      { id: "C", label: "Equipo eléctrico", hint: "Cortocircuito y equipos energizados" },
-      { id: "K", label: "Cocinas", hint: "Aceites y grasas de origen animal o vegetal" },
-    ];
     classRoot.innerHTML = classes
       .map((item) => {
         const hint = item.hint
@@ -923,6 +989,14 @@ export function bindCatalog(defaultCat = "all") {
           ${item.id === "all" ? "" : `<span class="shop-chip__letter">${item.id}</span>`}
           ${copy}
         </button>`;
+      })
+      .join("");
+  }
+  if (classSelect) {
+    classSelect.innerHTML = classes
+      .map((item) => {
+        const label = item.id === "all" ? item.label : `Clase ${item.id} · ${item.label}`;
+        return `<option value="${item.id}">${label}</option>`;
       })
       .join("");
   }
@@ -952,6 +1026,17 @@ export function bindCatalog(defaultCat = "all") {
       btn.classList.toggle("is-active", on);
       btn.setAttribute("aria-pressed", on ? "true" : "false");
     });
+    if (classSelect) classSelect.value = fireClass;
+    if (classDetail) {
+      const item = classes.find((entry) => entry.id === fireClass);
+      if (showClasses && item && item.id !== "all" && item.hint) {
+        classDetail.hidden = false;
+        classDetail.innerHTML = `<strong>Clase ${item.id} · ${item.label}.</strong> ${item.hint}`;
+      } else {
+        classDetail.hidden = true;
+        classDetail.textContent = "";
+      }
+    }
     if (grid) grid.setAttribute("aria-busy", "true");
     renderCatalog(grid, { cat, fireClass, query });
     if (grid) grid.setAttribute("aria-busy", "false");
@@ -969,10 +1054,14 @@ export function bindCatalog(defaultCat = "all") {
     e.preventDefault();
     setCat(link.dataset.cat);
   });
-  classRoot?.addEventListener("click", (e) => {
+  classPanel?.addEventListener("click", (e) => {
     const btn = e.target.closest("[data-class]");
-    if (!btn) return;
+    if (!btn || !classPanel.contains(btn)) return;
     fireClass = btn.dataset.class;
+    paint();
+  });
+  classSelect?.addEventListener("change", () => {
+    fireClass = classSelect.value;
     paint();
   });
   let timer;
@@ -1013,9 +1102,11 @@ export function renderHomeCats() {
       const media = cover
         ? `<span class="cat-tile__media${cover.photo ? "" : " cat-tile__media--sku"}"><picture><source type="image/webp" srcset="${catSrcset(cover)}" sizes="(min-width: 900px) 180px, 45vw"><img src="${catImg(cover)}" alt="${escapeAttr(cover.alt)}" width="480" height="320" loading="lazy" decoding="async"></picture></span>`
         : "";
+      const go = `Ver catálogo de ${String(c.name || "").toLowerCase()}`;
       return `<li>
-        <a class="cat-tile" data-cat="${c.id}" href="${withBase(`/productos?cat=${c.id}#${c.id}`)}">
+        <a class="cat-tile" data-cat="${c.id}" href="${withBase(`/productos?cat=${c.id}#${c.id}`)}" aria-label="${escapeAttr(go)}">
           ${media}
+          <span class="cat-tile__go">${go}</span>
           <span class="cat-tile__body">
             <span class="cat-tile__rule" aria-hidden="true"></span>
             <strong>${c.name}</strong>
@@ -1060,7 +1151,7 @@ export function renderHomeCatalog() {
         <section class="shop-block" data-cat="${c.id}">
           <header class="shop-block__head">
             <h3>${c.name}</h3>
-            <a class="shop-more" href="${withBase(`/productos?cat=${c.id}#${c.id}`)}">${c.seeAll} <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            <a class="shop-more" href="${withBase(`/productos?cat=${c.id}#${c.id}`)}"><i class="fa-solid fa-table-cells" aria-hidden="true"></i> ${c.seeAll}</a>
           </header>
           <div class="shop-grid shop-grid--4">${items.map((p) => productCard(p, { quote: true })).join("")}</div>
         </section>`;
@@ -1072,11 +1163,12 @@ export function renderHomeCatalog() {
 
 function bindSlider(root) {
   if (!root || root.dataset.sliderBound === "1") return;
-  const slides = [...root.querySelectorAll(".slide, [data-slide]")];
+  const allSlides = [...root.querySelectorAll(".slide, [data-slide]")];
   const dotsWrap = root.querySelector("[data-dots]");
-  if (!slides.length) return;
+  if (!allSlides.length) return;
   root.dataset.sliderBound = "1";
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const reduceMq = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let reduceMotion = reduceMq.matches;
   const isHero = root.classList.contains("hero-slider");
   const intervalMs = isHero ? 5500 : 6500;
   let index = 0;
@@ -1084,27 +1176,34 @@ function bindSlider(root) {
   let paused = false;
   let startX = 0;
   let startY = 0;
-  if (dotsWrap) {
-    dotsWrap.innerHTML = slides
+  const slides = () => allSlides;
+  const paintDots = () => {
+    if (!dotsWrap) return;
+    dotsWrap.innerHTML = slides()
       .map((_, i) => `<button type="button" class="dot${i === 0 ? " is-active" : ""}" data-dot="${i}" aria-label="Ir a la diapositiva ${i + 1}" aria-current="${i === 0 ? "true" : "false"}"></button>`)
       .join("");
-  }
+  };
+  paintDots();
   const wake = (i) => {
-    const slide = slides[(i + slides.length) % slides.length];
+    const list = slides();
+    const slide = list[(i + list.length) % list.length];
     if (!slide) return;
     applyLazyBg(slide);
     slide.querySelectorAll("img[data-src]").forEach(applyLazySrc);
     bindMediaLoad(slide);
   };
   const show = (n) => {
-    index = (n + slides.length) % slides.length;
+    const list = slides();
+    if (!list.length) return;
+    index = (n + list.length) % list.length;
     wake(index);
     wake(index + 1);
-    slides.forEach((slide, i) => {
-      const on = i === index;
+    allSlides.forEach((slide) => {
+      const on = slide === list[index];
+      if (on) slide.removeAttribute("inert");
       slide.classList.toggle("is-active", on);
       slide.setAttribute("aria-hidden", on ? "false" : "true");
-      slide.toggleAttribute("inert", !on);
+      if (!on) slide.setAttribute("inert", "");
     });
     root.querySelectorAll("[data-dot]").forEach((dot, i) => {
       const on = i === index;
@@ -1113,13 +1212,28 @@ function bindSlider(root) {
     });
   };
   const stop = () => {
-    clearInterval(timer);
+    window.clearInterval(timer);
+    window.clearTimeout(timer);
     timer = null;
+    delete root.dataset.sliderPlaying;
   };
   const play = () => {
     stop();
-    if (reduceMotion || paused || document.hidden) return;
-    timer = setInterval(() => show(index + 1), intervalMs);
+    if (paused) return;
+    if (document.prerendering) return;
+    if (!isHero) {
+      if (document.visibilityState !== "visible") return;
+      if (reduceMotion) return;
+    }
+    const hold = Number(slides()[index]?.dataset.duration) || intervalMs;
+    root.dataset.sliderPlaying = "1";
+    timer = window.setInterval(() => {
+      try {
+        show(index + 1);
+      } catch (err) {
+        console.error(err);
+      }
+    }, hold);
   };
   const pause = () => {
     paused = true;
@@ -1152,7 +1266,7 @@ function bindSlider(root) {
       go(0);
     } else if (e.key === "End") {
       e.preventDefault();
-      go(slides.length - 1);
+      go(slides().length - 1);
     }
   });
   root.addEventListener("touchstart", (e) => {
@@ -1170,17 +1284,35 @@ function bindSlider(root) {
     root.addEventListener("mouseleave", resume);
   }
   root.addEventListener("focusin", (e) => {
+    if (isHero) return;
     if (e.target.closest("a, button, input, textarea, select")) pause();
   });
   root.addEventListener("focusout", (e) => {
     if (!root.contains(e.relatedTarget)) resume();
   });
+  const kick = () => {
+    if (!paused) play();
+  };
   document.addEventListener("visibilitychange", () => {
-    if (document.hidden) stop();
-    else if (!paused) play();
+    if (isHero) {
+      if (document.visibilityState === "visible") kick();
+      return;
+    }
+    if (document.visibilityState !== "visible") stop();
+    else kick();
   });
+  window.addEventListener("pageshow", kick);
+  document.addEventListener("prerenderingchange", kick);
+  document.addEventListener("resume", kick);
+  window.addEventListener("focus", kick);
+  const onMotion = (e) => {
+    reduceMotion = e.matches;
+    if (!paused) play();
+  };
+  if (reduceMq.addEventListener) reduceMq.addEventListener("change", onMotion);
+  else reduceMq.addListener(onMotion);
   show(0);
-  play();
+  kick();
 }
 
 export function bindHeroSlider() {
@@ -1431,54 +1563,51 @@ function bindInfiniteRail(root, {
 function bindClientRail(root) {
   if (!root || !clients.length) return;
   if (typeof root._clientRailStop === "function") root._clientRailStop();
-  const live = clients.map((c) => clientRailCard(c)).join("");
-  const ghost = clients.map((c) => clientRailCard(c, { inert: true })).join("");
-  root.className = "client-rail is-auto";
+  const liveCards = clients.map((c) => clientRailCard(c)).join("");
+  const ghostCards = clients.map((c) => clientRailCard(c, { inert: true })).join("");
+  const loop = `<div class="client-rail__loop" aria-hidden="true">${ghostCards}</div>`;
+  root.className = "client-rail";
   root.setAttribute("aria-label", root.getAttribute("aria-label") || "Clientes");
   root.innerHTML = `<div class="client-rail__viewport">
-      <div class="client-rail__track">${live}${ghost}</div>
+      <div class="client-rail__track">
+        <div class="client-rail__group">${liveCards}${loop}</div>
+        <div class="client-rail__group" aria-hidden="true">${ghostCards}${loop}</div>
+      </div>
     </div>`;
-  const track = root.querySelector(".client-rail__track");
-  const mqCollage = window.matchMedia("(max-width: 980px)");
+  const viewport = root.querySelector(".client-rail__viewport");
+  const groups = [...root.querySelectorAll(".client-rail__group")];
+  const mqCollage = window.matchMedia("(max-width: 699px)");
   const pxPerSec = 42;
-  let offset = 0;
-  let raf = 0;
-  let last = 0;
 
   function isCollage() {
     return mqCollage.matches;
   }
 
-  function stopAuto() {
-    window.cancelAnimationFrame(raf);
-    raf = 0;
-    last = 0;
-  }
-
-  function tick(ts) {
-    if (isCollage()) {
-      stopAuto();
-      return;
+  function fillGroups() {
+    groups.forEach((group) => {
+      group.querySelectorAll(".client-rail__loop[data-fill]").forEach((el) => el.remove());
+    });
+    if (isCollage()) return;
+    const viewW = viewport.getBoundingClientRect().width;
+    let groupW = groups[0] ? groups[0].getBoundingClientRect().width : 0;
+    let guard = 0;
+    while (groupW > 1 && groupW < viewW && guard < 6) {
+      groups.forEach((group) => {
+        const extra = document.createElement("div");
+        extra.className = "client-rail__loop";
+        extra.setAttribute("aria-hidden", "true");
+        extra.dataset.fill = "";
+        extra.innerHTML = ghostCards;
+        group.appendChild(extra);
+      });
+      const next = groups[0].getBoundingClientRect().width;
+      if (next <= groupW) break;
+      groupW = next;
+      guard += 1;
     }
-    const half = Math.max(track.scrollWidth, track.offsetWidth) / 2;
-    if (half <= 1) {
-      raf = window.requestAnimationFrame(tick);
-      return;
+    if (groupW > 1) {
+      root.style.setProperty("--client-marquee-duration", `${Math.max(28, groupW / pxPerSec).toFixed(1)}s`);
     }
-    if (!last) last = ts;
-    const dt = Math.min(48, ts - last);
-    last = ts;
-    offset += (dt * pxPerSec) / 1000;
-    if (offset >= half) offset -= half;
-    track.style.transform = `translate3d(${-offset}px,0,0)`;
-    raf = window.requestAnimationFrame(tick);
-  }
-
-  function startAuto() {
-    stopAuto();
-    offset = 0;
-    track.style.transform = "translate3d(0,0,0)";
-    raf = window.requestAnimationFrame(tick);
   }
 
   function setMode() {
@@ -1487,13 +1616,24 @@ function bindClientRail(root) {
     root.classList.toggle("is-auto", !collage);
     if (collage) root.removeAttribute("aria-roledescription");
     else root.setAttribute("aria-roledescription", "carrusel");
-    stopAuto();
-    track.style.transform = "";
-    if (!collage) startAuto();
+    fillGroups();
   }
 
+  const onResize = () => {
+    if (!isCollage()) fillGroups();
+  };
+
   mqCollage.addEventListener("change", setMode);
-  root._clientRailStop = stopAuto;
+  window.addEventListener("resize", onResize);
+  root.querySelectorAll("img").forEach((img) => {
+    if (img.complete) return;
+    img.addEventListener("load", onResize, { once: true });
+    img.addEventListener("error", onResize, { once: true });
+  });
+  root._clientRailStop = () => {
+    mqCollage.removeEventListener("change", setMode);
+    window.removeEventListener("resize", onResize);
+  };
   setMode();
 }
 
@@ -1538,7 +1678,7 @@ export function bindErrorReturn() {
 }
 
 const HOME_GALLERY_USED = new Set([
-  "galeria-evento",
+  "galeria-vapiano",
   "galeria-inventario",
   "galeria-extintores-sitio",
 ]);
@@ -1546,7 +1686,7 @@ const HOME_GALLERY_USED = new Set([
 const HOME_CONTACT_GALLERY = [
   "galeria-deportivo",
   "galeria-restaurante",
-  "galeria-vapiano",
+  "galeria-campus",
   "galeria-automotriz",
   "galeria-bodega",
 ];
@@ -1564,16 +1704,16 @@ function homeGalleryPicks() {
   return picks;
 }
 
-function peekCard(item, i, { caption = false } = {}) {
+function peekCard(item, i) {
   return `<button type="button" class="peek-rail__card" data-lb-open="${i}" aria-label="Ver ${escapeAttr(item.title)} en grande">
-    ${lookPicture(item, { sizes: "(min-width: 900px) 210px, 58vw", width: 480, height: 600, alt: lookAlt(item) })}
-    ${caption ? `<span class="peek-rail__cap"><strong>${item.title}</strong></span>` : ""}
+    ${lookPicture(item, { sizes: "(min-width: 1024px) 340px, 74vw", width: 640, height: 854, alt: lookAlt(item) })}
+    <span class="peek-rail__cap"><strong>${item.title}</strong></span>
   </button>`;
 }
 
-function bindPeekRail(root, items, { caption = false } = {}) {
+function bindPeekRail(root, items) {
   if (!root || !items.length) return;
-  const cards = items.map((item, i) => peekCard(item, i, { caption })).join("");
+  const cards = items.map((item, i) => peekCard(item, i)).join("");
   bindInfiniteRail(root, {
     itemCount: items.length,
     cardsHtml: cards,
@@ -1592,6 +1732,47 @@ export function renderHomeGallerySlider() {
   const root = document.querySelector("[data-home-gallery]");
   if (!root || !lookbook.length) return;
   bindPeekRail(root, homeGalleryPicks());
+}
+
+function reviewStars(count = 5) {
+  const stars = Math.max(1, Math.min(5, Number(count) || 5));
+  const icons = Array.from({ length: 5 }, (_, i) =>
+    `<i class="fa-solid fa-star${i < stars ? "" : " review__star--off"}" aria-hidden="true"></i>`
+  ).join("");
+  return `<p class="review__stars" aria-label="${stars} de 5 estrellas">${icons}</p>`;
+}
+
+function reviewAvatar(item) {
+  const photo = item.photo ? absAsset(item.photo) : "";
+  if (!photo) {
+    return `<span class="review__avatar" aria-hidden="true">${escapeHtml(reviewInitials(item.name))}</span>`;
+  }
+  return `<span class="review__avatar review__avatar--photo" aria-hidden="true"><img class="review__photo" src="${escapeAttr(photo)}" alt="" width="52" height="52" loading="lazy" decoding="async"></span>`;
+}
+
+export function renderReviews() {
+  const root = document.querySelector("[data-reviews]");
+  if (!root || !reviews.length) return;
+  root.innerHTML = reviews
+    .map((item) => {
+      const name = escapeHtml(item.name);
+      const text = escapeHtml(item.text);
+      const date = escapeHtml(item.date);
+      const iso = escapeAttr(item.iso);
+      return `<li class="review">
+        <header class="review__head">
+          ${reviewAvatar(item)}
+          <div class="review__meta">
+            <p class="review__who"><strong>${name}</strong></p>
+            ${reviewStars(item.stars)}
+            <p class="review__date"><time datetime="${iso}">${date}</time> · <i class="fa-brands fa-facebook-f" aria-hidden="true"></i> Facebook</p>
+          </div>
+        </header>
+        <blockquote class="review__text">${text}</blockquote>
+      </li>`;
+    })
+    .join("");
+  bindMediaLoad(root);
 }
 
 export function renderFaqs() {
@@ -1615,6 +1796,7 @@ export function renderHome() {
   paintCursos();
   renderCarePoints();
   renderClientLogos();
+  renderReviews();
   renderCompactSectors();
   renderHook();
   renderHomeGallerySlider();
@@ -1635,13 +1817,14 @@ export function renderProducto() {
   if (!root) return;
   if (!p) {
     document.title = "Artículo no encontrado | Grupo CRM Extintores";
+    document.body.dataset.page = "error";
     root.innerHTML = `
       <section class="error-page">
         <div class="wrap error-page__box">
           <figure class="error-page__figure">
             <picture>
-              <source type="image/webp" srcset="${withBase("/assets/img/opt/mascot-inspector-crm.webp")}">
-              <img src="${withBase("/assets/img/opt/mascot-inspector-crm.webp")}" width="283" height="379" alt="Inspector CRM, mascota de Grupo CRM Extintores" loading="lazy" decoding="async">
+              <source type="image/webp" srcset="${withBase("/assets/img/opt/mascot-404-llama.webp?v=cutout")}">
+              <img src="${withBase("/assets/img/opt/mascot-404-llama.webp?v=cutout")}" width="568" height="682" alt="Llama de Grupo CRM apagándose a sí misma con un extintor" loading="lazy" decoding="async">
             </picture>
           </figure>
           <div class="error-page__copy">
@@ -1792,13 +1975,13 @@ export function hookRevisionHTML() {
     <div class="wrap hook__inner">
       <div class="hook__copy">
         <p class="kicker">Primera visita</p>
-        <h2>${company.hook}</h2>
+        <h2>Agende su visita de revisión,<span class="hook__cost">sin costo.</span></h2>
         <hr class="rule rule-left hook__rule" aria-hidden="true">
         <p>Con mucho gusto vamos a su negocio, revisamos sus extintores y le decimos con claridad qué le hace falta. Usted elige el día y la hora; nosotros llegamos puntuales, sin compromiso.</p>
       </div>
       <div class="hook__actions">
         <a class="btn btn-red" href="${waUrl("Hola, quiero agendar mi visita de revisión sin costo.")}" target="_blank" rel="noopener noreferrer">${WA_ICON} Agendar visita</a>
-        <a class="btn btn-ghost hook__phone" href="tel:${company.phoneTel}">${PHONE_ICON} Llamar ${company.phone}</a>
+        <a class="btn btn-ghost-ink hook__phone" href="tel:${company.phoneTel}">${PHONE_ICON} Llamar ${company.phone}</a>
       </div>
     </div>`;
 }
@@ -1809,35 +1992,188 @@ export function renderHook() {
   });
 }
 
-function paintServices() {
-  document.querySelectorAll("[data-services]").forEach((root) => {
-    root.innerHTML = services
-      .map(
-        (s) => `<li class="svc-card">
-            ${fa(`${s.icon} svc-card__icon`)}
-            <h3>${s.title}</h3>
-          </li>`
-      )
-      .join("");
+function reserveSvcHeight(root) {
+  const items = [...root.querySelectorAll(".svc-acc__item")];
+  if (!items.length) return;
+  let last = 0;
+  const apply = () => {
+    if (window.matchMedia("(max-width: 520px)").matches) {
+      root.style.minHeight = "";
+      last = 0;
+      return;
+    }
+    const opened = items.filter((item) => item.open);
+    items.forEach((item) => {
+      item.open = false;
+    });
+    let max = root.offsetHeight;
+    items.forEach((item) => {
+      item.open = true;
+      max = Math.max(max, root.offsetHeight);
+      item.open = false;
+    });
+    opened.forEach((item) => {
+      item.open = true;
+    });
+    if (max && max !== last) {
+      last = max;
+      root.style.minHeight = `${max + 2}px`;
+    }
+  };
+  apply();
+  if (root._svcResize) window.removeEventListener("resize", root._svcResize);
+  root._svcResize = apply;
+  window.addEventListener("resize", apply, { passive: true });
+}
+
+function bindSvcAccordion(root) {
+  const items = [...root.querySelectorAll(".svc-acc__item")];
+  if (!items.length) return;
+  if (root._svcAbort) root._svcAbort.abort();
+  root._svcAbort = new AbortController();
+  const { signal } = root._svcAbort;
+  items.forEach((item) => {
+    item.addEventListener("toggle", () => {
+      if (!item.open) return;
+      items.forEach((other) => {
+        if (other !== item && other.open) other.open = false;
+      });
+    }, { signal });
+  });
+  reserveSvcHeight(root);
+}
+
+function svcAccItem(s) {
+  return `<li>
+    <details class="svc-acc__item">
+      <summary class="svc-acc__btn">
+        ${fa(`${s.icon} svc-acc__icon`)}
+        <span>${escapeHtml(s.title)}</span>
+      </summary>
+      <p class="svc-acc__text">${escapeHtml(s.text)}</p>
+    </details>
+  </li>`;
+}
+
+function svcStaticItem(s) {
+  return `<li class="svc-static__item">
+    ${fa(`${s.icon} svc-static__icon`)}
+    <div>
+      <h3>${escapeHtml(s.title)}</h3>
+      <p>${escapeHtml(s.text)}</p>
+    </div>
+  </li>`;
+}
+
+const SERVICE_SHOTS = {
+  "Venta e instalación de extintores": "foto-extintor-manos",
+  "Recarga y mantenimiento": "galeria-inventario",
+  "Señalamientos": "galeria-lavanderia",
+  "Botiquines": "galeria-clinica",
+  "Cursos y capacitación": "galeria-curso-combate",
+  "Revisión en sitio": "galeria-evento",
+};
+
+function serviceShot(service) {
+  const stem = SERVICE_SHOTS[service?.title] || "foto-extintor-manos";
+  const found = lookbook.find((item) => lookStem(item) === stem);
+  if (found) return found;
+  return {
+    src: `/assets/img/full/${stem}.jpg`,
+    full: `/assets/img/full/${stem}.jpg`,
+    title: "Listos para instalar",
+    note: "Extintor en el punto correcto de su negocio.",
+  };
+}
+
+function servicePhoto(service) {
+  const shot = serviceShot(service);
+  if (!shot) return "";
+  return `<span class="svc-showcase__shot is-in">${lookPicture(shot, {
+    sizes: "(min-width: 700px) 38vw, 100vw",
+    width: 800,
+    height: 600,
+    alt: lookAlt(shot),
+    lazy: false,
+  })}</span>
+  <figcaption>
+    <span>${escapeHtml(service.title)}</span>
+    <strong>${escapeHtml(shot.title)}</strong>
+  </figcaption>`;
+}
+
+function svcShowcaseItem(service) {
+  return `<li class="svc-showcase__item">
+      ${fa(`${service.icon} svc-showcase__icon`)}
+      <span>${escapeHtml(service.title)}</span>
+  </li>`;
+}
+
+function paintServiceShowcase() {
+  document.querySelectorAll("[data-services-showcase]").forEach((root) => {
+    const section = root.closest(".svc-home") || document;
+    const photo = section.querySelector("[data-services-photo]");
+    root.innerHTML = services.map(svcShowcaseItem).join("");
+    if (!photo) return;
+    photo.innerHTML = servicePhoto(services[0]);
+    bindMediaLoad(photo);
   });
 }
 
-function courseShots() {
-  return lookbook.filter((item) => item.venue === "cursos");
+function paintServices() {
+  paintServiceShowcase();
+  document.querySelectorAll("[data-services]").forEach((root) => {
+    if (root.classList.contains("svc-static")) {
+      root.innerHTML = `<ul class="svc-static__grid">${services.map(svcStaticItem).join("")}</ul>`;
+      return;
+    }
+    root.classList.add("svc-acc");
+    root.innerHTML = `<ul class="svc-acc-list svc-acc-list--grid">${services.map(svcAccItem).join("")}</ul>`;
+    bindSvcAccordion(root);
+  });
+}
+
+function courseShot() {
+  const cursos = lookbook.filter((item) => item.venue === "cursos");
+  return cursos.find((item) => lookStem(item) === "galeria-curso-brigada") || cursos[0] || null;
 }
 
 function paintCursos() {
+  document.querySelectorAll("[data-cursos-head]").forEach((root) => {
+    root.innerHTML = `
+      <p class="kicker">${courses.kicker}</p>
+      <h2>${courses.title}</h2>
+      <hr class="rule" aria-hidden="true">
+      ${(courses.leads || []).map((p) => `<p class="cursos-home__lead">${p}</p>`).join("")}
+      ${courses.listLead ? `<p class="cursos-home__list-lead">${courses.listLead}</p>` : ""}
+    `;
+  });
   document.querySelectorAll("[data-cursos]").forEach((root) => {
     if (!courses?.items?.length) {
       root.innerHTML = "";
       return;
     }
-    root.innerHTML = courses.items.map((name) => `<li class="cursos-home__item">${name}</li>`).join("");
+    root.innerHTML = courses.items
+      .map((item) => {
+        const name = typeof item === "string" ? item : item.name;
+        const icon = typeof item === "string" ? "fa-solid fa-check" : item.icon;
+        return `<li class="cursos-home__item">${fa(icon)}<span>${escapeHtml(name)}</span></li>`;
+      })
+      .join("");
   });
-  const shots = courseShots();
-  document.querySelectorAll("[data-cursos-strip]").forEach((root) => {
-    if (!shots.length) return;
-    bindPeekRail(root, shots, { caption: true });
+  const shot = courseShot();
+  document.querySelectorAll("[data-cursos-photo]").forEach((root) => {
+    if (!shot) {
+      root.innerHTML = "";
+      return;
+    }
+    root.innerHTML = lookPicture(shot, {
+      sizes: "(min-width: 700px) 380px, 100vw",
+      width: 800,
+      height: 600,
+      alt: lookAlt(shot),
+    });
+    bindMediaLoad(root);
   });
 }
 
@@ -1882,7 +2218,7 @@ const ABOUT_GALLERY_LIMIT = 8;
 function renderAboutMiniGallery() {
   const root = document.querySelector("[data-about-gallery]");
   if (!root || !lookbook.length) return;
-  bindPeekRail(root, lookbook.slice(0, ABOUT_GALLERY_LIMIT), { caption: true });
+  bindPeekRail(root, lookbook.slice(0, ABOUT_GALLERY_LIMIT));
 }
 
 function padLook(n) {
@@ -2022,6 +2358,68 @@ function closeLightbox() {
   lightbox.lastFocus?.focus?.();
 }
 
+const GALLERY_ALL_ORDER = [
+  "galeria-showroom",
+  "galeria-vapiano",
+  "galeria-deportivo",
+  "galeria-escuela",
+  "galeria-restaurante",
+  "galeria-showroom-muro",
+  "galeria-salon-eventos",
+  "galeria-bodega",
+  "galeria-automotriz",
+  "galeria-comercio",
+  "galeria-bar",
+  "galeria-extintores-sitio",
+  "galeria-gabinetes-sitio",
+  "galeria-comedor",
+  "galeria-local",
+  "galeria-cocina",
+  "galeria-parrilla",
+  "galeria-panaderia",
+  "galeria-campus",
+  "galeria-almacen",
+  "galeria-clinica",
+  "galeria-cafeteria",
+  "galeria-obra",
+  "galeria-transporte",
+  "galeria-escuela-patio",
+  "galeria-lavanderia",
+  "galeria-madereria",
+  "galeria-estacionamiento",
+  "galeria-alberca",
+  "galeria-trailer",
+  "galeria-evento",
+  "galeria-curso-brigada",
+  "galeria-inventario",
+  "galeria-curso-campo",
+  "galeria-curso-primeros-auxilios",
+  "galeria-curso-rescate",
+  "galeria-entrega",
+  "galeria-camioneta",
+  "galeria-curso-instructivo",
+  "galeria-curso-combate",
+  "galeria-curso-co2",
+  "galeria-curso-comunidad",
+];
+
+function galleryAllList() {
+  const byStem = new Map(lookbook.map((item) => [lookStem(item), item]));
+  const ordered = [];
+  const used = new Set();
+  GALLERY_ALL_ORDER.forEach((stem) => {
+    const item = byStem.get(stem);
+    if (!item) return;
+    ordered.push(item);
+    used.add(stem);
+  });
+  lookbook.forEach((item) => {
+    const stem = lookStem(item);
+    if (!used.has(stem)) ordered.push(item);
+  });
+  return ordered;
+}
+
 export function renderGaleria() {
   const mosaic = document.querySelector("[data-gallery]");
   if (!mosaic) return;
@@ -2045,7 +2443,7 @@ export function renderGaleria() {
   }
 
   const paint = () => {
-    list = venue === "all" ? lookbook : lookbook.filter((item) => item.venue === venue);
+    list = venue === "all" ? galleryAllList() : lookbook.filter((item) => item.venue === venue);
     if (count) {
       count.textContent = list.length
         ? `${list.length} fotografía${list.length === 1 ? "" : "s"}`
@@ -2056,8 +2454,9 @@ export function renderGaleria() {
       ? list
           .map(
             (item, i) => `<button type="button" class="gallery-tile" data-lb="${i}" aria-label="Ver ${escapeAttr(item.title)} en grande">
-              ${lookPicture(item, { sizes: "(min-width: 1100px) 25vw, (min-width: 760px) 30vw, 50vw", width: 800, height: 600, alt: lookAlt(item), variant: "crop" })}
+              ${lookPicture(item, { sizes: "(min-width: 1100px) 25vw, (min-width: 760px) 30vw, 50vw", width: 800, height: 1000, alt: lookAlt(item) })}
               <span class="gallery-tile__cap">
+                <span class="gallery-tile__idx">${String(i + 1).padStart(2, "0")}</span>
                 <strong>${item.title}</strong>
               </span>
             </button>`

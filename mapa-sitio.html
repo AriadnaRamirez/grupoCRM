@@ -106,17 +106,18 @@
   </script>
   <style id="css-boot">
   /* css-boot: hide until local CSS + header are ready */
-  html:not(.is-booted) { visibility: hidden; background: #fff; }
+  html:not(.is-css):not(.is-booted):not(.is-boot-error) { visibility: hidden; background: #fff; }
   </style>
   <noscript><style>html { visibility: visible !important; }</style></noscript>
   <script>setTimeout(function () { document.documentElement.classList.add("is-booted"); }, 4000);</script>
   <link rel="stylesheet" href="css/tokens.css">
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/main.css?v=wa-hover">
+  <script>document.documentElement.classList.add("is-css");</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Mapa de sitio | Grupo CRM Extintores</title>
   <meta name="description" content="Encuentre equipos, servicios y contacto para cotizar extintores con Grupo CRM en CDMX y Estado de México.">
   <meta name="author" content="Grupo CRM Extintores">
-  <meta name="theme-color" content="#C11234">
+  <meta name="theme-color" content="#D51A32">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.crmextintores.com/mapa-sitio">
   <link rel="alternate" hreflang="es-MX" href="https://www.crmextintores.com/mapa-sitio">
@@ -187,6 +188,7 @@
             <li><a href="index.html#cursos">Cursos y capacitaciones</a></li>
             <li><a href="index.html#revision">Atención a condominios</a></li>
             <li><a href="index.html#clientes">Nuestros clientes</a></li>
+            <li><a href="index.html#resenas">Reseñas</a></li>
             <li><a href="index.html#faqs">Preguntas frecuentes</a></li>
             <li><a href="index.html#contacto">Contacto en inicio</a></li>
           </ul>
@@ -199,6 +201,7 @@
             <li><a href="/blog/como-usar-un-extintor">Cómo usar un extintor</a></li>
             <li><a href="/blog/extintores-cdmx">Extintores en CDMX y Estado de México</a></li>
             <li><a href="/blog/extintor-6-kg">Extintor de 6 kg</a></li>
+            <li><a href="/blog/nom-154-scfi-2005">NOM-154-SCFI-2005</a></li>
             <li><a href="/blog/nom-002-stps-2010">NOM-002-STPS-2010</a></li>
             <li><a href="/blog/botiquin-primeros-auxilios">Botiquín de primeros auxilios</a></li>
           </ul>
@@ -210,9 +213,9 @@
             <li><a href="aviso-privacidad.html">Aviso de privacidad</a></li>
             <li><a href="index.html#revision">Revisión gratis</a></li>
             <li><a href="https://www.google.com/maps/search/?api=1&query=Chamixto+131+Col.+Loma+del+Padre+Cuajimalpa+Ciudad+de+M%C3%A9xico" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Chamixto 131, Col. Loma del Padre, Cuajimalpa</a></li>
-            <li><a href="tel:5659474605"><i class="fa-solid fa-phone" aria-hidden="true"></i> Tel. 56 5947 4605</a></li>
             <li><a href="tel:5667481489"><i class="fa-solid fa-phone" aria-hidden="true"></i> Tel. 56 6748 1489</a></li>
-            <li><a href="https://wa.me/525554383241" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp 55 5438 3241</a></li>
+            <li><a href="tel:5659474605"><i class="fa-solid fa-phone" aria-hidden="true"></i> Tel. 56 5947 4605</a></li>
+            <li><a href="https://wa.me/525667481489" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp 56 6748 1489</a></li>
             <li><a href="mailto:crm.extintores@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> crm.extintores@gmail.com</a></li>
           </ul>
         </nav>
@@ -221,6 +224,6 @@
   </section>
   </main>
   <div data-footer></div>
-  <script type="module" src="js/main.js" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
+  <script type="module" src="js/main.js?v=wa-hover" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
 </body>
 </html>

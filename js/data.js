@@ -5,16 +5,23 @@ export const company = {
   tagline: "Extintores y equipos de seguridad",
   slogan: "Protección, prevención y respuesta.",
   about:
-    "Lo acompañamos con venta, recarga e instalación en CDMX y Estado de México.",
-  phone: "56 5947 4605",
-  phoneTel: "5659474605",
-  phoneAlt: "56 6748 1489",
-  phoneAltTel: "5667481489",
-  whatsapp: "525554383241",
-  whatsappShow: "55 5438 3241",
+    "Lo acompañamos con venta, recarga e instalación en CDMX y Estado de México. Empresa verificada por AMECIRE.",
+  amecire:
+    "Asociación Mexicana de Equipos Contra Incendio y Recargadores de Extintores, A.C.",
+  amecireUrl: "https://amecire.org/portal/",
+  phone: "56 6748 1489",
+  phoneTel: "5667481489",
+  phoneAlt: "56 5947 4605",
+  phoneAltTel: "5659474605",
+  whatsapp: "525667481489",
+  whatsappShow: "56 6748 1489",
   email: "crm.extintores@gmail.com",
   facebook: "Grupo CRM Extintores",
   facebookUrl: "https://www.facebook.com/people/GRUPO-CRM-Extintores/100075736857787/",
+  facebookReviewsUrl:
+    "https://www.facebook.com/people/GRUPO-CRM-Extintores/100075736857787/?sk=reviews",
+  facebookRecommend: "100 %",
+  facebookReviewCount: 11,
   instagram: "@grupo_crm_extintores",
   instagramUrl: "https://www.instagram.com/grupo_crm_extintores/",
   hours: "Lunes a viernes 9:00–18:00",
@@ -38,7 +45,7 @@ export const company = {
 export const SITE = {
   origin: "https://www.crmextintores.com",
   locale: "es_MX",
-  themeColor: "#C11234",
+  themeColor: "#D51A32",
   ogImage: "/assets/img/logo-crm.png",
 };
 
@@ -47,7 +54,7 @@ export const pageSeo = {
     path: "/",
     title: "Extintores y recarga en CDMX | Grupo CRM Extintores",
     description:
-      "Extintores, recarga y primera visita sin costo en CDMX y Estado de México. Cumpla con Protección Civil y evite multas. Cotice por WhatsApp 55 5438 3241.",
+      "Extintores, recarga y primera visita sin costo en CDMX y Estado de México. Cumpla con Protección Civil y evite multas. Cotice por WhatsApp 56 6748 1489.",
   },
   nosotros: {
     path: "/nosotros",
@@ -77,13 +84,13 @@ export const pageSeo = {
     path: "/contacto",
     title: "Contacto y cotización por WhatsApp | Grupo CRM Extintores",
     description:
-      "Pida su cotización por WhatsApp 55 5438 3241. Con gusto lo atendemos y la primera visita de revisión es sin costo. Chamixto 131, Cuajimalpa, CDMX.",
+      "Pida su cotización por WhatsApp 56 6748 1489. Con gusto lo atendemos y la primera visita de revisión es sin costo. Chamixto 131, Cuajimalpa, CDMX.",
   },
   servicios: {
     path: "/servicios",
     title: "Venta, recarga e instalación de extintores | Grupo CRM",
     description:
-      "Venta, recarga e instalación de extintores para que su negocio cumpla. Primera visita sin costo. WhatsApp 55 5438 3241.",
+      "Venta, recarga e instalación de extintores para que su negocio cumpla. Primera visita sin costo. WhatsApp 56 6748 1489.",
   },
   mapa: {
     path: "/mapa-sitio",
@@ -101,7 +108,7 @@ export const pageSeo = {
     path: "/blog",
     title: "Blog de extintores y equipo contra incendios | Grupo CRM",
     description:
-      "Guías de extintores en CDMX y Estado de México: tipos de fuego, cómo elegir el equipo, cómo usarlo, NOM-002-STPS-2010 y botiquines. Cotice con Grupo CRM.",
+      "Guías de extintores en CDMX y Estado de México: tipos de fuego, recarga NOM-154-SCFI-2005, NOM-002-STPS-2010 y botiquines. Cotice con Grupo CRM.",
   },
   articulo: {
     path: "/blog",
@@ -120,6 +127,19 @@ export const pageSeo = {
 
 export const blogPosts = [
   {
+    slug: "como-instalar-mi-extintor",
+    path: "/blog/como-instalar-mi-extintor",
+    title: "Cómo instalar mi extintor en un negocio | Grupo CRM",
+    heading: "Cómo instalar mi extintor para que sí sea útil",
+    description:
+      "Guía práctica para colocar un extintor: altura, visibilidad, acceso libre, señalamiento, soporte y cuándo pedir instalación profesional en CDMX y Estado de México.",
+    kicker: "Instalación",
+    excerpt: "Altura, ubicación, señalamiento y errores comunes. Deje el punto listo y cotice instalación con Grupo CRM.",
+    datePublished: "2026-09-01",
+    image: "/assets/img/full/blog-instalar.jpg",
+    imageAlt: "Extintor instalado en pared con señalamiento y alarma",
+  },
+  {
     slug: "tipos-de-fuego",
     path: "/blog/tipos-de-fuego",
     title: "Tipos de fuego y cómo elegir el extintor correcto | Grupo CRM",
@@ -129,8 +149,8 @@ export const blogPosts = [
     kicker: "Guía práctica",
     excerpt: "Qué cubre cada clase de fuego y cómo elegir PQS ABC, CO₂, agua o tipo K según su condominio, restaurante u oficina.",
     datePublished: "2026-08-27",
-    image: "/assets/img/catalog/CRM-0003.png",
-    imageAlt: "Extintor Grupo CRM de polvo químico seco ABC",
+    image: "/assets/img/full/blog-tipos-fuego.jpg",
+    imageAlt: "Fuego activo, referencia visual de un conato",
   },
   {
     slug: "como-usar-un-extintor",
@@ -142,8 +162,8 @@ export const blogPosts = [
     kicker: "Guía práctica",
     excerpt: "Partes del extintor, qué contiene y cómo actuar solo si el fuego sigue en su etapa inicial.",
     datePublished: "2026-08-24",
-    image: "/assets/img/categoria-extintores.png",
-    imageAlt: "Extintor montado en pared",
+    image: "/assets/img/full/blog-usar.jpg",
+    imageAlt: "Capacitación práctica con extintores",
   },
   {
     slug: "extintores-cdmx",
@@ -155,8 +175,8 @@ export const blogPosts = [
     kicker: "Cobertura",
     excerpt: "Empresa mexicana para condominios, restaurantes y oficinas en CDMX y Estado de México.",
     datePublished: "2026-08-24",
-    image: "/assets/img/crop/galeria-extintores-sitio.jpg",
-    imageAlt: "Extintores instalados en un establecimiento",
+    image: "/assets/img/full/blog-cdmx.jpg",
+    imageAlt: "Panorama urbano de la Ciudad de México",
   },
   {
     slug: "extintor-6-kg",
@@ -168,8 +188,21 @@ export const blogPosts = [
     kicker: "Catálogo",
     excerpt: "PQS, CO₂, agua y qué implica un extintor automático. Le ayudamos a elegir el que de verdad necesita.",
     datePublished: "2026-08-24",
-    image: "/assets/img/catalog/CRM-0004.png",
-    imageAlt: "Extintor de PQS ABC de 6.0 kg",
+    image: "/assets/img/full/blog-6kg.jpg",
+    imageAlt: "Extintor de dióxido de carbono instalado en pared",
+  },
+  {
+    slug: "nom-154-scfi-2005",
+    path: "/blog/nom-154-scfi-2005",
+    title: "NOM-154-SCFI-2005: recarga y mantenimiento de extintores | Grupo CRM",
+    heading: "NOM-154-SCFI-2005: recarga y mantenimiento de extintores",
+    description:
+      "Qué implica la NOM-154-SCFI-2005 para recargar y dar mantenimiento a extintores. Qué pedirle a quien le da servicio en CDMX y Estado de México.",
+    kicker: "Normatividad",
+    excerpt: "La norma del servicio de recarga: etiqueta, evidencia y un extintor que sí sirve en la inspección.",
+    datePublished: "2026-09-01",
+    image: "/assets/img/full/blog-nom-154.jpg",
+    imageAlt: "Gabinete de manguera y extintor para servicio contra incendio",
   },
   {
     slug: "nom-002-stps-2010",
@@ -181,8 +214,8 @@ export const blogPosts = [
     kicker: "Normatividad",
     excerpt: "Prevención en centros de trabajo, señales del extintor, punto de reunión y botiquín.",
     datePublished: "2026-08-24",
-    image: "/assets/img/categoria-senalamiento-vial.png",
-    imageAlt: "Señalamientos de seguridad y vialidad",
+    image: "/assets/img/full/blog-nom-002.jpg",
+    imageAlt: "Señalización de salida de emergencia",
   },
   {
     slug: "botiquin-primeros-auxilios",
@@ -194,8 +227,21 @@ export const blogPosts = [
     kicker: "Catálogo",
     excerpt: "Tres tamaños de pared para completar el equipo de emergencia de su local o empresa.",
     datePublished: "2026-08-24",
-    image: "/assets/img/categoria-botiquines.png",
-    imageAlt: "Botiquín de emergencia de pared",
+    image: "/assets/img/full/blog-botiquin.jpg",
+    imageAlt: "Botiquín de primeros auxilios de pared",
+  },
+  {
+    slug: "casco-seguridad-colores",
+    path: "/blog/casco-seguridad-colores",
+    title: "Qué casco de seguridad necesito: colores y características | Grupo CRM",
+    heading: "Qué casco de seguridad necesito: colores y características",
+    description:
+      "Guía para elegir casco de seguridad por color, uso y características: tipo cachucha, ala ancha, ajuste de matraca y protección para obra, industria y brigadas.",
+    kicker: "Equipo de protección",
+    excerpt: "Colores de casco por rol y características para elegir el equipo correcto en obra, almacén, industria o brigada.",
+    datePublished: "2026-09-01",
+    image: "/assets/img/full/blog-casco.jpg",
+    imageAlt: "Cascos de seguridad de distintos colores en un sitio de obra",
   },
 ];
 
@@ -205,7 +251,7 @@ export function blogPostBySlug(slug) {
 
 export const catSeo = {
   extintores:
-    "Extintores PQS, CO₂, tipo K y unidades móviles. Cotice venta y recarga con Grupo CRM en CDMX y Estado de México. WhatsApp 55 5438 3241.",
+    "Extintores PQS, CO₂, tipo K y unidades móviles. Cotice venta y recarga con Grupo CRM en CDMX y Estado de México. WhatsApp 56 6748 1489.",
   chalecos:
     "Chalecos para sus brigadas: malla, reflejante y gabardina. Identifique a su personal y cotice con Grupo CRM en CDMX.",
   "senalamiento-vial":
@@ -240,7 +286,7 @@ export const venues = [
 
 function shot(stem, title, note, venue, kicker = "Instalación") {
   return {
-    src: `/assets/img/crop/${stem}.jpg`,
+    src: `/assets/img/full/${stem}.jpg`,
     full: `/assets/img/full/${stem}.jpg`,
     fit: "cover",
     kicker,
@@ -449,6 +495,33 @@ export const clients = [
   },
 ];
 
+export const reviews = [
+  {
+    name: "Montse Leon",
+    date: "5 de junio de 2024",
+    iso: "2024-06-05",
+    stars: 5,
+    photo: "/assets/img/reviews/montse-leon.jpg",
+    text: "Excelente servicio, atento y rápidos. Muchas gracias !!",
+  },
+  {
+    name: "Melissa Jiménez",
+    date: "30 de noviembre de 2023",
+    iso: "2023-11-30",
+    stars: 5,
+    photo: "/assets/img/reviews/melissa-jimenez.jpg",
+    text: "Excelente servicio, productos nuevos y a buen costo. Además lo instalan muy rápido y te enseñan a usarlo.",
+  },
+  {
+    name: "Eduardo Solis Almanza",
+    date: "22 de septiembre de 2023",
+    iso: "2023-09-22",
+    stars: 5,
+    photo: "/assets/img/reviews/eduardo-solis.jpg",
+    text: "Excelente. La respuesta al contactarlos fue muy rápida, me asesoraron en cuanto al tamaño adecuado de extintores y señalizaciones requeridas, cumplieron luego de acordar fecha y hora para la entrega/instalación, todo muy eficiente y profesional.",
+  },
+];
+
 export const faqs = [
   {
     q: "¿Qué equipo puedo cotizar?",
@@ -460,7 +533,7 @@ export const faqs = [
   },
   {
     q: "¿Cómo pido una cotización?",
-    a: "Como le resulte más cómodo: WhatsApp 55 5438 3241, teléfono o el formulario de esta página. Aceptamos tarjeta y meses sin intereses.",
+    a: "Como le resulte más cómodo: WhatsApp 56 6748 1489, teléfono o el formulario de esta página. Aceptamos tarjeta y meses sin intereses.",
   },
   {
     q: "¿Cuál es el horario de atención?",
@@ -468,7 +541,7 @@ export const faqs = [
   },
   {
     q: "¿Me ayudan a cumplir con Protección Civil en mi condominio?",
-    a: "Claro que sí. Revisamos extintores, señalamientos y puntos de incendio, y le decimos con claridad qué le falta. La primera visita es sin costo.",
+    a: 'Claro que sí. Revisamos extintores, señalamientos y puntos de incendio, y le decimos con claridad qué le falta. La recarga se hace bajo la <a href="/blog/nom-154-scfi-2005">NOM-154-SCFI-2005</a>. La primera visita es sin costo.',
   },
   {
     q: "¿Qué extintor necesito?",
@@ -479,46 +552,50 @@ export const faqs = [
 export const services = [
   {
     icon: "fa-solid fa-fire-extinguisher",
-    title: "Venta de extintores",
-    text: "Equipos nuevos y certificados para su condominio, cocina u oficina.",
+    title: "Venta e instalación de extintores",
+    text: "Extintores nuevos y certificados, e instalación en los puntos adecuados de su establecimiento.",
   },
   {
     icon: "fa-solid fa-rotate",
-    title: "Recarga de extintores",
-    text: "A tiempo, para que su equipo nunca falle en una inspección.",
-  },
-  {
-    icon: "fa-solid fa-screwdriver-wrench",
-    title: "Instalación de extintores",
-    text: "Colocamos sus extintores y puntos de incendio donde deben ir.",
+    title: "Recarga y mantenimiento",
+    text: "Recargamos y damos mantenimiento a sus extintores para mantenerlos en condiciones adecuadas y disponibles cuando los necesite.",
   },
   {
     icon: "fa-solid fa-signs-post",
     title: "Señalamientos",
-    text: "De emergencia y vialidad, para dejar su inmueble en regla.",
+    text: "Señalamientos de emergencia y vialidad para identificar equipos, rutas de evacuación y áreas importantes.",
   },
   {
     icon: "fa-solid fa-kit-medical",
     title: "Botiquines",
-    text: "Tres tamaños de pared, según el tamaño de su negocio.",
+    text: "Botiquines para establecimientos, disponibles en diferentes presentaciones y tamaños.",
+  },
+  {
+    icon: "fa-solid fa-chalkboard-user",
+    title: "Cursos y capacitación",
+    text: "Capacitamos a su personal en prevención y combate de incendios, incluyendo el uso y manejo adecuado de extintores.",
   },
   {
     icon: "fa-solid fa-clipboard-check",
     title: "Revisión en sitio",
-    text: "La primera visita es sin costo y sin compromiso.",
+    text: "Visitamos su establecimiento para revisar sus equipos y necesidades de seguridad. Le indicamos qué requiere atención y qué podemos hacer para solucionarlo.",
   },
 ];
 
 export const courses = {
-  title: "Cursos y capacitaciones",
-  lead: "Formamos brigadas en su sitio para que su personal sepa cómo actuar ante una emergencia.",
+  kicker: "Cursos y capacitaciones",
+  title: "Prepare a su equipo para actuar cuando más importa",
+  leads: [
+    "Capacitamos a su personal para prevenir, responder y actuar ante una emergencia.",
+  ],
+  listLead: "Ofrecemos cursos y formación especializada en diferentes áreas de seguridad:",
   items: [
-    "Primeros auxilios",
-    "Combate contra incendios",
-    "Búsqueda y rescate",
-    "Evacuación de inmueble",
-    "Atención de emergencias de materiales peligrosos",
-    "Conformación de brigadas",
+    { name: "Primeros auxilios", icon: "fa-solid fa-kit-medical" },
+    { name: "Combate contra incendios", icon: "fa-solid fa-fire" },
+    { name: "Búsqueda y rescate", icon: "fa-solid fa-life-ring" },
+    { name: "Evacuación", icon: "fa-solid fa-person-walking-arrow-right" },
+    { name: "Materiales peligrosos", icon: "fa-solid fa-biohazard" },
+    { name: "Conformación de brigadas", icon: "fa-solid fa-people-group" },
   ],
 };
 

@@ -106,17 +106,18 @@
   </script>
   <style id="css-boot">
   /* css-boot: hide until local CSS + header are ready */
-  html:not(.is-booted) { visibility: hidden; background: #fff; }
+  html:not(.is-css):not(.is-booted):not(.is-boot-error) { visibility: hidden; background: #fff; }
   </style>
   <noscript><style>html { visibility: visible !important; }</style></noscript>
   <script>setTimeout(function () { document.documentElement.classList.add("is-booted"); }, 4000);</script>
-  <link rel="stylesheet" href="css/tokens.css">
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/tokens.css?v=ribbon-gold">
+  <link rel="stylesheet" href="css/main.css?v=wa-hover">
+  <script>document.documentElement.classList.add("is-css");</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Contacto y cotización por WhatsApp | Grupo CRM Extintores</title>
-  <meta name="description" content="Pida su cotización por WhatsApp 55 5438 3241. Con gusto lo atendemos y la primera visita de revisión es sin costo. Chamixto 131, Cuajimalpa, CDMX.">
+  <meta name="description" content="Pida su cotización por WhatsApp 56 6748 1489. Con gusto lo atendemos y la primera visita de revisión es sin costo. Chamixto 131, Cuajimalpa, CDMX.">
   <meta name="author" content="Grupo CRM Extintores">
-  <meta name="theme-color" content="#C11234">
+  <meta name="theme-color" content="#D51A32">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.crmextintores.com/contacto">
   <link rel="alternate" hreflang="es-MX" href="https://www.crmextintores.com/contacto">
@@ -125,13 +126,13 @@
   <meta property="og:locale" content="es_MX">
   <meta property="og:site_name" content="Grupo CRM Extintores">
   <meta property="og:title" content="Contacto y cotización por WhatsApp | Grupo CRM Extintores">
-  <meta property="og:description" content="Pida su cotización por WhatsApp 55 5438 3241. Con gusto lo atendemos y la primera visita de revisión es sin costo. Chamixto 131, Cuajimalpa, CDMX.">
+  <meta property="og:description" content="Pida su cotización por WhatsApp 56 6748 1489. Con gusto lo atendemos y la primera visita de revisión es sin costo. Chamixto 131, Cuajimalpa, CDMX.">
   <meta property="og:url" content="https://www.crmextintores.com/contacto">
   <meta property="og:image" content="https://www.crmextintores.com/assets/img/logo-crm.png">
   <meta property="og:image:alt" content="Logotipo de Grupo CRM Extintores">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Contacto y cotización por WhatsApp | Grupo CRM Extintores">
-  <meta name="twitter:description" content="Pida su cotización por WhatsApp 55 5438 3241. Con gusto lo atendemos y la primera visita de revisión es sin costo. Chamixto 131, Cuajimalpa, CDMX.">
+  <meta name="twitter:description" content="Pida su cotización por WhatsApp 56 6748 1489. Con gusto lo atendemos y la primera visita de revisión es sin costo. Chamixto 131, Cuajimalpa, CDMX.">
   <meta name="twitter:image" content="https://www.crmextintores.com/assets/img/logo-crm.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -147,70 +148,72 @@
   <a class="skip-link" href="#contenido">Ir al contenido</a>
   <div data-header></div>
   <main id="contenido">
-  <section class="contact-band">
-    <div class="wrap contact-layout">
-      <div class="contact-info">
-        <div class="contact-info__head">
+  <section class="contact-page" aria-labelledby="contact-title">
+    <div class="wrap">
+      <div class="contact-page__grid">
+        <header class="contact-page__head">
           <p class="kicker">Contacto</p>
-          <h1>Pida su cotización</h1>
-          <p class="contact-lead">Con gusto lo atendemos. Cuéntenos qué necesita y le respondemos el mismo día, sin compromiso.</p>
-        </div>
-        <ul class="contact-list">
-          <li>
-            <div class="contact-list__row">
-              <span class="contact-list__ico" aria-hidden="true"><i class="fa-solid fa-clock"></i></span>
-              <span class="contact-list__body">
-                <span class="contact-list__lab">Horario</span>
-                <span class="contact-list__val">Lun–vie 9:00–18:00</span>
-              </span>
-            </div>
-          </li>
-          <li>
-            <a class="contact-list__row" href="https://www.google.com/maps/search/?api=1&query=Chamixto+131+Col.+Loma+del+Padre+Cuajimalpa+Ciudad+de+M%C3%A9xico" target="_blank" rel="noopener noreferrer">
-              <span class="contact-list__ico" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></span>
-              <span class="contact-list__body">
-                <span class="contact-list__lab">Dirección</span>
-                <span class="contact-list__val">Chamixto 131, Col. Loma del Padre, Cuajimalpa, CDMX</span>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a class="contact-list__row" href="https://wa.me/525554383241" target="_blank" rel="noopener noreferrer">
-              <span class="contact-list__ico" aria-hidden="true"><i class="fa-brands fa-whatsapp wa-icon"></i></span>
-              <span class="contact-list__body">
-                <span class="contact-list__lab">WhatsApp</span>
-                <strong class="contact-list__val">55 5438 3241</strong>
-              </span>
-            </a>
-          </li>
-          <li>
-            <div class="contact-list__row">
-              <span class="contact-list__ico" aria-hidden="true"><i class="fa-solid fa-phone phone-icon"></i></span>
-              <span class="contact-list__body">
-                <span class="contact-list__lab">Teléfono</span>
-                <span class="contact-list__val">
-                  <a href="tel:5659474605">56 5947 4605</a>
-                  <span class="contact-list__sep" aria-hidden="true">·</span>
-                  <a href="tel:5667481489">56 6748 1489</a>
+          <h1 id="contact-title">Pida su cotización</h1>
+          <hr class="rule rule-left" aria-hidden="true">
+          <p class="contact-page__lead">Cuéntenos qué necesita y le respondemos el mismo día. La primera visita de revisión no tiene costo.</p>
+        </header>
+        <aside class="contact-page__facts" aria-label="Datos de contacto">
+          <ul class="contact-list">
+            <li>
+              <a class="contact-list__row" href="https://www.google.com/maps/search/?api=1&query=Chamixto+131+Col.+Loma+del+Padre+Cuajimalpa+Ciudad+de+M%C3%A9xico" target="_blank" rel="noopener noreferrer">
+                <span class="contact-list__ico" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></span>
+                <span class="contact-list__body">
+                  <span class="contact-list__lab">Dirección</span>
+                  <span class="contact-list__val">Chamixto 131, Col. Loma del Padre, Cuajimalpa, CDMX</span>
                 </span>
-              </span>
-            </div>
-          </li>
-          <li>
-            <a class="contact-list__row" href="mailto:crm.extintores@gmail.com">
-              <span class="contact-list__ico" aria-hidden="true"><i class="fa-solid fa-envelope mail-icon"></i></span>
-              <span class="contact-list__body">
-                <span class="contact-list__lab">Correo</span>
-                <strong class="contact-list__val">crm.extintores@gmail.com</strong>
-              </span>
-            </a>
-          </li>
-        </ul>
-        <p class="contact-social">
-          <a href="https://www.facebook.com/people/GRUPO-CRM-Extintores/100075736857787/" target="_blank" rel="noopener noreferrer"><span class="contact-list__ico" aria-hidden="true"><i class="fa-brands fa-square-facebook social-icon"></i></span> Facebook</a>
-          <a href="https://www.instagram.com/grupo_crm_extintores/" target="_blank" rel="noopener noreferrer"><span class="contact-list__ico" aria-hidden="true"><i class="fa-brands fa-square-instagram social-icon"></i></span> Instagram</a>
-        </p>
-      </div>
+              </a>
+            </li>
+            <li>
+              <div class="contact-list__row">
+                <span class="contact-list__ico" aria-hidden="true"><i class="fa-solid fa-clock"></i></span>
+                <span class="contact-list__body">
+                  <span class="contact-list__lab">Horario</span>
+                  <span class="contact-list__val">Lunes a viernes · 9:00–18:00</span>
+                </span>
+              </div>
+            </li>
+            <li>
+              <a class="contact-list__row" href="https://wa.me/525667481489" target="_blank" rel="noopener noreferrer">
+                <span class="contact-list__ico" aria-hidden="true"><i class="fa-brands fa-whatsapp wa-icon"></i></span>
+                <span class="contact-list__body">
+                  <span class="contact-list__lab">WhatsApp</span>
+                  <span class="contact-list__val">56 6748 1489</span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <div class="contact-list__row">
+                <span class="contact-list__ico" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+                <span class="contact-list__body">
+                  <span class="contact-list__lab">Teléfonos</span>
+                  <span class="contact-list__val">
+                    <a href="tel:5667481489">56 6748 1489</a>
+                    <span class="contact-list__sep" aria-hidden="true">·</span>
+                    <a href="tel:5659474605">56 5947 4605</a>
+                  </span>
+                </span>
+              </div>
+            </li>
+            <li>
+              <a class="contact-list__row" href="mailto:crm.extintores@gmail.com">
+                <span class="contact-list__ico" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+                <span class="contact-list__body">
+                  <span class="contact-list__lab">Correo</span>
+                  <span class="contact-list__val">crm.extintores@gmail.com</span>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <p class="contact-page__social">
+            <a href="https://www.facebook.com/people/GRUPO-CRM-Extintores/100075736857787/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i> Facebook</a>
+            <a href="https://www.instagram.com/grupo_crm_extintores/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram</a>
+          </p>
+        </aside>
         <form class="contact-form" data-contact>
           <label class="contact-form__half">Nombre <input name="nombre" required minlength="2" autocomplete="name" placeholder="Su nombre"></label>
           <label class="contact-form__half">Empresa o condominio <input name="empresa" autocomplete="organization" placeholder="Opcional"></label>
@@ -237,13 +240,16 @@
             <span>Acepto el <a href="aviso-privacidad.html">aviso de privacidad</a></span>
           </label>
           <p class="form-status" data-form-status role="status" aria-live="polite" hidden></p>
-          <button class="btn btn-wa" type="submit" aria-live="polite"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Enviar por WhatsApp</button>
+          <div class="contact-form__actions">
+            <button class="btn btn-wa" type="submit" aria-live="polite"><i class="fa-brands fa-whatsapp wa-icon" aria-hidden="true"></i> Enviar por WhatsApp</button>
+            <a class="btn btn-red" href="tel:5667481489" aria-label="Llámenos al 56 6748 1489"><i class="fa-solid fa-phone phone-icon" aria-hidden="true"></i> Llámenos</a>
+          </div>
         </form>
+      </div>
     </div>
   </section>
-  <section class="hook" data-hook></section>
   </main>
   <div data-footer></div>
-  <script type="module" src="js/main.js" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
+  <script type="module" src="js/main.js?v=wa-hover" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
 </body>
 </html>

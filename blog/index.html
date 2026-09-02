@@ -106,17 +106,18 @@
   </script>
   <style id="css-boot">
   /* css-boot: hide until local CSS + header are ready */
-  html:not(.is-booted) { visibility: hidden; background: #fff; }
+  html:not(.is-css):not(.is-booted):not(.is-boot-error) { visibility: hidden; background: #fff; }
   </style>
   <noscript><style>html { visibility: visible !important; }</style></noscript>
   <script>setTimeout(function () { document.documentElement.classList.add("is-booted"); }, 4000);</script>
   <link rel="stylesheet" href="/css/tokens.css">
-  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/main.css?v=page-heroes">
+  <script>document.documentElement.classList.add("is-css");</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Blog de extintores y equipo contra incendios | Grupo CRM</title>
   <meta name="description" content="Guías de extintores en CDMX y Estado de México: cómo usarlos, tipos de 6 kg, NOM-002-STPS-2010 y equipo contra incendios. Cotice con Grupo CRM.">
   <meta name="author" content="Grupo CRM Extintores">
-  <meta name="theme-color" content="#C11234">
+  <meta name="theme-color" content="#D51A32">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.crmextintores.com/blog">
   <link rel="alternate" hreflang="es-MX" href="https://www.crmextintores.com/blog">
@@ -136,6 +137,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preload" as="image" type="image/webp" href="/assets/img/opt/full/hero-blog-800.webp" fetchpriority="high">
   <link rel="icon" type="image/png" href="/assets/img/favicon.png">
   <link rel="apple-touch-icon" href="/assets/img/favicon.png">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=optional" media="print" onload="this.media='all'">
@@ -147,24 +149,77 @@
   <a class="skip-link" href="#contenido">Ir al contenido</a>
   <div data-header></div>
   <main id="contenido">
+  <section class="shop-hero shop-hero--venue shop-hero--split shop-hero--page shop-hero--blog" aria-label="Blog de Grupo CRM">
+    <span class="shop-hero__photo media-load" aria-hidden="true">
+      <picture>
+        <source type="image/webp" srcset="/assets/img/opt/full/hero-blog-800.webp 800w, /assets/img/opt/full/hero-blog-1400.webp 1400w, /assets/img/opt/full/hero-blog-1600.webp 1600w" sizes="(min-width: 761px) 46vw, 100vw">
+        <img src="/assets/img/opt/full/hero-blog-1400.webp" alt="" width="1024" height="571" fetchpriority="high" decoding="async">
+      </picture>
+    </span>
+    <div class="wrap">
+      <div class="shop-hero__copy">
+        <p class="kicker">Guías</p>
+        <h1>Blog de extintores y equipo contra incendios</h1>
+        <p class="lead">Orientación clara para quien busca extintores en CDMX o Estado de México. Venta, recarga e instalación.</p>
+        <div class="hero-actions" role="group" aria-label="Cotizar">
+          <a class="btn btn-red" href="/contacto">Pida su cotización</a>
+        </div>
+      </div>
+    </div>
+  </section>
   <section class="section blog-hub">
     <div class="wrap">
-      <header class="blog-hub__head">
-        <div>
-          <p class="kicker">Guías</p>
-          <h1>Blog de extintores y equipo contra incendios</h1>
-        </div>
-        <a class="blog-hub__cta" href="/contacto">Pida su cotización <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a>
-      </header>
-      <hr class="rule rule-left">
-      <p class="blog-hub__lead">Orientación clara y sin tecnicismos para quien busca extintores en la Ciudad de México o el Estado de México. Somos una empresa 100% mexicana: venta, recarga e instalación.</p>
-      <p class="blog-hub__lead">Aquí le explicamos los tipos de fuego y cómo elegir el extintor, cómo usarlo, qué pide la NOM-002-STPS-2010 en la práctica y cómo armar el equipo contra incendios de un local, un condominio o una oficina. Si algo no le queda claro, escríbanos con confianza.</p>
       <div class="blog-grid">
         <article class="blog-card">
-          <a class="blog-card__media blog-card__media--sku" href="/blog/tipos-de-fuego">
+          <a class="blog-card__media" href="/blog/como-instalar-mi-extintor">
             <picture>
-              <source type="image/webp" srcset="/assets/img/opt/catalog/CRM-0003-400.webp 400w, /assets/img/opt/catalog/CRM-0003-800.webp 800w" sizes="(min-width: 900px) 360px, 50vw">
-              <img src="/assets/img/opt/catalog/CRM-0003-400.webp" alt="Extintor Grupo CRM de polvo químico seco ABC" width="800" height="800" loading="lazy" decoding="async">
+              <source type="image/webp" srcset="/assets/img/opt/full/blog-instalar-800.webp 800w, /assets/img/opt/full/blog-instalar-1400.webp 1400w" sizes="(min-width: 900px) 360px, 50vw">
+              <img src="/assets/img/opt/full/blog-instalar-800.webp" alt="Extintor instalado en pared con señalamiento de incendio" width="800" height="450" loading="lazy" decoding="async">
+            </picture>
+          </a>
+          <div class="blog-card__body">
+            <time class="blog-card__date" datetime="2026-09-01">1 de septiembre de 2026</time>
+            <p class="kicker">Instalación</p>
+            <h2><a href="/blog/como-instalar-mi-extintor">Cómo instalar mi extintor para que sí sea útil</a></h2>
+            <p>Altura, ubicación, señalamiento y errores comunes. Deje el punto listo y cotice instalación con Grupo CRM.</p>
+            <a class="blog-card__more" href="/blog/como-instalar-mi-extintor">Leer la guía</a>
+          </div>
+        </article>
+        <article class="blog-card">
+          <a class="blog-card__media" href="/blog/casco-seguridad-colores">
+            <picture>
+              <source type="image/webp" srcset="/assets/img/opt/full/blog-casco-800.webp 800w, /assets/img/opt/full/blog-casco-1400.webp 1400w" sizes="(min-width: 900px) 360px, 50vw">
+              <img src="/assets/img/opt/full/blog-casco-800.webp" alt="Cascos de seguridad de distintos colores en un sitio de obra" width="800" height="450" loading="lazy" decoding="async">
+            </picture>
+          </a>
+          <div class="blog-card__body">
+            <time class="blog-card__date" datetime="2026-09-01">1 de septiembre de 2026</time>
+            <p class="kicker">Equipo de protección</p>
+            <h2><a href="/blog/casco-seguridad-colores">Qué casco de seguridad necesito: colores y características</a></h2>
+            <p>Colores de casco por rol y características para elegir el equipo correcto en obra, almacén, industria o brigada.</p>
+            <a class="blog-card__more" href="/blog/casco-seguridad-colores">Leer la guía</a>
+          </div>
+        </article>
+        <article class="blog-card">
+          <a class="blog-card__media" href="/blog/nom-154-scfi-2005">
+            <picture>
+              <source type="image/webp" srcset="/assets/img/opt/full/blog-nom-154-800.webp 800w, /assets/img/opt/full/blog-nom-154-1400.webp 1400w" sizes="(min-width: 900px) 360px, 50vw">
+              <img src="/assets/img/opt/full/blog-nom-154-800.webp" alt="Gabinete de manguera y extintor para servicio contra incendio" width="800" height="450" loading="lazy" decoding="async">
+            </picture>
+          </a>
+          <div class="blog-card__body">
+            <time class="blog-card__date" datetime="2026-09-01">1 de septiembre de 2026</time>
+            <p class="kicker">Normatividad</p>
+            <h2><a href="/blog/nom-154-scfi-2005">NOM-154-SCFI-2005: recarga y mantenimiento de extintores</a></h2>
+            <p>La norma del servicio de recarga: etiqueta, evidencia y un extintor que sí sirve en la inspección.</p>
+            <a class="blog-card__more" href="/blog/nom-154-scfi-2005">Leer la guía</a>
+          </div>
+        </article>
+        <article class="blog-card">
+          <a class="blog-card__media" href="/blog/tipos-de-fuego">
+            <picture>
+              <source type="image/webp" srcset="/assets/img/opt/full/blog-tipos-fuego-800.webp 800w, /assets/img/opt/full/blog-tipos-fuego-1400.webp 1400w" sizes="(min-width: 900px) 360px, 50vw">
+              <img src="/assets/img/opt/full/blog-tipos-fuego-800.webp" alt="Fuego activo, referencia visual de un conato" width="800" height="450" loading="lazy" decoding="async">
             </picture>
           </a>
           <div class="blog-card__body">
@@ -178,8 +233,8 @@
         <article class="blog-card">
           <a class="blog-card__media" href="/blog/como-usar-un-extintor">
             <picture>
-              <source type="image/webp" srcset="/assets/img/opt/categoria-extintores-480.webp 480w, /assets/img/opt/categoria-extintores-960.webp 960w" sizes="(min-width: 900px) 360px, 50vw">
-              <img src="/assets/img/opt/categoria-extintores-480.webp" alt="Extintor montado en pared" width="800" height="450" loading="lazy" decoding="async">
+              <source type="image/webp" srcset="/assets/img/opt/full/blog-usar-800.webp 800w, /assets/img/opt/full/blog-usar-1400.webp 1400w" sizes="(min-width: 900px) 360px, 50vw">
+              <img src="/assets/img/opt/full/blog-usar-800.webp" alt="Capacitación práctica con extintores" width="800" height="450" loading="lazy" decoding="async">
             </picture>
           </a>
           <div class="blog-card__body">
@@ -193,8 +248,8 @@
         <article class="blog-card">
           <a class="blog-card__media" href="/blog/extintores-cdmx">
             <picture>
-              <source type="image/webp" srcset="/assets/img/opt/crop/galeria-extintores-sitio-800.webp 800w, /assets/img/opt/crop/galeria-extintores-sitio-1280.webp 1280w" sizes="(min-width: 900px) 360px, 50vw">
-              <img src="/assets/img/opt/crop/galeria-extintores-sitio-800.webp" alt="Extintores instalados en un establecimiento" width="800" height="450" loading="lazy" decoding="async">
+              <source type="image/webp" srcset="/assets/img/opt/full/blog-cdmx-800.webp 800w, /assets/img/opt/full/blog-cdmx-1400.webp 1400w" sizes="(min-width: 900px) 360px, 50vw">
+              <img src="/assets/img/opt/full/blog-cdmx-800.webp" alt="Panorama urbano de la Ciudad de México" width="800" height="450" loading="lazy" decoding="async">
             </picture>
           </a>
           <div class="blog-card__body">
@@ -208,8 +263,8 @@
         <article class="blog-card">
           <a class="blog-card__media" href="/blog/extintor-6-kg">
             <picture>
-              <source type="image/webp" srcset="/assets/img/opt/catalog/CRM-0004-400.webp 400w, /assets/img/opt/catalog/CRM-0004-800.webp 800w" sizes="(min-width: 900px) 360px, 50vw">
-              <img src="/assets/img/opt/catalog/CRM-0004-400.webp" alt="Extintor de PQS ABC de 6.0 kg" width="800" height="450" loading="lazy" decoding="async">
+              <source type="image/webp" srcset="/assets/img/opt/full/blog-6kg-800.webp 800w, /assets/img/opt/full/blog-6kg-1400.webp 1400w" sizes="(min-width: 900px) 360px, 50vw">
+              <img src="/assets/img/opt/full/blog-6kg-800.webp" alt="Extintor de dióxido de carbono instalado en pared" width="800" height="450" loading="lazy" decoding="async">
             </picture>
           </a>
           <div class="blog-card__body">
@@ -223,8 +278,8 @@
         <article class="blog-card">
           <a class="blog-card__media" href="/blog/nom-002-stps-2010">
             <picture>
-              <source type="image/webp" srcset="/assets/img/opt/categoria-senalamiento-vial-480.webp 480w, /assets/img/opt/categoria-senalamiento-vial-960.webp 960w" sizes="(min-width: 900px) 360px, 50vw">
-              <img src="/assets/img/opt/categoria-senalamiento-vial-480.webp" alt="Señalamientos de seguridad y vialidad" width="800" height="450" loading="lazy" decoding="async">
+              <source type="image/webp" srcset="/assets/img/opt/full/blog-nom-002-800.webp 800w, /assets/img/opt/full/blog-nom-002-1400.webp 1400w" sizes="(min-width: 900px) 360px, 50vw">
+              <img src="/assets/img/opt/full/blog-nom-002-800.webp" alt="Señalización de salida de emergencia" width="800" height="450" loading="lazy" decoding="async">
             </picture>
           </a>
           <div class="blog-card__body">
@@ -238,8 +293,8 @@
         <article class="blog-card">
           <a class="blog-card__media" href="/blog/botiquin-primeros-auxilios">
             <picture>
-              <source type="image/webp" srcset="/assets/img/opt/categoria-botiquines-480.webp 480w, /assets/img/opt/categoria-botiquines-960.webp 960w" sizes="(min-width: 900px) 360px, 50vw">
-              <img src="/assets/img/opt/categoria-botiquines-480.webp" alt="Botiquín de emergencia de pared" width="800" height="450" loading="lazy" decoding="async">
+              <source type="image/webp" srcset="/assets/img/opt/full/blog-botiquin-800.webp 800w, /assets/img/opt/full/blog-botiquin-1400.webp 1400w" sizes="(min-width: 900px) 360px, 50vw">
+              <img src="/assets/img/opt/full/blog-botiquin-800.webp" alt="Botiquín de primeros auxilios de pared" width="800" height="450" loading="lazy" decoding="async">
             </picture>
           </a>
           <div class="blog-card__body">
@@ -256,6 +311,6 @@
   <section class="hook" data-hook></section>
   </main>
   <div data-footer></div>
-  <script type="module" src="/js/main.js" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
+  <script type="module" src="/js/main.js?v=wa-hover" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
 </body>
 </html>

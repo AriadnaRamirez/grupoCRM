@@ -106,17 +106,18 @@
   </script>
   <style id="css-boot">
   /* css-boot: hide until local CSS + header are ready */
-  html:not(.is-booted) { visibility: hidden; background: #fff; }
+  html:not(.is-css):not(.is-booted):not(.is-boot-error) { visibility: hidden; background: #fff; }
   </style>
   <noscript><style>html { visibility: visible !important; }</style></noscript>
   <script>setTimeout(function () { document.documentElement.classList.add("is-booted"); }, 4000);</script>
-  <link rel="stylesheet" href="css/tokens.css">
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/tokens.css?v=ribbon-gold">
+  <link rel="stylesheet" href="css/main.css?v=donde-trab">
+  <script>document.documentElement.classList.add("is-css");</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Nosotros | Grupo CRM Extintores</title>
   <meta name="description" content="Empresa 100% mexicana. Lo acompañamos para cumplir con Protección Civil: venta, recarga e instalación en CDMX y Estado de México. Con gusto lo atendemos.">
   <meta name="author" content="Grupo CRM Extintores">
-  <meta name="theme-color" content="#C11234">
+  <meta name="theme-color" content="#D51A32">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.crmextintores.com/nosotros">
   <link rel="alternate" hreflang="es-MX" href="https://www.crmextintores.com/nosotros">
@@ -136,7 +137,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="preload" as="image" type="image/webp" href="assets/img/opt/full/galeria-extintores-sitio-800.webp" fetchpriority="high">
+  <link rel="preload" as="image" type="image/webp" href="assets/img/opt/full/hero-nosotros-800.webp?v=hero-walk" fetchpriority="high">
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <link rel="apple-touch-icon" href="assets/img/favicon.png">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=optional" media="print" onload="this.media='all'">
@@ -159,121 +160,96 @@
     </div>
   </div>
   <main id="contenido">
+  <section class="shop-hero shop-hero--venue shop-hero--split shop-hero--page shop-hero--nosotros" aria-label="Quiénes somos">
+    <span class="shop-hero__photo media-load" aria-hidden="true">
+      <picture>
+        <source type="image/webp" srcset="assets/img/opt/full/hero-nosotros-800.webp?v=hero-walk 800w, assets/img/opt/full/hero-nosotros-1400.webp?v=hero-walk 1400w, assets/img/opt/full/hero-nosotros-1600.webp?v=hero-walk 1600w" sizes="(min-width: 761px) 46vw, 100vw">
+        <img src="assets/img/opt/full/hero-nosotros-1400.webp?v=hero-walk" alt="" width="1024" height="571" fetchpriority="high" decoding="async">
+      </picture>
+    </span>
+    <div class="wrap">
+      <div class="shop-hero__copy">
+        <p class="kicker">¿Quiénes somos?</p>
+        <h1>Grupo CRM Extintores</h1>
+        <p class="lead">Empresa mexicana de venta, recarga e instalación de extintores en CDMX y Estado de México. Verificados por <a href="https://amecire.org/portal/" target="_blank" rel="noopener noreferrer">AMECIRE</a>.</p>
+        <div class="hero-actions" role="group" aria-label="Cotizar o ver equipos">
+          <a class="btn btn-red" href="contacto.html"><i class="fa-brands fa-whatsapp wa-icon" aria-hidden="true"></i> Pedir cotización</a>
+          <a class="btn btn-ghost" href="productos.html"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i> Ver equipos</a>
+        </div>
+      </div>
+    </div>
+  </section>
   <section class="section about-page">
     <div class="wrap">
-      <header class="about-head">
-        <div class="about-head__copy">
-          <p class="kicker">¿Quiénes somos?</p>
-          <h1>Somos Grupo CRM, <span class="about-head__line">una empresa 100% mexicana</span></h1>
-          <hr class="rule rule-left">
-          <p class="about-head__lead">Empresa 100% mexicana, dedicada a la venta y/o recarga de extintores y equipo contra incendios. Atendemos CDMX y Estado de México.</p>
-          <div class="about-head__actions">
-            <a class="btn btn-red" href="contacto.html"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Pedir cotización</a>
-            <a class="btn btn-ink" href="productos.html"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i> Ver equipos</a>
-          </div>
-        </div>
-        <figure class="about-head__media">
-          <picture>
-            <source type="image/webp" srcset="assets/img/opt/full/galeria-extintores-sitio-800.webp 800w, assets/img/opt/full/galeria-extintores-sitio-1400.webp 1400w" sizes="(min-width: 901px) 420px, 100vw">
-            <img src="assets/img/opt/full/galeria-extintores-sitio-800.webp" width="640" height="480" alt="Extintores Grupo CRM instalados en un establecimiento comercial" loading="eager" fetchpriority="high" decoding="async">
-          </picture>
-        </figure>
+      <header class="about-mv-head">
+        <p class="kicker">Quiénes somos</p>
+        <h2>Una empresa cercana, clara y cumplida</h2>
+        <p>Trabajamos para que su negocio tenga el equipo correcto, bien instalado y listo cuando más importa.</p>
       </header>
-
-      <ul class="about-facts">
-        <li>
-          <span class="about-facts__head">
-            <i class="fa-solid fa-location-dot about-facts__icon" aria-hidden="true"></i>
-            <span class="kicker">Domicilio</span>
-          </span>
-          <strong><a href="https://www.google.com/maps/search/?api=1&query=Chamixto+131+Col.+Loma+del+Padre+Cuajimalpa+Ciudad+de+M%C3%A9xico" target="_blank" rel="noopener noreferrer">Chamixto 131, Col. Loma del Padre, Alcaldía Cuajimalpa, Ciudad de México</a></strong>
-        </li>
-        <li>
-          <span class="about-facts__head">
-            <i class="fa-solid fa-clock about-facts__icon" aria-hidden="true"></i>
-            <span class="kicker">Horario</span>
-          </span>
-          <strong>Lunes a viernes, 9:00–18:00</strong>
-        </li>
-        <li>
-          <span class="about-facts__head">
-            <i class="fa-brands fa-whatsapp about-facts__icon" aria-hidden="true"></i>
-            <span class="kicker">WhatsApp</span>
-          </span>
-          <strong><a href="https://wa.me/525554383241" target="_blank" rel="noopener noreferrer">55 5438 3241</a></strong>
-        </li>
-      </ul>
-
-      <section class="about-mv-band" aria-label="Misión, visión y valores">
+      <section class="about-mv-band" aria-label="Misión y visión">
         <figure class="about-mv-band__figure">
           <picture>
-            <source type="image/webp" srcset="assets/img/opt/mascot-inspector-crm.webp">
-            <img src="assets/img/opt/mascot-inspector-crm.webp" width="180" height="240" alt="Inspector CRM, mascota de Grupo CRM Extintores" loading="lazy" decoding="async">
+            <source type="image/webp" srcset="assets/img/opt/mascot-inspector-ok.webp">
+            <img src="assets/img/opt/mascot-inspector-ok.webp" width="640" height="858" alt="Inspector CRM, mascota de Grupo CRM Extintores" loading="lazy" decoding="async">
           </picture>
-          <figcaption>
-            <p class="kicker">Inspector CRM</p>
-            <p class="about-mv-band__values-label" id="inspector-valores">Valores</p>
-            <ul class="about-mv-band__values" data-inspector-valores aria-labelledby="inspector-valores">
-              <li>Confianza</li>
-              <li>Seguridad</li>
-              <li>Calidad</li>
-              <li>Lealtad</li>
-              <li>Trabajo en equipo</li>
-            </ul>
-          </figcaption>
         </figure>
-        <div class="about-mv-band__cards">
+        <div class="about-mv-band__copy">
           <div class="about-mv-note about-mv-note--mision">
             <p class="kicker">Misión</p>
-            <p data-mision></p>
+            <p data-mision aria-busy="true"></p>
           </div>
           <div class="about-mv-note about-mv-note--vision">
             <p class="kicker">Visión</p>
-            <p data-vision></p>
+            <p data-vision aria-busy="true"></p>
           </div>
         </div>
+      </section>
+
+      <section class="about-values" aria-labelledby="about-valores">
+        <p class="kicker" id="about-valores">Valores</p>
+        <ul class="value-grid" data-values aria-busy="true"></ul>
       </section>
 
       <section class="about-field" aria-labelledby="about-field-title">
         <header class="about-field__head">
           <p class="kicker">En campo</p>
-          <h2 id="about-field-title">¿Quién lo atiende?</h2>
-          <p>Un equipo que va con usted a su sitio para la entrega, la revisión y la instalación en CDMX y Estado de México. Nos encuentra de lunes a viernes, de 9:00 a 18:00, por WhatsApp <a href="https://wa.me/525554383241" target="_blank" rel="noopener noreferrer">55 5438 3241</a>.</p>
+          <h2 id="about-field-title">Estamos donde su negocio nos necesita</h2>
+          <p><strong>Vamos hasta su establecimiento.</strong> Entregamos equipos, revisamos instalaciones y atendemos sus necesidades en sitio.</p>
         </header>
         <ul class="about-field__grid">
           <li>
             <figure class="media-load">
               <picture>
-                <source type="image/webp" srcset="assets/img/opt/full/galeria-entrega-800.webp 800w, assets/img/opt/full/galeria-entrega-1400.webp 1400w" sizes="(min-width: 900px) 280px, 90vw">
-                <img src="assets/img/opt/full/galeria-entrega-800.webp" width="480" height="360" alt="Equipo de Grupo CRM listo para suministro en su sitio" loading="lazy" decoding="async">
+                <source type="image/webp" srcset="assets/img/opt/full/galeria-showroom-800.webp 800w, assets/img/opt/full/galeria-showroom-1400.webp 1400w" sizes="(min-width: 900px) 280px, 90vw">
+                <img src="assets/img/opt/full/galeria-showroom-800.webp" width="480" height="360" alt="Showroom de Grupo CRM con equipo contra incendio" loading="lazy" decoding="async">
               </picture>
               <figcaption>
-                <strong>Entrega a su sitio</strong>
-                <span>Llevamos el equipo hasta su unidad o su negocio.</span>
+                <strong>Vamos hasta su negocio</strong>
+                <span>Llevamos sus equipos directamente hasta su establecimiento, unidad o punto de servicio.</span>
               </figcaption>
             </figure>
           </li>
           <li>
             <figure class="media-load">
               <picture>
-                <source type="image/webp" srcset="assets/img/opt/full/galeria-evento-800.webp 800w, assets/img/opt/full/galeria-evento-1400.webp 1400w" sizes="(min-width: 900px) 280px, 90vw">
-                <img src="assets/img/opt/full/galeria-evento-800.webp" width="480" height="360" alt="Jornada de Grupo CRM en sitio, con el equipo que usted va a usar" loading="lazy" decoding="async">
+                <source type="image/webp" srcset="assets/img/opt/full/galeria-vapiano-800.webp 800w, assets/img/opt/full/galeria-vapiano-1400.webp 1400w" sizes="(min-width: 900px) 280px, 90vw">
+                <img src="assets/img/opt/full/galeria-vapiano-800.webp" width="480" height="360" alt="Instalación de Grupo CRM en un restaurante" loading="lazy" decoding="async">
               </picture>
               <figcaption>
-                <strong>Jornada en sitio</strong>
-                <span>Revisión y demostración con el mismo equipo que usted va a usar.</span>
+                <strong>Trabajamos en sitio</strong>
+                <span>Realizamos revisiones, instalaciones y servicios directamente en sus instalaciones, sin complicar la operación de su negocio.</span>
               </figcaption>
             </figure>
           </li>
           <li>
             <figure class="media-load">
               <picture>
-                <source type="image/webp" srcset="assets/img/opt/full/galeria-inventario-800.webp 800w, assets/img/opt/full/galeria-inventario-1400.webp 1400w" sizes="(min-width: 900px) 280px, 90vw">
-                <img src="assets/img/opt/full/galeria-inventario-800.webp" width="480" height="360" alt="Extintores de Grupo CRM preparados para recarga y suministro" loading="lazy" decoding="async">
+                <source type="image/webp" srcset="assets/img/opt/full/galeria-escuela-800.webp 800w, assets/img/opt/full/galeria-escuela-1400.webp 1400w" sizes="(min-width: 900px) 280px, 90vw">
+                <img src="assets/img/opt/full/galeria-escuela-800.webp" width="480" height="360" alt="Extintores de Grupo CRM instalados en una escuela" loading="lazy" decoding="async">
               </picture>
               <figcaption>
-                <strong>Listos para recargar</strong>
-                <span>Dejamos sus extintores listos para recarga y entrega.</span>
+                <strong>Le damos seguimiento</strong>
+                <span>Le acompañamos con recargas, mantenimiento y los servicios que su equipo necesite después.</span>
               </figcaption>
             </figure>
           </li>
@@ -281,82 +257,152 @@
       </section>
     </div>
 
-    <section class="about-proof" aria-labelledby="about-proof-title">
-      <header class="about-proof__head wrap">
-        <p class="kicker">Clientes</p>
-        <h2 id="about-proof-title">Clientes que confían en Grupo CRM</h2>
-        <p>Negocios de gastronomía, transporte, educación y automotriz que ya nos confían su seguridad. Gracias por permitirnos acompañarlos.</p>
-      </header>
-      <div data-client-logos aria-roledescription="carrusel" aria-label="Clientes"></div>
+    <section class="about-method" id="servicios" aria-labelledby="about-method-title">
+      <div class="wrap about-method__layout">
+        <div class="about-method__copy">
+          <p class="kicker">Cómo operamos</p>
+          <h2 id="about-method-title">Del establecimiento a la visita, sin rodeos</h2>
+          <p>No lo dejamos en un mostrador. Coordinamos, vamos a su local y dejamos el punto listo: equipo, recarga o instalación.</p>
+        </div>
+        <aside class="about-assurances" aria-label="Cómo trabajamos en sitio">
+          <p class="about-assurances__kicker">En sitio</p>
+          <ul class="about-assurances__grid">
+            <li>
+              <span class="about-assurances__idx">01</span>
+              <h3>Levantamiento en su local</h3>
+            </li>
+            <li>
+              <span class="about-assurances__idx">02</span>
+              <h3>Equipo e instalación</h3>
+            </li>
+            <li>
+              <span class="about-assurances__idx">03</span>
+              <h3>Recarga y vigencia</h3>
+            </li>
+            <li>
+              <span class="about-assurances__idx">04</span>
+              <h3>Capacitación, si la pide</h3>
+            </li>
+          </ul>
+          <p class="about-assurances__note">La primera visita o levantamiento no tiene costo.</p>
+        </aside>
+      </div>
     </section>
 
-    <div class="svc-home svc-home--band" id="servicios">
+    <section class="about-mosaic" id="galeria" aria-labelledby="about-mosaic-title">
       <div class="wrap">
-        <div class="svc-home__layout">
-          <div class="svc-home__intro">
-            <p class="kicker">¿Qué hacemos?</p>
-            <h2>Venta, recarga e instalación</h2>
-            <p class="svc-home__lead">También señalamientos, botiquines y el seguimiento para avisarle cuándo toca recargar.</p>
-            <ul class="svc-home__points" data-care aria-label="Por qué cotizar con Grupo CRM"></ul>
+        <header class="about-mosaic__head">
+          <div>
+            <p class="kicker">Donde trabajamos</p>
+            <h2 id="about-mosaic-title">Soluciones para cada establecimiento</h2>
+            <p>Atendemos condominios, restaurantes, oficinas, empresas, clínicas y escuelas.</p>
           </div>
-          <ul class="svc-hover-grid" data-services></ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="cursos-home" id="cursos">
-      <div class="wrap">
-        <header class="cursos-home__head">
-          <div class="cursos-home__copy">
-            <p class="kicker">Capacitación</p>
-            <h2>Cursos y capacitaciones</h2>
-            <p class="cursos-home__lead">Formamos brigadas en su sitio para que su personal sepa cómo actuar ante una emergencia.</p>
-          </div>
-          <a class="cat-band__more cat-band__more--ghost" href="galeria.html?giro=cursos">Ver galería <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          <a class="cat-band__more" href="galeria.html"><i class="fa-solid fa-images" aria-hidden="true"></i> Ver instalaciones</a>
         </header>
-        <ul class="cursos-home__list" data-cursos></ul>
+        <ul class="about-mosaic__grid">
+          <li>
+            <figure class="media-load">
+              <picture>
+                <source type="image/webp" srcset="assets/img/opt/full/galeria-alberca-800.webp 800w, assets/img/opt/full/galeria-alberca-1400.webp 1400w" sizes="(min-width: 900px) 32vw, 50vw">
+                <img src="assets/img/opt/full/galeria-alberca-800.webp" width="800" height="800" alt="Extintores Grupo CRM junto a la alberca de un condominio" loading="lazy" decoding="async">
+              </picture>
+              <figcaption>Condominios</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="media-load">
+              <picture>
+                <source type="image/webp" srcset="assets/img/opt/full/galeria-restaurante-800.webp 800w, assets/img/opt/full/galeria-restaurante-1400.webp 1400w" sizes="(min-width: 900px) 32vw, 50vw">
+                <img src="assets/img/opt/full/galeria-restaurante-800.webp" width="800" height="800" alt="Extintores Grupo CRM instalados en un restaurante" loading="lazy" decoding="async">
+              </picture>
+              <figcaption>Restaurantes</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="media-load">
+              <picture>
+                <source type="image/webp" srcset="assets/img/opt/full/galeria-comercio-800.webp 800w, assets/img/opt/full/galeria-comercio-1400.webp 1400w" sizes="(min-width: 900px) 32vw, 50vw">
+                <img src="assets/img/opt/full/galeria-comercio-800.webp" width="800" height="800" alt="Suministro de extintores Grupo CRM en un local comercial" loading="lazy" decoding="async">
+              </picture>
+              <figcaption>Oficinas</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="media-load">
+              <picture>
+                <source type="image/webp" srcset="assets/img/opt/full/galeria-bodega-800.webp 800w, assets/img/opt/full/galeria-bodega-1400.webp 1400w" sizes="(min-width: 900px) 32vw, 50vw">
+                <img src="assets/img/opt/full/galeria-bodega-800.webp" width="800" height="800" alt="Extintores Grupo CRM en la bodega de una empresa" loading="lazy" decoding="async">
+              </picture>
+              <figcaption>Empresas</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="media-load">
+              <picture>
+                <source type="image/webp" srcset="assets/img/opt/full/galeria-clinica-800.webp 800w, assets/img/opt/full/galeria-clinica-1400.webp 1400w" sizes="(min-width: 900px) 32vw, 50vw">
+                <img src="assets/img/opt/full/galeria-clinica-800.webp" width="800" height="800" alt="Extintor Grupo CRM en el acceso de una clínica" loading="lazy" decoding="async">
+              </picture>
+              <figcaption>Clínicas</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="media-load">
+              <picture>
+                <source type="image/webp" srcset="assets/img/opt/full/galeria-escuela-800.webp 800w, assets/img/opt/full/galeria-escuela-1400.webp 1400w" sizes="(min-width: 900px) 32vw, 50vw">
+                <img src="assets/img/opt/full/galeria-escuela-800.webp" width="800" height="800" alt="Extintores Grupo CRM en el patio de una escuela" loading="lazy" decoding="async">
+              </picture>
+              <figcaption>Escuelas</figcaption>
+            </figure>
+          </li>
+        </ul>
       </div>
-      <div class="cursos-home__strip" data-cursos-strip aria-roledescription="carrusel" aria-label="Fotografías de capacitaciones"></div>
-    </div>
+    </section>
 
-    <div class="wrap">
-      <section class="sectors-home sectors-home--embedded">
-        <header class="sectors-home__head">
-          <p class="kicker">Sectores</p>
-          <h2>Giros que atendemos</h2>
-          <hr class="rule" aria-hidden="true">
-        </header>
-        <div data-sectors-compact></div>
-      </section>
-    </div>
-
-    <div class="about-work" id="galeria">
-      <header class="about-work__head wrap">
-        <div class="about-work__copy">
-          <p class="kicker">Instalaciones</p>
-          <h2>Así protegemos negocios como el suyo</h2>
-        </div>
-        <a class="cat-band__more" href="galeria.html">Ver instalaciones <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    <section class="about-proof" aria-labelledby="about-proof-title">
+      <header class="about-proof__head wrap">
+        <p class="kicker">Clientes CRM</p>
+        <h2 id="about-proof-title">Negocios que ya nos abren la puerta</h2>
+        <p>Gastronomía, transporte, educación y automotriz en CDMX y Estado de México.</p>
       </header>
-      <div class="peek-rail about-work__slider" data-about-gallery aria-roledescription="carrusel" aria-label="Instalaciones Grupo CRM"></div>
-    </div>
+      <div data-client-logos aria-busy="true" aria-roledescription="carrusel" aria-label="Clientes"></div>
+    </section>
+
+    <section class="about-train" id="cursos" aria-labelledby="about-train-title">
+      <div class="wrap about-train__layout">
+        <figure class="about-train__photo media-load">
+          <picture>
+            <source type="image/webp" srcset="assets/img/opt/full/galeria-curso-brigada-800.webp 800w, assets/img/opt/full/galeria-curso-brigada-1400.webp 1400w" sizes="(min-width: 800px) 420px, 100vw">
+            <img src="assets/img/opt/full/galeria-curso-brigada-800.webp" width="800" height="800" alt="Capacitación de brigada con Grupo CRM" loading="lazy" decoding="async">
+          </picture>
+        </figure>
+        <div class="about-train__copy">
+          <p class="kicker">Cursos y capacitaciones</p>
+          <h2 id="about-train-title">Si su gente no sabe usarlo, el extintor no alcanza</h2>
+          <p>Brigada, combate de conatos y primeros auxilios, en su establecimiento o en campo. Lo armamos según el giro, no como un curso genérico.</p>
+          <p class="about-train__actions">
+            <a class="btn btn-red" href="contacto.html"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Pedir un curso</a>
+            <a class="btn btn-ink" href="index.html#cursos">Ver temas</a>
+          </p>
+        </div>
+      </div>
+    </section>
 
     <div class="wrap">
-      <div class="about-cta about-cta--mid">
+      <div class="about-cta about-cta--panel">
         <div>
           <p class="kicker">Siguiente paso</p>
           <h2>¿Quiere el mismo resultado en su negocio?</h2>
-          <p>Pida su cotización o revise el catálogo con calma. La primera visita de revisión es sin costo y sin compromiso.</p>
+          <p>Cuéntenos el giro y le decimos qué le falta. La primera visita es sin costo.</p>
         </div>
         <div class="about-cta__actions">
           <a class="btn btn-red" href="contacto.html"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Pedir cotización</a>
-          <a class="btn btn-ink" href="productos.html"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i> Ver equipos</a>
+          <a class="btn btn-ghost" href="productos.html"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i> Ver equipos</a>
         </div>
       </div>
     </div>
   </section>
   </main>
   <div data-footer></div>
-  <script type="module" src="js/main.js" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
+  <script type="module" src="js/main.js?v=donde-trab" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
 </body>
 </html>

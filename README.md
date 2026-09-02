@@ -1,6 +1,6 @@
-# Grupo CRM Extintores — maqueta HTML/CSS/JS
+# Grupo CRM Extintores
 
-Sitio estático institucional (sin carrito ni checkout). Cuando esté listo, se porta a WordPress.
+Sitio institucional estático de [www.crmextintores.com](https://www.crmextintores.com): venta, recarga e instalación de extintores en CDMX y Estado de México. Sin carrito ni checkout; las cotizaciones van por WhatsApp.
 
 ## Local
 
@@ -8,7 +8,7 @@ Sitio estático institucional (sin carrito ni checkout). Cuando esté listo, se 
 npm start
 ```
 
-Abre **http://localhost:5500** (`serve` usa URLs limpias: `/nosotros` → `nosotros.html`).
+Abre **http://localhost:5500** (`serve` resuelve URLs limpias: `/nosotros` → `nosotros.html`).
 
 | Página | Archivo |
 | --- | --- |
@@ -24,39 +24,34 @@ Abre **http://localhost:5500** (`serve` usa URLs limpias: `/nosotros` → `nosot
 | 404 | `404.html` |
 | Blog | `blog/index.html` |
 
-El catálogo vive en `js/data.js`. WhatsApp: 55 5438 3241.
+## Contenido
 
-Antes de publicar:
+- Textos, teléfonos y catálogo: `js/data.js`
+- Paleta, tipografía y espaciado: `css/tokens.css`
+- Componentes: `css/main.css`
+
+WhatsApp de cotización: 56 6748 1489.
+
+## Antes de publicar
 
 ```bash
 npm run check:assets
-```
-
-## SEO
-
-```bash
 npm run seo:sitemap
 ```
 
-Genera `sitemap.xml` (incluye fichas, categorías y aviso de privacidad). `robots.txt` ya apunta a ese sitemap.
+`robots.txt` apunta a `sitemap.xml` (fichas, categorías y aviso de privacidad).
 
-## Contenido
+## Publicación
 
-- Textos y productos: `js/data.js`
-- Paleta y tipografía: `css/tokens.css`
-- Componentes: `css/main.css`
+El menú y el sitemap usan URLs limpias (`/nosotros`, `/productos`, `/blog/...`). El host debe resolverlas a los `.html`.
 
-## Producción
-
-El menú y el sitemap usan URLs limpias (`/nosotros`, `/productos`, `/blog/...`). Hay que publicar en un host que las resuelva a los `.html`:
+Para el dominio **www.crmextintores.com** publique la raíz del repo:
 
 - **Netlify** — `netlify.toml` (sin instalar `sharp`/`onnx` en el build), `_headers`, `_redirects`
 - **Cloudflare Pages** — `_headers` y `_redirects`; build vacío, publicar la raíz
 - **Vercel** — `vercel.json` con `cleanUrls`
 - **Apache / cPanel** — `.htaccess` reescribe `/nosotros` → `nosotros.html`
 
-**GitHub Pages** — el workflow `.github/workflows/pages.yml` publica un bundle con base `/grupoCRM` y carpetas para URLs limpias. En el repo: Settings → Pages → Source: **GitHub Actions**. La preview queda en `https://AriadnaRamirez.github.io/grupoCRM/`.
-
-Para el dominio final (`www.crmextintores.com`) usa Netlify, Cloudflare Pages, Vercel o Apache; esas rutas van en la raíz (`/css`, `/productos`).
+**GitHub Pages** queda como preview en `https://AriadnaRamirez.github.io/grupoCRM/` (base `/grupoCRM`). En el repo: Settings → Pages → Source: **GitHub Actions**.
 
 Tras el DNS: HTTPS, HTTP→HTTPS, Search Console y Analytics. Las cabeceras (nosniff, Referrer-Policy, SAMEORIGIN) ya van en `_headers` / `netlify.toml`.

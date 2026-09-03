@@ -36,7 +36,7 @@ export const company = {
   hook: "Agende su visita de revisión, sin costo.",
   pitch: "Cumpla con Protección Civil y evite multas.",
   mision:
-    "Abastecer extintores y equipo contra incendio de alta calidad, que satisfagan las necesidades de nuestros clientes, mientras fomentamos la seguridad, la integridad y la capacitación constante a nuestros clientes y colaboradores.",
+    "Abastecer extintores y equipo contra incendio de alta calidad, que satisfagan las necesidades de nuestros clientes, mientras fomentamos la seguridad, la integridad y la capacitación constante para nuestros clientes y colaboradores.",
   vision:
     "Ser la empresa líder en el mercado, reconocida por nuestra excelencia en el servicio y compromiso en el abastecimiento de extintores y de equipo contra incendios.",
   valores: ["Confianza", "Seguridad", "Calidad", "Lealtad", "Trabajo en equipo"],
@@ -66,7 +66,7 @@ export const pageSeo = {
     path: "/productos",
     title: "Catálogo de extintores y equipo contra incendio | Grupo CRM",
     description:
-      "Más de 50 equipos: extintores, chalecos, señalamientos, gabinetes y botiquines. Cotice con Grupo CRM en CDMX y Estado de México.",
+      "Más de 50 equipos: extintores, chalecos, señalamientos, gabinetes, botiquines y equipo de protección. Cotice con Grupo CRM en CDMX y Estado de México.",
   },
   producto: {
     path: "/producto",
@@ -108,7 +108,7 @@ export const pageSeo = {
     path: "/blog",
     title: "Blog de extintores y equipo contra incendios | Grupo CRM",
     description:
-      "Guías de extintores en CDMX y Estado de México: tipos de fuego, recarga NOM-154-SCFI-2005, NOM-002-STPS-2010 y botiquines. Cotice con Grupo CRM.",
+      "Guías de extintores en CDMX y Estado de México: instalación, tipos de fuego, recarga NOM-154-SCFI-2005 y equipo de protección. Cotice con Grupo CRM.",
   },
   articulo: {
     path: "/blog",
@@ -136,8 +136,8 @@ export const blogPosts = [
     kicker: "Instalación",
     excerpt: "Altura, ubicación, señalamiento y errores comunes. Deje el punto listo y cotice instalación con Grupo CRM.",
     datePublished: "2026-09-01",
-    image: "/assets/img/opt/full/galeria-lavanderia-1400.webp",
-    imageAlt: "Extintor Grupo CRM instalado con señalamiento en un local",
+    image: "/assets/img/opt/full/blog-instalar-1400.webp",
+    imageAlt: "Extintor Grupo CRM instalado con señalamiento EXTINTOR",
   },
   {
     slug: "tipos-de-fuego",
@@ -149,8 +149,8 @@ export const blogPosts = [
     kicker: "Guía práctica",
     excerpt: "Qué cubre cada clase de fuego y cómo elegir PQS ABC, CO₂, agua o tipo K según su condominio, restaurante u oficina.",
     datePublished: "2026-08-27",
-    image: "/assets/img/full/galeria-curso-combate.jpg",
-    imageAlt: "Práctica de combate de incendio con extintor Grupo CRM",
+    image: "/assets/img/opt/full/blog-tipos-fuego-1400.webp",
+    imageAlt: "Guía de uso de extintores Grupo CRM según tipo de fuego",
   },
   {
     slug: "como-usar-un-extintor",
@@ -162,8 +162,8 @@ export const blogPosts = [
     kicker: "Guía práctica",
     excerpt: "Partes del extintor, qué contiene y cómo actuar solo si el fuego sigue en su etapa inicial.",
     datePublished: "2026-08-24",
-    image: "/assets/img/full/galeria-curso-instructivo.jpg",
-    imageAlt: "Capacitación práctica con extintor Grupo CRM",
+    image: "/assets/img/opt/full/blog-extintor-uso-1400.webp",
+    imageAlt: "Uso de extintor de agente limpio Grupo CRM ante un conato eléctrico",
   },
   {
     slug: "extintores-cdmx",
@@ -175,8 +175,8 @@ export const blogPosts = [
     kicker: "Cobertura",
     excerpt: "Empresa mexicana para condominios, restaurantes y oficinas en CDMX y Estado de México.",
     datePublished: "2026-08-24",
-    image: "/assets/img/opt/full/galeria-vapiano-1400.webp",
-    imageAlt: "Extintores Grupo CRM en un restaurante de CDMX",
+    image: "/assets/img/opt/full/blog-extintores-cdmx-1400.webp",
+    imageAlt: "Punto de extintor, salida de emergencia y botiquín en un inmueble de CDMX",
   },
   {
     slug: "extintor-6-kg",
@@ -184,12 +184,12 @@ export const blogPosts = [
     title: "Extintor de 6 kg: tipos, usos y cómo cotizar | Grupo CRM",
     heading: "Extintor de 6 kg: tipos, usos y cómo cotizar",
     description:
-      "Guía del extintor de 6 kg (PQS, CO₂, agua y automático). Pida su cotización por WhatsApp en CDMX y Estado de México, con el precio real de su caso.",
+      "Guía del extintor de 6 kg: PQS ABC, CO₂, tipo K y agente limpio. Cotice con Grupo CRM en CDMX y Estado de México.",
     kicker: "Catálogo",
-    excerpt: "PQS, CO₂, agua y qué implica un extintor automático. Le ayudamos a elegir el que de verdad necesita.",
+    excerpt: "PQS, CO₂, tipo K y agente limpio. Le ayudamos a elegir el que de verdad necesita.",
     datePublished: "2026-08-24",
-    image: "/assets/img/opt/full/galeria-extintores-sitio-1400.webp",
-    imageAlt: "Extintores Grupo CRM de distintas capacidades instalados en un comercio",
+    image: "/assets/img/opt/full/blog-extintor-6kg-1400.webp",
+    imageAlt: "Extintores Grupo CRM de 6 kg: PQS, tipo K y agente limpio",
   },
   {
     slug: "nom-154-scfi-2005",
@@ -201,34 +201,8 @@ export const blogPosts = [
     kicker: "Normatividad",
     excerpt: "La norma del servicio de recarga: etiqueta, evidencia y un extintor que sí sirve en la inspección.",
     datePublished: "2026-09-01",
-    image: "/assets/img/opt/full/galeria-gabinetes-sitio-1400.webp",
-    imageAlt: "Gabinetes y extintores Grupo CRM listos para instalar en sitio",
-  },
-  {
-    slug: "nom-002-stps-2010",
-    path: "/blog/nom-002-stps-2010",
-    title: "NOM-002-STPS-2010: señalización y punto de reunión | Grupo CRM",
-    heading: "NOM-002-STPS-2010: prevención, señalización y punto de reunión",
-    description:
-      "Qué implica la NOM-002-STPS-2010 en centros de trabajo: señalización de extintor, punto de reunión y botiquín. Apoyo en CDMX y Estado de México.",
-    kicker: "Normatividad",
-    excerpt: "Prevención en centros de trabajo, señales del extintor, punto de reunión y botiquín.",
-    datePublished: "2026-08-24",
-    image: "/assets/img/opt/full/galeria-local-1400.webp",
-    imageAlt: "Extintor y señalamiento Grupo CRM en un local comercial",
-  },
-  {
-    slug: "botiquin-primeros-auxilios",
-    path: "/blog/botiquin-primeros-auxilios",
-    title: "Botiquín de primeros auxilios para empresas | Grupo CRM",
-    heading: "Botiquín de primeros auxilios: cómo elegirlo para su negocio",
-    description:
-      "Botiquines metálicos de pared para oficinas, escuelas y comercios. Complemento del equipo contra incendios. Cotice en CDMX y Estado de México.",
-    kicker: "Catálogo",
-    excerpt: "Tres tamaños de pared para completar el equipo de emergencia de su local o empresa.",
-    datePublished: "2026-08-24",
-    image: "/assets/img/categoria-botiquines.png",
-    imageAlt: "Botiquín de primeros auxilios Grupo CRM",
+    image: "/assets/img/opt/full/blog-recarga-1400.webp",
+    imageAlt: "Técnico Grupo CRM revisando un extintor en taller de recarga",
   },
   {
     slug: "casco-seguridad-colores",
@@ -240,8 +214,8 @@ export const blogPosts = [
     kicker: "Equipo de protección",
     excerpt: "Colores de casco por rol y características para elegir el equipo correcto en obra, almacén, industria o brigada.",
     datePublished: "2026-09-01",
-    image: "/assets/img/categoria-equipo-proteccion.png",
-    imageAlt: "Casco de seguridad Grupo CRM",
+    image: "/assets/img/opt/full/blog-cascos-1400.webp",
+    imageAlt: "Cascos de seguridad por color y rol",
   },
 ];
 

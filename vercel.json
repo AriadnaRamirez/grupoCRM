@@ -1,6 +1,11 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/blog/nom-002-stps-2010", "destination": "/blog", "permanent": true },
+    { "source": "/blog/botiquin-primeros-auxilios", "destination": "/blog", "permanent": true },
+    { "source": "/servicios", "destination": "/nosotros#servicios", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/(.*)",

@@ -31,6 +31,21 @@
     Cache-Control = "public, max-age=604800"
 
 [[redirects]]
+  from = "/blog/nom-002-stps-2010"
+  to = "/blog"
+  status = 301
+
+[[redirects]]
+  from = "/blog/botiquin-primeros-auxilios"
+  to = "/blog"
+  status = 301
+
+[[redirects]]
+  from = "/servicios"
+  to = "/nosotros#servicios"
+  status = 301
+
+[[redirects]]
   from = "/.tmp-verify/*"
   to = "/404"
   status = 404

@@ -2,13 +2,116 @@
 <html lang="es-MX">
 <head>
   <meta charset="UTF-8">
+
+  
+
+  <script>
+  /* pages-base */
+  /* Sync into HTML with: node scripts/inject-pages-base.mjs */
+  (function () {
+    if (typeof location === "undefined" || !/\.github\.io$/i.test(location.hostname)) return;
+    var first = location.pathname.split("/").filter(Boolean)[0] || "grupoCRM";
+    var base = "/" + first;
+    if (/\.html$/i.test(location.pathname) && !/\/404\.html$/i.test(location.pathname)) {
+      var clean = location.pathname.replace(/\/index\.html$/i, "/").replace(/\.html$/i, "");
+      if (clean !== location.pathname) {
+        location.replace(clean + location.search + location.hash);
+        return;
+      }
+    }
+    function fix(value) {
+      if (!value || /^(https?:|data:|mailto:|tel:|javascript:|#)/i.test(value)) return value;
+      var hashIdx = value.indexOf("#");
+      var hash = hashIdx === -1 ? "" : value.slice(hashIdx);
+      var before = hashIdx === -1 ? value : value.slice(0, hashIdx);
+      var qIdx = before.indexOf("?");
+      var search = qIdx === -1 ? "" : before.slice(qIdx);
+      var pathname = qIdx === -1 ? before : before.slice(0, qIdx);
+      if (pathname === "/") pathname = base + "/";
+      else if (pathname.charAt(0) === "/") {
+        if (!(pathname === base || pathname.indexOf(base + "/") === 0)) pathname = base + pathname;
+        if (!/\/404\.html$/i.test(pathname)) {
+          pathname = pathname.replace(/\/index\.html$/i, "/").replace(/\.html$/i, "");
+        }
+      } else {
+        var rel = pathname.replace(/^\.\//, "");
+        if (/^(aviso-privacidad|contacto|galeria|mapa-sitio|nosotros|producto|productos|servicios|index)\.html$/i.test(rel)) {
+          var name = rel.replace(/\.html$/i, "");
+          pathname = name === "index" ? base + "/" : base + "/" + name;
+        } else if (/^blog\/[\w-]+\.html$/i.test(rel)) {
+          pathname = base + "/" + rel.replace(/\.html$/i, "");
+        } else {
+          return value;
+        }
+      }
+      return pathname + search + hash;
+    }
+    function apply(el) {
+      if (!el || !el.getAttribute) return;
+      ["href", "src", "data-bg", "data-src", "action"].forEach(function (attr) {
+        var current = el.getAttribute(attr);
+        if (!current) return;
+        var next = fix(current);
+        if (next !== current) el.setAttribute(attr, next);
+      });
+      ["srcset", "data-srcset"].forEach(function (attr) {
+        var current = el.getAttribute(attr);
+        if (!current) return;
+        var next = current.split(",").map(function (part) {
+          var trimmed = part.trim();
+          if (!trimmed) return trimmed;
+          var bits = trimmed.split(/\s+/);
+          var url = bits.shift();
+          var updated = fix(url);
+          return bits.length ? updated + " " + bits.join(" ") : updated;
+        }).join(", ");
+        if (next !== current) el.setAttribute(attr, next);
+      });
+      var style = el.getAttribute("style");
+      if (style && style.indexOf("url(") !== -1) {
+        el.setAttribute(
+          "style",
+          style.replace(/url\((['"]?)([^'")]+)\1\)/g, function (_, quote, url) {
+            return "url(" + quote + fix(url) + quote + ")";
+          })
+        );
+      }
+    }
+    if (!document.querySelector("base")) {
+      var tag = document.createElement("base");
+      tag.href = base + "/";
+      var head = document.head || document.documentElement;
+      head.insertBefore(tag, head.firstChild);
+    }
+    function applyTree(root) {
+      if (!root || root.nodeType !== 1) return;
+      apply(root);
+      if (root.querySelectorAll) {
+        root.querySelectorAll("[href], [src], [srcset], [data-bg], [data-src], [data-srcset], [action], [style]").forEach(apply);
+      }
+    }
+    new MutationObserver(function (records) {
+      records.forEach(function (record) {
+        record.addedNodes.forEach(applyTree);
+      });
+    }).observe(document.documentElement, { childList: true, subtree: true });
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", function () {
+        applyTree(document.documentElement);
+      });
+    } else {
+      applyTree(document.documentElement);
+    }
+  })();
+  </script>
   <style id="css-boot">
+  /* css-boot: hide until local CSS + header are ready */
   html:not(.is-css):not(.is-booted):not(.is-boot-error) { visibility: hidden; background: #fff; }
   </style>
   <noscript><style>html { visibility: visible !important; }</style></noscript>
   <script>setTimeout(function () { document.documentElement.classList.add("is-booted"); }, 4000);</script>
-  <link rel="stylesheet" href="/css/tokens.css">
-  <link rel="stylesheet" href="/css/main.css?v=blog-crm-photos">
+  <link rel="stylesheet" href="/css/tokens.css?v=prod-20260903">
+  <link rel="stylesheet" href="/css/main.css?v=prod-20260903">
   <script>document.documentElement.classList.add("is-css");</script>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Cómo instalar mi extintor en un negocio | Grupo CRM</title>
@@ -23,18 +126,18 @@
   <meta property="og:locale" content="es_MX">
   <meta property="og:site_name" content="Grupo CRM Extintores">
   <meta property="og:title" content="Cómo instalar mi extintor en un negocio | Grupo CRM">
-  <meta property="og:description" content="Dónde colocar un extintor, a qué altura, cómo señalizarlo y cuándo pedir instalación profesional.">
+  <meta property="og:description" content="Guía práctica para colocar un extintor: altura, visibilidad, acceso libre, señalamiento, soporte y cuándo pedir instalación profesional en CDMX y Estado de México.">
   <meta property="og:url" content="https://www.crmextintores.com/blog/como-instalar-mi-extintor">
-  <meta property="og:image" content="https://www.crmextintores.com/assets/img/opt/full/galeria-lavanderia-1400.webp">
-  <meta property="og:image:alt" content="Extintor Grupo CRM instalado con señalamiento en un local">
+  <meta property="og:image" content="https://www.crmextintores.com/assets/img/opt/full/blog-instalar-1400.webp">
+  <meta property="og:image:alt" content="Extintor Grupo CRM instalado con señalamiento EXTINTOR">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Cómo instalar mi extintor en un negocio | Grupo CRM">
-  <meta name="twitter:description" content="Dónde colocar un extintor, a qué altura, cómo señalizarlo y cuándo pedir instalación profesional.">
-  <meta name="twitter:image" content="https://www.crmextintores.com/assets/img/opt/full/galeria-lavanderia-1400.webp">
+  <meta name="twitter:description" content="Guía práctica para colocar un extintor: altura, visibilidad, acceso libre, señalamiento, soporte y cuándo pedir instalación profesional en CDMX y Estado de México.">
+  <meta name="twitter:image" content="https://www.crmextintores.com/assets/img/opt/full/blog-instalar-1400.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="preload" as="image" type="image/webp" href="/assets/img/opt/full/galeria-lavanderia-800.webp" fetchpriority="high">
+  <link rel="preload" as="image" type="image/webp" href="/assets/img/opt/full/blog-instalar-800.webp" fetchpriority="high">
   <link rel="icon" type="image/png" href="/assets/img/favicon.png">
   <link rel="apple-touch-icon" href="/assets/img/favicon.png">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=optional" media="print" onload="this.media='all'">
@@ -56,8 +159,8 @@
       </header>
       <figure class="article-hero">
         <picture>
-          <source type="image/webp" srcset="/assets/img/opt/full/galeria-lavanderia-800.webp 800w, /assets/img/opt/full/galeria-lavanderia-1400.webp 1400w, /assets/img/opt/full/galeria-lavanderia-1600.webp 1600w" sizes="(min-width: 800px) 720px, 100vw">
-          <img src="/assets/img/opt/full/galeria-lavanderia-800.webp" alt="Extintor Grupo CRM instalado con señalamiento en un local" width="1400" height="933" decoding="async" fetchpriority="high">
+          <source type="image/webp" srcset="/assets/img/opt/full/blog-instalar-800.webp 800w, /assets/img/opt/full/blog-instalar-1400.webp 1400w, /assets/img/opt/full/blog-instalar-1600.webp 1600w" sizes="(min-width: 800px) 720px, 100vw">
+          <img src="/assets/img/opt/full/blog-instalar-800.webp" alt="Extintor Grupo CRM instalado con señalamiento EXTINTOR" width="1400" height="933" decoding="async" fetchpriority="high">
         </picture>
         <figcaption>Visible, libre y a buena altura: así debe verse el punto de incendio.</figcaption>
       </figure>

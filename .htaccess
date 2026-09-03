@@ -27,6 +27,10 @@ AddType text/javascript js mjs
 
   RewriteRule ^(\.tmp-verify|node_modules)($|/) - [F,L]
 
+  RewriteRule ^blog/nom-002-stps-2010/?$ /blog [R=301,L]
+  RewriteRule ^blog/botiquin-primeros-auxilios/?$ /blog [R=301,L]
+  RewriteRule ^servicios/?$ /nosotros#servicios [R=301,NE,L]
+
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]

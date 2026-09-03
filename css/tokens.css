@@ -167,33 +167,45 @@
 }
 @media (max-width: 760px) {
   :root {
-    --gutter: max(16px, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
-    --section-pad: 40px;
-    --section-pad-sm: 28px;
-    --stack-title: var(--space-5);
-    --stack-rule: var(--space-5);
+    /* Layout */
+    --gutter: max(20px, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
+    --section-pad: 48px;
+    --section-pad-sm: 36px;
+
+    /* Type stack (mobile) */
+    --text-min: 0.75rem;
+    --text-xs: 0.75rem;
+    --text-sm: 0.8125rem;
+    --text-base: 1rem;
+    --text-md: 1rem;
+    --text-lg: 1.0625rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.375rem;
+    --text-3xl: 1.5rem;
+    --display: 1.5rem;
+    --tracking-display: -0.03em;
+    --tracking-kicker: 0.12em;
+    --text-topbar: 0.8125rem;
+    --text-nav: 1rem;
+    --text-nav-cta: 0.9375rem;
+
+    /* Vertical rhythm */
+    --stack-kicker: var(--space-2);
+    --stack-title: var(--space-4);
+    --stack-rule: var(--space-4);
     --stack-lead: var(--space-6);
     --stack-cta: var(--space-6);
     --stack-head: var(--space-6);
     --btn-min-h: 44px;
-    --text-min: 0.8125rem;
-    --text-xs: var(--text-min);
-    --text-sm: 0.875rem;
-    --text-base: 1rem;
-    --text-md: 1rem;
-    --text-lg: 1.0625rem;
-    --text-topbar: 0.875rem;
-    --text-nav: 1rem;
-    --text-nav-cta: 0.9375rem;
-    --tracking-kicker: 0.12em;
-    --text-3xl: 1.625rem;
-    --text-2xl: 1.375rem;
   }
 }
 @media (max-width: 389px) {
   :root {
     --gutter: max(16px, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
-    --section-pad: 32px;
-    --section-pad-sm: 24px;
+    --section-pad: 40px;
+    --section-pad-sm: 32px;
+    --display: 1.375rem;
+    --text-2xl: 1.3125rem;
+    --text-3xl: 1.375rem;
   }
 }

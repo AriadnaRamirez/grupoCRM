@@ -5,6 +5,9 @@ Thumbs.db
 .env.*
 !.env.example
 .tmp-verify/
+.tmp-*
+tmp/
+tmp-*
 assets/inspo/
 assets/img/galeria-*.png
 assets/img/hero-extintores.jpg

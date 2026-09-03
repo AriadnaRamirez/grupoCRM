@@ -34,7 +34,6 @@ const homeNeed = [
   "assets/img/logo-crm-wordmark.png",
   "assets/img/favicon.png",
   "assets/img/mascot-inspector-extintor.png",
-  "assets/img/mascot-inspector-senala.png",
   "assets/img/mascot-inspector-ok.png",
   "assets/img/categoria-extintores.png",
   "assets/img/categoria-chalecos.png",

@@ -111,7 +111,7 @@
   <noscript><style>html { visibility: visible !important; }</style></noscript>
   <script>setTimeout(function () { document.documentElement.classList.add("is-booted"); }, 4000);</script>
   <link rel="stylesheet" href="css/tokens.css?v=ribbon-gold">
-  <link rel="stylesheet" href="css/main.css?v=marcas-wash">
+  <link rel="stylesheet" href="css/main.css?v=img-fast">
   <script>document.documentElement.classList.add("is-css");</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Extintores y recarga en CDMX | Grupo CRM Extintores</title>
@@ -170,7 +170,7 @@
         <picture>
           <source media="(min-width: 761px)" type="image/webp" srcset="assets/img/hero/hero-desktop-800.webp 800w, assets/img/hero/hero-desktop-1280.webp 1280w, assets/img/hero/hero-desktop-1600.webp 1600w" sizes="min(56vw, 840px)">
           <source media="(max-width: 760px)" type="image/webp" srcset="assets/img/hero/hero-desktop-800.webp 800w, assets/img/hero/hero-desktop-1280.webp 1280w" sizes="100vw">
-          <img src="assets/img/hero/hero-desktop-1280.webp" alt="" width="1600" height="900" fetchpriority="high" decoding="async">
+          <img src="assets/img/hero/hero-desktop-800.webp" alt="" width="1600" height="900" fetchpriority="high" decoding="async">
         </picture>
       </span>
       <div class="wrap">
@@ -185,11 +185,11 @@
       </div>
     </article>
     <article class="slide slide--hero-linea" data-bg="assets/img/hero/hero-linea-1280.webp">
-      <span class="slide__photo media-load" aria-hidden="true">
+      <span class="slide__photo" aria-hidden="true">
         <picture>
-          <source media="(min-width: 761px)" type="image/webp" srcset="assets/img/hero/hero-linea-800.webp 800w, assets/img/hero/hero-linea-1280.webp 1280w, assets/img/hero/hero-linea-1600.webp 1600w" sizes="min(52vw, 760px)">
-          <source media="(max-width: 760px)" type="image/webp" srcset="assets/img/hero/hero-linea-800.webp 800w, assets/img/hero/hero-linea-1280.webp 1280w" sizes="100vw">
-          <img src="assets/img/hero/hero-linea-1280.webp" alt="" width="1600" height="900" decoding="async">
+          <source media="(min-width: 761px)" type="image/webp" data-srcset="assets/img/hero/hero-linea-800.webp 800w, assets/img/hero/hero-linea-1280.webp 1280w, assets/img/hero/hero-linea-1600.webp 1600w" sizes="min(52vw, 760px)">
+          <source media="(max-width: 760px)" type="image/webp" data-srcset="assets/img/hero/hero-linea-800.webp 800w, assets/img/hero/hero-linea-1280.webp 1280w" sizes="100vw">
+          <img data-src="assets/img/hero/hero-linea-800.webp" alt="" width="1600" height="900" decoding="async">
         </picture>
       </span>
       <div class="wrap">
@@ -208,7 +208,7 @@
         <picture>
           <source media="(min-width: 761px)" type="image/webp" data-srcset="assets/img/hero/hero-fuego-800.webp 800w, assets/img/hero/hero-fuego-1280.webp 1280w, assets/img/hero/hero-fuego-1600.webp 1600w" sizes="min(52vw, 760px)">
           <source media="(max-width: 760px)" type="image/webp" data-srcset="assets/img/hero/hero-fuego-800.webp 800w, assets/img/hero/hero-fuego-1280.webp 1280w" sizes="100vw">
-          <img data-src="assets/img/hero/hero-fuego-1280.webp" alt="" width="1600" height="900" decoding="async">
+          <img data-src="assets/img/hero/hero-fuego-800.webp" alt="" width="1600" height="900" decoding="async">
         </picture>
       </span>
       <div class="wrap">
@@ -227,7 +227,7 @@
         <picture>
           <source media="(min-width: 761px)" type="image/webp" data-srcset="assets/img/hero/hero-producto-800.webp 800w, assets/img/hero/hero-producto-1280.webp 1280w, assets/img/hero/hero-producto-1600.webp 1600w" sizes="min(52vw, 760px)">
           <source media="(max-width: 760px)" type="image/webp" data-srcset="assets/img/hero/hero-producto-800.webp 800w, assets/img/hero/hero-producto-1280.webp 1280w" sizes="100vw">
-          <img data-src="assets/img/hero/hero-producto-1280.webp" alt="" width="1600" height="900" decoding="async">
+          <img data-src="assets/img/hero/hero-producto-800.webp" alt="" width="1600" height="900" decoding="async">
         </picture>
       </span>
       <div class="wrap">
@@ -299,12 +299,13 @@
     </div>
   </section>
 
-  <section class="section trust trust--logos" id="clientes" data-scroll-wash>
+  <section class="section trust trust--logos" id="clientes">
     <div class="wrap">
       <header class="trust__head trust__head--center">
         <p class="kicker">Clientes CRM</p>
         <h2>Protegemos negocios como el suyo</h2>
         <hr class="rule" aria-hidden="true">
+        <p>Gastronomía, transporte, educación y automotriz en CDMX y Estado de México.</p>
       </header>
     </div>
     <div data-client-logos aria-busy="true" aria-roledescription="carrusel" aria-label="Clientes"></div>
@@ -353,72 +354,22 @@
 
   <section class="section cursos-home" id="cursos">
     <div class="wrap cursos-home__layout">
-      <div class="cursos-home__main">
-        <header class="cursos-home__head" data-cursos-head>
-          <p class="kicker">Cursos y capacitaciones</p>
-          <h2>Prepare a su equipo para actuar cuando más importa</h2>
-        </header>
-        <ul class="cursos-home__list" data-cursos aria-busy="true"></ul>
-      </div>
+      <header class="cursos-home__head" data-cursos-head>
+        <p class="kicker">Cursos y capacitaciones</p>
+        <h2>Prepare a su equipo para actuar cuando más importa</h2>
+      </header>
       <figure class="cursos-home__photo" data-cursos-photo aria-busy="true"></figure>
+      <p class="cursos-home__list-lead" data-cursos-list-lead hidden></p>
+      <ul class="cursos-home__list" data-cursos aria-busy="true"></ul>
     </div>
   </section>
 
   <section class="hook" id="revision" data-hook></section>
 
-  <section class="contact-band home-contact home-contact--form">
-    <div class="wrap home-contact__layout">
-      <div class="home-contact__form-col">
-        <div class="contact-info__head">
-          <p class="kicker">Contacto</p>
-          <h2>Pida su cotización</h2>
-          <p class="contact-lead">Cuéntenos qué necesita y le respondemos el mismo día. Sin compromiso.</p>
-        </div>
-        <form class="contact-form" data-contact>
-          <label class="contact-form__half">Nombre <input name="nombre" required minlength="2" autocomplete="name" placeholder="Su nombre"></label>
-          <label class="contact-form__half">Empresa o condominio <input name="empresa" autocomplete="organization" placeholder="Opcional"></label>
-          <label class="contact-form__half">Correo <input type="email" name="correo" autocomplete="email" placeholder="correo@empresa.com"></label>
-          <label class="contact-form__half">Teléfono <input name="telefono" required minlength="8" inputmode="tel" autocomplete="tel" placeholder="55 1234 5678"></label>
-          <label>Equipo de interés
-            <select name="producto">
-              <option value="">Seleccione una línea</option>
-              <option value="extintores">Extintores</option>
-              <option value="chalecos">Chalecos</option>
-              <option value="senalamiento-vial">Señalamiento vial</option>
-              <option value="gabinetes-herrajes">Gabinetes y herrajes</option>
-              <option value="botiquines">Botiquines</option>
-              <option value="equipo-proteccion">Equipo de protección</option>
-              <option value="otro">Otro / no lo sé</option>
-            </select>
-          </label>
-          <label>Mensaje <textarea name="mensaje" rows="2" required minlength="8" placeholder="Ej. necesito recargar extintores en mi condominio"></textarea></label>
-          <div class="hp" hidden aria-hidden="true">
-            <label>Sitio web <input name="website" tabindex="-1" autocomplete="off" aria-hidden="true"></label>
-          </div>
-          <label class="check-row">
-            <input type="checkbox" name="privacidad" required>
-            <span>Acepto el <a href="aviso-privacidad.html">aviso de privacidad</a></span>
-          </label>
-          <p class="form-status" data-form-status role="status" aria-live="polite" hidden></p>
-          <div class="contact-form__actions">
-            <button class="btn btn-wa" type="submit" aria-live="polite"><i class="fa-brands fa-whatsapp wa-icon" aria-hidden="true"></i> Enviar por WhatsApp</button>
-            <a class="btn btn-red" href="tel:5667481489" aria-label="Llámenos al 56 6748 1489"><i class="fa-solid fa-phone phone-icon" aria-hidden="true"></i> Llámenos</a>
-          </div>
-        </form>
-      </div>
-      <figure class="home-contact__photo">
-        <picture>
-          <source type="image/webp" srcset="assets/img/opt/full/galeria-comercio-800.webp 800w, assets/img/opt/full/galeria-comercio-1400.webp 1400w" sizes="(min-width: 901px) 420px, 100vw">
-          <img src="assets/img/opt/full/galeria-comercio-800.webp" width="800" height="748" alt="Extintores instalados en un comercio por Grupo CRM" loading="lazy" decoding="async">
-        </picture>
-      </figure>
-    </div>
-  </section>
-
   <section class="section faqs" id="faqs">
     <div class="wrap faqs__inner">
       <header class="faqs__head">
-        <p class="kicker">Ayuda</p>
+        <p class="kicker">FAQ</p>
         <h2>Preguntas frecuentes</h2>
         <p class="muted">Dudas frecuentes para cotizar y elegir equipo.</p>
       </header>
@@ -428,6 +379,6 @@
 
   </main>
   <div data-footer></div>
-  <script type="module" src="js/main.js?v=wa-hover" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
+  <script type="module" src="js/main.js?v=img-fast" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
 </body>
 </html>

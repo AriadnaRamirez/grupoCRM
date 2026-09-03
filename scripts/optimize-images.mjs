@@ -47,7 +47,6 @@ for (const file of list(join(root, "assets/img"), /^categoria-.*\.(png|jpe?g)$/i
 
 for (const stem of [
   "mascot-inspector-extintor",
-  "mascot-inspector-senala",
   "mascot-inspector-ok",
   "mascot-404-llama",
 ]) {

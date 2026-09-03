@@ -1,5 +1,5 @@
 import { rebaseDocument } from "./base.js";
-import { mountShell, renderHome, renderProductos, renderProducto, renderServicios, renderNosotros, renderGaleria, renderHook, bindContact, bindMotion, bindErrorReturn } from "./ui.js?v=donde-trab";
+import { mountShell, renderHome, renderProductos, renderProducto, renderServicios, renderNosotros, renderGaleria, renderHook, bindContact, bindMotion, bindErrorReturn } from "./ui.js?v=mosaic-fit";
 import { applySeo } from "./seo.js";
 
 rebaseDocument();

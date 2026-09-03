@@ -16,7 +16,7 @@ Abre **http://localhost:5500** (`serve` resuelve URLs limpias: `/nosotros` → `
 | Nosotros | `nosotros.html` |
 | Productos | `productos.html` |
 | Ficha | `producto.html?sku=CRM-0001` |
-| Servicios | `servicios.html` |
+| Servicios | `servicios.html` → redirige a `nosotros.html#servicios` |
 | Galería | `galeria.html` |
 | Contacto | `contacto.html` |
 | Aviso de privacidad | `aviso-privacidad.html` |
@@ -47,7 +47,7 @@ El menú y el sitemap usan URLs limpias (`/nosotros`, `/productos`, `/blog/...`)
 
 Para el dominio **www.crmextintores.com** publique la raíz del repo:
 
-- **Netlify** — `netlify.toml` (sin instalar `sharp`/`onnx` en el build), `_headers`, `_redirects`
+- **Netlify** — `netlify.toml` (sin instalar dependencias en el build), `_headers`, `_redirects`
 - **Cloudflare Pages** — `_headers` y `_redirects`; build vacío, publicar la raíz
 - **Vercel** — `vercel.json` con `cleanUrls`
 - **Apache / cPanel** — `.htaccess` reescribe `/nosotros` → `nosotros.html`

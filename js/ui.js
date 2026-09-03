@@ -1,4 +1,4 @@
-import { company, categories, products, services, courses, sectors, faqs, reviews, clients, waUrl, safeDecode, catName, catCount, productBySku, productImg, productAlt, productUrl, readSku, relatedProducts, lookbook, lookAlt, lookFull, venues, carePoints, readyChecks, condo } from "./data.js?v=svc-venta-instalar";
+import { company, categories, products, services, courses, sectors, faqs, reviews, clients, waUrl, safeDecode, catName, catCount, productBySku, productImg, productAlt, productUrl, readSku, relatedProducts, lookbook, lookAlt, lookFull, venues, carePoints, readyChecks, condo } from "./data.js?v=audit-fix";
 import { applySeo } from "./seo.js";
 import { rebaseDocument, rebaseSrcset, withBase } from "./base.js";
 
@@ -156,22 +156,28 @@ function clientPicture(logo, { alt = "", extra = "", lazy = false } = {}) {
   const file = clientFile(logo.src);
   const src = file ? absAsset(`/assets/img/opt/clients/${file}-160.webp`) : absAsset(logo.src);
   const srcset = clientSrcset(logo.src);
-  const loading = lazy ? ' loading="lazy"' : "";
+  const loading = imgLoadAttrs({ lazy });
   return `<picture>
-    <source type="image/webp" srcset="${srcset}" sizes="160px">
-    <img${extra} src="${src}" alt="${alt}" width="160" height="72"${loading} decoding="async">
+    <source type="image/webp" srcset="${srcset}" sizes="80px">
+    <img${extra} src="${src}" alt="${alt}" width="160" height="72"${loading}>
   </picture>`;
 }
 
-function lookPicture(item, { sizes, lazy = true, width = 480, height, alt = "", extra = "" } = {}) {
-  const loading = lazy ? ' loading="lazy"' : "";
+function imgLoadAttrs({ lazy = true, priority = false } = {}) {
+  if (priority) return ' fetchpriority="high" decoding="async"';
+  if (lazy) return ' loading="lazy" decoding="async"';
+  return ' decoding="async"';
+}
+
+function lookPicture(item, { sizes, lazy = true, priority = false, width = 480, height, alt = "", extra = "" } = {}) {
+  const loading = imgLoadAttrs({ lazy: lazy && !priority, priority });
   const stem = lookStem(item);
   const srcset = fullSrcset(stem);
   const src = lookThumbSrc(item);
   const dims = height ? ` width="${width}" height="${height}"` : ` width="${width}"`;
   return `<picture>
     <source type="image/webp" srcset="${srcset}" sizes="${sizes}">
-    <img src="${src}" alt="${escapeAttr(alt)}"${dims}${loading} decoding="async"${extra}>
+    <img src="${src}" alt="${escapeAttr(alt)}"${dims}${loading}${extra}>
   </picture>`;
 }
 
@@ -249,6 +255,34 @@ function hydrateLazy(root = document) {
   bindMediaLoad(root);
 }
 
+let lazyIo;
+function bindLazyHydrate(scope = document) {
+  const targets = [...scope.querySelectorAll(".slide:not(.is-active)[data-bg], img[data-src]")];
+  if (!targets.length) return;
+  const hydrate = (el) => {
+    if (el.matches?.("[data-bg]")) applyLazyBg(el);
+    else applyLazySrc(el.tagName === "IMG" ? el : el.querySelector?.("img[data-src]"));
+    bindMediaLoad(el.closest?.(".slide") || el.parentElement || document);
+  };
+  if (!("IntersectionObserver" in window)) {
+    targets.forEach(hydrate);
+    return;
+  }
+  if (!lazyIo) {
+    lazyIo = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          lazyIo.unobserve(entry.target);
+          hydrate(entry.target);
+        });
+      },
+      { rootMargin: "720px 0px", threshold: 0.01 }
+    );
+  }
+  targets.forEach((el) => lazyIo.observe(el));
+}
+
 function catalogExtendInner(defer = false) {
   const cards = categories
     .map((c) => {
@@ -258,8 +292,8 @@ function catalogExtendInner(defer = false) {
       const fallback = cover ? catImg(cover) : "";
       const img = cover
         ? defer
-          ? `<picture><source type="image/webp" data-srcset="${webp}" sizes="(min-width: 900px) 160px, 30vw"><img data-src="${fallback}" alt="${escapeAttr(cover.alt)}" decoding="async"></picture>`
-          : `<picture><source type="image/webp" srcset="${webp}" sizes="(min-width: 900px) 160px, 30vw"><img src="${fallback}" alt="${escapeAttr(cover.alt)}" loading="lazy" decoding="async"></picture>`
+          ? `<picture><source type="image/webp" data-srcset="${webp}" sizes="(min-width: 1024px) 72px, 40px"><img data-src="${fallback}" alt="${escapeAttr(cover.alt)}" decoding="async"></picture>`
+          : `<picture><source type="image/webp" srcset="${webp}" sizes="(min-width: 1024px) 72px, 40px"><img src="${fallback}" alt="${escapeAttr(cover.alt)}" loading="lazy" decoding="async"></picture>`
         : "";
       return `<li>
         <a class="shop-dept" data-cat="${c.id}" href="${withBase(`/productos?cat=${c.id}#${c.id}`)}">
@@ -399,7 +433,7 @@ function headerHTML(page) {
               <div class="nav-drop__menu" id="nav-catalogo">
                 <div class="wrap mega__inner">
                   ${catalogExtendInner(true)}
-                  <p class="nav-drop__all"><a class="btn btn-red" href="${withBase("/productos")}">Ver catálogo</a></p>
+                  <p class="nav-drop__all"><a class="btn btn-red" href="${withBase("/productos")}">Ver todo el catálogo</a></p>
                 </div>
               </div>
             </div>
@@ -708,7 +742,7 @@ const MEDIA_WRAP = [
   ".about-teaser__mascot",
   ".about-head__media",
   ".about-field__grid figure",
-  ".about-mosaic__grid figure",
+  ".about-mosaic__shot",
   ".about-train__photo",
   ".about-mv-band__figure",
   ".home-contact__photo",
@@ -736,8 +770,15 @@ function bindMediaLoad(scope = document) {
     img.dataset.loadBound = "1";
     const found = img.closest(MEDIA_WRAP);
     const wrap = found && found !== img ? found : null;
+    const isLcp =
+      img.getAttribute("fetchpriority") === "high" ||
+      img.closest(".shop-hero__photo, .ficha__photo, .slide.is-active .slide__photo");
     if (wrap) wrap.classList.add("media-load");
     else img.classList.add("media-load");
+    if (isLcp) {
+      wrap?.classList.add("media-load--live", "is-ready");
+      img.classList.add("is-ready");
+    }
     const ready = () => {
       img.classList.add("is-ready");
       wrap?.classList.add("is-ready");
@@ -767,6 +808,7 @@ function bindMediaLoad(scope = document) {
 
 export function bindMotion() {
   bindMediaLoad();
+  bindLazyHydrate();
   document.querySelectorAll(".slide[data-bg]").forEach((slide) => {
     const src = slide.dataset.bg;
     const photo = slide.querySelector(".slide__photo") || slide;
@@ -807,32 +849,6 @@ export function bindMotion() {
   };
   requestAnimationFrame(() => requestAnimationFrame(arm));
   window.setTimeout(arm, 120);
-  bindScrollWash();
-}
-
-function bindScrollWash() {
-  const nodes = [...document.querySelectorAll("[data-scroll-wash]")];
-  if (!nodes.length) return;
-  let ticking = false;
-  const paint = () => {
-    ticking = false;
-    const vh = window.innerHeight || 1;
-    nodes.forEach((el) => {
-      const r = el.getBoundingClientRect();
-      const visible = Math.min(r.bottom, vh) - Math.max(r.top, 0);
-      const ratio = Math.max(0, visible) / Math.max(1, Math.min(r.height, vh));
-      const eased = ratio * ratio * (3 - 2 * ratio);
-      el.style.setProperty("--wash", eased.toFixed(3));
-    });
-  };
-  const onScroll = () => {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(paint);
-  };
-  paint();
-  window.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("resize", onScroll, { passive: true });
 }
 
 function quoteUrl(p) {
@@ -842,7 +858,7 @@ function quoteUrl(p) {
   return waUrl(bits.join(" "));
 }
 
-export function productCard(p, { quote = false } = {}) {
+export function productCard(p, { quote = false, eager = false } = {}) {
   const href = productUrl(p.sku);
   const remember = `try{sessionStorage.setItem('crm-sku','${p.sku}')}catch(e){}`;
   const meta = [p.cap, p.agent].filter(Boolean).join(" · ");
@@ -859,7 +875,7 @@ export function productCard(p, { quote = false } = {}) {
         <span class="shop-item__media">
           <picture>
             <source type="image/webp" srcset="${catalogSrcset(p.sku)}" sizes="(min-width: 1024px) 220px, 45vw">
-            <img src="${catalogImg(p.sku)}" alt="${escapeAttr(productAlt(p))}" width="400" height="400" loading="lazy" decoding="async">
+            <img src="${catalogImg(p.sku)}" alt="${escapeAttr(productAlt(p))}" width="400" height="400"${imgLoadAttrs({ lazy: !eager })}>
           </picture>
           <span class="shop-item__go" aria-hidden="true">Ver detalle</span>
         </span>
@@ -910,7 +926,7 @@ export function renderCatalog(root, { limit = 0, cat = "all", fireClass = "all",
   let list = filterProducts({ cat, fireClass, query });
   if (limit) list = list.slice(0, limit);
   root.className = "shop-grid";
-  root.innerHTML = list.map(productCard).join("") || `<p class="shop-empty">No encontramos ese equipo en el catálogo. <a href="${waUrl("Hola, no encontré el equipo que busco y quiero orientación.")}" target="_blank" rel="noopener noreferrer">Escríbanos</a> y con gusto le ayudamos a elegir el adecuado.</p>`;
+  root.innerHTML = list.map((p, i) => productCard(p, { eager: i < 6 })).join("") || `<p class="shop-empty">No encontramos ese equipo en el catálogo. <a href="${waUrl("Hola, no encontré el equipo que busco y quiero orientación.")}" target="_blank" rel="noopener noreferrer">Escríbanos</a> y con gusto le ayudamos a elegir el adecuado.</p>`;
   const count = document.querySelector("[data-count]");
   if (count) {
     count.textContent = list.length
@@ -1153,7 +1169,7 @@ export function renderHomeCatalog() {
             <h3>${c.name}</h3>
             <a class="shop-more" href="${withBase(`/productos?cat=${c.id}#${c.id}`)}"><i class="fa-solid fa-table-cells" aria-hidden="true"></i> ${c.seeAll}</a>
           </header>
-          <div class="shop-grid shop-grid--4">${items.map((p) => productCard(p, { quote: true })).join("")}</div>
+          <div class="shop-grid shop-grid--4">${items.map((p, i) => productCard(p, { quote: true, eager: i < 2 })).join("")}</div>
         </section>`;
     })
     .join("");
@@ -1197,7 +1213,6 @@ function bindSlider(root) {
     if (!list.length) return;
     index = (n + list.length) % list.length;
     wake(index);
-    wake(index + 1);
     allSlides.forEach((slide) => {
       const on = slide === list[index];
       if (on) slide.removeAttribute("inert");
@@ -1211,6 +1226,7 @@ function bindSlider(root) {
       dot.setAttribute("aria-current", on ? "true" : "false");
     });
   };
+  const prefetchNext = () => wake(index + 1);
   const stop = () => {
     window.clearInterval(timer);
     window.clearTimeout(timer);
@@ -1229,6 +1245,7 @@ function bindSlider(root) {
     root.dataset.sliderPlaying = "1";
     timer = window.setInterval(() => {
       try {
+        prefetchNext();
         show(index + 1);
       } catch (err) {
         console.error(err);
@@ -1244,6 +1261,9 @@ function bindSlider(root) {
     play();
   };
   const go = (n) => {
+    const list = slides();
+    if (!list.length) return;
+    wake((n + list.length) % list.length);
     show(n);
     if (!paused) play();
   };
@@ -1312,6 +1332,12 @@ function bindSlider(root) {
   if (reduceMq.addEventListener) reduceMq.addEventListener("change", onMotion);
   else reduceMq.addListener(onMotion);
   show(0);
+  const schedulePrefetch = () => {
+    const run = () => prefetchNext();
+    if ("requestIdleCallback" in window) window.requestIdleCallback(run, { timeout: 2800 });
+    else window.setTimeout(run, 1400);
+  };
+  schedulePrefetch();
   kick();
 }
 
@@ -1340,7 +1366,7 @@ export function bindLookbook() {
     root.innerHTML = `
       <figure class="lookbook__hero">
         <button type="button" class="lookbook__open" data-lb-open aria-label="Ver ${escapeAttr(item.title)} en grande">
-          ${lookPicture(item, { sizes: "(min-width: 900px) 640px, 100vw", width: 800, height: 600, alt: lookAlt(item) })}
+          ${lookPicture(item, { sizes: "(min-width: 900px) 640px, 100vw", width: 800, height: 600, alt: lookAlt(item), lazy: false })}
         </button>
         <figcaption>
           <p class="lookbook__count">${pad(index + 1)} / ${pad(lookbook.length)}</p>
@@ -1552,6 +1578,32 @@ function bindInfiniteRail(root, {
 
   prev.addEventListener("click", () => go(-1));
   next.addEventListener("click", () => go(1));
+
+  const viewport = root.querySelector(".peek-rail__viewport");
+  let touchX = 0;
+  let touchY = 0;
+  let swiped = false;
+  viewport?.addEventListener("touchstart", (e) => {
+    if (!isManual() || !e.changedTouches?.[0]) return;
+    touchX = e.changedTouches[0].clientX;
+    touchY = e.changedTouches[0].clientY;
+    swiped = false;
+  }, { passive: true });
+  viewport?.addEventListener("touchend", (e) => {
+    if (!isManual() || !e.changedTouches?.[0]) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    const dy = e.changedTouches[0].clientY - touchY;
+    if (Math.abs(dx) < 40 || Math.abs(dx) <= Math.abs(dy)) return;
+    swiped = true;
+    go(dx < 0 ? 1 : -1);
+  }, { passive: true });
+  root.addEventListener("click", (e) => {
+    if (!swiped) return;
+    e.preventDefault();
+    e.stopPropagation();
+    swiped = false;
+  }, true);
+
   mqManual.addEventListener("change", setMode);
   if (respectReducedMotion) mqReduce.addEventListener("change", setMode);
   window.addEventListener("resize", () => {
@@ -1706,7 +1758,7 @@ function homeGalleryPicks() {
 
 function peekCard(item, i) {
   return `<button type="button" class="peek-rail__card" data-lb-open="${i}" aria-label="Ver ${escapeAttr(item.title)} en grande">
-    ${lookPicture(item, { sizes: "(min-width: 1024px) 340px, 74vw", width: 640, height: 854, alt: lookAlt(item) })}
+    ${lookPicture(item, { sizes: "(min-width: 1024px) 340px, 74vw", width: 640, height: 854, alt: lookAlt(item), lazy: i >= 2 })}
     <span class="peek-rail__cap"><strong>${item.title}</strong></span>
   </button>`;
 }
@@ -1802,7 +1854,6 @@ export function renderHome() {
   renderHomeGallerySlider();
   renderFaqs();
   renderNosotros();
-  bindContact();
 }
 
 export function renderProductos() {
@@ -2070,7 +2121,7 @@ const SERVICE_SHOTS = {
   "Recarga y mantenimiento": "galeria-inventario",
   "Señalamientos": "galeria-lavanderia",
   "Botiquines": "galeria-clinica",
-  "Cursos y capacitación": "galeria-curso-combate",
+  "Cursos y capacitación": "galeria-curso-brigada",
   "Revisión en sitio": "galeria-evento",
 };
 
@@ -2145,8 +2196,16 @@ function paintCursos() {
       <h2>${courses.title}</h2>
       <hr class="rule" aria-hidden="true">
       ${(courses.leads || []).map((p) => `<p class="cursos-home__lead">${p}</p>`).join("")}
-      ${courses.listLead ? `<p class="cursos-home__list-lead">${courses.listLead}</p>` : ""}
     `;
+  });
+  document.querySelectorAll("[data-cursos-list-lead]").forEach((root) => {
+    if (!courses.listLead) {
+      root.textContent = "";
+      root.hidden = true;
+      return;
+    }
+    root.textContent = courses.listLead;
+    root.hidden = false;
   });
   document.querySelectorAll("[data-cursos]").forEach((root) => {
     if (!courses?.items?.length) {
@@ -2398,8 +2457,6 @@ const GALLERY_ALL_ORDER = [
   "galeria-entrega",
   "galeria-camioneta",
   "galeria-curso-instructivo",
-  "galeria-curso-combate",
-  "galeria-curso-co2",
   "galeria-curso-comunidad",
 ];
 
@@ -2454,7 +2511,7 @@ export function renderGaleria() {
       ? list
           .map(
             (item, i) => `<button type="button" class="gallery-tile" data-lb="${i}" aria-label="Ver ${escapeAttr(item.title)} en grande">
-              ${lookPicture(item, { sizes: "(min-width: 1100px) 25vw, (min-width: 760px) 30vw, 50vw", width: 800, height: 1000, alt: lookAlt(item) })}
+              ${lookPicture(item, { sizes: "(min-width: 1100px) 25vw, (min-width: 760px) 30vw, 50vw", width: 800, height: 1000, alt: lookAlt(item), lazy: i >= 4 })}
               <span class="gallery-tile__cap">
                 <span class="gallery-tile__idx">${String(i + 1).padStart(2, "0")}</span>
                 <strong>${item.title}</strong>

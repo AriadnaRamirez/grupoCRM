@@ -149,7 +149,13 @@ export const zonas = [
   zona("azcapotzalco", "Azcapotzalco", "cdmx", ["miguel-hidalgo", "tlalnepantla", "naucalpan", "gustavo-a-madero"], "industrias, bodegas y colonias con alta actividad comercial"),
   zona("benito-juarez", "Benito Juárez", "cdmx", ["cuauhtemoc", "coyoacan", "alvaro-obregon", "iztacalco"], "oficinas, plazas y edificios corporativos en Del Valle y Nápoles"),
   zona("coyoacan", "Coyoacán", "cdmx", ["benito-juarez", "tlalpan", "iztapalapa", "xochimilco"], "universidades, clínicas, restaurantes y condominios"),
-  zona("cuajimalpa", "Cuajimalpa", "cdmx", ["alvaro-obregon", "huixquilucan", "miguel-hidalgo", "magdalena-contreras"], "nuestra base en Loma del Padre, corporativos y residenciales"),
+  zona(
+    "cuajimalpa",
+    "Cuajimalpa",
+    "cdmx",
+    ["alvaro-obregon", "huixquilucan", "miguel-hidalgo", "magdalena-contreras"],
+    "oficina en Loma del Padre y servicio en Contadero, Santa Fe, José María Castorena, Memetla, San Mateo Tlaltenango y corporativos de la alcaldía"
+  ),
   zona("cuauhtemoc", "Cuauhtémoc", "cdmx", ["miguel-hidalgo", "benito-juarez", "venustiano-carranza", "azcapotzalco"], "centro histórico, hoteles, oficinas y locales comerciales"),
   zona("gustavo-a-madero", "Gustavo A. Madero", "cdmx", ["ecatepec", "tlalnepantla", "venustiano-carranza", "azcapotzalco"], "industrias, escuelas y comercios del norte de la ciudad"),
   zona("iztacalco", "Iztacalco", "cdmx", ["iztapalapa", "nezahualcoyotl", "venustiano-carranza", "benito-juarez"], "talleres, bodegas y condominios con requisitos de Protección Civil"),

@@ -12,15 +12,19 @@
   
   
   
+  
+  
   <script>!function(){if(!/\.github\.io$/i.test(location.hostname))return;var s=document.createElement("script");s.src="/js/pages-base.js";document.head.appendChild(s)}();</script>
   <style id="css-boot">
   /* Sync main.css — never override hero/slide layout from main.css */
   html { background: #fff; }
   </style>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2" media="(min-width: 761px)" crossorigin>
-<link rel="stylesheet" href="css/tokens.css?v=hero-dots2">
-  <link rel="stylesheet" href="css/main.min.css?v=hero-dots2">
-  <script>document.documentElement.classList.add("is-css","is-booted");</script>
+<link rel="stylesheet" href="css/tokens.css?v=perf2-dots">
+  <link rel="preload" as="style" href="css/main.min.css?v=perf2-dots" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/main.min.css?v=perf2-dots"></noscript>
+  <script>!function(){var l=document.querySelector('link[rel="preload"][as="style"]');if(l&&!l.sheet){l.addEventListener("load",function(){this.onload=null;this.rel="stylesheet"});if(l.relList&&!l.relList.supports("preload"))l.rel="stylesheet"}}();</script>
+  <script>document.documentElement.classList.add("is-css");</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Catálogo de extintores y equipo contra incendio | Grupo CRM</title>
   <meta name="description" content="Más de 50 equipos: extintores, chalecos, señalamientos, gabinetes, botiquines y equipo de protección. Cotice con Grupo CRM en CDMX y Estado de México.">
@@ -59,7 +63,7 @@
   <section class="shop-hero shop-hero--venue shop-hero--split shop-hero--page shop-hero--catalog" aria-label="Catálogo de Grupo CRM Extintores">
     <span class="shop-hero__photo media-load" aria-hidden="true">
       <picture>
-        <source type="image/webp" srcset="assets/img/hero/hero-catalogo-800.webp 800w, assets/img/hero/hero-catalogo-1280.webp 1280w, assets/img/hero/hero-catalogo-1600.webp 1600w" sizes="(min-width: 761px) 46vw, 100vw">
+        <source type="image/webp" srcset="assets/img/hero/hero-catalogo-800.webp 800w, assets/img/hero/hero-catalogo-1280.webp 1280w" sizes="(min-width: 761px) 46vw, 100vw">
         <img src="assets/img/hero/hero-catalogo-800.webp" alt="Catálogo de extintores y equipo contra incendios Grupo CRM Extintores" width="1024" height="571" fetchpriority="high" decoding="async">
       </picture>
     </span>
@@ -123,6 +127,6 @@
   </section>
   </main>
   <div data-footer></div>
-  <script type="module" src="js/main.js?v=seo-brief" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
+  <script type="module" src="js/app.min.js?v=perf2-dots" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
 </body>
 </html>

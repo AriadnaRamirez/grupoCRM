@@ -12,15 +12,19 @@
   
   
   
+  
+  
   <script>!function(){if(!/\.github\.io$/i.test(location.hostname))return;var s=document.createElement("script");s.src="/js/pages-base.js";document.head.appendChild(s)}();</script>
   <style id="css-boot">
   /* Sync main.css — never override hero/slide layout from main.css */
   html { background: #fff; }
   </style>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2" media="(min-width: 761px)" crossorigin>
-<link rel="stylesheet" href="css/tokens.css?v=hero-dots2">
-  <link rel="stylesheet" href="css/main.min.css?v=hero-dots2">
-  <script>document.documentElement.classList.add("is-css","is-booted");</script>
+<link rel="stylesheet" href="css/tokens.css?v=perf2-dots">
+  <link rel="preload" as="style" href="css/main.min.css?v=perf2-dots" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/main.min.css?v=perf2-dots"></noscript>
+  <script>!function(){var l=document.querySelector('link[rel="preload"][as="style"]');if(l&&!l.sheet){l.addEventListener("load",function(){this.onload=null;this.rel="stylesheet"});if(l.relList&&!l.relList.supports("preload"))l.rel="stylesheet"}}();</script>
+  <script>document.documentElement.classList.add("is-css");</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Nosotros | Grupo CRM Extintores</title>
   <meta name="description" content="Empresa 100% mexicana. Lo acompañamos para cumplir con Protección Civil: venta, recarga e instalación en CDMX y Estado de México. Con gusto lo atendemos.">
@@ -79,8 +83,8 @@
         <h1>Grupo CRM Extintores</h1>
         <p class="lead">Empresa mexicana de venta, recarga e instalación de extintores en CDMX y Estado de México. <a href="http://www.mcdmx.com/site/Casa.html" target="_blank" rel="noopener noreferrer">MCD (Mexicana de Conformidad y Dictaminación)</a>, cumplimiento de la norma NOM-154-SCFI-2005.</p>
         <div class="hero-actions" role="group" aria-label="Cotizar o ver equipos">
-          <a class="btn btn-red" href="contacto.html"><i class="fa-brands fa-whatsapp wa-icon" aria-hidden="true"></i> Pedir cotización</a>
-          <a class="btn btn-ghost" href="productos.html"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i> Ver equipos</a>
+          <a class="btn btn-red" href="/contacto"><i class="fa-brands fa-whatsapp wa-icon" aria-hidden="true"></i> Pedir cotización</a>
+          <a class="btn btn-ghost" href="/productos"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i> Ver equipos</a>
         </div>
       </div>
     </div>
@@ -125,7 +129,7 @@
             <h2 id="about-mosaic-title">Soluciones para cada empresa</h2>
             <p>Atendemos condominios, restaurantes, oficinas, empresas, clínicas y escuelas.</p>
           </div>
-          <a class="cat-band__more" href="galeria.html"><i class="fa-solid fa-images" aria-hidden="true"></i> Ver instalaciones</a>
+          <a class="cat-band__more" href="/galeria"><i class="fa-solid fa-images" aria-hidden="true"></i> Ver instalaciones</a>
         </header>
         <ul class="about-mosaic__grid">
           <li>
@@ -220,7 +224,7 @@
           <h2 id="about-train-title">Si su gente no sabe usarlo, el extintor no alcanza</h2>
           <p>Brigada, combate de conatos y primeros auxilios, en su empresa o en campo. Lo armamos según el giro, no como un curso genérico.</p>
           <p class="about-train__actions">
-            <a class="btn btn-red" href="contacto.html"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Pedir un curso</a>
+            <a class="btn btn-red" href="/contacto"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Pedir un curso</a>
             <a class="btn btn-ink" href="/#cursos">Ver temas</a>
           </p>
         </div>
@@ -235,8 +239,8 @@
           <p>Cuéntenos el giro y le decimos qué le falta. La primera visita es sin costo.</p>
         </div>
         <div class="about-cta__actions">
-          <a class="btn btn-red" href="contacto.html"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Solicitar visita</a>
-          <a class="btn btn-ghost" href="productos.html"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i> Ir al catálogo</a>
+          <a class="btn btn-red" href="/contacto"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Solicitar visita</a>
+          <a class="btn btn-ghost" href="/productos"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i> Ir al catálogo</a>
         </div>
       </div>
     </div>
@@ -244,6 +248,6 @@
 
   </main>
   <div data-footer></div>
-  <script type="module" src="js/main.js?v=seo-brief" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
+  <script type="module" src="js/app.min.js?v=perf2-dots" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
 </body>
 </html>

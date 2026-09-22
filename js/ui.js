@@ -1,4 +1,4 @@
-import { company, categories, products, services, courses, sectors, faqs, reviews, clients, waUrl, safeDecode, catName, catCount, productBySku, productImg, productAlt, productUrl, readSku, relatedProducts, lookbook, lookAlt, lookFull, venues, carePoints, readyChecks, condo } from "./data.js?v=seo-redirects";
+import { company, categories, products, services, courses, sectors, faqs, reviews, clients, waUrl, safeDecode, catName, catCount, productBySku, productImg, productAlt, productUrl, readSku, relatedProducts, lookbook, lookAlt, lookFull, venues, carePoints, readyChecks, condo, seoServicePages, extintoresPath, extintoresHubPath } from "./data.js?v=seo-cuaji";
 import { applySeo } from "./seo.js";
 import { rebaseDocument, rebaseSrcset, withBase } from "./base.js";
 
@@ -498,6 +498,40 @@ function headerHTML(page) {
 
 function footerHTML() {
   const catLinks = categories.map((c) => `<li><a href="${withBase(`/productos?cat=${c.id}#${c.id}`)}">${c.name}</a></li>`).join("");
+  const serviceShort = {
+    "venta-extintores": "Venta",
+    "recarga-extintores": "Recarga",
+    "mantenimiento-extintores": "Mantenimiento",
+    "instalacion-extintores": "Instalación",
+    senalizacion: "Señalización",
+  };
+  const serviceLinks = seoServicePages
+    .map((s) => `<li><a href="${withBase(s.path)}">${serviceShort[s.slug] || s.h1}</a></li>`)
+    .join("");
+  const cdmxNames = {
+    cuajimalpa: "Cuajimalpa",
+    "benito-juarez": "Benito Juárez",
+    "alvaro-obregon": "Álvaro Obregón",
+    "miguel-hidalgo": "Miguel Hidalgo",
+    cuauhtemoc: "Cuauhtémoc",
+    coyoacan: "Coyoacán",
+  };
+  const edomexNames = {
+    huixquilucan: "Huixquilucan",
+    naucalpan: "Naucalpan",
+    tlalnepantla: "Tlalnepantla",
+    atizapan: "Atizapán",
+    toluca: "Toluca",
+  };
+  const zonaLink = (slug, label) => `<li><a href="${withBase(extintoresPath(slug))}">${label}</a></li>`;
+  const cdmxLinks = [
+    `<li><a href="${withBase(extintoresHubPath("cdmx"))}">Todas las alcaldías</a></li>`,
+    ...Object.entries(cdmxNames).map(([slug, name]) => zonaLink(slug, name)),
+  ].join("");
+  const edomexLinks = [
+    `<li><a href="${withBase(extintoresHubPath("edomex"))}">Todos los municipios</a></li>`,
+    ...Object.entries(edomexNames).map(([slug, name]) => zonaLink(slug, name)),
+  ].join("");
   return `
     <footer class="site-footer">
       <div class="wrap footer-grid">
@@ -530,7 +564,6 @@ function footerHTML() {
             <li><a href="${withBase("/galeria")}">Galería</a></li>
             <li><a href="${withBase("/extintores-cdmx")}">Cobertura CDMX</a></li>
             <li><a href="${withBase("/extintores-estado-de-mexico")}">Estado de México</a></li>
-            <li><a href="${withBase("/venta-extintores")}">Servicios</a></li>
             <li><a href="${withBase("/blog")}">Blog</a></li>
             <li><a href="${withBase("/contacto")}">Contacto</a></li>
             <li><a href="${withBase("/aviso-privacidad")}">Aviso de privacidad</a></li>
@@ -558,6 +591,22 @@ function footerHTML() {
             <li class="footer-hide-sm">${company.hours}</li>
           </ul>
         </nav>
+      </div>
+      <div class="wrap footer-seo" id="cobertura" aria-labelledby="footer-cobertura-title">
+        <p id="footer-cobertura-title" class="footer-seo__title">Extintores en CDMX y Estado de México</p>
+        <p class="footer-seo__text">Venta, recarga, mantenimiento e instalación. <a href="${withBase("/extintores-cuajimalpa")}">Oficina en Cuajimalpa</a>; el resto son áreas de servicio.</p>
+        <div class="footer-seo__row">
+          <span class="footer-seo__label">Servicios</span>
+          <ul class="footer-seo__links">${serviceLinks}</ul>
+        </div>
+        <div class="footer-seo__row">
+          <span class="footer-seo__label">CDMX</span>
+          <ul class="footer-seo__links">${cdmxLinks}</ul>
+        </div>
+        <div class="footer-seo__row">
+          <span class="footer-seo__label">Edo. Méx.</span>
+          <ul class="footer-seo__links">${edomexLinks}</ul>
+        </div>
       </div>
       <div class="wrap footer-legal">
         <p class="copy">© ${new Date().getFullYear()} Grupo CRM Extintores. Todos los derechos reservados.</p>

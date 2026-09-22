@@ -24,7 +24,7 @@ import {
 } from "../js/data.js";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const CACHE = "psi-mob";
+const CACHE = "seo-cuaji";
 const pagesBaseSnippet = `  <script>!function(){if(!/\\.github\\.io$/i.test(location.hostname))return;var s=document.createElement("script");s.src="/js/pages-base.js";document.head.appendChild(s)}();</script>\n`;
 const cssBoot = `  <style id="css-boot">
   /* Minimal first paint — never override hero/slide rules from main.css */
@@ -141,22 +141,34 @@ function locationCopy(zona) {
   const type = zonaTypeLabel(zona);
   const n = hashSlug(zona.slug);
   const isBase = zona.slug === "cuajimalpa";
-  const intros = [
-    `Grupo CRM Extintores ofrece venta, recarga, mantenimiento e instalación de extintores en ${zona.name}, ${region}. Atendemos ${zona.focus}.`,
-    `Si necesita equipos contra incendios en ${zona.name}, Grupo CRM Extintores coordina venta, recarga e instalación para empresas e inmuebles de la zona. Cobertura: ${zona.focus}.`,
-    `En ${zona.name} acompañamos a negocios e inmuebles con extintores certificados, recarga bajo NOM-154-SCFI-2005 e instalación en sitio. Enfoque local: ${zona.focus}.`,
-  ];
+  const intros = isBase
+    ? [
+        `Grupo CRM Extintores tiene su oficina en Cuajimalpa, Ciudad de México. Desde Chamixto 131, Col. Loma del Padre, ofrecemos venta, recarga, mantenimiento e instalación de extintores para empresas e inmuebles de la alcaldía y el resto de CDMX y Estado de México.`,
+      ]
+    : [
+        `Grupo CRM Extintores ofrece venta, recarga, mantenimiento e instalación de extintores en ${zona.name}, ${region}. Atendemos ${zona.focus}.`,
+        `Si necesita equipos contra incendios en ${zona.name}, Grupo CRM Extintores coordina venta, recarga e instalación para empresas e inmuebles de la zona. Cobertura: ${zona.focus}.`,
+        `En ${zona.name} acompañamos a negocios e inmuebles con extintores certificados, recarga bajo NOM-154-SCFI-2005 e instalación en sitio. Enfoque local: ${zona.focus}.`,
+      ];
   const office = isBase
-    ? `Nuestra ubicación física está en Chamixto 131, Col. Loma del Padre, ${zona.name}, C.P. ${company.postalCode}. Desde ahí atendemos el resto de CDMX y Estado de México.`
+    ? `Nuestra sede está en Chamixto 131, Col. Loma del Padre, Cuajimalpa, C.P. ${company.postalCode}. Horario: ${company.hours}. Teléfono y WhatsApp: ${company.phone}.`
     : `${zona.name} es una zona de servicio: no tenemos sucursal física en esta ${type.toLowerCase()}. El servicio se coordina desde nuestra oficina en Cuajimalpa y se realiza en su inmueble.`;
-  const venta = [
-    `Vendemos extintores certificados adecuados al riesgo de su inmueble en ${zona.name}. Le orientamos sobre capacidad y tipo de agente antes de cotizar.`,
-    `Para venta de extintores en ${zona.name} partimos del giro del negocio y de lo que suele pedir Protección Civil en ${region}.`,
-  ];
-  const recarga = [
-    `Recargamos extintores en ${zona.name} con proceso alineado a la NOM-154-SCFI-2005, para que el equipo quede operativo y con evidencia útil en inspección.`,
-    `Si en ${zona.name} tiene extintores vencidos o descargados, evaluamos recarga o sustitución y le explicamos opciones con claridad.`,
-  ];
+  const venta = isBase
+    ? [
+        `Vendemos extintores certificados en Cuajimalpa con asesoría según el riesgo del inmueble y lo que suele pedir Protección Civil. Puede cotizar PQS, CO₂, tipo K y el resto del catálogo, con opción de entrega o instalación en sitio.`,
+      ]
+    : [
+        `Vendemos extintores certificados adecuados al riesgo de su inmueble en ${zona.name}. Le orientamos sobre capacidad y tipo de agente antes de cotizar.`,
+        `Para venta de extintores en ${zona.name} partimos del giro del negocio y de lo que suele pedir Protección Civil en ${region}.`,
+      ];
+  const recarga = isBase
+    ? [
+        `Recargamos extintores en Cuajimalpa con proceso alineado a la NOM-154-SCFI-2005. Si sus equipos están vencidos, descargados o con sello roto, evaluamos recarga o sustitución y le dejamos evidencia útil para inspección.`,
+      ]
+    : [
+        `Recargamos extintores en ${zona.name} con proceso alineado a la NOM-154-SCFI-2005, para que el equipo quede operativo y con evidencia útil en inspección.`,
+        `Si en ${zona.name} tiene extintores vencidos o descargados, evaluamos recarga o sustitución y le explicamos opciones con claridad.`,
+      ];
   const mant = [
     `El mantenimiento en ${zona.name} se integra a la revisión y recarga: presión, sello, etiqueta y estado general del equipo.`,
     `Programamos mantenimiento de extintores para inmuebles en ${zona.name} cuando la revisión detecta equipos que requieren atención.`,
@@ -165,13 +177,18 @@ function locationCopy(zona) {
     `Instalamos extintores en puntos visibles y accesibles de su local u oficina en ${zona.name}, con señalamientos cuando formen parte de la cotización.`,
     `La instalación en ${zona.name} puede incluir soporte y señal de equipo para dejar el punto listo ante una visita de Protección Civil.`,
   ];
-  const clients =
-    "Empresas, oficinas, restaurantes, comercios, condominios, escuelas y clínicas. También atendemos otros giros cuando el inmueble requiere equipo contra incendios.";
-  const areasNote = `En ${zona.name} priorizamos inmuebles vinculados a: ${zona.focus}. Si su colonia no aparece en esa descripción, escríbanos: la cobertura es por ${type.toLowerCase()} de servicio, no por listado exhaustivo de colonias.`;
+  const clients = isBase
+    ? "En Cuajimalpa atendemos corporativos de Santa Fe y Contadero, condominios, oficinas, restaurantes, comercios, escuelas y clínicas. También visitamos el resto de CDMX y Estado de México desde esta base."
+    : "Empresas, oficinas, restaurantes, comercios, condominios, escuelas y clínicas. También atendemos otros giros cuando el inmueble requiere equipo contra incendios.";
+  const areasNote = isBase
+    ? "En Cuajimalpa damos servicio de forma habitual en Loma del Padre (sede), Contadero, Santa Fe, José María Castorena, Memetla, San Mateo Tlaltenango, El Yaqui y demás colonias de la alcaldía. Si su colonia no aparece en la lista, escríbanos: la cobertura es toda Cuajimalpa."
+    : `En ${zona.name} priorizamos inmuebles vinculados a: ${zona.focus}. Si su colonia no aparece en esa descripción, escríbanos: la cobertura es por ${type.toLowerCase()} de servicio, no por listado exhaustivo de colonias.`;
   const faqs = [
     {
       q: `¿Venden extintores en ${zona.name}?`,
-      a: `Sí. Ofrecemos venta de extintores certificados para inmuebles en ${zona.name}, ${region}.`,
+      a: isBase
+        ? "Sí. Vendemos extintores certificados desde nuestra oficina en Cuajimalpa (Chamixto 131, Col. Loma del Padre) y los entregamos o instalamos en su inmueble."
+        : `Sí. Ofrecemos venta de extintores certificados para inmuebles en ${zona.name}, ${region}.`,
     },
     {
       q: `¿Realizan recarga de extintores en ${zona.name}?`,
@@ -184,7 +201,7 @@ function locationCopy(zona) {
     {
       q: `¿Tienen sucursal en ${zona.name}?`,
       a: isBase
-        ? `Sí tenemos oficina en ${zona.name} (Chamixto 131, Col. Loma del Padre). El resto de zonas se atienden como área de servicio.`
+        ? `Sí. Nuestra oficina está en Chamixto 131, Col. Loma del Padre, Cuajimalpa, C.P. ${company.postalCode}. Horario ${company.hours}.`
         : `No. ${zona.name} es área de servicio. La oficina física está en Cuajimalpa y el trabajo se realiza en su ubicación.`,
     },
     {
@@ -192,6 +209,12 @@ function locationCopy(zona) {
       a: "Sí. Esos giros forman parte de nuestra atención habitual, junto con oficinas, comercios, escuelas y clínicas.",
     },
   ];
+  if (isBase) {
+    faqs.push({
+      q: "¿Atienden Santa Fe y Contadero?",
+      a: "Sí. Santa Fe, Contadero y el resto de Cuajimalpa forman parte de nuestra cobertura habitual desde la sede en Loma del Padre.",
+    });
+  }
   return {
     intro: intros[n % intros.length],
     office,
@@ -204,10 +227,12 @@ function locationCopy(zona) {
     faqs,
     region,
     type,
+    isBase,
   };
 }
 
 function locationJsonLd(zona, canonical) {
+  const copy = locationCopy(zona);
   const crumbs = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -225,7 +250,9 @@ function locationJsonLd(zona, canonical) {
   const service = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: `Extintores en ${zona.name}`,
+    name: copy.isBase
+      ? `Venta y recarga de extintores en Cuajimalpa`
+      : `Extintores en ${zona.name}`,
     serviceType: "Venta, recarga, mantenimiento e instalación de extintores",
     provider: { "@id": `${SITE.origin}/#business` },
     areaServed: {
@@ -237,15 +264,45 @@ function locationJsonLd(zona, canonical) {
   const faq = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: locationCopy(zona).faqs.map((f) => ({
+    mainEntity: copy.faqs.map((f) => ({
       "@type": "Question",
       name: f.q,
       acceptedAnswer: { "@type": "Answer", text: f.a },
     })),
   };
-  return `  <script type="application/ld+json">${JSON.stringify(crumbs)}</script>
-  <script type="application/ld+json">${JSON.stringify(service)}</script>
-  <script type="application/ld+json">${JSON.stringify(faq)}</script>`;
+  const blocks = [
+    `  <script type="application/ld+json">${JSON.stringify(crumbs)}</script>`,
+    `  <script type="application/ld+json">${JSON.stringify(service)}</script>`,
+    `  <script type="application/ld+json">${JSON.stringify(faq)}</script>`,
+  ];
+  if (copy.isBase) {
+    const localBusiness = {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": `${SITE.origin}/#business`,
+      name: company.name,
+      image: `${SITE.origin}/assets/img/logo-crm.png`,
+      url: SITE.origin,
+      telephone: `+52${company.phoneTel}`,
+      email: company.email,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: company.streetAddress,
+        addressLocality: company.addressLocality,
+        addressRegion: company.addressRegion,
+        postalCode: company.postalCode,
+        addressCountry: company.addressCountry,
+      },
+      openingHours: "Mo-Fr 09:00-18:00",
+      areaServed: [
+        { "@type": "AdministrativeArea", name: "Ciudad de México" },
+        { "@type": "AdministrativeArea", name: "Estado de México" },
+      ],
+      sameAs: [company.facebookUrl, company.instagramUrl].filter(Boolean),
+    };
+    blocks.push(`  <script type="application/ld+json">${JSON.stringify(localBusiness)}</script>`);
+  }
+  return blocks.join("\n");
 }
 
 function locationHtml(zona) {
@@ -253,12 +310,21 @@ function locationHtml(zona) {
   const region = copy.region;
   const hub = extintoresHubPath(zona.region);
   const hubLabel = zona.region === "edomex" ? "Estado de México" : "Ciudad de México";
-  const title =
-    zona.region === "edomex"
-      ? `Extintores en ${zona.name}, Estado de México | Grupo CRM Extintores`
-      : `Extintores en ${zona.name}, CDMX | Venta y Recarga`;
-  const description = `Venta, recarga, mantenimiento e instalación de extintores en ${zona.name}, ${region}. Primera visita sin costo. Cotice con Grupo CRM Extintores.`;
+  const title = copy.isBase
+    ? "Venta y recarga de extintores en Cuajimalpa | Grupo CRM"
+    : zona.region === "edomex"
+      ? `Venta y recarga de extintores en ${zona.name}, Edo. Méx. | Grupo CRM`
+      : `Venta y recarga de extintores en ${zona.name}, CDMX | Grupo CRM`;
+  const description = copy.isBase
+    ? `Venta y recarga de extintores en Cuajimalpa desde nuestra oficina en Chamixto 131, Loma del Padre. Mantenimiento e instalación. Primera visita sin costo. WhatsApp ${company.phone}.`
+    : `Venta, recarga, mantenimiento e instalación de extintores en ${zona.name}, ${region}. Primera visita sin costo. Cotice con Grupo CRM Extintores.`;
   const canonical = `${SITE.origin}${extintoresPath(zona)}`;
+  const h1 = copy.isBase
+    ? "Venta y recarga de extintores en Cuajimalpa"
+    : `Venta y recarga de extintores en ${zona.name}`;
+  const kicker = copy.isBase
+    ? "Oficina · Alcaldía Cuajimalpa · Ciudad de México"
+    : `${copy.type} · área de servicio · ${region}`;
   const nearbyTitle = zona.region === "edomex" ? "Municipios y zonas cercanas" : "Alcaldías y zonas cercanas";
   const nearby = (zona.nearby || [])
     .map((slug) => {
@@ -277,19 +343,57 @@ function locationHtml(zona) {
     )
     .join("\n        ");
 
+  const officeBlock = copy.isBase
+    ? `
+        <h2>Oficina en Cuajimalpa</h2>
+        <p>Grupo CRM Extintores opera desde <strong>Chamixto 131, Col. Loma del Padre, Cuajimalpa</strong>. Aquí cotizamos, coordinamos visitas y atendemos a empresas de la alcaldía y del resto de la zona metropolitana.</p>
+        <ul class="zona-page__points">
+          <li>Dirección: ${escapeHtml(company.address)}</li>
+          <li>Horario: ${escapeHtml(company.hours)}</li>
+          <li>Teléfono / WhatsApp: <a href="tel:${company.phoneTel}">${escapeHtml(company.phone)}</a></li>
+          <li><a href="${escapeHtml(company.mapsUrl)}" target="_blank" rel="noopener noreferrer">Ver ubicación en Google Maps</a></li>
+        </ul>`
+    : "";
+
+  const coloniasBlock = copy.isBase
+    ? `
+        <h2>Colonias de Cuajimalpa donde ofrecemos servicio</h2>
+        <p>${escapeHtml(copy.areasNote)}</p>
+        <ul class="zona-nearby zona-nearby--wrap">
+            <li>Loma del Padre (sede)</li>
+            <li>Contadero</li>
+            <li>Santa Fe</li>
+            <li>José María Castorena</li>
+            <li>Memetla</li>
+            <li>San Mateo Tlaltenango</li>
+            <li>El Yaqui</li>
+            <li>Cruz Blanca</li>
+            <li>Zarca</li>
+            <li>Resto de la alcaldía Cuajimalpa</li>
+        </ul>`
+    : `
+        <h2>Zonas de ${escapeHtml(zona.name)} donde ofrecemos servicio</h2>
+        <p>${escapeHtml(copy.areasNote)}</p>`;
+
   const main = `  <section class="section zona-page">
     <div class="wrap zona-page__layout">
       <header class="zona-page__head">
         <nav class="article-crumb" aria-label="Miga de pan">
           <a href="/">Inicio</a> · <a href="${hub}">${escapeHtml(hubLabel)}</a> · ${escapeHtml(zona.name)}
         </nav>
-        <p class="kicker">${escapeHtml(copy.type)} · área de servicio · ${escapeHtml(region)}</p>
-        <h1>Extintores en ${escapeHtml(zona.name)}</h1>
+        <p class="kicker">${escapeHtml(kicker)}</p>
+        <h1>${escapeHtml(h1)}</h1>
         <hr class="rule rule-left" aria-hidden="true">
         <p class="lead">${escapeHtml(copy.intro)}</p>
         <p class="muted">${escapeHtml(copy.office)}</p>
+        <p class="zona-page__cta zona-page__cta--head">
+          <a class="btn btn-wa" href="${waHref(`Hola, quiero cotizar extintores en ${zona.name}, ${region}.`)}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp</a>
+          <a class="btn btn-red" href="tel:${company.phoneTel}" aria-label="Llamar al ${company.phone}"><i class="fa-solid fa-phone" aria-hidden="true"></i> Llamar ${escapeHtml(company.phone)}</a>
+        </p>
       </header>
       <div class="zona-page__body">
+        ${officeBlock}
+
         <h2>Venta de extintores en ${escapeHtml(zona.name)}</h2>
         <p>${escapeHtml(copy.venta)}</p>
         <p>Ver también: <a href="/venta-extintores">venta de extintores</a> y el <a href="/productos">catálogo</a>.</p>
@@ -309,8 +413,7 @@ function locationHtml(zona) {
         <h2>¿A quién atendemos?</h2>
         <p>${escapeHtml(copy.clients)}</p>
 
-        <h2>Zonas de ${escapeHtml(zona.name)} donde ofrecemos servicio</h2>
-        <p>${escapeHtml(copy.areasNote)}</p>
+        ${coloniasBlock}
 
         <h2>Preguntas frecuentes</h2>
         <div class="svc-list" data-faqs>
@@ -380,9 +483,9 @@ function hubCdmx() {
       ${ctaBlock("CDMX", "Hola, quiero cotizar extintores en Ciudad de México.")}
 
       <h2>Alcaldías donde ofrecemos servicio</h2>
-      <p>Cobertura confirmada en el sitio para las ${zonasCdmx.length} alcaldías de la Ciudad de México. Cada página describe el área de servicio (no una sucursal).</p>
+      <p>Cobertura confirmada en el sitio para las ${zonasCdmx.length} alcaldías de la Ciudad de México. Nuestra <a href="/extintores-cuajimalpa">oficina está en Cuajimalpa</a>; el resto son áreas de servicio.</p>
       <ul class="zona-grid">
-          ${gridItems(zonasCdmx)}
+          ${gridItems([zonasCdmx.find((z) => z.slug === "cuajimalpa"), ...zonasCdmx.filter((z) => z.slug !== "cuajimalpa")].filter(Boolean))}
       </ul>
 
       <p class="zona-page__more muted">También atendemos el <a href="/extintores-estado-de-mexico">Estado de México</a>. Catálogo: <a href="/productos">productos</a>. Guía: <a href="/blog/extintores-cdmx">extintores en CDMX</a>.</p>
@@ -461,7 +564,12 @@ function serviceHtml(svc) {
     .filter(Boolean)
     .map((s) => `<li><a href="${s.path}">${escapeHtml(s.h1)}</a></li>`)
     .join("\n            ");
-  const featured = [...zonasCdmx.slice(0, 8), ...zonasEdomex.slice(0, 6)];
+  const featuredBase = zonasCdmx.find((z) => z.slug === "cuajimalpa");
+  const featured = [
+    featuredBase,
+    ...zonasCdmx.filter((z) => z.slug !== "cuajimalpa").slice(0, 7),
+    ...zonasEdomex.slice(0, 6),
+  ].filter(Boolean);
   const crumbs = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -505,7 +613,7 @@ function serviceHtml(svc) {
         <h2>Tipos de clientes</h2>
         <p>Empresas, oficinas, restaurantes, comercios, condominios, escuelas y clínicas en CDMX y Estado de México.</p>
         <h2>¿Dónde ofrecemos este servicio?</h2>
-        <p>En las zonas publicadas de <a href="/extintores-cdmx">Ciudad de México</a> y <a href="/extintores-estado-de-mexico">Estado de México</a>. Ejemplos:</p>
+        <p>Oficina en <a href="/extintores-cuajimalpa">Cuajimalpa</a> (Chamixto 131, Loma del Padre). También atendemos las zonas publicadas de <a href="/extintores-cdmx">Ciudad de México</a> y <a href="/extintores-estado-de-mexico">Estado de México</a>.</p>
         <ul class="zona-nearby">
             ${featured.map((z) => `<li><a href="${extintoresPath(z)}">${escapeHtml(svc.h1)} en ${escapeHtml(z.name)}</a></li>`).join("\n            ")}
         </ul>

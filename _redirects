@@ -1,3 +1,11 @@
-# Cloudflare Pages + Netlify: no publicar dumps de desarrollo.
+# Cloudflare Pages + Netlify
+/index.html  /  301
+/index.php   /  301
+/home        /  301
+/home.html   /  301
+/servicios.html /nosotros#servicios 301
+/blog/nom-002-stps-2010 /blog 301
+/blog/botiquin-primeros-auxilios /blog 301
+/servicios /nosotros#servicios 301
 /.tmp-verify/* /404.html 404
 /node_modules/* /404.html 404

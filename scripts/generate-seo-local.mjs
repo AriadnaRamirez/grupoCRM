@@ -27,9 +27,9 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const CACHE = "psi-mob";
 const pagesBaseSnippet = `  <script>!function(){if(!/\\.github\\.io$/i.test(location.hostname))return;var s=document.createElement("script");s.src="/js/pages-base.js";document.head.appendChild(s)}();</script>\n`;
 const cssBoot = `  <style id="css-boot">
+  /* Minimal first paint — never override hero/slide rules from main.css */
   html { background: #fff; }
   body { margin: 0; color: #202020; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
-  .wrap { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
   .site-chrome { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: #fff; }
   </style>
 `;

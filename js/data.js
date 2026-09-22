@@ -30,6 +30,11 @@ export const company = {
   coverage: "Ciudad de México y Estado de México",
   location: "Atención en Ciudad de México y Estado de México",
   address: "Chamixto 131, Col. Loma del Padre, Alcaldía Cuajimalpa, Ciudad de México",
+  streetAddress: "Chamixto 131, Col. Loma del Padre",
+  addressLocality: "Cuajimalpa de Morelos",
+  addressRegion: "CDMX",
+  postalCode: "05020",
+  addressCountry: "MX",
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=Chamixto+131+Col.+Loma+del+Padre+Cuajimalpa+Ciudad+de+M%C3%A9xico",
   website: "www.crmextintores.com.mx",

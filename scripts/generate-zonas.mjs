@@ -1,4 +1,4 @@
-import { mkdirSync, writeFileSync, readFileSync, readdirSync, unlinkSync } from "node:fs";
+import { mkdirSync, writeFileSync, readdirSync, unlinkSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
@@ -14,11 +14,7 @@ import {
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const outDir = join(root, "zonas");
-const pagesBase = readFileSync(join(root, "js", "pages-base.js"), "utf8").trim();
-const pagesBaseSnippet = `  <script>\n  /* pages-base */\n${pagesBase
-  .split("\n")
-  .map((line) => `  ${line}`)
-  .join("\n")}\n  </script>\n`;
+const pagesBaseSnippet = `  <script src="/js/pages-base.js"></script>\n`;
 const cssBoot = `  <style id="css-boot">
   /* css-boot: hide until local CSS + header are ready */
   html:not(.is-booted) { visibility: hidden; background: #fff; }
@@ -26,7 +22,7 @@ const cssBoot = `  <style id="css-boot">
   <noscript><style>html { visibility: visible !important; }</style></noscript>
   <script>setTimeout(function () { document.documentElement.classList.add("is-booted"); }, 4000);</script>
 `;
-const CACHE = "topbar-contrast";
+const CACHE = "og-ratio";
 
 function escapeHtml(text) {
   return String(text)
@@ -78,7 +74,7 @@ function gridItems(list) {
 function pageShell({ title, description, canonical, bodyAttrs, main }) {
   const origin = SITE.origin;
   return `<!DOCTYPE html>
-<html lang="es-MX">
+<html lang="es-MX" prefix="og: https://ogp.me/ns#">
 <head>
   <meta charset="UTF-8">
 ${pagesBaseSnippet}${cssBoot}
@@ -100,9 +96,14 @@ ${pagesBaseSnippet}${cssBoot}
   <meta property="og:description" content="${escapeHtml(description)}">
   <meta property="og:url" content="${canonical}">
   <meta property="og:image" content="${origin}/assets/img/logo-crm.png">
+  <meta property="og:image:alt" content="Logotipo de Grupo CRM Extintores">
+  <meta property="og:image:width" content="720">
+  <meta property="og:image:height" content="154">
+  <meta property="og:image:type" content="image/png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${escapeHtml(title)}">
   <meta name="twitter:description" content="${escapeHtml(description)}">
+  <meta name="twitter:image" content="${origin}/assets/img/logo-crm.png">
   <link rel="icon" type="image/png" href="/assets/img/favicon.png" sizes="192x192">
   <link rel="apple-touch-icon" href="/assets/img/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">

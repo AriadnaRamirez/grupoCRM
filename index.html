@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es-MX">
+<html lang="es-MX" prefix="og: https://ogp.me/ns#">
 <head>
   <meta charset="UTF-8">
   
@@ -9,109 +9,8 @@
   
   
   
-  <script>
-  /* pages-base */
-  /* Sync into HTML with: node scripts/inject-pages-base.mjs */
-  (function () {
-    if (typeof location === "undefined" || !/\.github\.io$/i.test(location.hostname)) return;
-    var first = location.pathname.split("/").filter(Boolean)[0] || "grupoCRM";
-    var base = "/" + first;
-    if (/\.html$/i.test(location.pathname) && !/\/404\.html$/i.test(location.pathname)) {
-      var clean = location.pathname.replace(/\/index\.html$/i, "/").replace(/\.html$/i, "");
-      if (clean !== location.pathname) {
-        location.replace(clean + location.search + location.hash);
-        return;
-      }
-    }
-    function fix(value) {
-      if (!value || /^(https?:|data:|mailto:|tel:|javascript:|#)/i.test(value)) return value;
-      var hashIdx = value.indexOf("#");
-      var hash = hashIdx === -1 ? "" : value.slice(hashIdx);
-      var before = hashIdx === -1 ? value : value.slice(0, hashIdx);
-      var qIdx = before.indexOf("?");
-      var search = qIdx === -1 ? "" : before.slice(qIdx);
-      var pathname = qIdx === -1 ? before : before.slice(0, qIdx);
-      if (pathname === "/") pathname = base + "/";
-      else if (pathname.charAt(0) === "/") {
-        if (!(pathname === base || pathname.indexOf(base + "/") === 0)) pathname = base + pathname;
-        if (!/\/404\.html$/i.test(pathname)) {
-          pathname = pathname.replace(/\/index\.html$/i, "/").replace(/\.html$/i, "");
-        }
-      } else {
-        var rel = pathname.replace(/^\.\//, "");
-          if (/^(aviso-privacidad|contacto|galeria|mapa-sitio|nosotros|producto|productos|servicios|index)\.html$/i.test(rel)) {
-            var name = rel.replace(/\.html$/i, "");
-            pathname = name === "index" ? base + "/" : base + "/" + name;
-          } else if (/^blog\/[\w-]+\.html$/i.test(rel)) {
-            pathname = base + "/" + rel.replace(/\.html$/i, "");
-          } else if (/^zonas\/index\.html$/i.test(rel)) {
-            pathname = base + "/zonas";
-          } else if (/^zonas\/[\w-]+\.html$/i.test(rel)) {
-            pathname = base + "/" + rel.replace(/\.html$/i, "");
-          } else {
-            return value;
-          }
-      }
-      return pathname + search + hash;
-    }
-    function apply(el) {
-      if (!el || !el.getAttribute) return;
-      ["href", "src", "data-bg", "data-src", "action"].forEach(function (attr) {
-        var current = el.getAttribute(attr);
-        if (!current) return;
-        var next = fix(current);
-        if (next !== current) el.setAttribute(attr, next);
-      });
-      ["srcset", "data-srcset"].forEach(function (attr) {
-        var current = el.getAttribute(attr);
-        if (!current) return;
-        var next = current.split(",").map(function (part) {
-          var trimmed = part.trim();
-          if (!trimmed) return trimmed;
-          var bits = trimmed.split(/\s+/);
-          var url = bits.shift();
-          var updated = fix(url);
-          return bits.length ? updated + " " + bits.join(" ") : updated;
-        }).join(", ");
-        if (next !== current) el.setAttribute(attr, next);
-      });
-      var style = el.getAttribute("style");
-      if (style && style.indexOf("url(") !== -1) {
-        el.setAttribute(
-          "style",
-          style.replace(/url\((['"]?)([^'")]+)\1\)/g, function (_, quote, url) {
-            return "url(" + quote + fix(url) + quote + ")";
-          })
-        );
-      }
-    }
-    if (!document.querySelector("base")) {
-      var tag = document.createElement("base");
-      tag.href = base + "/";
-      var head = document.head || document.documentElement;
-      head.insertBefore(tag, head.firstChild);
-    }
-    function applyTree(root) {
-      if (!root || root.nodeType !== 1) return;
-      apply(root);
-      if (root.querySelectorAll) {
-        root.querySelectorAll("[href], [src], [srcset], [data-bg], [data-src], [data-srcset], [action], [style]").forEach(apply);
-      }
-    }
-    new MutationObserver(function (records) {
-      records.forEach(function (record) {
-        record.addedNodes.forEach(applyTree);
-      });
-    }).observe(document.documentElement, { childList: true, subtree: true });
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", function () {
-        applyTree(document.documentElement);
-      });
-    } else {
-      applyTree(document.documentElement);
-    }
-  })();
-  </script>
+  
+  <script src="/js/pages-base.js"></script>
   <style id="css-boot">
   /* css-boot: hide until local CSS + header are ready */
   html:not(.is-booted) { visibility: hidden; background: #fff; }
@@ -119,7 +18,7 @@
   <noscript><style>html { visibility: visible !important; }</style></noscript>
   <script>setTimeout(function () { document.documentElement.classList.add("is-booted"); }, 4000);</script>
 <link rel="stylesheet" href="css/tokens.css?v=prod-20260903">
-  <link rel="stylesheet" href="css/main.css?v=topbar-contrast">
+  <link rel="stylesheet" href="css/main.css?v=og-ratio">
   <script>document.documentElement.classList.add("is-css");</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Extintores y recarga en CDMX | Grupo CRM Extintores</title>
@@ -139,11 +38,14 @@
   <meta property="og:url" content="https://www.crmextintores.com.mx/">
   <meta property="og:image" content="https://www.crmextintores.com.mx/assets/img/logo-crm.png">
   <meta property="og:image:alt" content="Logotipo de Grupo CRM Extintores">
+  <meta property="og:image:width" content="720">
+  <meta property="og:image:height" content="154">
+  <meta property="og:image:type" content="image/png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Extintores y recarga en CDMX | Grupo CRM Extintores">
   <meta name="twitter:description" content="Extintores, recarga y primera visita sin costo en CDMX y Estado de México. Cumpla con Protección Civil y evite multas. Cotice por WhatsApp 56 6748 1489.">
   <meta name="twitter:image" content="https://www.crmextintores.com.mx/assets/img/logo-crm.png">
-  <script type="application/ld+json" id="seo-business">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Grupo CRM Extintores","description":"Venta, recarga e instalación de extintores en CDMX y Estado de México. La primera visita de revisión es sin costo.","url":"https://www.crmextintores.com.mx","image":"https://www.crmextintores.com.mx/assets/img/logo-crm.png","logo":"https://www.crmextintores.com.mx/assets/img/logo-crm.png","email":"crm.extintores@gmail.com","telephone":["+525667481489","+525659474605"],"address":{"@type":"PostalAddress","streetAddress":"Chamixto 131, Col. Loma del Padre","addressLocality":"Cuajimalpa","addressRegion":"Ciudad de México","addressCountry":"MX"},"areaServed":["Ciudad de México","Estado de México"],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"18:00"},"sameAs":["https://www.facebook.com/people/GRUPO-CRM-Extintores/100075736857787/","https://www.instagram.com/grupo_crm_extintores/"]}</script>
+  <script type="application/ld+json" id="seo-business">{"@context":"https://schema.org","@type":"LocalBusiness","@id":"https://www.crmextintores.com.mx/#business","name":"Grupo CRM Extintores","alternateName":["CRM Extintores","Grupo CRM"],"legalName":"Grupo CRM Extintores","description":"Venta, recarga e instalación de extintores en CDMX y Estado de México. La primera visita de revisión es sin costo.","url":"https://www.crmextintores.com.mx","image":["https://www.crmextintores.com.mx/assets/img/logo-crm.png"],"logo":{"@type":"ImageObject","url":"https://www.crmextintores.com.mx/assets/img/logo-crm.png"},"email":"crm.extintores@gmail.com","telephone":["+525667481489","+525659474605"],"priceRange":"$$","currenciesAccepted":"MXN","paymentAccepted":"Cash, Credit Card","address":{"@type":"PostalAddress","streetAddress":"Chamixto 131, Col. Loma del Padre","addressLocality":"Cuajimalpa de Morelos","addressRegion":"CDMX","postalCode":"05020","addressCountry":"MX"},"hasMap":"https://www.google.com/maps/search/?api=1&query=Chamixto+131+Col.+Loma+del+Padre+Cuajimalpa+Ciudad+de+M%C3%A9xico","areaServed":[{"@type":"AdministrativeArea","name":"Ciudad de México"},{"@type":"AdministrativeArea","name":"Estado de México"}],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"18:00"},"sameAs":["https://www.facebook.com/people/GRUPO-CRM-Extintores/100075736857787/","https://www.facebook.com/people/GRUPO-CRM-Extintores/100075736857787/?sk=reviews","https://www.instagram.com/grupo_crm_extintores/","https://www.google.com/maps/search/?api=1&query=Chamixto+131+Col.+Loma+del+Padre+Cuajimalpa+Ciudad+de+M%C3%A9xico"],"knowsAbout":["Extintores","Recarga de extintores","Instalación de extintores","NOM-154-SCFI-2005","Protección Civil","Equipo contra incendios","Mexicana de Conformidad y Dictaminación"]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -274,6 +176,16 @@
     </div>
   </section>
 
+  <section class="section section--tight" id="cobertura-home" aria-labelledby="cobertura-home-title">
+    <div class="wrap">
+      <p class="kicker">Cobertura</p>
+      <h2 id="cobertura-home-title">Extintores en CDMX y Estado de México</h2>
+      <hr class="rule rule-left" aria-hidden="true">
+      <p>Grupo CRM Extintores atiende las 16 alcaldías de la Ciudad de México y municipios del Estado de México como Naucalpan, Tlalnepantla, Ecatepec, Nezahualcóyotl, Huixquilucan, Toluca y Metepec. Desde la oficina en Cuajimalpa ofrecemos venta, recarga e instalación con la primera visita de revisión sin costo.</p>
+      <p>Si busca un proveedor local para cumplir con Protección Civil, consulte la <a href="zonas/">lista completa de zonas</a> o <a href="contacto.html">pida cotización</a> indicando su alcaldía o municipio.</p>
+    </div>
+  </section>
+
   <section class="section shop-home" id="catalogo">
     <div class="wrap">
       <header class="cat-band__head">
@@ -393,7 +305,7 @@
       <div class="faqs__list" data-faqs aria-busy="true">
         <details>
           <summary>¿Qué equipo puedo cotizar?</summary>
-          <p>Extintores, chalecos, señalamientos, gabinetes, botiquines y equipo de protección. Si no encuentra algo, escríbanos y con gusto lo buscamos por usted.</p>
+          <p>Extintores, chalecos, señalamientos, gabinetes, botiquines y equipo de protección. Si no encuentra algo, escríbanos y con gusto lo buscamos por usted. También puede revisar el catálogo completo en la sección de productos.</p>
         </details>
         <details>
           <summary>¿En qué zonas atienden?</summary>
@@ -409,7 +321,7 @@
         </details>
         <details>
           <summary>¿Me ayudan a cumplir con Protección Civil?</summary>
-          <p>Sí. Revisamos extintores, señalamientos y puntos de incendio, y le decimos con claridad qué le falta. La recarga se hace bajo la NOM-154-SCFI-2005. La primera visita es sin costo.</p>
+          <p>Sí. Revisamos extintores, señalamientos y puntos de incendio, y le decimos con claridad qué le falta. La recarga se hace bajo la NOM-154-SCFI-2005, verificada con MCD (Mexicana de Conformidad y Dictaminación). La primera visita es sin costo.</p>
         </details>
       </div>
     </div>
@@ -417,6 +329,6 @@
 
   </main>
   <div data-footer></div>
-  <script type="module" src="js/main.js?v=seo-h1-links" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
+  <script type="module" src="js/main.js?v=og-ratio" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
 </body>
 </html>

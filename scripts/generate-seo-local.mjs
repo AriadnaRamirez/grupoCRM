@@ -24,13 +24,41 @@ import {
 } from "../js/data.js";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const CACHE = "perf2-dots";
+const CACHE = "cls-m1";
 const pagesBaseSnippet = `  <script>!function(){if(!/\\.github\\.io$/i.test(location.hostname))return;var s=document.createElement("script");s.src="/js/pages-base.js";document.head.appendChild(s)}();</script>\n`;
 const cssBoot = `  <style id="css-boot">
-  /* Minimal first paint — never override hero/slide rules from main.css */
+  /* Critical first paint: reserve chrome + hero before async main.css (CLS) */
+  :root { --chrome-h: 108px; }
+  @media (min-width: 1024px) { :root { --chrome-h: 113px; } }
   html { background: #fff; }
   body { margin: 0; color: #202020; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
-  .site-chrome { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: #fff; }
+  .bot-nav {
+    position: absolute !important; width: 1px !important; height: 1px !important;
+    padding: 0 !important; margin: -1px !important; overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important; clip-path: inset(50%) !important;
+    white-space: nowrap !important; border: 0 !important;
+  }
+  .site-chrome { position: fixed; top: 0; left: 0; right: 0; z-index: 60; background: #fff; }
+  .header-skel { height: var(--chrome-h); max-height: var(--chrome-h); overflow: hidden; pointer-events: none; }
+  .header-skel .brand { pointer-events: auto; }
+  .header-skel .nav, .header-skel .header__cta { display: none !important; }
+  body:has([data-header]:empty),
+  body:has([data-header] .header-skel),
+  body:has([data-header] .site-chrome) {
+    padding-top: calc(var(--chrome-h) + env(safe-area-inset-top, 0px));
+  }
+  .brand img { display: block; width: auto; height: auto; max-height: 47px; aspect-ratio: 243 / 52; object-fit: contain; }
+  .hero-slider { position: relative; isolation: isolate; min-height: min(72vh, 646px); overflow: hidden; background: #1a2031; }
+  @media (max-width: 760px) {
+    .hero-slider:not(.home-gallery) { min-height: min(78dvh, 660px); }
+  }
+  @media (max-width: 480px) {
+    .hero-slider:not(.home-gallery) { min-height: min(74dvh, 600px); }
+  }
+  .slide { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; color: #fff; }
+  .slide.is-active { opacity: 1; visibility: visible; pointer-events: auto; }
+  .slide__photo { position: absolute; inset: 0 0 0 auto; width: min(50%, 720px); }
+  .slide__photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center bottom; }
   </style>
 `;
 
@@ -95,7 +123,40 @@ ${jsonLd}
 </head>
 <body ${bodyAttrs}>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
-  <div data-header></div>
+  <nav class="bot-nav" aria-label="Enlaces del sitio">
+    <a href="/">Inicio</a>
+    <a href="/productos">Productos</a>
+    <a href="/nosotros">Nosotros</a>
+    <a href="/venta-extintores">Venta de extintores</a>
+    <a href="/recarga-extintores">Recarga</a>
+    <a href="/mantenimiento-extintores">Mantenimiento</a>
+    <a href="/instalacion-extintores">Instalación</a>
+    <a href="/senalizacion">Señalización</a>
+    <a href="/galeria">Galería</a>
+    <a href="/blog">Blog</a>
+    <a href="/contacto">Contacto</a>
+    <a href="/extintores-cdmx">Extintores CDMX</a>
+    <a href="/extintores-estado-de-mexico">Estado de México</a>
+    <a href="/extintores-cuajimalpa">Cuajimalpa</a>
+    <a href="/extintores-naucalpan">Naucalpan</a>
+    <a href="/extintores-huixquilucan">Huixquilucan</a>
+    <a href="/mapa-sitio">Mapa de sitio</a>
+    <a href="/aviso-privacidad">Aviso de privacidad</a>
+    <a href="tel:5667481489">56 6748 1489</a>
+    <a href="mailto:crm.extintores@gmail.com">crm.extintores@gmail.com</a>
+  </nav>
+  <div data-header>
+    <div class="site-chrome header-skel" aria-hidden="true">
+      <div class="site-topbar"><div class="wrap topbar__inner"></div></div>
+      <header class="site-header">
+        <div class="wrap header__inner">
+          <a class="brand" href="/"><picture><source type="image/webp" srcset="/assets/img/logo-crm.webp"><img src="/assets/img/logo-crm.png" alt="" width="243" height="52" decoding="async"></picture></a>
+          <span class="header-skel__nav" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span>
+          <span class="header-skel__cta" aria-hidden="true"></span>
+        </div>
+      </header>
+    </div>
+  </div>
   <main id="contenido">
 ${main}
   </main>

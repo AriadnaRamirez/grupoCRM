@@ -54,6 +54,27 @@ body {
   outline: 2px solid var(--white);
   outline-offset: 2px;
 }
+:root {
+  --chrome-h: 108px;
+}
+@media (min-width: 1024px) {
+  :root { --chrome-h: 113px; }
+}
+
+/* Crawlable link map: in HTML for bots, zero layout impact */
+.bot-nav {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
 img { max-width: 100%; display: block; }
 img[data-src]:not([src]) { opacity: 0; }
 .shop-item,
@@ -62,17 +83,17 @@ img[data-src]:not([src]) { opacity: 0; }
 .peek-rail__card,
 .lookbook__thumb {
   content-visibility: auto;
-  contain-intrinsic-size: 280px;
+  contain-intrinsic-size: 280px 320px;
 }
+/* Avoid mobile CLS from guessed section sizes */
 @media (max-width: 760px) {
-  .section:not(.hero-slider):not(:first-of-type),
-  .shop-home,
-  .about-teaser,
-  [data-reviews],
-  [data-clients],
-  [data-faqs] {
-    content-visibility: auto;
-    contain-intrinsic-size: 1px 480px;
+  .shop-item,
+  .gallery-tile,
+  .blog-card,
+  .peek-rail__card,
+  .lookbook__thumb {
+    content-visibility: visible;
+    contain-intrinsic-size: auto;
   }
 }
 .brand img,
@@ -10242,7 +10263,7 @@ body[data-page="error"] [data-footer] { flex: 0 0 auto; margin-top: auto; }
   z-index: 60;
 }
 [data-header]:empty {
-  height: 113px;
+  height: var(--chrome-h, 112px);
   background: var(--white);
   border-bottom: 1px solid var(--line);
 }
@@ -10260,8 +10281,15 @@ body[data-page="error"] [data-footer] { flex: 0 0 auto; margin-top: auto; }
 }
 .header-skel {
   pointer-events: none;
+  height: var(--chrome-h, 108px);
+  max-height: var(--chrome-h, 108px);
+  overflow: hidden;
 }
 .header-skel .brand { pointer-events: auto; }
+.header-skel .nav,
+.header-skel .header__cta {
+  display: none !important;
+}
 .header-skel__nav {
   display: none;
 }
@@ -10321,7 +10349,10 @@ body[data-page="error"] [data-footer] { flex: 0 0 auto; margin-top: auto; }
   .header-skel__cta { width: 88px; }
 }
 body:has([data-header]:empty),
-body:has([data-header] .header-skel) { padding-top: 113px; }
+body:has([data-header] .header-skel),
+body:has([data-header] .site-chrome) {
+  padding-top: calc(var(--chrome-h, 108px) + env(safe-area-inset-top, 0px));
+}
 [data-footer]:empty {
   min-height: 240px;
   background: var(--navy);
@@ -10618,9 +10649,12 @@ html.is-boot-error body::before {
 }
 
 /* Skip offscreen paint work without changing layout */
-.faqs,
-.site-footer,
-[data-footer] {
+.faqs {
   content-visibility: auto;
   contain-intrinsic-size: auto 480px;
+}
+@media (max-width: 760px) {
+  .faqs {
+    content-visibility: visible;
+  }
 }

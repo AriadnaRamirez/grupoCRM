@@ -1,5 +1,5 @@
 import { rebaseDocument } from "./base.js";
-import { mountShell, renderHome, renderProductos, renderProducto, renderServicios, renderNosotros, renderGaleria, renderHook, bindContact, bindMotion, bindErrorReturn } from "./ui.js?v=mosaic-fit";
+import { mountShell, renderHome, renderProductos, renderProducto, renderServicios, renderNosotros, renderGaleria, renderHook, bindContact, bindMotion, bindErrorReturn } from "./ui.js?v=seo-zonas";
 import { applySeo } from "./seo.js";
 
 rebaseDocument();
@@ -29,6 +29,8 @@ else if (page === "contacto") {
   safe(bindContact);
   safe(renderHook);
 } else if (page === "blog" || page === "articulo") {
+  safe(renderHook);
+} else if (page === "zonas" || page === "zona") {
   safe(renderHook);
 } else if (page === "error") safe(bindErrorReturn);
 

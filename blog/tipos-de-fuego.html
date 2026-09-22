@@ -5,6 +5,8 @@
   
 
   
+  
+  
   <script>
   /* pages-base */
   /* Sync into HTML with: node scripts/inject-pages-base.mjs */
@@ -35,14 +37,18 @@
         }
       } else {
         var rel = pathname.replace(/^\.\//, "");
-        if (/^(aviso-privacidad|contacto|galeria|mapa-sitio|nosotros|producto|productos|servicios|index)\.html$/i.test(rel)) {
-          var name = rel.replace(/\.html$/i, "");
-          pathname = name === "index" ? base + "/" : base + "/" + name;
-        } else if (/^blog\/[\w-]+\.html$/i.test(rel)) {
-          pathname = base + "/" + rel.replace(/\.html$/i, "");
-        } else {
-          return value;
-        }
+          if (/^(aviso-privacidad|contacto|galeria|mapa-sitio|nosotros|producto|productos|servicios|index)\.html$/i.test(rel)) {
+            var name = rel.replace(/\.html$/i, "");
+            pathname = name === "index" ? base + "/" : base + "/" + name;
+          } else if (/^blog\/[\w-]+\.html$/i.test(rel)) {
+            pathname = base + "/" + rel.replace(/\.html$/i, "");
+          } else if (/^zonas\/index\.html$/i.test(rel)) {
+            pathname = base + "/zonas";
+          } else if (/^zonas\/[\w-]+\.html$/i.test(rel)) {
+            pathname = base + "/" + rel.replace(/\.html$/i, "");
+          } else {
+            return value;
+          }
       }
       return pathname + search + hash;
     }
@@ -106,16 +112,16 @@
   </script>
   <style id="css-boot">
   /* css-boot: hide until local CSS + header are ready */
-  html:not(.is-css):not(.is-booted):not(.is-boot-error) { visibility: hidden; background: #fff; }
+  html:not(.is-booted) { visibility: hidden; background: #fff; }
   </style>
   <noscript><style>html { visibility: visible !important; }</style></noscript>
   <script>setTimeout(function () { document.documentElement.classList.add("is-booted"); }, 4000);</script>
-  <link rel="stylesheet" href="/css/tokens.css?v=prod-20260903">
-  <link rel="stylesheet" href="/css/main.css?v=prod-20260903">
+<link rel="stylesheet" href="/css/tokens.css?v=prod-20260903">
+  <link rel="stylesheet" href="/css/main.css?v=seo-zonas">
   <script>document.documentElement.classList.add("is-css");</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Tipos de fuego y cómo elegir el extintor correcto | Grupo CRM</title>
-  <meta name="description" content="Clases de fuego A, B, C y K, y qué extintor le conviene: PQS ABC, CO₂, agua o tipo K. Guía para negocios en CDMX y Estado de México.">
+  <meta name="description" content="Clases de fuego A, B, C y K, y qué extintor le conviene: PQS ABC, CO₂, agua o tipo K. Guía para empresas en CDMX y Estado de México.">
   <meta name="author" content="Grupo CRM Extintores">
   <meta name="theme-color" content="#D51A32">
   <meta name="robots" content="index, follow">
@@ -126,13 +132,13 @@
   <meta property="og:locale" content="es_MX">
   <meta property="og:site_name" content="Grupo CRM Extintores">
   <meta property="og:title" content="Tipos de fuego y cómo elegir el extintor correcto | Grupo CRM">
-  <meta property="og:description" content="Clases de fuego A, B, C y K, y qué extintor le conviene: PQS ABC, CO₂, agua o tipo K. Guía para negocios en CDMX y Estado de México.">
+  <meta property="og:description" content="Clases de fuego A, B, C y K, y qué extintor le conviene: PQS ABC, CO₂, agua o tipo K. Guía para empresas en CDMX y Estado de México.">
   <meta property="og:url" content="https://www.crmextintores.com/blog/tipos-de-fuego">
   <meta property="og:image" content="https://www.crmextintores.com/assets/img/opt/full/blog-tipos-fuego-1400.webp">
   <meta property="og:image:alt" content="Guía de uso de extintores Grupo CRM según tipo de fuego">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Tipos de fuego y cómo elegir el extintor correcto | Grupo CRM">
-  <meta name="twitter:description" content="Clases de fuego A, B, C y K, y qué extintor le conviene: PQS ABC, CO₂, agua o tipo K. Guía para negocios en CDMX y Estado de México.">
+  <meta name="twitter:description" content="Clases de fuego A, B, C y K, y qué extintor le conviene: PQS ABC, CO₂, agua o tipo K. Guía para empresas en CDMX y Estado de México.">
   <meta name="twitter:image" content="https://www.crmextintores.com/assets/img/opt/full/blog-tipos-fuego-1400.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -235,7 +241,7 @@
         </ul>
         <p>El tipo K va solo en la línea de fuego de cocina. En un restaurante suele ir junto a la estufa o la freidora, y PQS ABC (o CO₂) en el comedor, el almacén y el cuarto de máquinas.</p>
 
-        <h2>Cómo elegir según su negocio</h2>
+        <h2>Cómo elegir según su empresa</h2>
         <ul class="article-pick-grid">
           <li class="article-pick">
             <span class="article-pick__mark">1</span>
@@ -275,7 +281,7 @@
         <div class="article-cta">
           <p>Cuéntenos su giro —condominio, restaurante u oficina— y le decimos qué extintor le corresponde, con cotización el mismo día.</p>
           <p class="actions">
-            <a class="btn btn-wa" href="https://wa.me/525667481489?text=Hola%2C%20quiero%20orientaci%C3%B3n%20para%20elegir%20el%20extintor%20seg%C3%BAn%20el%20tipo%20de%20fuego%20de%20mi%20negocio." target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Cotizar por WhatsApp</a>
+            <a class="btn btn-wa" href="https://wa.me/525667481489?text=Hola%2C%20quiero%20orientaci%C3%B3n%20para%20elegir%20el%20extintor%20seg%C3%BAn%20el%20tipo%20de%20fuego%20de%20mi%20empresa." target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Cotizar por WhatsApp</a>
             <a class="btn btn-ink" href="/productos?cat=extintores#extintores">Ver extintores</a>
           </p>
         </div>
@@ -294,6 +300,6 @@
   <section class="hook" data-hook></section>
   </main>
   <div data-footer></div>
-  <script type="module" src="/js/main.js?v=img-fast" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
+  <script type="module" src="/js/main.js?v=seo-zonas" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
 </body>
 </html>

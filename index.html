@@ -5,6 +5,8 @@
   
 
   
+  
+  
   <script>
   /* pages-base */
   /* Sync into HTML with: node scripts/inject-pages-base.mjs */
@@ -35,14 +37,18 @@
         }
       } else {
         var rel = pathname.replace(/^\.\//, "");
-        if (/^(aviso-privacidad|contacto|galeria|mapa-sitio|nosotros|producto|productos|servicios|index)\.html$/i.test(rel)) {
-          var name = rel.replace(/\.html$/i, "");
-          pathname = name === "index" ? base + "/" : base + "/" + name;
-        } else if (/^blog\/[\w-]+\.html$/i.test(rel)) {
-          pathname = base + "/" + rel.replace(/\.html$/i, "");
-        } else {
-          return value;
-        }
+          if (/^(aviso-privacidad|contacto|galeria|mapa-sitio|nosotros|producto|productos|servicios|index)\.html$/i.test(rel)) {
+            var name = rel.replace(/\.html$/i, "");
+            pathname = name === "index" ? base + "/" : base + "/" + name;
+          } else if (/^blog\/[\w-]+\.html$/i.test(rel)) {
+            pathname = base + "/" + rel.replace(/\.html$/i, "");
+          } else if (/^zonas\/index\.html$/i.test(rel)) {
+            pathname = base + "/zonas";
+          } else if (/^zonas\/[\w-]+\.html$/i.test(rel)) {
+            pathname = base + "/" + rel.replace(/\.html$/i, "");
+          } else {
+            return value;
+          }
       }
       return pathname + search + hash;
     }
@@ -105,13 +111,13 @@
   })();
   </script>
   <style id="css-boot">
-  /* css-boot: hide until local CSS is ready, then show skeletons */
-  html:not(.is-css):not(.is-booted):not(.is-boot-error) { visibility: hidden; background: #fff; }
+  /* css-boot: hide until local CSS + header are ready */
+  html:not(.is-booted) { visibility: hidden; background: #fff; }
   </style>
   <noscript><style>html { visibility: visible !important; }</style></noscript>
   <script>setTimeout(function () { document.documentElement.classList.add("is-booted"); }, 4000);</script>
-  <link rel="stylesheet" href="css/tokens.css?v=prod-20260903">
-  <link rel="stylesheet" href="css/main.css?v=prod-20260903">
+<link rel="stylesheet" href="css/tokens.css?v=prod-20260903">
+  <link rel="stylesheet" href="css/main.css?v=seo-zonas">
   <script>document.documentElement.classList.add("is-css");</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Extintores y recarga en CDMX | Grupo CRM Extintores</title>
@@ -170,7 +176,7 @@
         <picture>
           <source media="(min-width: 761px)" type="image/webp" srcset="assets/img/hero/hero-desktop-800.webp 800w, assets/img/hero/hero-desktop-1280.webp 1280w, assets/img/hero/hero-desktop-1600.webp 1600w" sizes="min(56vw, 840px)">
           <source media="(max-width: 760px)" type="image/webp" srcset="assets/img/hero/hero-desktop-800.webp 800w, assets/img/hero/hero-desktop-1280.webp 1280w" sizes="100vw">
-          <img src="assets/img/hero/hero-desktop-800.webp" alt="" width="1600" height="900" fetchpriority="high" decoding="async">
+          <img src="assets/img/hero/hero-desktop-800.webp" alt="Extintores y equipo contra incendios Grupo CRM listos para Protección Civil en CDMX" width="1600" height="900" fetchpriority="high" decoding="async">
         </picture>
       </span>
       <div class="wrap">
@@ -178,7 +184,7 @@
           <h2>Cumpla con Protección Civil y evite multas.</h2>
           <div class="hero-actions" role="group" aria-label="Llamar o escribir por WhatsApp">
             <a class="btn btn-red" href="tel:5667481489" aria-label="Llámenos al 56 6748 1489"><i class="fa-solid fa-phone phone-icon" aria-hidden="true"></i> Llámenos</a>
-            <a class="btn btn-wa" href="https://wa.me/525667481489?text=Hola%2C%20quiero%20una%20cotizaci%C3%B3n%20de%20extintores%20y%20equipo%20contra%20incendio%20para%20mi%20negocio." target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp wa-icon" aria-hidden="true"></i> Escríbanos</a>
+            <a class="btn btn-wa" href="https://wa.me/525667481489?text=Hola%2C%20quiero%20una%20cotizaci%C3%B3n%20de%20extintores%20y%20equipo%20contra%20incendio%20para%20mi%20empresa." target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp wa-icon" aria-hidden="true"></i> Cotizar por WhatsApp</a>
           </div>
           <p class="lead">Acompañamos a condominios, restaurantes y oficinas. La primera visita o levantamiento no tiene costo.</p>
         </div>
@@ -189,15 +195,15 @@
         <picture>
           <source media="(min-width: 761px)" type="image/webp" data-srcset="assets/img/hero/hero-linea-800.webp 800w, assets/img/hero/hero-linea-1280.webp 1280w, assets/img/hero/hero-linea-1600.webp 1600w" sizes="min(52vw, 760px)">
           <source media="(max-width: 760px)" type="image/webp" data-srcset="assets/img/hero/hero-linea-800.webp 800w, assets/img/hero/hero-linea-1280.webp 1280w" sizes="100vw">
-          <img data-src="assets/img/hero/hero-linea-800.webp" alt="" width="1600" height="900" decoding="async">
+          <img data-src="assets/img/hero/hero-linea-800.webp" alt="Línea de extintores certificados Grupo CRM para empresas" width="1600" height="900" decoding="async">
         </picture>
       </span>
       <div class="wrap">
         <div class="hero-copy">
-          <h1>Extintores listos para su negocio.</h1>
+          <h1>Extintores listos para su empresa.</h1>
           <div class="hero-actions" role="group" aria-label="Ver equipos o pedir cotización">
             <a class="btn btn-red" href="productos.html"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i> Ver equipos</a>
-            <a class="btn btn-wa" href="https://wa.me/525667481489?text=Hola%2C%20quiero%20una%20cotizaci%C3%B3n%20de%20extintores%20para%20mi%20negocio." target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp wa-icon" aria-hidden="true"></i> Cotizar</a>
+            <a class="btn btn-wa" href="https://wa.me/525667481489?text=Hola%2C%20quiero%20una%20cotizaci%C3%B3n%20de%20extintores%20para%20mi%20empresa." target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp wa-icon" aria-hidden="true"></i> Cotizar extintores</a>
           </div>
           <p class="lead">Extintores, gabinetes, señalamientos y protección, con la asesoría para elegir lo que le corresponde.</p>
         </div>
@@ -208,12 +214,12 @@
         <picture>
           <source media="(min-width: 761px)" type="image/webp" data-srcset="assets/img/hero/hero-fuego-800.webp 800w, assets/img/hero/hero-fuego-1280.webp 1280w, assets/img/hero/hero-fuego-1600.webp 1600w" sizes="min(52vw, 760px)">
           <source media="(max-width: 760px)" type="image/webp" data-srcset="assets/img/hero/hero-fuego-800.webp 800w, assets/img/hero/hero-fuego-1280.webp 1280w" sizes="100vw">
-          <img data-src="assets/img/hero/hero-fuego-800.webp" alt="" width="1600" height="900" decoding="async">
+          <img data-src="assets/img/hero/hero-fuego-800.webp" alt="Equipo contra incendios Grupo CRM para prevenir conatos en empresas" width="1600" height="900" decoding="async">
         </picture>
       </span>
       <div class="wrap">
         <div class="hero-copy">
-          <h2>El equipo que su negocio necesita.</h2>
+          <h2>El equipo que su empresa necesita.</h2>
           <div class="hero-actions" role="group" aria-label="Ver equipos o llamarnos">
             <a class="btn btn-red" href="productos.html"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i> Ver equipos</a>
             <a class="btn btn-ink" href="tel:5667481489" aria-label="Llámenos al 56 6748 1489"><i class="fa-solid fa-phone phone-icon" aria-hidden="true"></i> Llámenos</a>
@@ -227,7 +233,7 @@
         <picture>
           <source media="(min-width: 761px)" type="image/webp" data-srcset="assets/img/hero/hero-producto-800.webp 800w, assets/img/hero/hero-producto-1280.webp 1280w, assets/img/hero/hero-producto-1600.webp 1600w" sizes="min(52vw, 760px)">
           <source media="(max-width: 760px)" type="image/webp" data-srcset="assets/img/hero/hero-producto-800.webp 800w, assets/img/hero/hero-producto-1280.webp 1280w" sizes="100vw">
-          <img data-src="assets/img/hero/hero-producto-800.webp" alt="" width="1600" height="900" decoding="async">
+          <img data-src="assets/img/hero/hero-producto-800.webp" alt="Técnico Grupo CRM en visita de revisión de extintores sin costo" width="1600" height="900" decoding="async">
         </picture>
       </span>
       <div class="wrap">
@@ -237,7 +243,7 @@
             <a class="btn btn-wa" href="https://wa.me/525667481489?text=Hola%2C%20quiero%20agendar%20mi%20visita%20de%20revisi%C3%B3n%20sin%20costo." target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp wa-icon" aria-hidden="true"></i> Agendar visita</a>
             <a class="btn btn-red" href="tel:5667481489" aria-label="Llámenos al 56 6748 1489"><i class="fa-solid fa-phone phone-icon" aria-hidden="true"></i> Llámenos</a>
           </div>
-          <p class="lead">Con gusto vamos a su negocio y le decimos qué le hace falta.</p>
+          <p class="lead">Con gusto vamos a su empresa y le decimos qué le hace falta.</p>
         </div>
       </div>
     </article>
@@ -256,8 +262,8 @@
         <h2>Grupo CRM</h2>
         <hr class="rule rule-left">
         <p class="muted">Empresa 100% mexicana especializada en seguridad contra incendios.</p>
-        <p class="muted">Venta, recarga e instalación de extintores, además de soluciones para la protección de negocios y establecimientos.</p>
-        <p class="muted">Empresa verificada por <a href="https://amecire.org/portal/" target="_blank" rel="noopener noreferrer">AMECIRE</a>.</p>
+        <p class="muted">Venta, recarga e instalación de extintores, además de soluciones para la protección de empresas e instalaciones.</p>
+        <p class="muted"><a href="http://www.mcdmx.com/site/Casa.html" target="_blank" rel="noopener noreferrer">MCD (Mexicana de Conformidad y Dictaminación)</a>, cumplimiento de la norma NOM-154-SCFI-2005.</p>
       </div>
       <div class="about-teaser__more">
         <p class="chips-label" id="home-valores">Valores</p>
@@ -273,7 +279,7 @@
         <div>
           <p class="kicker">Productos por categoría</p>
           <h2>Encuentre el equipo que necesita</h2>
-          <p>Extintores, señalamientos, gabinetes y protección para equipar su negocio. Si no sabe cuál elegir, le orientamos.</p>
+          <p>Extintores, señalamientos, gabinetes y protección para equipar su empresa. Si no sabe cuál elegir, le orientamos.</p>
         </div>
         <a class="cat-band__more" href="productos.html"><i class="fa-solid fa-table-cells" aria-hidden="true"></i> Ver catálogo completo</a>
       </header>
@@ -284,7 +290,7 @@
         <div>
           <p class="kicker">Catálogo</p>
           <h2>Productos más vendidos</h2>
-          <p>Los equipos que más nos piden para dejar su negocio listo ante una inspección.</p>
+          <p>Los equipos que más nos piden para dejar su empresa lista ante una inspección.</p>
         </div>
         <a class="cat-band__more" href="productos.html"><i class="fa-solid fa-table-cells" aria-hidden="true"></i> Ver todo</a>
       </header>
@@ -303,7 +309,7 @@
     <div class="wrap">
       <header class="trust__head trust__head--center">
         <p class="kicker">Clientes CRM</p>
-        <h2>Protegemos negocios como el suyo</h2>
+        <h2>Protegemos empresas como la suya</h2>
         <hr class="rule" aria-hidden="true">
         <p>Gastronomía, transporte, educación y automotriz en CDMX y Estado de México.</p>
       </header>
@@ -317,7 +323,7 @@
         <header class="svc-home__head">
           <div class="svc-home__intro">
             <p class="kicker">¿Qué hacemos?</p>
-            <h2>Seguridad contra incendios para su negocio</h2>
+            <h2>Seguridad contra incendios para su empresa</h2>
             <hr class="rule" aria-hidden="true">
           </div>
         </header>
@@ -330,8 +336,8 @@
   <section class="contact-band home-contact" id="contacto">
     <div class="wrap home-contact__peek-head">
       <p class="kicker">Nuestro trabajo</p>
-      <h2>Vea lo que podemos hacer por su negocio</h2>
-      <p class="muted">Trabajos reales y soluciones que llevamos directamente a cada establecimiento.</p>
+      <h2>Vea lo que podemos hacer por su empresa</h2>
+      <p class="muted">Trabajos reales y soluciones que llevamos directamente a cada empresa.</p>
     </div>
     <div class="peek-rail" data-home-gallery aria-roledescription="carrusel" aria-label="Trabajos de Grupo CRM"></div>
   </section>
@@ -379,6 +385,6 @@
 
   </main>
   <div data-footer></div>
-  <script type="module" src="js/main.js?v=img-fast" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
+  <script type="module" src="js/main.js?v=seo-zonas" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
 </body>
 </html>

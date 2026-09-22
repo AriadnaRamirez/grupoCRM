@@ -5,16 +5,18 @@ export const company = {
   tagline: "Extintores y equipos de seguridad",
   slogan: "Protección, prevención y respuesta.",
   about:
-    "Lo acompañamos con venta, recarga e instalación en CDMX y Estado de México. Empresa verificada por AMECIRE.",
-  amecire:
-    "Asociación Mexicana de Equipos Contra Incendio y Recargadores de Extintores, A.C.",
-  amecireUrl: "https://amecire.org/portal/",
+    "Lo acompañamos con venta, recarga e instalación en CDMX y Estado de México. MCD (Mexicana de Conformidad y Dictaminación), cumplimiento de la norma NOM-154-SCFI-2005.",
+  mcd: "Mexicana de Conformidad y Dictaminación",
+  mcdUrl: "http://www.mcdmx.com/site/Casa.html",
+  nom: "NOM-154-SCFI-2005",
   phone: "56 6748 1489",
   phoneTel: "5667481489",
   phoneAlt: "56 5947 4605",
   phoneAltTel: "5659474605",
   whatsapp: "525667481489",
   whatsappShow: "56 6748 1489",
+  whatsappAlt: "525659474605",
+  whatsappAltShow: "56 5947 4605",
   email: "crm.extintores@gmail.com",
   facebook: "Grupo CRM Extintores",
   facebookUrl: "https://www.facebook.com/people/GRUPO-CRM-Extintores/100075736857787/",
@@ -78,7 +80,7 @@ export const pageSeo = {
     path: "/galeria",
     title: "Galería de instalaciones | Grupo CRM Extintores",
     description:
-      "Vea cómo quedan extintores e instalaciones en negocios de CDMX y Estado de México. ¿Quiere el mismo resultado? Cotice con Grupo CRM.",
+      "Vea cómo quedan extintores e instalaciones en empresas de CDMX y Estado de México. ¿Quiere el mismo resultado? Cotice con Grupo CRM.",
   },
   contacto: {
     path: "/contacto",
@@ -90,7 +92,7 @@ export const pageSeo = {
     path: "/servicios",
     title: "Venta, recarga e instalación de extintores | Grupo CRM",
     description:
-      "Venta, recarga e instalación de extintores para que su negocio cumpla. Primera visita sin costo. WhatsApp 56 6748 1489.",
+      "Venta, recarga e instalación de extintores para que su empresa cumpla. Primera visita sin costo. WhatsApp 56 6748 1489.",
   },
   mapa: {
     path: "/mapa-sitio",
@@ -114,7 +116,7 @@ export const pageSeo = {
     path: "/blog",
     title: "Guía | Grupo CRM Extintores",
     description:
-      "Guías prácticas de extintores y equipo contra incendios para negocios en CDMX y Estado de México.",
+      "Guías prácticas de extintores y equipo contra incendios para empresas en CDMX y Estado de México.",
   },
   error: {
     path: "/404",
@@ -123,13 +125,123 @@ export const pageSeo = {
       "Esta página no existe. Vuelva al inicio o cotice extintores por WhatsApp con Grupo CRM Extintores en CDMX.",
     robots: "noindex, nofollow",
   },
+  zonas: {
+    path: "/zonas",
+    title: "Extintores en CDMX por alcaldía | Grupo CRM Extintores",
+    description:
+      "Venta, recarga e instalación de extintores en las 16 alcaldías de la Ciudad de México. Cotice con Grupo CRM Extintores.",
+  },
 };
+
+/** Cobertura local SEO: CRM Extintores en cada alcaldía de CDMX */
+export const zonasCdmx = [
+  {
+    slug: "alvaro-obregon",
+    name: "Álvaro Obregón",
+    nearby: ["cuajimalpa", "miguel-hidalgo", "magdalena-contreras", "benito-juarez"],
+    focus: "oficinas, condominios y comercios en San Ángel, Observatorio y Contadero",
+  },
+  {
+    slug: "azcapotzalco",
+    name: "Azcapotzalco",
+    nearby: ["miguel-hidalgo", "gustavo-a-madero", "cuauhtemoc", "alvaro-obregon"],
+    focus: "industrias, bodegas y colonias con alta actividad comercial",
+  },
+  {
+    slug: "benito-juarez",
+    name: "Benito Juárez",
+    nearby: ["cuauhtemoc", "coyoacan", "alvaro-obregon", "iztacalco"],
+    focus: "oficinas, plazas y edificios corporativos en Del Valle y Nápoles",
+  },
+  {
+    slug: "coyoacan",
+    name: "Coyoacán",
+    nearby: ["benito-juarez", "tlalpan", "iztapalapa", "xochimilco"],
+    focus: "universidades, clínicas, restaurantes y condominios",
+  },
+  {
+    slug: "cuajimalpa",
+    name: "Cuajimalpa",
+    nearby: ["alvaro-obregon", "miguel-hidalgo", "magdalena-contreras", "benito-juarez"],
+    focus: "nuestra base en Loma del Padre, corporativos y residenciales",
+  },
+  {
+    slug: "cuauhtemoc",
+    name: "Cuauhtémoc",
+    nearby: ["miguel-hidalgo", "benito-juarez", "venustiano-carranza", "azcapotzalco"],
+    focus: "centro histórico, hoteles, oficinas y locales comerciales",
+  },
+  {
+    slug: "gustavo-a-madero",
+    name: "Gustavo A. Madero",
+    nearby: ["azcapotzalco", "venustiano-carranza", "cuauhtemoc", "iztacalco"],
+    focus: "industrias, escuelas y comercios del norte de la ciudad",
+  },
+  {
+    slug: "iztacalco",
+    name: "Iztacalco",
+    nearby: ["iztapalapa", "venustiano-carranza", "benito-juarez", "coyoacan"],
+    focus: "talleres, bodegas y condominios con requisitos de Protección Civil",
+  },
+  {
+    slug: "iztapalapa",
+    name: "Iztapalapa",
+    nearby: ["iztacalco", "tlahuac", "coyoacan", "xochimilco"],
+    focus: "empresas, plazas comerciales y centros educativos",
+  },
+  {
+    slug: "magdalena-contreras",
+    name: "Magdalena Contreras",
+    nearby: ["alvaro-obregon", "tlalpan", "cuajimalpa", "coyoacan"],
+    focus: "condominios, escuelas y locales en zona residencial",
+  },
+  {
+    slug: "miguel-hidalgo",
+    name: "Miguel Hidalgo",
+    nearby: ["cuauhtemoc", "azcapotzalco", "cuajimalpa", "alvaro-obregon"],
+    focus: "Polanco, Tacubaya y corporativos con alta exigencia normativa",
+  },
+  {
+    slug: "milpa-alta",
+    name: "Milpa Alta",
+    nearby: ["xochimilco", "tlahuac", "tlalpan", "iztapalapa"],
+    focus: "comercios, escuelas y establecimientos del suroriente",
+  },
+  {
+    slug: "tlahuac",
+    name: "Tláhuac",
+    nearby: ["iztapalapa", "xochimilco", "milpa-alta", "iztacalco"],
+    focus: "locales, escuelas y empresas de la zona oriente-sur",
+  },
+  {
+    slug: "tlalpan",
+    name: "Tlalpan",
+    nearby: ["coyoacan", "magdalena-contreras", "xochimilco", "alvaro-obregon"],
+    focus: "hospitales, universidades, condominios e industria ligera",
+  },
+  {
+    slug: "venustiano-carranza",
+    name: "Venustiano Carranza",
+    nearby: ["cuauhtemoc", "iztacalco", "gustavo-a-madero", "iztapalapa"],
+    focus: "aeropuerto, comercios y oficinas del oriente capitalino",
+  },
+  {
+    slug: "xochimilco",
+    name: "Xochimilco",
+    nearby: ["tlalpan", "tlahuac", "milpa-alta", "coyoacan"],
+    focus: "turismo, comercios, escuelas y establecimientos locales",
+  },
+];
+
+export function zonaBySlug(slug) {
+  return zonasCdmx.find((z) => z.slug === slug);
+}
 
 export const blogPosts = [
   {
     slug: "como-instalar-mi-extintor",
     path: "/blog/como-instalar-mi-extintor",
-    title: "Cómo instalar mi extintor en un negocio | Grupo CRM",
+    title: "Cómo instalar mi extintor en una empresa | Grupo CRM",
     heading: "Cómo instalar mi extintor para que sí sea útil",
     description:
       "Guía práctica para colocar un extintor: altura, visibilidad, acceso libre, señalamiento, soporte y cuándo pedir instalación profesional en CDMX y Estado de México.",
@@ -145,7 +257,7 @@ export const blogPosts = [
     title: "Tipos de fuego y cómo elegir el extintor correcto | Grupo CRM",
     heading: "Tipos de fuego y cómo elegir el mejor extintor",
     description:
-      "Clases de fuego A, B, C y K, y qué extintor le conviene: PQS ABC, CO₂, agua o tipo K. Guía para negocios en CDMX y Estado de México.",
+      "Clases de fuego A, B, C y K, y qué extintor le conviene: PQS ABC, CO₂, agua o tipo K. Guía para empresas en CDMX y Estado de México.",
     kicker: "Guía práctica",
     excerpt: "Qué cubre cada clase de fuego y cómo elegir PQS ABC, CO₂, agua o tipo K según su condominio, restaurante u oficina.",
     datePublished: "2026-08-27",
@@ -271,7 +383,7 @@ function shot(stem, title, note, venue, kicker = "Instalación") {
 }
 
 export const lookbook = [
-  shot("galeria-extintores-sitio", "Listos en su comercio", "Extintores instalados en un establecimiento.", "campo"),
+  shot("galeria-extintores-sitio", "Listos en su comercio", "Extintores instalados en una empresa.", "campo"),
   shot("galeria-salon-eventos", "Salón de eventos", "Protección en salón, restaurante y bar.", "gastronomia"),
   shot("galeria-bar", "Bar y terraza", "Extintores a la mano en la barra y la terraza.", "gastronomia"),
   shot("galeria-comercio", "Comercio e industria", "Suministro e instalación en almacén y punto de venta.", "locales"),
@@ -280,7 +392,7 @@ export const lookbook = [
   shot("galeria-automotriz", "Agencia automotriz", "Extintores PQS y CO₂ en agencia y taller.", "automotriz"),
   shot("galeria-parrilla", "Terraza y parrilla", "Extintores en cocina al aire libre y espacios de eventos.", "gastronomia"),
   shot("galeria-obra", "Obra en construcción", "Equipo en sitio para proteger a su cuadrilla.", "industria"),
-  shot("galeria-local", "Local comercial", "Extintor en el acceso de un negocio de alimentos.", "locales"),
+  shot("galeria-local", "Local comercial", "Extintor en el acceso de un establecimiento de alimentos.", "locales"),
   shot("galeria-escuela", "Escuela", "Extintores en el patio de un colegio.", "educacion"),
   shot("galeria-escuela-patio", "Revisión en colegio", "Revisamos todos los equipos del plantel en una sola visita.", "educacion"),
   shot("galeria-showroom", "Sala de exhibición", "Extintores en una agencia, listos para instalar.", "automotriz"),
@@ -299,12 +411,12 @@ export const lookbook = [
   shot("galeria-lavanderia", "Lavandería", "Extintor y señalamiento instalados en un local de lavado.", "locales"),
   shot("galeria-estacionamiento", "Estacionamiento", "Extintores en un estacionamiento cubierto.", "locales"),
   shot("galeria-trailer", "Unidad de carga", "Extintores en patio de una empresa de transporte a granel.", "transporte"),
-  shot("galeria-camioneta", "Servicio a domicilio", "Llevamos el equipo hasta su unidad o su negocio.", "transporte"),
+  shot("galeria-camioneta", "Servicio a domicilio", "Llevamos el equipo hasta su unidad o su empresa.", "transporte"),
   shot("galeria-comedor", "Terraza de restaurante", "Extintores en el comedor de un restaurante y salón.", "gastronomia"),
   shot("galeria-alberca", "Alberca", "Extintores junto a una alberca cubierta.", "campo"),
   shot("galeria-madereria", "Maderería", "Extintores en un almacén de tableros.", "industria"),
   shot("galeria-evento", "Jornada en sitio", "Revisión y demostración con el mismo equipo que usted va a usar.", "campo"),
-  shot("galeria-inventario", "Listos para recargar", "Extintores preparados para suministro y recarga en su negocio.", "campo"),
+  shot("galeria-inventario", "Listos para recargar", "Extintores preparados para suministro y recarga en su empresa.", "campo"),
   shot("galeria-curso-brigada", "Conformación de brigadas", "Participantes y equipo al cierre de una capacitación de Grupo CRM.", "cursos", "Capacitación"),
   shot("galeria-curso-primeros-auxilios", "Primeros auxilios", "Práctica de vendaje y atención inicial en un curso de brigada.", "cursos", "Capacitación"),
   shot("galeria-curso-rescate", "Búsqueda y rescate", "Inmovilización en tabla durante el curso de brigada.", "cursos", "Capacitación"),
@@ -378,7 +490,7 @@ export const products = [
   item("CRM-0043", "Chiflón de neblina de tres pasos - 1½ pulgadas", "gabinetes-herrajes", "1½ pulgadas", "Bronce fundido", "", "Redes contra incendio, hidrantes, brigadas y cuerpos de bomberos.", "Chiflón de neblina de tres pasos para conexión a manguera contra incendio, fabricado en bronce fundido y diseñado para regular el patrón y flujo del agua."),
   item("CRM-0044", "Manguera industrial contra incendio", "gabinetes-herrajes", "", "Hule natural y poliéster", "", "Edificios, industrias, hidrantes y redes contra incendio.", "Manguera contra incendio con tubo interior de hule natural y cubierta exterior de tejido de poliéster resistente a la abrasión y a la intemperie. Incluye conexiones de bronce con cuerdas IPT o NST; su construcción ligera facilita el manejo."),
   item("CRM-0045", "Válvula globo angular de bronce", "gabinetes-herrajes", "2\" NPT / 1½\" IPT", "Bronce fundido", "", "Hidrantes, redes contra incendio, edificios e industrias.", "Válvula globo angular fabricada en bronce fundido, con entrada hembra NPT de 2 pulgadas y salida macho IPT de 1½ pulgadas. Cuenta con vástago ascendente para apertura y cierre."),
-  item("CRM-0046", "Botiquín metálico de pared - chico", "botiquines", "17 × 23 × 6 cm", "Lámina troquelada y esmaltada", "", "Hogares, oficinas, comercios y pequeños negocios.", "Botiquín metálico para instalación en pared, fabricado en lámina troquelada y esmaltada. Medidas: 17 × 23 × 6 cm."),
+  item("CRM-0046", "Botiquín metálico de pared - chico", "botiquines", "17 × 23 × 6 cm", "Lámina troquelada y esmaltada", "", "Hogares, oficinas, comercios y pequeñas empresas.", "Botiquín metálico para instalación en pared, fabricado en lámina troquelada y esmaltada. Medidas: 17 × 23 × 6 cm."),
   item("CRM-0047", "Botiquín metálico de pared - mediano", "botiquines", "20 × 30 × 7 cm", "Lámina troquelada y esmaltada", "", "Oficinas, comercios, escuelas, talleres y empresas.", "Botiquín metálico para instalación en pared, fabricado en lámina troquelada y esmaltada. Medidas: 20 × 30 × 7 cm."),
   item("CRM-0048", "Botiquín metálico de pared - grande", "botiquines", "25 × 35 × 7.5 cm", "Lámina troquelada y esmaltada", "", "Industrias, empresas, escuelas, centros comerciales y obras.", "Botiquín metálico para instalación en pared, fabricado en lámina troquelada y esmaltada. Medidas: 25 × 35 × 7.5 cm."),
   item("CRM-0049", "Detector de humo con batería de 9 V", "equipo-proteccion", "9 V", "Kidde", "", "Hogares, oficinas, hoteles, comercios y áreas cerradas.", "Detector de humo marca Kidde, alimentado por batería de 9 V. Cuenta con botón de prueba, aviso de batería baja y diseño de fácil instalación."),
@@ -525,7 +637,7 @@ export const services = [
   {
     icon: "fa-solid fa-fire-extinguisher",
     title: "Venta e instalación de extintores",
-    text: "Extintores nuevos y certificados, e instalación en los puntos adecuados de su establecimiento.",
+    text: "Extintores nuevos y certificados, e instalación en los puntos adecuados de su empresa.",
   },
   {
     icon: "fa-solid fa-rotate",
@@ -540,7 +652,7 @@ export const services = [
   {
     icon: "fa-solid fa-kit-medical",
     title: "Botiquines",
-    text: "Botiquines para establecimientos, disponibles en diferentes presentaciones y tamaños.",
+    text: "Botiquines para empresas e instalaciones, disponibles en diferentes presentaciones y tamaños.",
   },
   {
     icon: "fa-solid fa-chalkboard-user",
@@ -550,7 +662,7 @@ export const services = [
   {
     icon: "fa-solid fa-clipboard-check",
     title: "Revisión en sitio",
-    text: "Visitamos su establecimiento para revisar sus equipos y necesidades de seguridad. Le indicamos qué requiere atención y qué podemos hacer para solucionarlo.",
+    text: "Visitamos su empresa para revisar sus equipos y necesidades de seguridad. Le indicamos qué requiere atención y qué podemos hacer para solucionarlo.",
   },
 ];
 
@@ -633,8 +745,8 @@ export function safeDecode(value) {
   }
 }
 
-export function waUrl(text = "Hola, quiero una cotización de extintores y equipo contra incendio para mi negocio.") {
-  return `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(text)}`;
+export function waUrl(text = "Hola, quiero una cotización de extintores y equipo contra incendio para mi empresa.", phone = company.whatsapp) {
+  return `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
 }
 
 export function catName(id) {

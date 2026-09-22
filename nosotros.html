@@ -5,6 +5,8 @@
   
 
   
+  
+  
   <script>
   /* pages-base */
   /* Sync into HTML with: node scripts/inject-pages-base.mjs */
@@ -35,14 +37,18 @@
         }
       } else {
         var rel = pathname.replace(/^\.\//, "");
-        if (/^(aviso-privacidad|contacto|galeria|mapa-sitio|nosotros|producto|productos|servicios|index)\.html$/i.test(rel)) {
-          var name = rel.replace(/\.html$/i, "");
-          pathname = name === "index" ? base + "/" : base + "/" + name;
-        } else if (/^blog\/[\w-]+\.html$/i.test(rel)) {
-          pathname = base + "/" + rel.replace(/\.html$/i, "");
-        } else {
-          return value;
-        }
+          if (/^(aviso-privacidad|contacto|galeria|mapa-sitio|nosotros|producto|productos|servicios|index)\.html$/i.test(rel)) {
+            var name = rel.replace(/\.html$/i, "");
+            pathname = name === "index" ? base + "/" : base + "/" + name;
+          } else if (/^blog\/[\w-]+\.html$/i.test(rel)) {
+            pathname = base + "/" + rel.replace(/\.html$/i, "");
+          } else if (/^zonas\/index\.html$/i.test(rel)) {
+            pathname = base + "/zonas";
+          } else if (/^zonas\/[\w-]+\.html$/i.test(rel)) {
+            pathname = base + "/" + rel.replace(/\.html$/i, "");
+          } else {
+            return value;
+          }
       }
       return pathname + search + hash;
     }
@@ -106,12 +112,12 @@
   </script>
   <style id="css-boot">
   /* css-boot: hide until local CSS + header are ready */
-  html:not(.is-css):not(.is-booted):not(.is-boot-error) { visibility: hidden; background: #fff; }
+  html:not(.is-booted) { visibility: hidden; background: #fff; }
   </style>
   <noscript><style>html { visibility: visible !important; }</style></noscript>
   <script>setTimeout(function () { document.documentElement.classList.add("is-booted"); }, 4000);</script>
-  <link rel="stylesheet" href="css/tokens.css?v=prod-20260903">
-  <link rel="stylesheet" href="css/main.css?v=prod-20260903">
+<link rel="stylesheet" href="css/tokens.css?v=prod-20260903">
+  <link rel="stylesheet" href="css/main.css?v=seo-zonas">
   <script>document.documentElement.classList.add("is-css");</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Nosotros | Grupo CRM Extintores</title>
@@ -164,14 +170,14 @@
     <span class="shop-hero__photo media-load" aria-hidden="true">
       <picture>
         <source type="image/webp" srcset="assets/img/opt/full/hero-nosotros-800.webp?v=hero-walk 800w, assets/img/opt/full/hero-nosotros-1400.webp?v=hero-walk 1400w, assets/img/opt/full/hero-nosotros-1600.webp?v=hero-walk 1600w" sizes="(min-width: 761px) 46vw, 100vw">
-        <img src="assets/img/opt/full/hero-nosotros-800.webp?v=hero-walk" alt="" width="1024" height="571" fetchpriority="high" decoding="async">
+        <img src="assets/img/opt/full/hero-nosotros-800.webp?v=hero-walk" alt="Equipo de Grupo CRM Extintores en servicio de instalación en CDMX" width="1024" height="571" fetchpriority="high" decoding="async">
       </picture>
     </span>
     <div class="wrap">
       <div class="shop-hero__copy">
         <p class="kicker">¿Quiénes somos?</p>
         <h1>Grupo CRM Extintores</h1>
-        <p class="lead">Empresa mexicana de venta, recarga e instalación de extintores en CDMX y Estado de México. Verificados por <a href="https://amecire.org/portal/" target="_blank" rel="noopener noreferrer">AMECIRE</a>.</p>
+        <p class="lead">Empresa mexicana de venta, recarga e instalación de extintores en CDMX y Estado de México. <a href="http://www.mcdmx.com/site/Casa.html" target="_blank" rel="noopener noreferrer">MCD (Mexicana de Conformidad y Dictaminación)</a>, cumplimiento de la norma NOM-154-SCFI-2005.</p>
         <div class="hero-actions" role="group" aria-label="Cotizar o ver equipos">
           <a class="btn btn-red" href="contacto.html"><i class="fa-brands fa-whatsapp wa-icon" aria-hidden="true"></i> Pedir cotización</a>
           <a class="btn btn-ghost" href="productos.html"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i> Ver equipos</a>
@@ -184,7 +190,7 @@
       <header class="about-mv-head">
         <p class="kicker">Quiénes somos</p>
         <h2>Una empresa cercana, clara y cumplida</h2>
-        <p>Trabajamos para que su negocio tenga el equipo correcto, bien instalado y listo cuando más importa.</p>
+        <p>Trabajamos para que su empresa tenga el equipo correcto, bien instalado y listo cuando más importa.</p>
       </header>
       <section class="about-mv-band" aria-label="Misión y visión">
         <figure class="about-mv-band__figure">
@@ -216,7 +222,7 @@
         <header class="about-mosaic__head">
           <div>
             <p class="kicker">Donde trabajamos</p>
-            <h2 id="about-mosaic-title">Soluciones para cada establecimiento</h2>
+            <h2 id="about-mosaic-title">Soluciones para cada empresa</h2>
             <p>Atendemos condominios, restaurantes, oficinas, empresas, clínicas y escuelas.</p>
           </div>
           <a class="cat-band__more" href="galeria.html"><i class="fa-solid fa-images" aria-hidden="true"></i> Ver instalaciones</a>
@@ -295,7 +301,7 @@
     <section class="about-proof" aria-labelledby="about-proof-title">
       <header class="about-proof__head wrap">
         <p class="kicker">Clientes CRM</p>
-        <h2 id="about-proof-title">Protegemos negocios como el suyo</h2>
+        <h2 id="about-proof-title">Protegemos empresas como la suya</h2>
         <p>Gastronomía, transporte, educación y automotriz en CDMX y Estado de México.</p>
       </header>
       <div data-client-logos aria-busy="true" aria-roledescription="carrusel" aria-label="Clientes"></div>
@@ -312,7 +318,7 @@
         <div class="about-train__copy">
           <p class="kicker">Cursos y capacitaciones</p>
           <h2 id="about-train-title">Si su gente no sabe usarlo, el extintor no alcanza</h2>
-          <p>Brigada, combate de conatos y primeros auxilios, en su establecimiento o en campo. Lo armamos según el giro, no como un curso genérico.</p>
+          <p>Brigada, combate de conatos y primeros auxilios, en su empresa o en campo. Lo armamos según el giro, no como un curso genérico.</p>
           <p class="about-train__actions">
             <a class="btn btn-red" href="contacto.html"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Pedir un curso</a>
             <a class="btn btn-ink" href="index.html#cursos">Ver temas</a>
@@ -325,7 +331,7 @@
       <div class="about-cta about-cta--panel">
         <div>
           <p class="kicker">Siguiente paso</p>
-          <h2>¿Quiere el mismo resultado en su negocio?</h2>
+          <h2>¿Quiere el mismo resultado en su empresa?</h2>
           <p>Cuéntenos el giro y le decimos qué le falta. La primera visita es sin costo.</p>
         </div>
         <div class="about-cta__actions">
@@ -337,6 +343,6 @@
   </section>
   </main>
   <div data-footer></div>
-  <script type="module" src="js/main.js?v=mosaic-fit" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
+  <script type="module" src="js/main.js?v=seo-zonas" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
 </body>
 </html>

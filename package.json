@@ -6,6 +6,9 @@
   "scripts": {
     "start": "npx --yes serve -l 5500",
     "seo:sitemap": "node scripts/seo-sitemap.mjs",
+    "seo:zonas": "node scripts/generate-zonas.mjs",
+    "seo:images": "node scripts/audit-seo-images.mjs",
+    "seo:links": "node scripts/check-links.mjs",
     "check:assets": "node scripts/check-deploy-assets.mjs",
     "optimize:images": "node scripts/optimize-images.mjs",
     "audit:images": "node scripts/audit-images.mjs"

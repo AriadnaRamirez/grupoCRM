@@ -12,6 +12,8 @@ import {
   readSku,
   blogPosts,
   blogPostBySlug,
+  zonasCdmx,
+  zonaBySlug,
 } from "./data.js";
 import { basePath } from "./base.js";
 
@@ -105,7 +107,11 @@ function localBusiness() {
       addressRegion: "Ciudad de México",
       addressCountry: "MX",
     },
-    areaServed: ["Ciudad de México", "Estado de México"],
+    areaServed: [
+      "Ciudad de México",
+      "Estado de México",
+      ...zonasCdmx.map((z) => `${z.name}, Ciudad de México`),
+    ],
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
@@ -248,6 +254,30 @@ function resolvePage(page) {
       article: post,
     };
   }
+  if (page === "zonas") {
+    return { ...pageSeo.zonas };
+  }
+  if (page === "zona") {
+    const slug =
+      document.body.dataset.zona ||
+      location.pathname
+        .replace(new RegExp(`^${basePath() || ""}`), "")
+        .replace(/^\/zonas\/?/, "")
+        .replace(/\/index\.html$/i, "")
+        .replace(/\.html$/i, "")
+        .replace(/\/$/, "");
+    const zona = zonaBySlug(slug);
+    if (!zona) return { ...pageSeo.zonas };
+    return {
+      path: `/zonas/${zona.slug}`,
+      title: `CRM Extintores en ${zona.name} | Grupo CRM Extintores`,
+      description: clipDesc(
+        `Venta, recarga e instalación de extintores en ${zona.name}, CDMX. Primera visita sin costo. Cotice con Grupo CRM Extintores.`
+      ),
+      type: "zona",
+      zona,
+    };
+  }
   return { ...base };
 }
 
@@ -326,6 +356,34 @@ export function applySeo(page) {
         { name: seo.product.sku, path: seo.path },
       ])
     );
+  } else if (page === "zonas") {
+    setJsonLd(
+      "seo-crumbs",
+      breadcrumbs([
+        { name: "Inicio", path: "/" },
+        { name: "Cobertura CDMX", path: "/zonas" },
+      ])
+    );
+  } else if (seo.zona) {
+    setJsonLd(
+      "seo-crumbs",
+      breadcrumbs([
+        { name: "Inicio", path: "/" },
+        { name: "Cobertura CDMX", path: "/zonas" },
+        { name: seo.zona.name, path: seo.path },
+      ])
+    );
+    setJsonLd("seo-service-area", {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: `Extintores y equipo contra incendios en ${seo.zona.name}`,
+      provider: { "@type": "LocalBusiness", name: company.name, url: SITE.origin },
+      areaServed: {
+        "@type": "AdministrativeArea",
+        name: `${seo.zona.name}, Ciudad de México`,
+      },
+      url,
+    });
   }
 
   return seo;
@@ -341,6 +399,8 @@ export function sitemapUrls() {
     "/aviso-privacidad",
     "/mapa-sitio",
     "/blog",
+    "/zonas",
+    ...zonasCdmx.map((z) => `/zonas/${z.slug}`),
     ...blogPosts.map((post) => post.path),
     ...categories.map((c) => `/productos?cat=${c.id}`),
     ...products.map((p) => `/producto?sku=${p.sku}`),

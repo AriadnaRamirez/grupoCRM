@@ -26,14 +26,18 @@
       }
     } else {
       var rel = pathname.replace(/^\.\//, "");
-      if (/^(aviso-privacidad|contacto|galeria|mapa-sitio|nosotros|producto|productos|servicios|index)\.html$/i.test(rel)) {
-        var name = rel.replace(/\.html$/i, "");
-        pathname = name === "index" ? base + "/" : base + "/" + name;
-      } else if (/^blog\/[\w-]+\.html$/i.test(rel)) {
-        pathname = base + "/" + rel.replace(/\.html$/i, "");
-      } else {
-        return value;
-      }
+        if (/^(aviso-privacidad|contacto|galeria|mapa-sitio|nosotros|producto|productos|servicios|index)\.html$/i.test(rel)) {
+          var name = rel.replace(/\.html$/i, "");
+          pathname = name === "index" ? base + "/" : base + "/" + name;
+        } else if (/^blog\/[\w-]+\.html$/i.test(rel)) {
+          pathname = base + "/" + rel.replace(/\.html$/i, "");
+        } else if (/^zonas\/index\.html$/i.test(rel)) {
+          pathname = base + "/zonas";
+        } else if (/^zonas\/[\w-]+\.html$/i.test(rel)) {
+          pathname = base + "/" + rel.replace(/\.html$/i, "");
+        } else {
+          return value;
+        }
     }
     return pathname + search + hash;
   }

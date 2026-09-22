@@ -5,6 +5,8 @@
   
 
   
+  
+  
   <script>
   /* pages-base */
   /* Sync into HTML with: node scripts/inject-pages-base.mjs */
@@ -35,14 +37,18 @@
         }
       } else {
         var rel = pathname.replace(/^\.\//, "");
-        if (/^(aviso-privacidad|contacto|galeria|mapa-sitio|nosotros|producto|productos|servicios|index)\.html$/i.test(rel)) {
-          var name = rel.replace(/\.html$/i, "");
-          pathname = name === "index" ? base + "/" : base + "/" + name;
-        } else if (/^blog\/[\w-]+\.html$/i.test(rel)) {
-          pathname = base + "/" + rel.replace(/\.html$/i, "");
-        } else {
-          return value;
-        }
+          if (/^(aviso-privacidad|contacto|galeria|mapa-sitio|nosotros|producto|productos|servicios|index)\.html$/i.test(rel)) {
+            var name = rel.replace(/\.html$/i, "");
+            pathname = name === "index" ? base + "/" : base + "/" + name;
+          } else if (/^blog\/[\w-]+\.html$/i.test(rel)) {
+            pathname = base + "/" + rel.replace(/\.html$/i, "");
+          } else if (/^zonas\/index\.html$/i.test(rel)) {
+            pathname = base + "/zonas";
+          } else if (/^zonas\/[\w-]+\.html$/i.test(rel)) {
+            pathname = base + "/" + rel.replace(/\.html$/i, "");
+          } else {
+            return value;
+          }
       }
       return pathname + search + hash;
     }
@@ -106,12 +112,12 @@
   </script>
   <style id="css-boot">
   /* css-boot: hide until local CSS + header are ready */
-  html:not(.is-css):not(.is-booted):not(.is-boot-error) { visibility: hidden; background: #fff; }
+  html:not(.is-booted) { visibility: hidden; background: #fff; }
   </style>
   <noscript><style>html { visibility: visible !important; }</style></noscript>
   <script>setTimeout(function () { document.documentElement.classList.add("is-booted"); }, 4000);</script>
-  <link rel="stylesheet" href="/css/tokens.css?v=prod-20260903">
-  <link rel="stylesheet" href="/css/main.css?v=prod-20260903">
+<link rel="stylesheet" href="/css/tokens.css?v=prod-20260903">
+  <link rel="stylesheet" href="/css/main.css?v=seo-zonas">
   <script>document.documentElement.classList.add("is-css");</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Extintores en CDMX y Estado de México | Grupo CRM Extintores</title>
@@ -173,7 +179,7 @@
         </div>
 
         <h2>Extintores y el resto del equipo contra incendios</h2>
-        <p>Un extintor solo no arma el programa. El equipo contra incendios de un negocio suele incluir:</p>
+        <p>Un extintor solo no arma el programa. El equipo contra incendios de una empresa suele incluir:</p>
         <ul class="article-pick-grid">
           <li class="article-pick">
             <span class="article-pick__mark">1</span>
@@ -208,7 +214,8 @@
 
         <h2>Ciudad de México y Estado de México</h2>
         <p>Operamos desde Cuajimalpa (Chamixto 131, Col. Loma del Padre) y nos desplazamos en la Ciudad de México y el Estado de México. El horario de oficina es lunes a viernes, de 9:00 a 18:00. Fuera de horario puede dejar su mensaje por WhatsApp.</p>
-        <p>En la <a href="/galeria">galería</a> puede ver instalaciones en restaurantes, escuelas, agencias y bodegas. En <a href="/nosotros">Nosotros</a> están la venta, la recarga y la instalación.</p>
+        <p>Consulte la cobertura por alcaldía en <a href="/zonas">CRM Extintores en CDMX</a> (Cuajimalpa, Álvaro Obregón, Benito Juárez, Miguel Hidalgo y el resto de la ciudad).</p>
+        <p>En la <a href="/galeria">galería de instalaciones</a> puede ver trabajos en restaurantes, escuelas, agencias y bodegas. En <a href="/nosotros">Nosotros</a> están la venta, la recarga y la instalación.</p>
 
         <h2>Cómo cotizar</h2>
         <ol class="article-steps">
@@ -239,6 +246,6 @@
   <section class="hook" data-hook></section>
   </main>
   <div data-footer></div>
-  <script type="module" src="/js/main.js?v=img-fast" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
+  <script type="module" src="/js/main.js?v=seo-zonas" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
 </body>
 </html>

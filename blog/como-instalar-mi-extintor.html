@@ -5,6 +5,8 @@
 
   
 
+  
+  
   <script>
   /* pages-base */
   /* Sync into HTML with: node scripts/inject-pages-base.mjs */
@@ -35,14 +37,18 @@
         }
       } else {
         var rel = pathname.replace(/^\.\//, "");
-        if (/^(aviso-privacidad|contacto|galeria|mapa-sitio|nosotros|producto|productos|servicios|index)\.html$/i.test(rel)) {
-          var name = rel.replace(/\.html$/i, "");
-          pathname = name === "index" ? base + "/" : base + "/" + name;
-        } else if (/^blog\/[\w-]+\.html$/i.test(rel)) {
-          pathname = base + "/" + rel.replace(/\.html$/i, "");
-        } else {
-          return value;
-        }
+          if (/^(aviso-privacidad|contacto|galeria|mapa-sitio|nosotros|producto|productos|servicios|index)\.html$/i.test(rel)) {
+            var name = rel.replace(/\.html$/i, "");
+            pathname = name === "index" ? base + "/" : base + "/" + name;
+          } else if (/^blog\/[\w-]+\.html$/i.test(rel)) {
+            pathname = base + "/" + rel.replace(/\.html$/i, "");
+          } else if (/^zonas\/index\.html$/i.test(rel)) {
+            pathname = base + "/zonas";
+          } else if (/^zonas\/[\w-]+\.html$/i.test(rel)) {
+            pathname = base + "/" + rel.replace(/\.html$/i, "");
+          } else {
+            return value;
+          }
       }
       return pathname + search + hash;
     }
@@ -106,15 +112,15 @@
   </script>
   <style id="css-boot">
   /* css-boot: hide until local CSS + header are ready */
-  html:not(.is-css):not(.is-booted):not(.is-boot-error) { visibility: hidden; background: #fff; }
+  html:not(.is-booted) { visibility: hidden; background: #fff; }
   </style>
   <noscript><style>html { visibility: visible !important; }</style></noscript>
   <script>setTimeout(function () { document.documentElement.classList.add("is-booted"); }, 4000);</script>
-  <link rel="stylesheet" href="/css/tokens.css?v=prod-20260903">
-  <link rel="stylesheet" href="/css/main.css?v=prod-20260903">
+<link rel="stylesheet" href="/css/tokens.css?v=prod-20260903">
+  <link rel="stylesheet" href="/css/main.css?v=seo-zonas">
   <script>document.documentElement.classList.add("is-css");</script>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Cómo instalar mi extintor en un negocio | Grupo CRM</title>
+  <title>Cómo instalar mi extintor en una empresa | Grupo CRM</title>
   <meta name="description" content="Guía práctica para colocar un extintor: altura, visibilidad, acceso libre, señalamiento, soporte y cuándo pedir instalación profesional en CDMX y Estado de México.">
   <meta name="author" content="Grupo CRM Extintores">
   <meta name="theme-color" content="#D51A32">
@@ -125,13 +131,13 @@
   <meta property="og:type" content="article">
   <meta property="og:locale" content="es_MX">
   <meta property="og:site_name" content="Grupo CRM Extintores">
-  <meta property="og:title" content="Cómo instalar mi extintor en un negocio | Grupo CRM">
+  <meta property="og:title" content="Cómo instalar mi extintor en una empresa | Grupo CRM">
   <meta property="og:description" content="Guía práctica para colocar un extintor: altura, visibilidad, acceso libre, señalamiento, soporte y cuándo pedir instalación profesional en CDMX y Estado de México.">
   <meta property="og:url" content="https://www.crmextintores.com/blog/como-instalar-mi-extintor">
   <meta property="og:image" content="https://www.crmextintores.com/assets/img/opt/full/blog-instalar-1400.webp">
   <meta property="og:image:alt" content="Extintor Grupo CRM instalado con señalamiento EXTINTOR">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Cómo instalar mi extintor en un negocio | Grupo CRM">
+  <meta name="twitter:title" content="Cómo instalar mi extintor en una empresa | Grupo CRM">
   <meta name="twitter:description" content="Guía práctica para colocar un extintor: altura, visibilidad, acceso libre, señalamiento, soporte y cuándo pedir instalación profesional en CDMX y Estado de México.">
   <meta name="twitter:image" content="https://www.crmextintores.com/assets/img/opt/full/blog-instalar-1400.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -239,11 +245,11 @@
         </ul>
 
         <h2>Cuándo pedir instalación profesional</h2>
-        <p>Si abre un negocio, recibió observaciones, no sabe cuántos extintores necesita o quiere el punto completo con señal, gabinete y recarga vigente, conviene que lo revise un técnico.</p>
+        <p>Si abre una empresa, recibió observaciones, no sabe cuántos extintores necesita o quiere el punto completo con señal, gabinete y recarga vigente, conviene que lo revise un técnico.</p>
 
         <div class="article-offer">
           <div class="article-offer__copy">
-            <h3>Vamos a su establecimiento</h3>
+            <h3>Vamos a su empresa</h3>
             <p>Revisamos el espacio y le proponemos una solución clara: extintor adecuado, ubicación, señalamiento y accesorios.</p>
           </div>
           <figure class="article-offer__photo">
@@ -260,7 +266,7 @@
             <span class="article-pick__mark"><i class="fa-solid fa-fire-extinguisher" aria-hidden="true"></i></span>
             <div>
               <h3>Extintor adecuado</h3>
-              <p>PQS ABC, CO₂, agua o tipo K, según el riesgo de su negocio.</p>
+              <p>PQS ABC, CO₂, agua o tipo K, según el riesgo de su empresa.</p>
             </div>
           </li>
           <li class="article-pick">
@@ -289,7 +295,7 @@
         <div class="article-cta">
           <p>¿Quiere evitar errores de instalación? Agende una visita y le decimos exactamente dónde y cómo colocar sus extintores.</p>
           <p class="actions">
-            <a class="btn btn-wa" href="https://wa.me/525667481489?text=Hola%2C%20quiero%20instalar%20extintores%20en%20mi%20negocio." target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Agendar instalación</a>
+            <a class="btn btn-wa" href="https://wa.me/525667481489?text=Hola%2C%20quiero%20instalar%20extintores%20en%20mi%20empresa." target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Agendar instalación</a>
             <a class="btn btn-ink" href="/productos?cat=extintores#extintores">Ver extintores</a>
           </p>
         </div>
@@ -308,6 +314,6 @@
   <section class="hook" data-hook></section>
   </main>
   <div data-footer></div>
-  <script type="module" src="/js/main.js?v=img-fast" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
+  <script type="module" src="/js/main.js?v=seo-zonas" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
 </body>
 </html>

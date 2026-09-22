@@ -5,6 +5,8 @@
   
 
   
+  
+  
   <script>
   /* pages-base */
   /* Sync into HTML with: node scripts/inject-pages-base.mjs */
@@ -35,14 +37,18 @@
         }
       } else {
         var rel = pathname.replace(/^\.\//, "");
-        if (/^(aviso-privacidad|contacto|galeria|mapa-sitio|nosotros|producto|productos|servicios|index)\.html$/i.test(rel)) {
-          var name = rel.replace(/\.html$/i, "");
-          pathname = name === "index" ? base + "/" : base + "/" + name;
-        } else if (/^blog\/[\w-]+\.html$/i.test(rel)) {
-          pathname = base + "/" + rel.replace(/\.html$/i, "");
-        } else {
-          return value;
-        }
+          if (/^(aviso-privacidad|contacto|galeria|mapa-sitio|nosotros|producto|productos|servicios|index)\.html$/i.test(rel)) {
+            var name = rel.replace(/\.html$/i, "");
+            pathname = name === "index" ? base + "/" : base + "/" + name;
+          } else if (/^blog\/[\w-]+\.html$/i.test(rel)) {
+            pathname = base + "/" + rel.replace(/\.html$/i, "");
+          } else if (/^zonas\/index\.html$/i.test(rel)) {
+            pathname = base + "/zonas";
+          } else if (/^zonas\/[\w-]+\.html$/i.test(rel)) {
+            pathname = base + "/" + rel.replace(/\.html$/i, "");
+          } else {
+            return value;
+          }
       }
       return pathname + search + hash;
     }
@@ -106,12 +112,12 @@
   </script>
   <style id="css-boot">
   /* css-boot: hide until local CSS + header are ready */
-  html:not(.is-css):not(.is-booted):not(.is-boot-error) { visibility: hidden; background: #fff; }
+  html:not(.is-booted) { visibility: hidden; background: #fff; }
   </style>
   <noscript><style>html { visibility: visible !important; }</style></noscript>
   <script>setTimeout(function () { document.documentElement.classList.add("is-booted"); }, 4000);</script>
-  <link rel="stylesheet" href="css/tokens.css?v=prod-20260903">
-  <link rel="stylesheet" href="css/main.css?v=prod-20260903">
+<link rel="stylesheet" href="css/tokens.css?v=prod-20260903">
+  <link rel="stylesheet" href="css/main.css?v=seo-zonas">
   <script>document.documentElement.classList.add("is-css");</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Mapa de sitio | Grupo CRM Extintores</title>
@@ -159,11 +165,11 @@
           <h2>Empresa</h2>
           <ul>
             <li><a href="index.html">Inicio</a></li>
-            <li><a href="nosotros.html">Nosotros</a></li>
-            <li><a href="nosotros.html#servicios">Servicios</a></li>
+            <li><a href="nosotros.html">Nosotros y servicios</a></li>
             <li><a href="nosotros.html#cursos">Cursos y capacitaciones</a></li>
-            <li><a href="galeria.html">Galería</a></li>
-            <li><a href="/blog">Blog</a></li>
+            <li><a href="galeria.html">Galería de instalaciones</a></li>
+            <li><a href="/zonas">Cobertura CDMX por alcaldía</a></li>
+            <li><a href="/blog">Blog de extintores</a></li>
             <li><a href="mapa-sitio.html">Mapa de sitio</a></li>
           </ul>
         </nav>
@@ -209,9 +215,9 @@
         <nav>
           <h2>Contacto</h2>
           <ul>
-            <li><a href="contacto.html">Página de contacto</a></li>
+            <li><a href="contacto.html">Página de contacto y cotización</a></li>
             <li><a href="aviso-privacidad.html">Aviso de privacidad</a></li>
-            <li><a href="index.html#revision">Revisión gratis</a></li>
+            <li><a href="index.html#revision">Agendar revisión gratis de extintores</a></li>
             <li><a href="https://www.google.com/maps/search/?api=1&query=Chamixto+131+Col.+Loma+del+Padre+Cuajimalpa+Ciudad+de+M%C3%A9xico" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Chamixto 131, Col. Loma del Padre, Cuajimalpa</a></li>
             <li><a href="tel:5667481489"><i class="fa-solid fa-phone" aria-hidden="true"></i> Tel. 56 6748 1489</a></li>
             <li><a href="tel:5659474605"><i class="fa-solid fa-phone" aria-hidden="true"></i> Tel. 56 5947 4605</a></li>
@@ -219,11 +225,25 @@
             <li><a href="mailto:crm.extintores@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> crm.extintores@gmail.com</a></li>
           </ul>
         </nav>
+        <nav>
+          <h2>Cobertura CDMX</h2>
+          <ul>
+            <li><a href="/zonas">Todas las alcaldías</a></li>
+            <li><a href="/zonas/cuajimalpa">CRM Extintores en Cuajimalpa</a></li>
+            <li><a href="/zonas/alvaro-obregon">CRM Extintores en Álvaro Obregón</a></li>
+            <li><a href="/zonas/benito-juarez">CRM Extintores en Benito Juárez</a></li>
+            <li><a href="/zonas/cuauhtemoc">CRM Extintores en Cuauhtémoc</a></li>
+            <li><a href="/zonas/miguel-hidalgo">CRM Extintores en Miguel Hidalgo</a></li>
+            <li><a href="/zonas/coyoacan">CRM Extintores en Coyoacán</a></li>
+            <li><a href="/zonas/tlalpan">CRM Extintores en Tlalpan</a></li>
+            <li><a href="/blog/extintores-cdmx">Guía: extintores en CDMX</a></li>
+          </ul>
+        </nav>
       </div>
     </div>
   </section>
   </main>
   <div data-footer></div>
-  <script type="module" src="js/main.js?v=img-fast" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
+  <script type="module" src="js/main.js?v=seo-zonas" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
 </body>
 </html>

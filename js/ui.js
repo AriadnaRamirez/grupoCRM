@@ -1,4 +1,4 @@
-import { company, categories, products, services, courses, sectors, faqs, reviews, clients, waUrl, safeDecode, catName, catCount, productBySku, productImg, productAlt, productUrl, readSku, relatedProducts, lookbook, lookAlt, lookFull, venues, carePoints, readyChecks, condo } from "./data.js?v=audit-fix";
+import { company, categories, products, services, courses, sectors, faqs, reviews, clients, waUrl, safeDecode, catName, catCount, productBySku, productImg, productAlt, productUrl, readSku, relatedProducts, lookbook, lookAlt, lookFull, venues, carePoints, readyChecks, condo } from "./data.js?v=seo-zonas";
 import { applySeo } from "./seo.js";
 import { rebaseDocument, rebaseSrcset, withBase } from "./base.js";
 
@@ -169,26 +169,25 @@ function imgLoadAttrs({ lazy = true, priority = false } = {}) {
   return ' decoding="async"';
 }
 
-function lookPicture(item, { sizes, lazy = true, priority = false, width = 480, height, alt = "", extra = "" } = {}) {
+function lookPicture(item, { sizes, lazy = true, priority = false, width = 480, height = 360, alt = "", extra = "" } = {}) {
   const loading = imgLoadAttrs({ lazy: lazy && !priority, priority });
   const stem = lookStem(item);
   const srcset = fullSrcset(stem);
   const src = lookThumbSrc(item);
-  const dims = height ? ` width="${width}" height="${height}"` : ` width="${width}"`;
   return `<picture>
     <source type="image/webp" srcset="${srcset}" sizes="${sizes}">
-    <img src="${src}" alt="${escapeAttr(alt)}"${dims}${loading}${extra}>
+    <img src="${src}" alt="${escapeAttr(alt)}" width="${width}" height="${height}"${loading}${extra}>
   </picture>`;
 }
 
 function catCover(c) {
   const cover = CAT_COVER[c.id];
   if (cover && typeof cover === "object" && cover.src) {
-    return { src: absAsset(cover.src), alt: cover.alt || c.name, photo: !!cover.photo };
+    return { src: absAsset(cover.src), alt: cover.alt || `Categoría ${c.name} Grupo CRM Extintores`, photo: !!cover.photo };
   }
   const product = productBySku(cover) || products.find((p) => p.cat === c.id);
   if (!product) return null;
-  return { src: absAsset(productImg(product)), alt: "", photo: false };
+  return { src: absAsset(productImg(product)), alt: productAlt(product) || `Equipo de ${c.name}`, photo: false };
 }
 
 function applyLazySrc(img) {
@@ -292,8 +291,8 @@ function catalogExtendInner(defer = false) {
       const fallback = cover ? catImg(cover) : "";
       const img = cover
         ? defer
-          ? `<picture><source type="image/webp" data-srcset="${webp}" sizes="(min-width: 1024px) 72px, 40px"><img data-src="${fallback}" alt="${escapeAttr(cover.alt)}" decoding="async"></picture>`
-          : `<picture><source type="image/webp" srcset="${webp}" sizes="(min-width: 1024px) 72px, 40px"><img src="${fallback}" alt="${escapeAttr(cover.alt)}" loading="lazy" decoding="async"></picture>`
+          ? `<picture><source type="image/webp" data-srcset="${webp}" sizes="(min-width: 1024px) 72px, 40px"><img data-src="${fallback}" alt="${escapeAttr(cover.alt)}" width="72" height="72" decoding="async"></picture>`
+          : `<picture><source type="image/webp" srcset="${webp}" sizes="(min-width: 1024px) 72px, 40px"><img src="${fallback}" alt="${escapeAttr(cover.alt)}" width="72" height="72" loading="lazy" decoding="async"></picture>`
         : "";
       return `<li>
         <a class="shop-dept" data-cat="${c.id}" href="${withBase(`/productos?cat=${c.id}#${c.id}`)}">
@@ -327,7 +326,7 @@ function catalogPickerInner(current = "all") {
       const webp = cover ? catSrcset(cover) : "";
       const fallback = cover ? catImg(cover) : "";
       return cover
-        ? `<picture><source type="image/webp" srcset="${webp}" sizes="80px"><img src="${fallback}" alt="" aria-hidden="true" loading="lazy" decoding="async"></picture>`
+        ? `<picture><source type="image/webp" srcset="${webp}" sizes="80px"><img src="${fallback}" alt="${escapeAttr(cover.alt)}" width="80" height="80" loading="lazy" decoding="async"></picture>`
         : "";
     })
     .join("");
@@ -349,7 +348,7 @@ function catalogPickerInner(current = "all") {
       const webp = cover ? catSrcset(cover) : "";
       const fallback = cover ? catImg(cover) : "";
       const img = cover
-        ? `<picture><source type="image/webp" srcset="${webp}" sizes="(min-width: 900px) 160px, 30vw"><img src="${fallback}" alt="${escapeAttr(cover.alt)}" loading="lazy" decoding="async"></picture>`
+        ? `<picture><source type="image/webp" srcset="${webp}" sizes="(min-width: 900px) 160px, 30vw"><img src="${fallback}" alt="${escapeAttr(cover.alt)}" width="160" height="160" loading="lazy" decoding="async"></picture>`
         : "";
       return `<li>
         <a class="shop-dept${active ? " is-active" : ""}" data-cat="${c.id}" href="${withBase(`/productos?cat=${c.id}#${c.id}`)}" aria-current="${active ? "page" : "false"}">
@@ -391,6 +390,40 @@ export function renderCatalogExtend() {
   });
 }
 
+function topbarContactDrop(kind) {
+  const isWa = kind === "wa";
+  const id = isWa ? "topbar-wa" : "topbar-call";
+  const label = isWa ? "WhatsApp" : "Llamar";
+  const icon = isWa ? TOPBAR_WA : TOPBAR_PHONE;
+  const waText = "Hola, quiero una cotización de extintores y equipo contra incendio para mi empresa.";
+  const links = isWa
+    ? [
+        { href: waUrl(waText, company.whatsapp), show: company.whatsappShow, external: true },
+        { href: waUrl(waText, company.whatsappAlt), show: company.whatsappAltShow, external: true },
+      ]
+    : [
+        { href: `tel:${company.phoneTel}`, show: company.phone, external: false },
+        { href: `tel:${company.phoneAltTel}`, show: company.phoneAlt, external: false },
+      ];
+  const items = links
+    .map(
+      (link) =>
+        `<a class="topbar__menu-link" href="${link.href}"${
+          link.external ? ' target="_blank" rel="noopener noreferrer"' : ""
+        }>${isWa ? TOPBAR_WA : TOPBAR_PHONE}<span>${link.show}</span></a>`
+    )
+    .join("");
+  return `<div class="topbar__drop" data-topbar-drop>
+            <button type="button" class="topbar__drop-btn" aria-expanded="false" aria-haspopup="true" aria-controls="${id}">
+              ${icon}<span class="topbar__full">${label}</span>${CHEV_DOWN}
+            </button>
+            <div class="topbar__menu" id="${id}" role="menu" hidden>
+              <p class="topbar__menu-label">${isWa ? "Escribir por WhatsApp" : "Llamar a"}</p>
+              ${items}
+            </div>
+          </div>`;
+}
+
 function headerHTML(page) {
   const item = (href, id, label) => {
     const active =
@@ -406,8 +439,8 @@ function headerHTML(page) {
       <div class="site-topbar">
         <div class="wrap topbar__inner">
           <div class="topbar__left">
-            <a class="topbar__tel" href="tel:${company.phoneTel}" aria-label="Llámenos al ${company.phone}">${TOPBAR_PHONE}<span>${company.phone}</span></a>
-            <a class="topbar__tel" href="${waUrl()}" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp ${company.whatsappShow}">${TOPBAR_WA}<span>${company.whatsappShow}</span></a>
+            ${topbarContactDrop("call")}
+            ${topbarContactDrop("wa")}
             <a class="topbar__tel" href="mailto:${company.email}">${TOPBAR_MAIL}<span class="topbar__full">${company.email}</span><span class="topbar__short">Correo</span></a>
           </div>
           <div class="topbar__right">
@@ -456,7 +489,7 @@ function headerHTML(page) {
               <span class="sr-only">Abrir menú</span>
               <span class="nav-toggle__icon" aria-hidden="true"><span></span><span></span><span></span></span>
             </button>
-            <a class="header__cta" href="${waUrl()}" target="_blank" rel="noopener noreferrer" aria-label="Cotizar por WhatsApp">${WA_ICON} <span>Cotizar</span></a>
+            <a class="header__cta" href="${waUrl()}" target="_blank" rel="noopener noreferrer" aria-label="Cotizar por WhatsApp">${WA_ICON} <span>Cotizar por WhatsApp</span></a>
           </div>
         </div>
       </header>
@@ -471,7 +504,7 @@ function footerHTML() {
         <div class="footer-brand">
           <a class="footer-mark" href="${withBase("/")}">
             <img class="footer-mark__flame" src="${withBase("/assets/img/logo-crm-flame.png")}" alt="Grupo CRM Extintores" width="112" height="154" loading="lazy" decoding="async">
-            <img class="footer-mark__crm" src="${withBase("/assets/img/logo-crm-wordmark.png")}" alt="" width="286" height="87" loading="lazy" decoding="async">
+            <img class="footer-mark__crm" src="${withBase("/assets/img/logo-crm-wordmark.png")}" alt="Logotipo tipográfico Grupo CRM Extintores" width="286" height="87" loading="lazy" decoding="async">
           </a>
           <p class="footer-brand__about">${company.about} ${company.slogan}</p>
           <p class="footer-social">
@@ -495,6 +528,7 @@ function footerHTML() {
             <li><a href="${withBase("/nosotros#cursos")}">Cursos</a></li>
             <li><a href="${withBase("/#resenas")}">Reseñas</a></li>
             <li><a href="${withBase("/galeria")}">Galería</a></li>
+            <li><a href="${withBase("/zonas")}">Cobertura CDMX</a></li>
             <li><a href="${withBase("/blog")}">Blog</a></li>
             <li><a href="${withBase("/contacto")}">Contacto</a></li>
             <li><a href="${withBase("/aviso-privacidad")}">Aviso de privacidad</a></li>
@@ -505,9 +539,18 @@ function footerHTML() {
           <h3>Contacto</h3>
           <ul>
             <li><a href="${company.mapsUrl}" target="_blank" rel="noopener noreferrer">${fa("fa-solid fa-location-dot")} ${company.address}</a></li>
-            <li><a href="tel:${company.phoneTel}">${PHONE_ICON} ${company.phone}</a></li>
-            <li><a href="tel:${company.phoneAltTel}">${PHONE_ICON} ${company.phoneAlt}</a></li>
-            <li><a href="${waUrl()}" target="_blank" rel="noopener noreferrer">${WA_ICON} ${company.whatsappShow}</a></li>
+            <li class="footer-phones">
+              <span class="footer-phones__pair">
+                <a href="tel:${company.phoneTel}" aria-label="Llámenos al ${company.phone}">${PHONE_ICON}</a>
+                <a href="${waUrl("Hola, quiero una cotización de extintores y equipo contra incendio para mi empresa.", company.whatsapp)}" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp ${company.whatsappShow}">${WA_ICON}</a>
+                <a href="tel:${company.phoneTel}">${company.phone}</a>
+              </span>
+              <span class="footer-phones__pair">
+                <a href="tel:${company.phoneAltTel}" aria-label="Llámenos al ${company.phoneAlt}">${PHONE_ICON}</a>
+                <a href="${waUrl("Hola, quiero una cotización de extintores y equipo contra incendio para mi empresa.", company.whatsappAlt)}" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp ${company.whatsappAltShow}">${WA_ICON}</a>
+                <a href="tel:${company.phoneAltTel}">${company.phoneAlt}</a>
+              </span>
+            </li>
             <li class="footer-hide-sm"><a href="${company.websiteUrl}" target="_blank" rel="noopener noreferrer">${fa("fa-solid fa-globe")} ${company.website}</a></li>
             <li><a href="mailto:${company.email}">${MAIL_ICON} ${company.email}</a></li>
             <li class="footer-hide-sm">${company.hours}</li>
@@ -553,10 +596,30 @@ function bindChrome() {
   const navToggle = chrome.querySelector("[data-nav-toggle]");
   const menu = chrome.querySelector("#menu");
   const drops = [...chrome.querySelectorAll(".nav-drop")];
+  const topDrops = [...chrome.querySelectorAll("[data-topbar-drop]")];
   const sync = () => {
     chrome.classList.toggle("is-scrolled", window.scrollY > 16);
     document.body.style.paddingTop = `${chrome.offsetHeight}px`;
     document.documentElement.style.setProperty("--chrome-h", `${chrome.offsetHeight}px`);
+  };
+  const closeTopDrops = (except) => {
+    topDrops.forEach((drop) => {
+      if (drop === except) return;
+      drop.classList.remove("is-open");
+      const btn = drop.querySelector(".topbar__drop-btn");
+      const menu = drop.querySelector(".topbar__menu");
+      btn?.setAttribute("aria-expanded", "false");
+      if (menu) menu.hidden = true;
+    });
+  };
+  const setTopDrop = (drop, open) => {
+    if (!drop) return;
+    if (open) closeTopDrops(drop);
+    drop.classList.toggle("is-open", open);
+    const btn = drop.querySelector(".topbar__drop-btn");
+    const menu = drop.querySelector(".topbar__menu");
+    btn?.setAttribute("aria-expanded", open ? "true" : "false");
+    if (menu) menu.hidden = !open;
   };
   const closeDrops = (except) => {
     drops.forEach((drop) => {
@@ -574,7 +637,10 @@ function bindChrome() {
       if (label) label.textContent = open ? "Cerrar menú" : "Abrir menú";
     }
     if (!open) closeDrops();
-    if (open) hydrateLazy(menu);
+    if (open) {
+      closeTopDrops();
+      hydrateLazy(menu);
+    }
     sync();
   };
   const setDrop = (drop, open) => {
@@ -658,14 +724,28 @@ function bindChrome() {
       drop.querySelector(".nav-drop__menu a")?.focus();
     });
   });
+  topDrops.forEach((drop) => {
+    const btn = drop.querySelector(".topbar__drop-btn");
+    btn?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      setTopDrop(drop, !drop.classList.contains("is-open"));
+    });
+    drop.querySelector(".topbar__menu")?.addEventListener("click", (e) => {
+      if (e.target.closest("a")) setTopDrop(drop, false);
+    });
+  });
   document.addEventListener("click", (e) => {
     if (!drops.some((drop) => drop.contains(e.target))) closeDrops();
+    if (!topDrops.some((drop) => drop.contains(e.target))) closeTopDrops();
     if (chrome.classList.contains("is-nav-open") && !chrome.contains(e.target)) setMenu(false);
   });
   document.addEventListener("keydown", (e) => {
     if (e.key !== "Escape") return;
     if (chrome.classList.contains("is-nav-open")) setMenu(false);
-    else closeDrops();
+    else {
+      closeDrops();
+      closeTopDrops();
+    }
   });
   menu?.addEventListener("click", (e) => {
     const link = e.target.closest("a");
@@ -867,7 +947,7 @@ export function productCard(p, { quote = false, eager = false } = {}) {
     .map((c) => c.trim())
     .filter(Boolean);
   const classLine = classes.length ? `Clase ${classes.join(" · ")}` : "";
-  const quoteBtn = `<a class="shop-item__quote${quote ? "" : " shop-item__quote--wa"}" href="${quoteUrl(p)}" target="_blank" rel="noopener noreferrer">${WA_ICON} Cotizar</a>`;
+  const quoteBtn = `<a class="shop-item__quote${quote ? "" : " shop-item__quote--wa"}" href="${quoteUrl(p)}" target="_blank" rel="noopener noreferrer">${WA_ICON} Cotizar por WhatsApp</a>`;
   const detail = `<a class="shop-item__more" href="${href}" onclick="${remember}"><i class="fa-solid fa-eye" aria-hidden="true"></i> Ver detalle</a>`;
   return `
     <article class="shop-item shop-item--quote" data-cat="${p.cat}">
@@ -1381,7 +1461,7 @@ export function bindLookbook() {
             .map(
               (thumb, i) => `
             <button type="button" class="lookbook__thumb${start + i === index ? " is-active" : ""}" data-lb-goto="${start + i}" aria-label="${escapeAttr(thumb.title)}" aria-current="${start + i === index ? "true" : "false"}">
-              <img src="${lookThumbSrc(thumb)}" alt="" loading="lazy" decoding="async">
+              <img src="${lookThumbSrc(thumb)}" alt="${escapeAttr(lookAlt(thumb))}" width="120" height="90" loading="lazy" decoding="async">
             </button>`
             )
             .join("")}
@@ -1446,7 +1526,7 @@ function clientRailCard(c, { inert = false } = {}) {
   const logos = (c.logos || [])
     .map((logo) => {
       const round = c.round && !pair ? ' class="is-round"' : "";
-      const alt = inert ? "" : escapeAttr(logo.alt);
+      const alt = escapeAttr(logo.alt || `${c.name}, cliente Grupo CRM`);
       return clientPicture(logo, { alt, extra: round });
     })
     .join("");
@@ -1799,7 +1879,7 @@ function reviewAvatar(item) {
   if (!photo) {
     return `<span class="review__avatar" aria-hidden="true">${escapeHtml(reviewInitials(item.name))}</span>`;
   }
-  return `<span class="review__avatar review__avatar--photo" aria-hidden="true"><img class="review__photo" src="${escapeAttr(photo)}" alt="" width="52" height="52" loading="lazy" decoding="async"></span>`;
+  return `<span class="review__avatar review__avatar--photo"><img class="review__photo" src="${escapeAttr(photo)}" alt="Foto de ${escapeAttr(item.name)} en reseña de Facebook" width="52" height="52" loading="lazy" decoding="async"></span>`;
 }
 
 export function renderReviews() {
@@ -2028,7 +2108,7 @@ export function hookRevisionHTML() {
         <p class="kicker">Primera visita</p>
         <h2>Agende su visita de revisión,<span class="hook__cost">sin costo.</span></h2>
         <hr class="rule rule-left hook__rule" aria-hidden="true">
-        <p>Con mucho gusto vamos a su negocio, revisamos sus extintores y le decimos con claridad qué le hace falta. Usted elige el día y la hora; nosotros llegamos puntuales, sin compromiso.</p>
+        <p>Con mucho gusto vamos a su empresa, revisamos sus extintores y le decimos con claridad qué le hace falta. Usted elige el día y la hora; nosotros llegamos puntuales, sin compromiso.</p>
       </div>
       <div class="hook__actions">
         <a class="btn btn-red" href="${waUrl("Hola, quiero agendar mi visita de revisión sin costo.")}" target="_blank" rel="noopener noreferrer">${WA_ICON} Agendar visita</a>
@@ -2133,7 +2213,7 @@ function serviceShot(service) {
     src: `/assets/img/full/${stem}.jpg`,
     full: `/assets/img/full/${stem}.jpg`,
     title: "Listos para instalar",
-    note: "Extintor en el punto correcto de su negocio.",
+    note: "Extintor en el punto correcto de su empresa.",
   };
 }
 
@@ -2298,7 +2378,7 @@ function ensureLightbox() {
       <button type="button" class="lightbox__nav lightbox__nav--prev" data-lb-step="-1" aria-label="Imagen anterior">${fa("fa-solid fa-chevron-left")}</button>
       <figure class="lightbox__stage">
         <span class="lightbox__spin" aria-hidden="true"></span>
-        <img data-lb-img alt="">
+        <img data-lb-img alt="Vista ampliada de instalación Grupo CRM Extintores" width="1400" height="1050">
         <p class="lightbox__fail" data-lb-fail hidden>No se pudo cargar esta imagen.</p>
         <figcaption class="lightbox__cap">
           <p class="lightbox__count" data-lb-count></p>
@@ -2674,7 +2754,7 @@ export function bindContact() {
       formStatus(
         form,
         "error",
-        `No pudimos abrir WhatsApp. <a href="${url}" target="_blank" rel="noopener noreferrer">Ábralo aquí</a> o márquenos al ${company.whatsappShow}; con gusto lo atendemos.`
+        `No pudimos abrir WhatsApp. <a href="${url}" target="_blank" rel="noopener noreferrer">Abrir conversación de WhatsApp</a> o márquenos al ${company.whatsappShow}; con gusto lo atendemos.`
       );
       resetSubmit(btn);
       return;

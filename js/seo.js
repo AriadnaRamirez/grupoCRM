@@ -356,8 +356,6 @@ export function applySeo(page) {
   setMeta("author", company.name);
   setMeta("theme-color", SITE.themeColor);
   setLink("canonical", url);
-  setLink("alternate", url, { hreflang: "es-MX" });
-  setLink("alternate", url, { hreflang: "x-default" });
   setMeta("og:type", seo.type === "product" ? "product" : seo.type === "article" ? "article" : "website", "property");
   setMeta("og:locale", SITE.locale, "property");
   setMeta("og:site_name", company.name, "property");

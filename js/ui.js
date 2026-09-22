@@ -1,4 +1,4 @@
-import { company, categories, products, services, courses, sectors, faqs, reviews, clients, waUrl, safeDecode, catName, catCount, productBySku, productImg, productAlt, productUrl, readSku, relatedProducts, lookbook, lookAlt, lookFull, venues, carePoints, readyChecks, condo } from "./data.js?v=og-ratio";
+import { company, categories, products, services, courses, sectors, faqs, reviews, clients, waUrl, safeDecode, catName, catCount, productBySku, productImg, productAlt, productUrl, readSku, relatedProducts, lookbook, lookAlt, lookFull, venues, carePoints, readyChecks, condo } from "./data.js?v=seo-redirects";
 import { applySeo } from "./seo.js";
 import { rebaseDocument, rebaseSrcset, withBase } from "./base.js";
 
@@ -454,7 +454,7 @@ function headerHTML(page) {
       </div>
       <header class="site-header">
         <div class="wrap header__inner">
-          <a class="brand" href="${withBase("/")}"><img src="${withBase("/assets/img/logo-crm.png")}" alt="Grupo CRM Extintores" width="243" height="52"></a>
+          <a class="brand" href="${withBase("/")}"><img src="${withBase("/assets/img/logo-crm.png")}" alt="Grupo CRM Extintores" title="Grupo CRM Extintores" width="243" height="52"></a>
           <nav class="nav" id="menu">
             ${item("/", "inicio", "Inicio")}
             ${item("/nosotros", "nosotros", "Nosotros")}
@@ -503,8 +503,8 @@ function footerHTML() {
       <div class="wrap footer-grid">
         <div class="footer-brand">
           <a class="footer-mark" href="${withBase("/")}">
-            <img class="footer-mark__flame" src="${withBase("/assets/img/logo-crm-flame.png")}" alt="Grupo CRM Extintores" width="112" height="154" loading="lazy" decoding="async">
-            <img class="footer-mark__crm" src="${withBase("/assets/img/logo-crm-wordmark.png")}" alt="Logotipo tipográfico Grupo CRM Extintores" width="286" height="87" loading="lazy" decoding="async">
+            <img class="footer-mark__flame" src="${withBase("/assets/img/logo-crm-flame.png")}" alt="Grupo CRM Extintores" title="Grupo CRM Extintores" width="112" height="154" loading="lazy" decoding="async">
+            <img class="footer-mark__crm" src="${withBase("/assets/img/logo-crm-wordmark.png")}" alt="Logotipo tipográfico Grupo CRM Extintores" title="Grupo CRM Extintores" width="286" height="87" loading="lazy" decoding="async">
           </a>
           <p class="footer-brand__about">${company.about} ${company.slogan}</p>
           <p class="footer-social">

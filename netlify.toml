@@ -41,8 +41,28 @@
   status = 301
 
 [[redirects]]
+  from = "/index"
+  to = "/"
+  status = 301
+
+[[redirects]]
   from = "/home"
   to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/home.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/*/index.html"
+  to = "/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/*/index.php"
+  to = "/:splat"
   status = 301
 
 [[redirects]]

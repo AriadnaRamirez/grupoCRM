@@ -22,7 +22,7 @@ const cssBoot = `  <style id="css-boot">
   <noscript><style>html { visibility: visible !important; }</style></noscript>
   <script>setTimeout(function () { document.documentElement.classList.add("is-booted"); }, 4000);</script>
 `;
-const CACHE = "og-ratio";
+const CACHE = "seo-redirects";
 
 function escapeHtml(text) {
   return String(text)
@@ -87,8 +87,6 @@ ${pagesBaseSnippet}${cssBoot}
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="${SITE.themeColor}">
   <link rel="canonical" href="${canonical}">
-  <link rel="alternate" hreflang="es-MX" href="${canonical}">
-  <link rel="alternate" hreflang="x-default" href="${canonical}">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_MX">
   <meta property="og:site_name" content="Grupo CRM Extintores">

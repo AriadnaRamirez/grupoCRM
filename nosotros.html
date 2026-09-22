@@ -12,17 +12,13 @@
   
   <script>!function(){if(!/\.github\.io$/i.test(location.hostname))return;var s=document.createElement("script");s.src="/js/pages-base.js";document.head.appendChild(s)}();</script>
   <style id="css-boot">
-  /* Minimal first paint only — do not override hero/slide layout from main.css */
+  /* Sync main.css — no layout overrides */
   html { background: #fff; }
-  body { margin: 0; color: #202020; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
-  .site-chrome { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: #fff; }
   </style>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2" media="(min-width: 761px)" crossorigin>
-<link rel="stylesheet" href="css/tokens.css?v=seo-rail">
-      <link rel="preload" as="style" href="css/main.min.css?v=seo-rail" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="css/main.min.css?v=seo-rail"></noscript>
-  <script>!function(){var l=document.querySelector('link[rel="preload"][as="style"]');if(l&&!l.sheet){l.addEventListener("load",function(){this.onload=null;this.rel="stylesheet"});if(l.relList&&!l.relList.supports("preload"))l.rel="stylesheet"}}();</script>
-  <script>document.documentElement.classList.add("is-css");</script>
+<link rel="stylesheet" href="css/tokens.css?v=cob-rail">
+  <link rel="stylesheet" href="css/main.min.css?v=cob-rail">
+  <script>document.documentElement.classList.add("is-css","is-booted");</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Nosotros | Grupo CRM Extintores</title>
   <meta name="description" content="Empresa 100% mexicana. Lo acompañamos para cumplir con Protección Civil: venta, recarga e instalación en CDMX y Estado de México. Con gusto lo atendemos.">
@@ -200,55 +196,6 @@
       </div>
     </section>
 
-    <section class="section section--tight about-coverage" id="cobertura" aria-labelledby="about-coverage-title">
-      <div class="wrap">
-        <p class="kicker">Cobertura</p>
-        <h2 id="about-coverage-title">Extintores en CDMX y Estado de México</h2>
-        <hr class="rule rule-left" aria-hidden="true">
-        <p>Grupo CRM Extintores ofrece venta, recarga, mantenimiento e instalación de extintores en la Ciudad de México y el Estado de México. Atendemos empresas, oficinas, restaurantes, comercios, condominios, escuelas y clínicas. La oficina física está en Cuajimalpa; el resto de localidades son áreas de servicio.</p>
-
-        <h3>Servicios de extintores</h3>
-        <ul class="zona-nearby zona-nearby--wrap">
-          <li><a href="/venta-extintores">Venta de extintores</a></li>
-          <li><a href="/recarga-extintores">Recarga</a></li>
-          <li><a href="/mantenimiento-extintores">Mantenimiento</a></li>
-          <li><a href="/instalacion-extintores">Instalación</a></li>
-          <li><a href="/senalizacion">Señalización</a></li>
-        </ul>
-
-        <h3>Ciudad de México</h3>
-        <p class="muted">Alcaldías con página de cobertura local.</p>
-        <ul class="zona-nearby zona-nearby--wrap">
-          <li><a href="/extintores-cuajimalpa">Cuajimalpa</a></li>
-          <li><a href="/extintores-benito-juarez">Benito Juárez</a></li>
-          <li><a href="/extintores-alvaro-obregon">Álvaro Obregón</a></li>
-          <li><a href="/extintores-miguel-hidalgo">Miguel Hidalgo</a></li>
-          <li><a href="/extintores-cuauhtemoc">Cuauhtémoc</a></li>
-          <li><a href="/extintores-coyoacan">Coyoacán</a></li>
-          <li><a href="/extintores-tlalpan">Tlalpan</a></li>
-          <li><a href="/extintores-azcapotzalco">Azcapotzalco</a></li>
-          <li><a href="/extintores-iztapalapa">Iztapalapa</a></li>
-          <li><a href="/extintores-cdmx">Ver todas las alcaldías</a></li>
-        </ul>
-
-        <h3>Estado de México</h3>
-        <p class="muted">Municipios publicados en la cobertura del sitio.</p>
-        <ul class="zona-nearby zona-nearby--wrap">
-          <li><a href="/extintores-huixquilucan">Huixquilucan</a></li>
-          <li><a href="/extintores-naucalpan">Naucalpan</a></li>
-          <li><a href="/extintores-tlalnepantla">Tlalnepantla</a></li>
-          <li><a href="/extintores-atizapan">Atizapán</a></li>
-          <li><a href="/extintores-ecatepec">Ecatepec</a></li>
-          <li><a href="/extintores-toluca">Toluca</a></li>
-          <li><a href="/extintores-estado-de-mexico">Ver todos los municipios</a></li>
-        </ul>
-        <p class="zona-page__cta">
-          <a class="btn btn-ink" href="/extintores-cdmx">Mapa de cobertura CDMX</a>
-          <a class="btn btn-ink" href="/contacto">Solicita una cotización</a>
-        </p>
-      </div>
-    </section>
-
     <section class="about-proof" aria-labelledby="about-proof-title">
       <header class="about-proof__head wrap">
         <p class="kicker">Clientes CRM</p>
@@ -292,6 +239,47 @@
       </div>
     </div>
   </section>
+
+  <section class="seo-rail seo-rail--about" id="cobertura" aria-labelledby="about-coverage-title">
+    <div class="wrap seo-rail__inner">
+      <h2 id="about-coverage-title" class="seo-rail__title">Cobertura: extintores en CDMX y Estado de México</h2>
+      <p class="seo-rail__text">Venta, recarga, mantenimiento e instalación. Oficina en Cuajimalpa; el resto son áreas de servicio. Atendemos empresas, oficinas, restaurantes, comercios, condominios, escuelas y clínicas. <a href="/extintores-cdmx">CDMX</a> · <a href="/extintores-estado-de-mexico">Estado de México</a> · <a href="/contacto">Cotizar</a></p>
+      <div class="seo-rail__groups">
+        <p class="seo-rail__label">Servicios</p>
+        <ul class="seo-rail__links">
+          <li><a href="/venta-extintores">Venta</a></li>
+          <li><a href="/recarga-extintores">Recarga</a></li>
+          <li><a href="/mantenimiento-extintores">Mantenimiento</a></li>
+          <li><a href="/instalacion-extintores">Instalación</a></li>
+          <li><a href="/senalizacion">Señalización</a></li>
+        </ul>
+        <p class="seo-rail__label">CDMX</p>
+        <ul class="seo-rail__links">
+          <li><a href="/extintores-cdmx">Todas las alcaldías</a></li>
+          <li><a href="/extintores-cuajimalpa">Cuajimalpa</a></li>
+          <li><a href="/extintores-benito-juarez">Benito Juárez</a></li>
+          <li><a href="/extintores-alvaro-obregon">Álvaro Obregón</a></li>
+          <li><a href="/extintores-miguel-hidalgo">Miguel Hidalgo</a></li>
+          <li><a href="/extintores-cuauhtemoc">Cuauhtémoc</a></li>
+          <li><a href="/extintores-coyoacan">Coyoacán</a></li>
+          <li><a href="/extintores-tlalpan">Tlalpan</a></li>
+          <li><a href="/extintores-azcapotzalco">Azcapotzalco</a></li>
+          <li><a href="/extintores-iztapalapa">Iztapalapa</a></li>
+        </ul>
+        <p class="seo-rail__label">Estado de México</p>
+        <ul class="seo-rail__links">
+          <li><a href="/extintores-estado-de-mexico">Todos los municipios</a></li>
+          <li><a href="/extintores-huixquilucan">Huixquilucan</a></li>
+          <li><a href="/extintores-naucalpan">Naucalpan</a></li>
+          <li><a href="/extintores-tlalnepantla">Tlalnepantla</a></li>
+          <li><a href="/extintores-atizapan">Atizapán</a></li>
+          <li><a href="/extintores-ecatepec">Ecatepec</a></li>
+          <li><a href="/extintores-toluca">Toluca</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   </main>
   <div data-footer></div>
   <script type="module" src="js/main.js?v=psi-mob" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>

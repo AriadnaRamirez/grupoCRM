@@ -93,28 +93,65 @@ function productMetaDescription(p) {
 }
 
 function localBusiness() {
+  const logoUrl = abs(SITE.ogImage);
+  const phonePrimary = `+52${company.phoneTel}`;
+  const phoneAlt = `+52${company.phoneAltTel}`;
   return {
     "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "Organization"],
+    "@type": "LocalBusiness",
+    "@id": `${SITE.origin}/#business`,
     name: company.name,
+    alternateName: ["CRM Extintores", "Grupo CRM"],
+    legalName: company.name,
     description: company.about,
     url: SITE.origin,
-    image: abs(SITE.ogImage),
-    logo: abs(SITE.ogImage),
+    image: [logoUrl],
+    logo: {
+      "@type": "ImageObject",
+      url: logoUrl,
+    },
     email: company.email,
-    telephone: [`+52${company.phoneTel}`, `+52${company.phoneAltTel}`],
+    telephone: [phonePrimary, phoneAlt],
+    priceRange: "$$",
+    currenciesAccepted: "MXN",
+    paymentAccepted: "Cash, Credit Card",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Chamixto 131, Col. Loma del Padre",
-      addressLocality: "Cuajimalpa",
-      addressRegion: "Ciudad de México",
-      addressCountry: "MX",
+      streetAddress: company.streetAddress,
+      addressLocality: company.addressLocality,
+      addressRegion: company.addressRegion,
+      postalCode: company.postalCode,
+      addressCountry: company.addressCountry,
     },
+    hasMap: company.mapsUrl,
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "sales",
+        telephone: phonePrimary,
+        email: company.email,
+        areaServed: ["MX-CMX", "MX-MEX"],
+        availableLanguage: ["es-MX", "es"],
+      },
+      {
+        "@type": "ContactPoint",
+        contactType: "customer support",
+        telephone: phoneAlt,
+        areaServed: ["MX-CMX", "MX-MEX"],
+        availableLanguage: ["es-MX", "es"],
+      },
+    ],
     areaServed: [
-      "Ciudad de México",
-      "Estado de México",
-      ...zonasCdmx.map((z) => `${z.name}, Ciudad de México`),
-      ...zonasEdomex.map((z) => `${z.name}, Estado de México`),
+      { "@type": "AdministrativeArea", name: "Ciudad de México" },
+      { "@type": "AdministrativeArea", name: "Estado de México" },
+      ...zonasCdmx.map((z) => ({
+        "@type": "AdministrativeArea",
+        name: `${z.name}, Ciudad de México`,
+      })),
+      ...zonasEdomex.map((z) => ({
+        "@type": "AdministrativeArea",
+        name: `${z.name}, Estado de México`,
+      })),
     ],
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
@@ -122,7 +159,22 @@ function localBusiness() {
       opens: "09:00",
       closes: "18:00",
     },
-    sameAs: [company.facebookUrl, company.instagramUrl],
+    sameAs: [
+      company.facebookUrl,
+      company.facebookReviewsUrl,
+      company.instagramUrl,
+      company.mapsUrl,
+    ].filter(Boolean),
+    knowsAbout: [
+      "Extintores",
+      "Recarga de extintores",
+      "Instalación de extintores",
+      company.nom,
+      "Protección Civil",
+      "Equipo contra incendios",
+      "Señalamientos",
+      company.mcd,
+    ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Catálogo de extintores y equipo contra incendio",
@@ -297,6 +349,7 @@ export function applySeo(page) {
   const robots = seo.robots || "index, follow";
 
   document.documentElement.lang = "es-MX";
+  document.documentElement.setAttribute("prefix", "og: https://ogp.me/ns#");
   document.title = seo.title;
   setMeta("description", seo.description);
   setMeta("robots", robots);
@@ -319,6 +372,11 @@ export function applySeo(page) {
       : seo.article?.imageAlt || `Logotipo de ${company.name}`,
     "property"
   );
+  if (!seo.product && !seo.article) {
+    setMeta("og:image:width", "720", "property");
+    setMeta("og:image:height", "154", "property");
+    setMeta("og:image:type", "image/png", "property");
+  }
   setMeta("twitter:card", "summary_large_image");
   setMeta("twitter:title", seo.title);
   setMeta("twitter:description", seo.description);
@@ -382,7 +440,7 @@ export function applySeo(page) {
       "@context": "https://schema.org",
       "@type": "Service",
       name: `Extintores y equipo contra incendios en ${seo.zona.name}`,
-      provider: { "@type": "LocalBusiness", name: company.name, url: SITE.origin },
+      provider: { "@id": `${SITE.origin}/#business` },
       areaServed: {
         "@type": "AdministrativeArea",
         name: `${seo.zona.name}, ${zonaRegionLabel(seo.zona)}`,

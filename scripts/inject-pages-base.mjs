@@ -3,12 +3,10 @@ import { join } from "node:path";
 
 const root = process.cwd();
 const skip = new Set(["dist-pages", "node_modules", ".git", ".tmp-verify"]);
-const boot = readFileSync(join(root, "js", "pages-base.js"), "utf8").trim();
-const snippet = `  <script>\n  /* pages-base */\n${boot
-  .split("\n")
-  .map((line) => `  ${line}`)
-  .join("\n")}\n  </script>\n`;
+/** External script keeps HTML lean for text-to-code ratio (Sitechecker). */
+const snippet = `  <script src="/js/pages-base.js"></script>\n`;
 const block = /<script>\s*\/\* pages-base \*\/[\s\S]*?<\/script>\s*/g;
+const externalBlock = /<script src="\/js\/pages-base\.js"><\/script>\s*/g;
 const cssBoot = `  <style id="css-boot">
   /* css-boot: hide until local CSS + header are ready */
   html:not(.is-booted) { visibility: hidden; background: #fff; }
@@ -33,15 +31,16 @@ for (const file of walk(root)) {
   let html = readFileSync(file, "utf8");
   html = html.replace(cssBootBlock, "\n");
   html = html.replace(block, "\n");
+  html = html.replace(externalBlock, "\n");
   if (!/<meta charset="UTF-8">/i.test(html)) {
     console.warn("skip (no charset)", file);
     continue;
   }
   html = html.replace(/(<meta charset="UTF-8">\s*\r?\n)/i, `$1${snippet}`);
   if (/css\/(?:tokens|main)\.css/.test(html)) {
-    html = html.replace(/(<script>\s*\/\* pages-base \*\/[\s\S]*?<\/script>\s*)/, `$1${cssBoot}`);
+    html = html.replace(/(<script src="\/js\/pages-base\.js"><\/script>\s*)/, `$1${cssBoot}`);
   }
   writeFileSync(file, html);
   changed += 1;
 }
-console.log(`injected pages-base into ${changed} html files`);
+console.log(`injected external pages-base into ${changed} html files`);

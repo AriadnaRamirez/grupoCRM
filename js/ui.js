@@ -1,4 +1,4 @@
-import { company, categories, products, services, courses, sectors, faqs, reviews, clients, waUrl, safeDecode, catName, catCount, productBySku, productImg, productAlt, productUrl, readSku, relatedProducts, lookbook, lookAlt, lookFull, venues, carePoints, readyChecks, condo } from "./data.js?v=seo-com-mx";
+import { company, categories, products, services, courses, sectors, faqs, reviews, clients, waUrl, safeDecode, catName, catCount, productBySku, productImg, productAlt, productUrl, readSku, relatedProducts, lookbook, lookAlt, lookFull, venues, carePoints, readyChecks, condo } from "./data.js?v=og-ratio";
 import { applySeo } from "./seo.js";
 import { rebaseDocument, rebaseSrcset, withBase } from "./base.js";
 

@@ -32,8 +32,10 @@
         } else if (/^blog\/[\w-]+\.html$/i.test(rel)) {
           pathname = base + "/" + rel.replace(/\.html$/i, "");
         } else if (/^zonas\/index\.html$/i.test(rel)) {
-          pathname = base + "/zonas";
+          pathname = base + "/extintores-cdmx";
         } else if (/^zonas\/[\w-]+\.html$/i.test(rel)) {
+          pathname = base + "/extintores-" + rel.replace(/^zonas\//i, "").replace(/\.html$/i, "");
+        } else if (/^(extintores-[\w-]+|venta-extintores|recarga-extintores|mantenimiento-extintores|instalacion-extintores|senalizacion)\.html$/i.test(rel)) {
           pathname = base + "/" + rel.replace(/\.html$/i, "");
         } else {
           return value;

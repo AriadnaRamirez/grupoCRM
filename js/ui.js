@@ -454,7 +454,7 @@ function headerHTML(page) {
       </div>
       <header class="site-header">
         <div class="wrap header__inner">
-          <a class="brand" href="${withBase("/")}"><img src="${withBase("/assets/img/logo-crm.png")}" alt="Grupo CRM Extintores" title="Grupo CRM Extintores" width="243" height="52"></a>
+          <a class="brand" href="${withBase("/")}"><picture><source type="image/webp" srcset="${withBase("/assets/img/logo-crm.webp")}"><img src="${withBase("/assets/img/logo-crm.png")}" alt="Grupo CRM Extintores" title="Grupo CRM Extintores" width="243" height="52" decoding="async" fetchpriority="low"></picture></a>
           <nav class="nav" id="menu">
             ${item("/", "inicio", "Inicio")}
             ${item("/nosotros", "nosotros", "Nosotros")}
@@ -528,7 +528,9 @@ function footerHTML() {
             <li><a href="${withBase("/nosotros#cursos")}">Cursos</a></li>
             <li><a href="${withBase("/#resenas")}">Reseñas</a></li>
             <li><a href="${withBase("/galeria")}">Galería</a></li>
-            <li><a href="${withBase("/zonas")}">Cobertura</a></li>
+            <li><a href="${withBase("/extintores-cdmx")}">Cobertura CDMX</a></li>
+            <li><a href="${withBase("/extintores-estado-de-mexico")}">Estado de México</a></li>
+            <li><a href="${withBase("/venta-extintores")}">Servicios</a></li>
             <li><a href="${withBase("/blog")}">Blog</a></li>
             <li><a href="${withBase("/contacto")}">Contacto</a></li>
             <li><a href="${withBase("/aviso-privacidad")}">Aviso de privacidad</a></li>
@@ -597,10 +599,21 @@ function bindChrome() {
   const menu = chrome.querySelector("#menu");
   const drops = [...chrome.querySelectorAll(".nav-drop")];
   const topDrops = [...chrome.querySelectorAll("[data-topbar-drop]")];
+  let padRaf = 0;
+  const syncPad = () => {
+    if (padRaf) return;
+    padRaf = requestAnimationFrame(() => {
+      padRaf = 0;
+      const h = chrome.offsetHeight;
+      requestAnimationFrame(() => {
+        document.body.style.paddingTop = `${h}px`;
+        document.documentElement.style.setProperty("--chrome-h", `${h}px`);
+      });
+    });
+  };
   const sync = () => {
     chrome.classList.toggle("is-scrolled", window.scrollY > 16);
-    document.body.style.paddingTop = `${chrome.offsetHeight}px`;
-    document.documentElement.style.setProperty("--chrome-h", `${chrome.offsetHeight}px`);
+    syncPad();
   };
   const closeTopDrops = (except) => {
     topDrops.forEach((drop) => {
@@ -1266,7 +1279,8 @@ function bindSlider(root) {
   const reduceMq = window.matchMedia("(prefers-reduced-motion: reduce)");
   let reduceMotion = reduceMq.matches;
   const isHero = root.classList.contains("hero-slider");
-  const intervalMs = isHero ? 5500 : 6500;
+  const isMobile = window.matchMedia("(max-width: 760px)").matches;
+  const intervalMs = isHero ? (isMobile ? 10000 : 5500) : 6500;
   let index = 0;
   let timer;
   let paused = false;
@@ -1413,12 +1427,20 @@ function bindSlider(root) {
   else reduceMq.addListener(onMotion);
   show(0);
   const schedulePrefetch = () => {
+    if (isHero && isMobile) return; // avoid competing with LCP on mobile
     const run = () => prefetchNext();
     if ("requestIdleCallback" in window) window.requestIdleCallback(run, { timeout: 2800 });
     else window.setTimeout(run, 1400);
   };
   schedulePrefetch();
-  kick();
+  if (isHero && isMobile) {
+    // Delay autoplay so LCP image/text settle first.
+    window.setTimeout(() => {
+      if (!paused) play();
+    }, 4500);
+  } else {
+    kick();
+  }
 }
 
 export function bindHeroSlider() {
@@ -1922,18 +1944,29 @@ export function renderFaqs() {
 
 export function renderHome() {
   bindHeroSlider();
-  renderHomeCats();
-  renderHomeCatalog();
-  paintServices();
-  paintCursos();
-  renderCarePoints();
-  renderClientLogos();
-  renderReviews();
-  renderCompactSectors();
-  renderHook();
-  renderHomeGallerySlider();
-  renderFaqs();
-  renderNosotros();
+  const hydrate = () => {
+    renderHomeCats();
+    renderHomeCatalog();
+    paintServices();
+    paintCursos();
+    renderCarePoints();
+    renderClientLogos();
+    renderReviews();
+    renderCompactSectors();
+    renderHook();
+    renderHomeGallerySlider();
+    renderFaqs();
+    renderNosotros();
+  };
+  // Mobile: keep first paint free of catalog/reviews/gallery work.
+  const mobile = window.matchMedia("(max-width: 760px)").matches;
+  if (mobile && "requestIdleCallback" in window) {
+    window.requestIdleCallback(hydrate, { timeout: 2200 });
+  } else if (mobile) {
+    window.setTimeout(hydrate, 120);
+  } else {
+    hydrate();
+  }
 }
 
 export function renderProductos() {

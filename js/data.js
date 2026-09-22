@@ -59,9 +59,9 @@ export const SITE = {
 export const pageSeo = {
   inicio: {
     path: "/",
-    title: "Extintores y recarga en CDMX | Grupo CRM Extintores",
+    title: "Extintores en CDMX y Estado de México | Grupo CRM Extintores",
     description:
-      "Extintores, recarga y primera visita sin costo en CDMX y Estado de México. Cumpla con Protección Civil y evite multas. Cotice por WhatsApp 56 6748 1489.",
+      "Grupo CRM Extintores: venta, recarga, mantenimiento e instalación de extintores en CDMX y Estado de México. Primera visita sin costo. WhatsApp 56 6748 1489.",
   },
   nosotros: {
     path: "/nosotros",
@@ -202,6 +202,132 @@ export function zonaRegionLabel(zona) {
 
 export function zonaTypeLabel(zona) {
   return zona?.region === "edomex" ? "Municipio" : "Alcaldía";
+}
+
+/** Canonical local-SEO URL for a coverage area (service area, not a branch). */
+export function extintoresPath(zonaOrSlug) {
+  const slug = typeof zonaOrSlug === "string" ? zonaOrSlug : zonaOrSlug?.slug;
+  return slug ? `/extintores-${slug}` : "/extintores-cdmx";
+}
+
+export function extintoresHubPath(region) {
+  return region === "edomex" ? "/extintores-estado-de-mexico" : "/extintores-cdmx";
+}
+
+/**
+ * Service landing pages for local SEO (confirmed against company.services).
+ * Paths are clean URLs without query params.
+ */
+export const seoServicePages = [
+  {
+    slug: "venta-extintores",
+    path: "/venta-extintores",
+    title: "Venta de Extintores en CDMX y Estado de México | Grupo CRM",
+    h1: "Venta de Extintores",
+    description:
+      "Venta de extintores certificados en CDMX y Estado de México. Asesoría para elegir el equipo adecuado y primera visita de revisión sin costo. Cotice con Grupo CRM Extintores.",
+    kicker: "Servicio",
+    lead:
+      "Grupo CRM Extintores vende extintores nuevos y certificados para empresas, comercios, condominios y oficinas en la Ciudad de México y el Estado de México.",
+    body: [
+      "Le ayudamos a elegir el tipo y la capacidad correctos según el riesgo de su inmueble: polvo químico seco (PQS), CO₂, tipo K u otros agentes, de acuerdo con lo que requiera Protección Civil.",
+      "La venta puede acompañarse de instalación en sitio, señalamientos y una revisión inicial para dejar su empresa lista ante inspección. La primera visita de revisión no tiene costo.",
+    ],
+    process: [
+      "Cuéntenos el giro y la ubicación (alcaldía o municipio).",
+      "Le orientamos sobre el equipo adecuado y le enviamos cotización.",
+      "Coordinamos entrega o instalación en su inmueble.",
+    ],
+    related: ["recarga-extintores", "instalacion-extintores", "mantenimiento-extintores", "senalizacion"],
+  },
+  {
+    slug: "recarga-extintores",
+    path: "/recarga-extintores",
+    title: "Recarga de Extintores en CDMX y Estado de México | CRM",
+    h1: "Recarga de Extintores",
+    description:
+      "Recarga de extintores en CDMX y Estado de México bajo NOM-154-SCFI-2005. Mantenemos sus equipos listos para inspección. Cotice con Grupo CRM Extintores.",
+    kicker: "Servicio",
+    lead:
+      "Recargamos extintores para que queden operativos y con evidencia útil para inspección, conforme a la NOM-154-SCFI-2005 y con verificación de MCD cuando corresponda al proceso de servicio.",
+    body: [
+      "Si sus extintores están vencidos, descargados o con sello roto, podemos evaluarlos y cotizar la recarga. También le indicamos si conviene sustituir alguna unidad.",
+      "Atendemos empresas e inmuebles en CDMX y Estado de México desde nuestra base en Cuajimalpa. La primera visita de revisión es sin costo.",
+    ],
+    process: [
+      "Agende revisión o envíe fotos y datos de sus equipos por WhatsApp.",
+      "Le confirmamos qué se puede recargar y qué conviene reemplazar.",
+      "Realizamos el servicio y le entregamos el equipo listo, con la documentación del proceso.",
+    ],
+    related: ["mantenimiento-extintores", "venta-extintores", "instalacion-extintores"],
+  },
+  {
+    slug: "mantenimiento-extintores",
+    path: "/mantenimiento-extintores",
+    title: "Mantenimiento de Extintores en CDMX y Estado de México | CRM",
+    h1: "Mantenimiento de Extintores",
+    description:
+      "Mantenimiento y recarga de extintores en CDMX y Estado de México. Revise sus equipos antes de una inspección de Protección Civil. Cotice con Grupo CRM.",
+    kicker: "Servicio",
+    lead:
+      "El mantenimiento de extintores forma parte de nuestro servicio de recarga y revisión en sitio: dejamos sus equipos en condiciones adecuadas y disponibles cuando se necesiten.",
+    body: [
+      "Incluye revisión de presión, sello, etiqueta, estado físico y, cuando aplica, recarga bajo NOM-154-SCFI-2005. El objetivo es que su inmueble cumpla y que el equipo sirva en un conato real.",
+      "Atendemos CDMX y Estado de México. No operamos como sucursal en cada alcaldía: el servicio se coordina desde Cuajimalpa y se realiza en su ubicación.",
+    ],
+    process: [
+      "Solicite una visita de revisión (sin costo la primera).",
+      "Reciba un diagnóstico claro de lo que requiere atención.",
+      "Programamos mantenimiento o recarga y dejamos evidencia para inspección.",
+    ],
+    related: ["recarga-extintores", "venta-extintores", "instalacion-extintores"],
+  },
+  {
+    slug: "instalacion-extintores",
+    path: "/instalacion-extintores",
+    title: "Instalación de Extintores en CDMX y Estado de México | CRM",
+    h1: "Instalación de Extintores",
+    description:
+      "Instalación de extintores y señalamientos en CDMX y Estado de México. Colocamos equipos en los puntos adecuados de su inmueble. Cotice con Grupo CRM Extintores.",
+    kicker: "Servicio",
+    lead:
+      "Instalamos extintores en los puntos correctos de su empresa, comercio o condominio, con la altura, visibilidad y acceso que suelen pedirse en revisiones de Protección Civil.",
+    body: [
+      "Podemos incluir soporte, señalamiento de equipo y orientación sobre rutas de evacuación cuando corresponda al alcance de su cotización.",
+      "Trabajamos en Ciudad de México y Estado de México. La primera visita de revisión o levantamiento no tiene costo.",
+    ],
+    process: [
+      "Levantamos o revisamos los puntos de instalación en su inmueble.",
+      "Cotizamos equipos, instalación y señalamientos necesarios.",
+      "Instalamos en la fecha acordada y dejamos el sitio listo para inspección.",
+    ],
+    related: ["venta-extintores", "senalizacion", "recarga-extintores"],
+  },
+  {
+    slug: "senalizacion",
+    path: "/senalizacion",
+    title: "Señalización y Señalamientos en CDMX y Estado de México | CRM",
+    h1: "Señalización contra incendios y vial",
+    description:
+      "Señalamientos de emergencia y vialidad en CDMX y Estado de México. Identifique equipos, rutas y áreas de riesgo. Cotice con Grupo CRM Extintores.",
+    kicker: "Servicio",
+    lead:
+      "Ofrecemos señalamientos de emergencia y señalamiento vial para identificar extintores, rutas de evacuación y zonas de trabajo, como complemento del equipo contra incendios.",
+    body: [
+      "En el catálogo encontrará señales, cintas, conos y accesorios de obra. Le orientamos sobre lo que suele pedirse junto con los extintores en revisiones.",
+      "Disponible para inmuebles en CDMX y Estado de México, con entrega o instalación según la cotización.",
+    ],
+    process: [
+      "Indique el tipo de inmueble y si ya tiene plano o lista de señalamientos.",
+      "Le proponemos el material adecuado del catálogo.",
+      "Coordinamos suministro o instalación junto con sus extintores si lo requiere.",
+    ],
+    related: ["instalacion-extintores", "venta-extintores", "recarga-extintores"],
+  },
+];
+
+export function seoServiceBySlug(slug) {
+  return seoServicePages.find((s) => s.slug === slug);
 }
 
 export const blogPosts = [

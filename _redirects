@@ -11,5 +11,8 @@
 /blog/nom-002-stps-2010 /blog  301
 /blog/botiquin-primeros-auxilios /blog  301
 /servicios /nosotros#servicios  301
+/zonas /extintores-cdmx  301
+/zonas/ /extintores-cdmx  301
+/zonas/* /extintores-:splat  301
 /.tmp-verify/* /404.html 404
 /node_modules/* /404.html 404

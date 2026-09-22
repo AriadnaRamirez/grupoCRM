@@ -2,7 +2,6 @@
 <html lang="es-MX" prefix="og: https://ogp.me/ns#">
 <head>
   <meta charset="UTF-8">
-  
 
   
   
@@ -10,15 +9,35 @@
   
   
   
-  <script src="/js/pages-base.js"></script>
+  <script>!function(){if(!/\.github\.io$/i.test(location.hostname))return;var s=document.createElement("script");s.src="/js/pages-base.js";document.head.appendChild(s)}();</script>
   <style id="css-boot">
-  /* css-boot: hide until local CSS + header are ready */
-  html:not(.is-booted) { visibility: hidden; background: #fff; }
+  /* Mobile LCP: paint hero without waiting for main.min.css */
+  html { background: #fff; }
+  body { margin: 0; color: #202020; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+  img { max-width: 100%; height: auto; }
+  .wrap { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+  .site-chrome { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: #fff; }
+  .brand img { width: min(162px, 42vw); height: auto; display: block; }
+  .hero-slider { position: relative; min-height: min(72vh, 560px); background: #1a2031; color: #fff; overflow: hidden; }
+  .slide { display: none; }
+  .slide.is-active { display: block; }
+  .slide__photo { position: absolute; inset: 0; }
+  .slide__photo img { width: 100%; height: 100%; object-fit: cover; object-position: center bottom; }
+  .hero-copy { position: relative; z-index: 1; padding: 88px 0 40px; max-width: 36rem; }
+  .hero-copy h1, .hero-copy h2 { margin: 0 0 14px; font-size: clamp(1.45rem, 5.2vw, 2rem); line-height: 1.18; letter-spacing: -0.03em; }
+  .hero-copy .lead { margin: 12px 0 0; font-size: 1rem; line-height: 1.5; opacity: 0.92; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 10px 18px; border-radius: 4px; font-weight: 700; text-decoration: none; color: #fff; }
+  .btn-red { background: #d51a32; }
+  .btn-wa { background: #1f8a4d; }
+  .btn-ink { background: #202020; }
+  .btn svg { width: 1.05em; height: 1.05em; flex: none; }
   </style>
-  <noscript><style>html { visibility: visible !important; }</style></noscript>
-  <script>setTimeout(function () { document.documentElement.classList.add("is-booted"); }, 4000);</script>
-<link rel="stylesheet" href="css/tokens.css?v=prod-20260903">
-  <link rel="stylesheet" href="css/main.css?v=topbar-contrast">
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2" media="(min-width: 761px)" crossorigin>
+<link rel="stylesheet" href="css/tokens.css?v=psi-mob">
+      <link rel="preload" as="style" href="css/main.min.css?v=psi-mob" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/main.min.css?v=psi-mob"></noscript>
+  <script>!function(){var l=document.querySelector('link[rel="preload"][as="style"]');if(l&&!l.sheet){l.addEventListener("load",function(){this.onload=null;this.rel="stylesheet"});if(l.relList&&!l.relList.supports("preload"))l.rel="stylesheet"}}();</script>
   <script>document.documentElement.classList.add("is-css");</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Mapa de sitio | Grupo CRM Extintores</title>
@@ -43,14 +62,10 @@
   <meta name="twitter:title" content="Mapa de sitio | Grupo CRM Extintores">
   <meta name="twitter:description" content="Encuentre equipos, servicios y contacto para cotizar extintores con Grupo CRM en CDMX y Estado de México.">
   <meta name="twitter:image" content="https://www.crmextintores.com.mx/assets/img/logo-crm.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <link rel="apple-touch-icon" href="assets/img/favicon.png">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=optional" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=optional"></noscript>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'" crossorigin="anonymous" referrerpolicy="no-referrer">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
 </head>
 <body data-page="mapa">
@@ -71,7 +86,8 @@
             <li><a href="nosotros.html">Nosotros y servicios</a></li>
             <li><a href="nosotros.html#cursos">Cursos y capacitaciones</a></li>
             <li><a href="galeria.html">Galería de instalaciones</a></li>
-            <li><a href="/zonas">Cobertura CDMX y Estado de México</a></li>
+            <li><a href="/extintores-cdmx">Cobertura CDMX</a></li>
+            <li><a href="/extintores-estado-de-mexico">Estado de México</a></li>
             <li><a href="/blog">Blog de extintores</a></li>
             <li><a href="mapa-sitio.html">Mapa de sitio</a></li>
           </ul>
@@ -129,16 +145,19 @@
           </ul>
         </nav>
         <nav>
-          <h2>Cobertura</h2>
+          <h2>Cobertura y servicios</h2>
           <ul>
-            <li><a href="/zonas">CDMX y Estado de México</a></li>
-            <li><a href="/zonas/cuajimalpa">CRM Extintores en Cuajimalpa</a></li>
-            <li><a href="/zonas/naucalpan">CRM Extintores en Naucalpan</a></li>
-            <li><a href="/zonas/tlalnepantla">CRM Extintores en Tlalnepantla</a></li>
-            <li><a href="/zonas/huixquilucan">CRM Extintores en Huixquilucan</a></li>
-            <li><a href="/zonas/ecatepec">CRM Extintores en Ecatepec</a></li>
-            <li><a href="/zonas/toluca">CRM Extintores en Toluca</a></li>
-            <li><a href="/zonas/benito-juarez">CRM Extintores en Benito Juárez</a></li>
+            <li><a href="/extintores-cdmx">Extintores en CDMX</a></li>
+            <li><a href="/extintores-estado-de-mexico">Extintores en Estado de México</a></li>
+            <li><a href="/extintores-cuajimalpa">Extintores en Cuajimalpa</a></li>
+            <li><a href="/extintores-benito-juarez">Extintores en Benito Juárez</a></li>
+            <li><a href="/extintores-naucalpan">Extintores en Naucalpan</a></li>
+            <li><a href="/extintores-huixquilucan">Extintores en Huixquilucan</a></li>
+            <li><a href="/venta-extintores">Venta de extintores</a></li>
+            <li><a href="/recarga-extintores">Recarga de extintores</a></li>
+            <li><a href="/mantenimiento-extintores">Mantenimiento</a></li>
+            <li><a href="/instalacion-extintores">Instalación</a></li>
+            <li><a href="/senalizacion">Señalización</a></li>
             <li><a href="/blog/extintores-cdmx">Guía: extintores en CDMX</a></li>
           </ul>
         </nav>
@@ -147,6 +166,6 @@
   </section>
   </main>
   <div data-footer></div>
-  <script type="module" src="js/main.js?v=nav-cta" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
+  <script type="module" src="js/main.js?v=psi-mob" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
 </body>
 </html>

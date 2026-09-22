@@ -17,6 +17,9 @@ import {
   zonas,
   zonaBySlug,
   zonaRegionLabel,
+  seoServicePages,
+  extintoresPath,
+  extintoresHubPath,
 } from "./data.js";
 import { basePath } from "./base.js";
 
@@ -311,25 +314,59 @@ function resolvePage(page) {
     };
   }
   if (page === "zonas") {
-    return { ...pageSeo.zonas };
+    const hub = document.body.dataset.hub === "edomex" ? "/extintores-estado-de-mexico" : "/extintores-cdmx";
+    return {
+      path: hub,
+      title:
+        document.body.dataset.hub === "edomex"
+          ? "Extintores en Estado de México | Venta, Recarga y Mantenimiento"
+          : "Extintores en CDMX | Venta, Recarga y Mantenimiento",
+      description:
+        document.body.dataset.hub === "edomex"
+          ? "Extintores en Estado de México: venta, recarga, mantenimiento e instalación. Cotice con Grupo CRM Extintores."
+          : "Extintores en Ciudad de México: venta, recarga, mantenimiento e instalación. Cotice con Grupo CRM Extintores.",
+    };
+  }
+  if (page === "servicio") {
+    const slug = document.body.dataset.servicio;
+    const svc = seoServicePages.find((s) => s.slug === slug);
+    if (svc) {
+      return {
+        path: svc.path,
+        title: svc.title,
+        description: svc.description,
+        type: "servicio",
+        servicio: svc,
+      };
+    }
   }
   if (page === "zona") {
-    const slug =
+    const raw =
       document.body.dataset.zona ||
       location.pathname
         .replace(new RegExp(`^${basePath() || ""}`), "")
-        .replace(/^\/zonas\/?/, "")
+        .replace(/^\/(?:zonas\/|extintores-)/, "")
         .replace(/\/index\.html$/i, "")
         .replace(/\.html$/i, "")
         .replace(/\/$/, "");
-    const zona = zonaBySlug(slug);
-    if (!zona) return { ...pageSeo.zonas };
+    const zona = zonaBySlug(raw);
+    if (!zona) {
+      return {
+        path: "/extintores-cdmx",
+        title: "Extintores en CDMX | Venta, Recarga y Mantenimiento",
+        description:
+          "Extintores en Ciudad de México: venta, recarga, mantenimiento e instalación. Cotice con Grupo CRM Extintores.",
+      };
+    }
     const region = zonaRegionLabel(zona);
     return {
-      path: `/zonas/${zona.slug}`,
-      title: `CRM Extintores en ${zona.name} | Grupo CRM Extintores`,
+      path: extintoresPath(zona),
+      title:
+        zona.region === "edomex"
+          ? `Extintores en ${zona.name}, Estado de México | Grupo CRM Extintores`
+          : `Extintores en ${zona.name}, CDMX | Venta y Recarga`,
       description: clipDesc(
-        `Venta, recarga e instalación de extintores en ${zona.name}, ${region}. Primera visita sin costo. Cotice con Grupo CRM Extintores.`
+        `Venta, recarga, mantenimiento e instalación de extintores en ${zona.name}, ${region}. Primera visita sin costo. Cotice con Grupo CRM Extintores.`
       ),
       type: "zona",
       zona,
@@ -418,19 +455,37 @@ export function applySeo(page) {
       ])
     );
   } else if (page === "zonas") {
+    const hub = document.body.dataset.hub === "edomex" ? "/extintores-estado-de-mexico" : "/extintores-cdmx";
+    const hubName = document.body.dataset.hub === "edomex" ? "Estado de México" : "Ciudad de México";
     setJsonLd(
       "seo-crumbs",
       breadcrumbs([
         { name: "Inicio", path: "/" },
-        { name: "Cobertura", path: "/zonas" },
+        { name: hubName, path: hub },
       ])
     );
+  } else if (page === "servicio") {
+    const slug = document.body.dataset.servicio;
+    const svc = seoServicePages.find((s) => s.slug === slug);
+    if (svc) {
+      setJsonLd(
+        "seo-crumbs",
+        breadcrumbs([
+          { name: "Inicio", path: "/" },
+          { name: "Servicios", path: "/venta-extintores" },
+          { name: svc.h1, path: svc.path },
+        ])
+      );
+    }
   } else if (seo.zona) {
     setJsonLd(
       "seo-crumbs",
       breadcrumbs([
         { name: "Inicio", path: "/" },
-        { name: "Cobertura", path: "/zonas" },
+        {
+          name: seo.zona.region === "edomex" ? "Estado de México" : "Ciudad de México",
+          path: extintoresHubPath(seo.zona.region),
+        },
         { name: seo.zona.name, path: seo.path },
       ])
     );
@@ -460,8 +515,10 @@ export function sitemapUrls() {
     "/aviso-privacidad",
     "/mapa-sitio",
     "/blog",
-    "/zonas",
-    ...zonas.map((z) => `/zonas/${z.slug}`),
+    "/extintores-cdmx",
+    "/extintores-estado-de-mexico",
+    ...seoServicePages.map((s) => s.path),
+    ...zonas.map((z) => extintoresPath(z)),
     ...blogPosts.map((post) => post.path),
     ...categories.map((c) => `/productos?cat=${c.id}`),
     ...products.map((p) => `/producto?sku=${p.sku}`),

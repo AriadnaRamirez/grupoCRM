@@ -330,6 +330,32 @@ html.is-booted .site-chrome {
   color: var(--red);
 }
 .topbar__menu-link .topbar__icon {
+  color: var(--ink);
+}
+.topbar__menu-link .topbar__icon--whatsapp {
+  color: var(--wa);
+}
+.topbar__menu-link .topbar__icon--phone {
+  color: var(--navy);
+}
+.topbar__menu-link:hover .topbar__icon,
+.topbar__menu-link:hover .topbar__icon--whatsapp,
+.topbar__menu-link:hover .topbar__icon--phone {
+  color: inherit;
+}
+/* Keep dropdown icons readable when the topbar is scrolled (navy → white icons). */
+.site-chrome.is-scrolled .topbar__menu .topbar__icon {
+  color: var(--ink);
+}
+.site-chrome.is-scrolled .topbar__menu .topbar__icon--whatsapp {
+  color: var(--wa);
+}
+.site-chrome.is-scrolled .topbar__menu .topbar__icon--phone {
+  color: var(--navy);
+}
+.site-chrome.is-scrolled .topbar__menu-link:hover .topbar__icon,
+.site-chrome.is-scrolled .topbar__menu-link:hover .topbar__icon--whatsapp,
+.site-chrome.is-scrolled .topbar__menu-link:hover .topbar__icon--phone {
   color: inherit;
 }
 .topbar__tel {

@@ -26,7 +26,7 @@ const cssBoot = `  <style id="css-boot">
   <noscript><style>html { visibility: visible !important; }</style></noscript>
   <script>setTimeout(function () { document.documentElement.classList.add("is-booted"); }, 4000);</script>
 `;
-const CACHE = "zonas-v3";
+const CACHE = "topbar-contrast";
 
 function escapeHtml(text) {
   return String(text)

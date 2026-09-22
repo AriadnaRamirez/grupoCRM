@@ -24,7 +24,7 @@ import {
 } from "../js/data.js";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const CACHE = "seo-brief";
+const CACHE = "perf2-dots";
 const pagesBaseSnippet = `  <script>!function(){if(!/\\.github\\.io$/i.test(location.hostname))return;var s=document.createElement("script");s.src="/js/pages-base.js";document.head.appendChild(s)}();</script>\n`;
 const cssBoot = `  <style id="css-boot">
   /* Minimal first paint — never override hero/slide rules from main.css */
@@ -100,7 +100,7 @@ ${jsonLd}
 ${main}
   </main>
   <div data-footer></div>
-  <script type="module" src="/js/main.js?v=${CACHE}" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
+  <script type="module" src="/js/app.min.js?v=${CACHE}" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
 </body>
 </html>
 `;

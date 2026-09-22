@@ -8,10 +8,8 @@ const snippet = `  <script>!function(){if(!/\\.github\\.io$/i.test(location.host
 const block = /<script>\s*\/\* pages-base \*\/[\s\S]*?<\/script>\s*/g;
 const externalBlock = /<script(?: src="\/js\/pages-base\.js"><\/script>|[^>]*>!function\(\)\{if\(!\/\\.github\\.io\$\/i\.test\(location\.hostname\)\)return;[\s\S]*?<\/script>)\s*/g;
 const cssBoot = `  <style id="css-boot">
-  /* Minimal first paint only — do not override hero/slide layout from main.css */
+  /* Sync main.css — never override hero/slide layout from main.css */
   html { background: #fff; }
-  body { margin: 0; color: #202020; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
-  .site-chrome { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: #fff; }
   </style>
 `;
 const cssBootBlock = /<style id="css-boot">[\s\S]*?<\/style>\s*(?:<noscript><style>html \{ visibility: visible !important; \}<\/style><\/noscript>\s*)?(?:<script>setTimeout\(function \(\) \{ document\.documentElement\.classList\.add\("is-booted"\); \}, 4000\);<\/script>\s*)?/g;

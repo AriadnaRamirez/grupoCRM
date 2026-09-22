@@ -12,17 +12,13 @@
   
   <script>!function(){if(!/\.github\.io$/i.test(location.hostname))return;var s=document.createElement("script");s.src="/js/pages-base.js";document.head.appendChild(s)}();</script>
   <style id="css-boot">
-  /* Minimal first paint only — do not override hero/slide layout from main.css */
+  /* Sync main.css — no hero/slide overrides (restores yesterday layout) */
   html { background: #fff; }
-  body { margin: 0; color: #202020; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
-  .site-chrome { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: #fff; }
   </style>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2" media="(min-width: 761px)" crossorigin>
-<link rel="stylesheet" href="css/tokens.css?v=seo-rail">
-      <link rel="preload" as="style" href="css/main.min.css?v=seo-rail" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="css/main.min.css?v=seo-rail"></noscript>
-  <script>!function(){var l=document.querySelector('link[rel="preload"][as="style"]');if(l&&!l.sheet){l.addEventListener("load",function(){this.onload=null;this.rel="stylesheet"});if(l.relList&&!l.relList.supports("preload"))l.rel="stylesheet"}}();</script>
-  <script>document.documentElement.classList.add("is-css");</script>
+<link rel="stylesheet" href="css/tokens.css?v=hero-yest">
+  <link rel="stylesheet" href="css/main.min.css?v=hero-yest">
+  <script>document.documentElement.classList.add("is-css","is-booted");</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Extintores en CDMX y Estado de México | Grupo CRM Extintores</title>
   <meta name="description" content="Grupo CRM Extintores: venta, recarga, mantenimiento e instalación de extintores en CDMX y Estado de México. Primera visita sin costo. WhatsApp 56 6748 1489.">
@@ -116,7 +112,7 @@
       </span>
       <div class="wrap">
         <div class="hero-copy">
-          <h2>Extintores y equipo contra incendios para su empresa.</h2>
+          <h1>Extintores y equipo contra incendios para su empresa.</h1>
           <div class="hero-actions" role="group" aria-label="Ver equipos o pedir cotización">
             <a class="btn btn-red" href="productos.html"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i> Ver catálogo de extintores</a>
             <a class="btn btn-wa" href="https://wa.me/525667481489?text=Hola%2C%20quiero%20una%20cotizaci%C3%B3n%20de%20extintores%20para%20mi%20empresa." target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp wa-icon" aria-hidden="true"></i> Cotizar extintores</a>
@@ -331,7 +327,7 @@
 
   <section class="seo-rail" id="cobertura-seo" aria-labelledby="cobertura-home-title">
     <div class="wrap seo-rail__inner">
-      <h1 id="cobertura-home-title" class="seo-rail__title">Extintores en Ciudad de México y Estado de México</h1>
+      <h2 id="cobertura-home-title" class="seo-rail__title">Extintores en Ciudad de México y Estado de México</h2>
       <p class="seo-rail__text">Venta, recarga, mantenimiento e instalación de extintores. Oficina en Cuajimalpa; el resto son áreas de servicio. <a href="/nosotros#cobertura">Más en Nosotros</a> · <a href="/contacto">Cotizar</a></p>
       <div class="seo-rail__groups">
         <p class="seo-rail__label">Servicios</p>

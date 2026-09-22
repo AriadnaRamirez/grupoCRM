@@ -61,7 +61,7 @@ export const pageSeo = {
     path: "/",
     title: "Extintores en CDMX y Estado de México | Grupo CRM Extintores",
     description:
-      "Grupo CRM Extintores: venta, recarga, mantenimiento e instalación de extintores en CDMX y Estado de México. Primera visita sin costo. WhatsApp 56 6748 1489.",
+      "Grupo CRM Extintores: venta, recarga e instalación de extintores en CDMX y Estado de México. Primera visita sin costo. WhatsApp 56 6748 1489.",
   },
   nosotros: {
     path: "/nosotros",

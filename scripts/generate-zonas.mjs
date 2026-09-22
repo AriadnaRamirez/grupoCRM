@@ -26,7 +26,7 @@ const cssBoot = `  <style id="css-boot">
   <noscript><style>html { visibility: visible !important; }</style></noscript>
   <script>setTimeout(function () { document.documentElement.classList.add("is-booted"); }, 4000);</script>
 `;
-const CACHE = "zonas-v2";
+const CACHE = "zonas-v3";
 
 function escapeHtml(text) {
   return String(text)
@@ -43,11 +43,18 @@ function waHref(zona) {
 }
 
 function nearbyLinks(zona) {
+  const patterns = [
+    (n) => `Extintores en ${n.name}`,
+    (n) => `Servicio en ${n.name}`,
+    (n) => `Atención en ${n.name}`,
+    (n) => `Recarga en ${n.name}`,
+  ];
   return (zona.nearby || [])
-    .map((slug) => {
+    .map((slug, i) => {
       const n = zonaBySlug(slug);
       if (!n) return "";
-      return `<li><a href="/zonas/${n.slug}">CRM Extintores en ${escapeHtml(n.name)}</a></li>`;
+      const label = patterns[i % patterns.length](n);
+      return `<li><a href="/zonas/${n.slug}">${escapeHtml(label)}</a></li>`;
     })
     .filter(Boolean)
     .join("\n            ");
@@ -129,7 +136,7 @@ function hubHtml() {
         <p class="kicker">Cobertura</p>
         <h1>CRM Extintores en CDMX y Estado de México</h1>
         <hr class="rule rule-left" aria-hidden="true">
-        <p class="lead">Atendemos las 16 alcaldías de la Ciudad de México y los principales municipios del Estado de México. Elija su zona para cotizar venta, recarga e instalación.</p>
+        <p class="lead">CRM Extintores atiende CDMX y Estado de México: las 16 alcaldías de la Ciudad de México y los principales municipios del Valle de México y zona Toluca. Elija su zona para cotizar venta, recarga e instalación de extintores.</p>
       </header>
 
       <section class="zona-hub__block" aria-labelledby="zona-cdmx">
@@ -152,6 +159,7 @@ function hubHtml() {
         </ul>
       </section>
 
+      <p class="zona-page__more muted">Además del mapa de cobertura, puede revisar el <a href="/productos">catálogo de extintores</a>, nuestros <a href="/nosotros#servicios">servicios contra incendios</a>, la <a href="/galeria">galería de instalaciones</a> o el <a href="/blog/extintores-cdmx">blog de extintores en CDMX</a>.</p>
       <p class="zona-page__cta">
         <a class="btn btn-wa" href="https://wa.me/${company.whatsapp}?text=${encodeURIComponent("Hola, quiero cotizar extintores en CDMX o Estado de México.")}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Cotizar por WhatsApp</a>
         <a class="btn btn-ink" href="/contacto">Pedir cotización</a>
@@ -174,17 +182,17 @@ function zonaHtml(zona) {
   const description = `Venta, recarga e instalación de extintores en ${zona.name}, ${region}. Primera visita sin costo. Cotice con Grupo CRM Extintores.`;
   const isHome = zona.slug === "cuajimalpa";
   const serviceLead = isHome
-    ? `Desde nuestra oficina en Chamixto 131, Col. Loma del Padre, atendemos empresas, condominios y oficinas en ${zona.name}. Equipos certificados, recarga bajo NOM-154-SCFI-2005 e instalación en sitio.`
-    : `Grupo CRM Extintores se desplaza a ${zona.name} desde Cuajimalpa para dejar su empresa, condominio u oficina lista ante Protección Civil. Cotizamos equipos certificados, recarga bajo NOM-154-SCFI-2005 e instalación en sitio.`;
+    ? `CRM Extintores tiene su oficina en Chamixto 131, Col. Loma del Padre, ${zona.name}. Desde ahí atendemos empresas, condominios y oficinas con equipos certificados, recarga bajo NOM-154-SCFI-2005 e instalación en sitio.`
+    : `CRM Extintores atiende ${zona.name} desde Cuajimalpa para dejar su empresa, condominio u oficina lista ante Protección Civil. Cotizamos equipos certificados, recarga bajo NOM-154-SCFI-2005 e instalación en sitio.`;
   const nearbyTitle = zona.region === "edomex" ? "Zonas cercanas" : "Alcaldías y zonas cercanas";
   const main = `  <section class="section zona-page">
     <div class="wrap zona-page__layout">
       <header class="zona-page__head">
-        <p class="article-crumb"><a href="/">Inicio</a> · <a href="/zonas">Cobertura</a> · ${escapeHtml(zona.name)}</p>
+        <p class="article-crumb"><a href="/">Inicio</a> · <a href="/zonas">Cobertura CDMX y Edo. Mex</a> · ${escapeHtml(zona.name)}</p>
         <p class="kicker">${escapeHtml(type)} · ${escapeHtml(region)}</p>
         <h1>CRM Extintores en ${escapeHtml(zona.name)}</h1>
         <hr class="rule rule-left" aria-hidden="true">
-        <p class="lead">Venta, recarga e instalación de extintores y equipo contra incendios en ${escapeHtml(zona.name)}, ${escapeHtml(region)}. Atendemos ${escapeHtml(zona.focus)}.</p>
+        <p class="lead">CRM Extintores en ${escapeHtml(zona.name)} ofrece venta, recarga e instalación de extintores y equipo contra incendios en ${escapeHtml(region)}. Atendemos ${escapeHtml(zona.focus)}.</p>
       </header>
       <div class="zona-page__body">
         <h2>Servicio local en ${escapeHtml(zona.name)}</h2>
@@ -199,15 +207,15 @@ function zonaHtml(zona) {
         <p>Indique ${type.toLowerCase()}, giro y si ya tiene extintores vencidos. Le respondemos el mismo día hábil por WhatsApp o teléfono.</p>
         <p class="zona-page__cta">
           <a class="btn btn-wa" href="${waHref(zona)}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Cotizar en ${escapeHtml(zona.name)}</a>
-          <a class="btn btn-ink" href="/contacto">Ir a contacto</a>
-          <a class="btn btn-ink" href="/productos">Ver catálogo</a>
+          <a class="btn btn-ink" href="/contacto">Formulario de contacto</a>
+          <a class="btn btn-ink" href="/productos">Catálogo de equipos</a>
         </p>
+        <p class="muted">También puede ver <a href="/nosotros#servicios">servicios de protección civil</a>, la <a href="/galeria">galería de trabajos</a> o la guía de <a href="/blog/extintores-cdmx">extintores en CDMX y Estado de México</a>.</p>
         <h2>${nearbyTitle}</h2>
         <ul class="zona-nearby">
             ${nearbyLinks(zona)}
-            <li><a href="/zonas">Ver toda la cobertura CDMX y Edo. Mex</a></li>
+            <li><a href="/zonas">Mapa completo de cobertura</a></li>
         </ul>
-        <p class="muted">También puede leer nuestra guía de <a href="/blog/extintores-cdmx">extintores en CDMX y Estado de México</a>.</p>
       </div>
     </div>
   </section>`;

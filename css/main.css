@@ -7258,6 +7258,10 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--blue); bord
   margin-bottom: 8px;
 }
 .zona-hub__head .lead { margin-top: 12px; }
+.zona-page__more {
+  margin: 28px 0 8px;
+  max-width: 48rem;
+}
 .zona-hub__block {
   margin-top: clamp(28px, 4vw, 40px);
 }

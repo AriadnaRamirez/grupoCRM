@@ -515,7 +515,7 @@ function footerHTML() {
         <nav aria-label="Productos">
           <h3>Productos</h3>
           <ul>
-            <li><a href="${withBase("/productos")}">Ver equipos</a></li>
+            <li><a href="${withBase("/productos")}">Catálogo completo</a></li>
             ${catLinks}
           </ul>
         </nav>

@@ -16,19 +16,19 @@
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
 
 [[headers]]
-  for = "/assets/img/*"
+  for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
   for = "/css/*"
   [headers.values]
-    Cache-Control = "public, max-age=604800"
+    Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
   for = "/js/*"
   [headers.values]
-    Cache-Control = "public, max-age=604800"
+    Cache-Control = "public, max-age=31536000, immutable"
 
 [[redirects]]
   from = "/index.html"
@@ -41,8 +41,28 @@
   status = 301
 
 [[redirects]]
+  from = "/index"
+  to = "/"
+  status = 301
+
+[[redirects]]
   from = "/home"
   to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/home.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/*/index.html"
+  to = "/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/*/index.php"
+  to = "/:splat"
   status = 301
 
 [[redirects]]
@@ -63,6 +83,21 @@
 [[redirects]]
   from = "/servicios.html"
   to = "/nosotros#servicios"
+  status = 301
+
+[[redirects]]
+  from = "/zonas"
+  to = "/extintores-cdmx"
+  status = 301
+
+[[redirects]]
+  from = "/zonas/"
+  to = "/extintores-cdmx"
+  status = 301
+
+[[redirects]]
+  from = "/zonas/:slug"
+  to = "/extintores-:slug"
   status = 301
 
 [[redirects]]

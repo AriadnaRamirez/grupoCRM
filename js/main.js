@@ -1,5 +1,5 @@
 import { rebaseDocument } from "./base.js";
-import { mountShell, renderHome, renderProductos, renderProducto, renderServicios, renderNosotros, renderGaleria, renderHook, bindContact, bindMotion, bindErrorReturn } from "./ui.js?v=seo-com-mx";
+import { mountShell, renderHome, renderProductos, renderProducto, renderServicios, renderNosotros, renderGaleria, renderHook, bindContact, bindMotion, bindErrorReturn } from "./ui.js?v=psi-mob";
 import { applySeo } from "./seo.js";
 
 rebaseDocument();
@@ -35,7 +35,15 @@ else if (page === "contacto") {
 } else if (page === "error") safe(bindErrorReturn);
 
 safe(() => applySeo(page));
-safe(bindMotion);
+
+const runMotion = () => safe(bindMotion);
+if (page === "inicio" && window.matchMedia("(max-width: 760px)").matches) {
+  if ("requestIdleCallback" in window) window.requestIdleCallback(runMotion, { timeout: 3000 });
+  else window.setTimeout(runMotion, 400);
+} else {
+  runMotion();
+}
+
 document.querySelectorAll("[aria-busy='true']").forEach((el) => {
   if (el.querySelector(".skel, .skel-card, .skel-tile, .skel-dept, .skel-ficha, .header-skel")) return;
   el.setAttribute("aria-busy", "false");

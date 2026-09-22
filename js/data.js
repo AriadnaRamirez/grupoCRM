@@ -29,9 +29,9 @@ export const company = {
   hours: "Lunes a viernes 9:00–18:00",
   coverage: "Ciudad de México y Estado de México",
   location: "Atención en Ciudad de México y Estado de México",
-  address: "Chamixto 131, Col. Loma del Padre, Alcaldía Cuajimalpa, Ciudad de México",
+  address: "Chamixto 131, Col. Loma del Padre, Alcaldía Cuajimalpa, CDMX",
   streetAddress: "Chamixto 131, Col. Loma del Padre",
-  addressLocality: "Cuajimalpa de Morelos",
+  addressLocality: "Cuajimalpa",
   addressRegion: "CDMX",
   postalCode: "05020",
   addressCountry: "MX",
@@ -868,14 +868,23 @@ export function productImg(p) {
 
 export function productAlt(p, { detail = false } = {}) {
   if (!p?.title) return "";
-  return detail ? `${p.title}, Grupo CRM Extintores` : p.title;
+  const base = detail
+    ? `${p.title} certificado de Grupo CRM Extintores`
+    : `${p.title} Grupo CRM Extintores`;
+  if (p.cat === "extintores") {
+    return detail
+      ? `Extintor ${p.title} certificado Grupo CRM para CDMX y Estado de México`
+      : `Extintor ${p.title} Grupo CRM`;
+  }
+  return base;
 }
 
 export function lookAlt(item) {
   const note = String(item?.note || "").replace(/\s+/g, " ").trim();
   if (note) return note;
   const title = String(item?.title || "").trim();
-  return title || "Instalación de extintores de Grupo CRM Extintores";
+  if (title) return `${title} — instalación y equipo contra incendios Grupo CRM`;
+  return "Técnico instalando extintor certificado Grupo CRM Extintores";
 }
 
 export function productUrl(sku) {

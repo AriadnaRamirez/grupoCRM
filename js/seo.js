@@ -20,6 +20,7 @@ import {
   seoServicePages,
   extintoresPath,
   extintoresHubPath,
+  faqs,
 } from "./data.js";
 import { basePath } from "./base.js";
 
@@ -95,26 +96,48 @@ function productMetaDescription(p) {
   return clipDesc(parts.join(" "));
 }
 
-function localBusiness() {
+function stripHtml(html) {
+  return String(html || "")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function defaultAreaServed() {
+  return [
+    { "@type": "AdministrativeArea", name: "Ciudad de México" },
+    { "@type": "AdministrativeArea", name: "Estado de México" },
+    ...zonasCdmx.map((z) => ({
+      "@type": "AdministrativeArea",
+      name: z.name,
+    })),
+    ...zonasEdomex.map((z) => ({
+      "@type": "AdministrativeArea",
+      name: z.name,
+    })),
+  ];
+}
+
+function professionalService({ areaServed } = {}) {
   const logoUrl = abs(SITE.ogImage);
   const phonePrimary = `+52${company.phoneTel}`;
   const phoneAlt = `+52${company.phoneAltTel}`;
   return {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "ProfessionalService",
     "@id": `${SITE.origin}/#business`,
     name: company.name,
     alternateName: ["CRM Extintores", "Grupo CRM"],
     legalName: company.name,
     description: company.about,
     url: SITE.origin,
-    image: [logoUrl],
+    image: logoUrl,
     logo: {
       "@type": "ImageObject",
       url: logoUrl,
     },
     email: company.email,
-    telephone: [phonePrimary, phoneAlt],
+    telephone: phonePrimary,
     priceRange: "$$",
     currenciesAccepted: "MXN",
     paymentAccepted: "Cash, Credit Card",
@@ -144,18 +167,8 @@ function localBusiness() {
         availableLanguage: ["es-MX", "es"],
       },
     ],
-    areaServed: [
-      { "@type": "AdministrativeArea", name: "Ciudad de México" },
-      { "@type": "AdministrativeArea", name: "Estado de México" },
-      ...zonasCdmx.map((z) => ({
-        "@type": "AdministrativeArea",
-        name: `${z.name}, Ciudad de México`,
-      })),
-      ...zonasEdomex.map((z) => ({
-        "@type": "AdministrativeArea",
-        name: `${z.name}, Estado de México`,
-      })),
-    ],
+    areaServed: areaServed || defaultAreaServed(),
+    openingHours: "Mo-Fr 09:00-18:00",
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
@@ -188,6 +201,21 @@ function localBusiness() {
         url: abs(`/productos?cat=${cat.id}`),
       })),
     },
+  };
+}
+
+function faqPage(items) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((f) => ({
+      "@type": "Question",
+      name: stripHtml(f.q),
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: stripHtml(f.a),
+      },
+    })),
   };
 }
 
@@ -417,8 +445,15 @@ export function applySeo(page) {
   setMeta("twitter:description", seo.description);
   setMeta("twitter:image", image);
 
-  setJsonLd("seo-business", localBusiness());
+  const businessArea = seo.zona
+    ? [{ "@type": "AdministrativeArea", name: seo.zona.name }]
+    : undefined;
+  setJsonLd("seo-business", professionalService({ areaServed: businessArea }));
   setJsonLd("seo-website", websiteNode());
+
+  if (page === "inicio") {
+    setJsonLd("seo-faq", faqPage(faqs));
+  }
 
   if (page === "blog") {
     setJsonLd(

@@ -3,4 +3,10 @@ Allow: /
 Disallow: /404
 Disallow: /404.html
 
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
 Sitemap: https://www.crmextintores.com.mx/sitemap.xml

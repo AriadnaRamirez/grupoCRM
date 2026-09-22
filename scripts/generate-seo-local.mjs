@@ -24,7 +24,7 @@ import {
 } from "../js/data.js";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const CACHE = "seo-cuaji";
+const CACHE = "seo-brief";
 const pagesBaseSnippet = `  <script>!function(){if(!/\\.github\\.io$/i.test(location.hostname))return;var s=document.createElement("script");s.src="/js/pages-base.js";document.head.appendChild(s)}();</script>\n`;
 const cssBoot = `  <style id="css-boot">
   /* Minimal first paint — never override hero/slide rules from main.css */
@@ -233,6 +233,7 @@ function locationCopy(zona) {
 
 function locationJsonLd(zona, canonical) {
   const copy = locationCopy(zona);
+  const regionLabel = zona.region === "edomex" ? "Estado de México" : "Ciudad de México";
   const crumbs = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -241,7 +242,7 @@ function locationJsonLd(zona, canonical) {
       {
         "@type": "ListItem",
         position: 2,
-        name: zona.region === "edomex" ? "Estado de México" : "CDMX",
+        name: regionLabel,
         item: `${SITE.origin}${extintoresHubPath(zona.region)}`,
       },
       { "@type": "ListItem", position: 3, name: zona.name, item: canonical },
@@ -270,39 +271,33 @@ function locationJsonLd(zona, canonical) {
       acceptedAnswer: { "@type": "Answer", text: f.a },
     })),
   };
-  const blocks = [
+  const professional = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": `${SITE.origin}/#business`,
+    name: company.name,
+    image: `${SITE.origin}/assets/img/logo-crm.png`,
+    url: SITE.origin,
+    telephone: `+52${company.phoneTel}`,
+    email: company.email,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: company.streetAddress,
+      addressLocality: company.addressLocality,
+      addressRegion: company.addressRegion,
+      postalCode: company.postalCode,
+      addressCountry: company.addressCountry,
+    },
+    openingHours: "Mo-Fr 09:00-18:00",
+    areaServed: [{ "@type": "AdministrativeArea", name: zona.name }],
+    sameAs: [company.facebookUrl, company.instagramUrl].filter(Boolean),
+  };
+  return [
     `  <script type="application/ld+json">${JSON.stringify(crumbs)}</script>`,
+    `  <script type="application/ld+json" id="seo-business">${JSON.stringify(professional)}</script>`,
     `  <script type="application/ld+json">${JSON.stringify(service)}</script>`,
     `  <script type="application/ld+json">${JSON.stringify(faq)}</script>`,
-  ];
-  if (copy.isBase) {
-    const localBusiness = {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "@id": `${SITE.origin}/#business`,
-      name: company.name,
-      image: `${SITE.origin}/assets/img/logo-crm.png`,
-      url: SITE.origin,
-      telephone: `+52${company.phoneTel}`,
-      email: company.email,
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: company.streetAddress,
-        addressLocality: company.addressLocality,
-        addressRegion: company.addressRegion,
-        postalCode: company.postalCode,
-        addressCountry: company.addressCountry,
-      },
-      openingHours: "Mo-Fr 09:00-18:00",
-      areaServed: [
-        { "@type": "AdministrativeArea", name: "Ciudad de México" },
-        { "@type": "AdministrativeArea", name: "Estado de México" },
-      ],
-      sameAs: [company.facebookUrl, company.instagramUrl].filter(Boolean),
-    };
-    blocks.push(`  <script type="application/ld+json">${JSON.stringify(localBusiness)}</script>`);
-  }
-  return blocks.join("\n");
+  ].join("\n");
 }
 
 function locationHtml(zona) {

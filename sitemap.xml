@@ -1,559 +1,709 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.crmextintores.com/</loc>
+    <loc>https://www.crmextintores.com.mx/</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/nosotros</loc>
+    <loc>https://www.crmextintores.com.mx/nosotros</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/productos</loc>
+    <loc>https://www.crmextintores.com.mx/productos</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/galeria</loc>
+    <loc>https://www.crmextintores.com.mx/galeria</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/contacto</loc>
+    <loc>https://www.crmextintores.com.mx/contacto</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/aviso-privacidad</loc>
+    <loc>https://www.crmextintores.com.mx/aviso-privacidad</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/mapa-sitio</loc>
+    <loc>https://www.crmextintores.com.mx/mapa-sitio</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/blog</loc>
+    <loc>https://www.crmextintores.com.mx/blog</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/zonas</loc>
+    <loc>https://www.crmextintores.com.mx/zonas</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/zonas/alvaro-obregon</loc>
+    <loc>https://www.crmextintores.com.mx/zonas/alvaro-obregon</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/zonas/azcapotzalco</loc>
+    <loc>https://www.crmextintores.com.mx/zonas/azcapotzalco</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/zonas/benito-juarez</loc>
+    <loc>https://www.crmextintores.com.mx/zonas/benito-juarez</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/zonas/coyoacan</loc>
+    <loc>https://www.crmextintores.com.mx/zonas/coyoacan</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/zonas/cuajimalpa</loc>
+    <loc>https://www.crmextintores.com.mx/zonas/cuajimalpa</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/zonas/cuauhtemoc</loc>
+    <loc>https://www.crmextintores.com.mx/zonas/cuauhtemoc</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/zonas/gustavo-a-madero</loc>
+    <loc>https://www.crmextintores.com.mx/zonas/gustavo-a-madero</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/zonas/iztacalco</loc>
+    <loc>https://www.crmextintores.com.mx/zonas/iztacalco</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/zonas/iztapalapa</loc>
+    <loc>https://www.crmextintores.com.mx/zonas/iztapalapa</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/zonas/magdalena-contreras</loc>
+    <loc>https://www.crmextintores.com.mx/zonas/magdalena-contreras</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/zonas/miguel-hidalgo</loc>
+    <loc>https://www.crmextintores.com.mx/zonas/miguel-hidalgo</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/zonas/milpa-alta</loc>
+    <loc>https://www.crmextintores.com.mx/zonas/milpa-alta</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/zonas/tlahuac</loc>
+    <loc>https://www.crmextintores.com.mx/zonas/tlahuac</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/zonas/tlalpan</loc>
+    <loc>https://www.crmextintores.com.mx/zonas/tlalpan</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/zonas/venustiano-carranza</loc>
+    <loc>https://www.crmextintores.com.mx/zonas/venustiano-carranza</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/zonas/xochimilco</loc>
+    <loc>https://www.crmextintores.com.mx/zonas/xochimilco</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/blog/como-instalar-mi-extintor</loc>
+    <loc>https://www.crmextintores.com.mx/zonas/atizapan</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/blog/tipos-de-fuego</loc>
+    <loc>https://www.crmextintores.com.mx/zonas/chalco</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/blog/como-usar-un-extintor</loc>
+    <loc>https://www.crmextintores.com.mx/zonas/chicoloapan</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/blog/extintores-cdmx</loc>
+    <loc>https://www.crmextintores.com.mx/zonas/chimalhuacan</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/blog/extintor-6-kg</loc>
+    <loc>https://www.crmextintores.com.mx/zonas/coacalco</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/blog/nom-154-scfi-2005</loc>
+    <loc>https://www.crmextintores.com.mx/zonas/cuautitlan</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/blog/casco-seguridad-colores</loc>
+    <loc>https://www.crmextintores.com.mx/zonas/cuautitlan-izcalli</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/productos?cat=extintores</loc>
+    <loc>https://www.crmextintores.com.mx/zonas/ecatepec</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.crmextintores.com.mx/zonas/huixquilucan</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.crmextintores.com.mx/zonas/ixtapaluca</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.crmextintores.com.mx/zonas/la-paz</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.crmextintores.com.mx/zonas/lerma</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.crmextintores.com.mx/zonas/metepec</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.crmextintores.com.mx/zonas/naucalpan</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.crmextintores.com.mx/zonas/nezahualcoyotl</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.crmextintores.com.mx/zonas/nicolas-romero</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.crmextintores.com.mx/zonas/tecamac</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.crmextintores.com.mx/zonas/tepotzotlan</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.crmextintores.com.mx/zonas/texcoco</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.crmextintores.com.mx/zonas/tlalnepantla</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.crmextintores.com.mx/zonas/toluca</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.crmextintores.com.mx/zonas/tultitlan</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.crmextintores.com.mx/zonas/valle-de-chalco</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.crmextintores.com.mx/zonas/zinacantepec</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.crmextintores.com.mx/zonas/zumpango</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.crmextintores.com.mx/blog/como-instalar-mi-extintor</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.crmextintores.com.mx/blog/tipos-de-fuego</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.crmextintores.com.mx/blog/como-usar-un-extintor</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.crmextintores.com.mx/blog/extintores-cdmx</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.crmextintores.com.mx/blog/extintor-6-kg</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.crmextintores.com.mx/blog/nom-154-scfi-2005</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.crmextintores.com.mx/blog/casco-seguridad-colores</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.crmextintores.com.mx/productos?cat=extintores</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/productos?cat=chalecos</loc>
+    <loc>https://www.crmextintores.com.mx/productos?cat=chalecos</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/productos?cat=senalamiento-vial</loc>
+    <loc>https://www.crmextintores.com.mx/productos?cat=senalamiento-vial</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/productos?cat=gabinetes-herrajes</loc>
+    <loc>https://www.crmextintores.com.mx/productos?cat=gabinetes-herrajes</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/productos?cat=botiquines</loc>
+    <loc>https://www.crmextintores.com.mx/productos?cat=botiquines</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/productos?cat=equipo-proteccion</loc>
+    <loc>https://www.crmextintores.com.mx/productos?cat=equipo-proteccion</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0001</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0001</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0002</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0002</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0003</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0003</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0004</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0004</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0005</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0005</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0006</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0006</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0007</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0007</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0008</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0008</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0009</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0009</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0010</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0010</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0011</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0011</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0012</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0012</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0013</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0013</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0014</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0014</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0015</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0015</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0016</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0016</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0017</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0017</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0018</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0018</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0019</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0019</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0020</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0020</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0021</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0021</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0022</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0022</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0023</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0023</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0024</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0024</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0025</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0025</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0026</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0026</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0027</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0027</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0028</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0028</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0029</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0029</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0030</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0030</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0031</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0031</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0032</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0032</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0033</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0033</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0034</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0034</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0035</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0035</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0036</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0036</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0037</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0037</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0038</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0038</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0039</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0039</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0040</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0040</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0041</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0041</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0042</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0042</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0043</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0043</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0044</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0044</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0045</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0045</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0046</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0046</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0047</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0047</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0048</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0048</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0049</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0049</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0050</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0050</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0051</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0051</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0052</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0052</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0053</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0053</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0054</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0054</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com/producto?sku=CRM-0055</loc>
+    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0055</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>

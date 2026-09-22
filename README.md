@@ -1,6 +1,6 @@
 # Grupo CRM Extintores
 
-Sitio institucional estático de [www.crmextintores.com](https://www.crmextintores.com): venta, recarga e instalación de extintores en CDMX y Estado de México. Sin carrito ni checkout; las cotizaciones van por WhatsApp.
+Sitio institucional estático de [www.crmextintores.com.mx](https://www.crmextintores.com.mx): venta, recarga e instalación de extintores en CDMX y Estado de México. Sin carrito ni checkout; las cotizaciones van por WhatsApp.
 
 ## Local
 
@@ -45,7 +45,7 @@ npm run seo:sitemap
 
 El menú y el sitemap usan URLs limpias (`/nosotros`, `/productos`, `/blog/...`). El host debe resolverlas a los `.html`.
 
-Para el dominio **www.crmextintores.com** publique la raíz del repo:
+Para el dominio **www.crmextintores.com.mx** publique la raíz del repo:
 
 - **Netlify** — `netlify.toml` (sin instalar dependencias en el build), `_headers`, `_redirects`
 - **Cloudflare Pages** — `_headers` y `_redirects`; build vacío, publicar la raíz

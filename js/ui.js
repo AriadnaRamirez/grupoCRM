@@ -1,4 +1,4 @@
-import { company, categories, products, services, courses, sectors, faqs, reviews, clients, waUrl, safeDecode, catName, catCount, productBySku, productImg, productAlt, productUrl, readSku, relatedProducts, lookbook, lookAlt, lookFull, venues, carePoints, readyChecks, condo } from "./data.js?v=seo-zonas";
+import { company, categories, products, services, courses, sectors, faqs, reviews, clients, waUrl, safeDecode, catName, catCount, productBySku, productImg, productAlt, productUrl, readSku, relatedProducts, lookbook, lookAlt, lookFull, venues, carePoints, readyChecks, condo } from "./data.js?v=seo-com-mx";
 import { applySeo } from "./seo.js";
 import { rebaseDocument, rebaseSrcset, withBase } from "./base.js";
 
@@ -489,7 +489,7 @@ function headerHTML(page) {
               <span class="sr-only">Abrir menú</span>
               <span class="nav-toggle__icon" aria-hidden="true"><span></span><span></span><span></span></span>
             </button>
-            <a class="header__cta" href="${waUrl()}" target="_blank" rel="noopener noreferrer" aria-label="Cotizar por WhatsApp">${WA_ICON} <span>Cotizar por WhatsApp</span></a>
+            <a class="header__cta" href="${waUrl()}" target="_blank" rel="noopener noreferrer" aria-label="Cotizar por WhatsApp">${WA_ICON} <span>Cotizar</span></a>
           </div>
         </div>
       </header>
@@ -528,7 +528,7 @@ function footerHTML() {
             <li><a href="${withBase("/nosotros#cursos")}">Cursos</a></li>
             <li><a href="${withBase("/#resenas")}">Reseñas</a></li>
             <li><a href="${withBase("/galeria")}">Galería</a></li>
-            <li><a href="${withBase("/zonas")}">Cobertura CDMX</a></li>
+            <li><a href="${withBase("/zonas")}">Cobertura</a></li>
             <li><a href="${withBase("/blog")}">Blog</a></li>
             <li><a href="${withBase("/contacto")}">Contacto</a></li>
             <li><a href="${withBase("/aviso-privacidad")}">Aviso de privacidad</a></li>
@@ -947,7 +947,7 @@ export function productCard(p, { quote = false, eager = false } = {}) {
     .map((c) => c.trim())
     .filter(Boolean);
   const classLine = classes.length ? `Clase ${classes.join(" · ")}` : "";
-  const quoteBtn = `<a class="shop-item__quote${quote ? "" : " shop-item__quote--wa"}" href="${quoteUrl(p)}" target="_blank" rel="noopener noreferrer">${WA_ICON} Cotizar por WhatsApp</a>`;
+  const quoteBtn = `<a class="shop-item__quote${quote ? "" : " shop-item__quote--wa"}" href="${quoteUrl(p)}" target="_blank" rel="noopener noreferrer">${WA_ICON} Cotizar</a>`;
   const detail = `<a class="shop-item__more" href="${href}" onclick="${remember}"><i class="fa-solid fa-eye" aria-hidden="true"></i> Ver detalle</a>`;
   return `
     <article class="shop-item shop-item--quote" data-cat="${p.cat}">

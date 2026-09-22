@@ -1,5 +1,5 @@
 import { rebaseDocument } from "./base.js";
-import { mountShell, renderHome, renderProductos, renderProducto, renderServicios, renderNosotros, renderGaleria, renderHook, bindContact, bindMotion, bindErrorReturn } from "./ui.js?v=seo-zonas";
+import { mountShell, renderHome, renderProductos, renderProducto, renderServicios, renderNosotros, renderGaleria, renderHook, bindContact, bindMotion, bindErrorReturn } from "./ui.js?v=seo-com-mx";
 import { applySeo } from "./seo.js";
 
 rebaseDocument();

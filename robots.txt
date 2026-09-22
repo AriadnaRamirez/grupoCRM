@@ -3,4 +3,4 @@ Allow: /
 Disallow: /404
 Disallow: /404.html
 
-Sitemap: https://www.crmextintores.com/sitemap.xml
+Sitemap: https://www.crmextintores.com.mx/sitemap.xml

@@ -31,6 +31,21 @@
     Cache-Control = "public, max-age=604800"
 
 [[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/index.php"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/home"
+  to = "/"
+  status = 301
+
+[[redirects]]
   from = "/blog/nom-002-stps-2010"
   to = "/blog"
   status = 301
@@ -42,6 +57,11 @@
 
 [[redirects]]
   from = "/servicios"
+  to = "/nosotros#servicios"
+  status = 301
+
+[[redirects]]
+  from = "/servicios.html"
   to = "/nosotros#servicios"
   status = 301
 

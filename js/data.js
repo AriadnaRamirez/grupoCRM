@@ -32,8 +32,8 @@ export const company = {
   address: "Chamixto 131, Col. Loma del Padre, Alcaldía Cuajimalpa, Ciudad de México",
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=Chamixto+131+Col.+Loma+del+Padre+Cuajimalpa+Ciudad+de+M%C3%A9xico",
-  website: "www.crmextintores.com",
-  websiteUrl: "https://www.crmextintores.com",
+  website: "www.crmextintores.com.mx",
+  websiteUrl: "https://www.crmextintores.com.mx",
   payments: "Aceptamos pagos con tarjeta de crédito y meses sin intereses.",
   hook: "Agende su visita de revisión, sin costo.",
   pitch: "Cumpla con Protección Civil y evite multas.",
@@ -45,7 +45,7 @@ export const company = {
 };
 
 export const SITE = {
-  origin: "https://www.crmextintores.com",
+  origin: "https://www.crmextintores.com.mx",
   locale: "es_MX",
   themeColor: "#D51A32",
   ogImage: "/assets/img/logo-crm.png",
@@ -127,114 +127,76 @@ export const pageSeo = {
   },
   zonas: {
     path: "/zonas",
-    title: "Extintores en CDMX por alcaldía | Grupo CRM Extintores",
+    title: "Extintores en CDMX y Estado de México | Grupo CRM",
     description:
-      "Venta, recarga e instalación de extintores en las 16 alcaldías de la Ciudad de México. Cotice con Grupo CRM Extintores.",
+      "Venta, recarga e instalación de extintores en alcaldías de CDMX y municipios del Estado de México. Cotice con Grupo CRM Extintores.",
   },
 };
 
-/** Cobertura local SEO: CRM Extintores en cada alcaldía de CDMX */
-export const zonasCdmx = [
-  {
-    slug: "alvaro-obregon",
-    name: "Álvaro Obregón",
-    nearby: ["cuajimalpa", "miguel-hidalgo", "magdalena-contreras", "benito-juarez"],
-    focus: "oficinas, condominios y comercios en San Ángel, Observatorio y Contadero",
-  },
-  {
-    slug: "azcapotzalco",
-    name: "Azcapotzalco",
-    nearby: ["miguel-hidalgo", "gustavo-a-madero", "cuauhtemoc", "alvaro-obregon"],
-    focus: "industrias, bodegas y colonias con alta actividad comercial",
-  },
-  {
-    slug: "benito-juarez",
-    name: "Benito Juárez",
-    nearby: ["cuauhtemoc", "coyoacan", "alvaro-obregon", "iztacalco"],
-    focus: "oficinas, plazas y edificios corporativos en Del Valle y Nápoles",
-  },
-  {
-    slug: "coyoacan",
-    name: "Coyoacán",
-    nearby: ["benito-juarez", "tlalpan", "iztapalapa", "xochimilco"],
-    focus: "universidades, clínicas, restaurantes y condominios",
-  },
-  {
-    slug: "cuajimalpa",
-    name: "Cuajimalpa",
-    nearby: ["alvaro-obregon", "miguel-hidalgo", "magdalena-contreras", "benito-juarez"],
-    focus: "nuestra base en Loma del Padre, corporativos y residenciales",
-  },
-  {
-    slug: "cuauhtemoc",
-    name: "Cuauhtémoc",
-    nearby: ["miguel-hidalgo", "benito-juarez", "venustiano-carranza", "azcapotzalco"],
-    focus: "centro histórico, hoteles, oficinas y locales comerciales",
-  },
-  {
-    slug: "gustavo-a-madero",
-    name: "Gustavo A. Madero",
-    nearby: ["azcapotzalco", "venustiano-carranza", "cuauhtemoc", "iztacalco"],
-    focus: "industrias, escuelas y comercios del norte de la ciudad",
-  },
-  {
-    slug: "iztacalco",
-    name: "Iztacalco",
-    nearby: ["iztapalapa", "venustiano-carranza", "benito-juarez", "coyoacan"],
-    focus: "talleres, bodegas y condominios con requisitos de Protección Civil",
-  },
-  {
-    slug: "iztapalapa",
-    name: "Iztapalapa",
-    nearby: ["iztacalco", "tlahuac", "coyoacan", "xochimilco"],
-    focus: "empresas, plazas comerciales y centros educativos",
-  },
-  {
-    slug: "magdalena-contreras",
-    name: "Magdalena Contreras",
-    nearby: ["alvaro-obregon", "tlalpan", "cuajimalpa", "coyoacan"],
-    focus: "condominios, escuelas y locales en zona residencial",
-  },
-  {
-    slug: "miguel-hidalgo",
-    name: "Miguel Hidalgo",
-    nearby: ["cuauhtemoc", "azcapotzalco", "cuajimalpa", "alvaro-obregon"],
-    focus: "Polanco, Tacubaya y corporativos con alta exigencia normativa",
-  },
-  {
-    slug: "milpa-alta",
-    name: "Milpa Alta",
-    nearby: ["xochimilco", "tlahuac", "tlalpan", "iztapalapa"],
-    focus: "comercios, escuelas y establecimientos del suroriente",
-  },
-  {
-    slug: "tlahuac",
-    name: "Tláhuac",
-    nearby: ["iztapalapa", "xochimilco", "milpa-alta", "iztacalco"],
-    focus: "locales, escuelas y empresas de la zona oriente-sur",
-  },
-  {
-    slug: "tlalpan",
-    name: "Tlalpan",
-    nearby: ["coyoacan", "magdalena-contreras", "xochimilco", "alvaro-obregon"],
-    focus: "hospitales, universidades, condominios e industria ligera",
-  },
-  {
-    slug: "venustiano-carranza",
-    name: "Venustiano Carranza",
-    nearby: ["cuauhtemoc", "iztacalco", "gustavo-a-madero", "iztapalapa"],
-    focus: "aeropuerto, comercios y oficinas del oriente capitalino",
-  },
-  {
-    slug: "xochimilco",
-    name: "Xochimilco",
-    nearby: ["tlalpan", "tlahuac", "milpa-alta", "coyoacan"],
-    focus: "turismo, comercios, escuelas y establecimientos locales",
-  },
+/** Cobertura local SEO: alcaldías CDMX + municipios Edo. Mex. */
+function zona(slug, name, region, nearby, focus) {
+  return { slug, name, region, nearby, focus };
+}
+
+export const zonas = [
+  // Ciudad de México
+  zona("alvaro-obregon", "Álvaro Obregón", "cdmx", ["cuajimalpa", "miguel-hidalgo", "huixquilucan", "benito-juarez"], "oficinas, condominios y comercios en San Ángel, Observatorio y Contadero"),
+  zona("azcapotzalco", "Azcapotzalco", "cdmx", ["miguel-hidalgo", "tlalnepantla", "naucalpan", "gustavo-a-madero"], "industrias, bodegas y colonias con alta actividad comercial"),
+  zona("benito-juarez", "Benito Juárez", "cdmx", ["cuauhtemoc", "coyoacan", "alvaro-obregon", "iztacalco"], "oficinas, plazas y edificios corporativos en Del Valle y Nápoles"),
+  zona("coyoacan", "Coyoacán", "cdmx", ["benito-juarez", "tlalpan", "iztapalapa", "xochimilco"], "universidades, clínicas, restaurantes y condominios"),
+  zona("cuajimalpa", "Cuajimalpa", "cdmx", ["alvaro-obregon", "huixquilucan", "miguel-hidalgo", "magdalena-contreras"], "nuestra base en Loma del Padre, corporativos y residenciales"),
+  zona("cuauhtemoc", "Cuauhtémoc", "cdmx", ["miguel-hidalgo", "benito-juarez", "venustiano-carranza", "azcapotzalco"], "centro histórico, hoteles, oficinas y locales comerciales"),
+  zona("gustavo-a-madero", "Gustavo A. Madero", "cdmx", ["ecatepec", "tlalnepantla", "venustiano-carranza", "azcapotzalco"], "industrias, escuelas y comercios del norte de la ciudad"),
+  zona("iztacalco", "Iztacalco", "cdmx", ["iztapalapa", "nezahualcoyotl", "venustiano-carranza", "benito-juarez"], "talleres, bodegas y condominios con requisitos de Protección Civil"),
+  zona("iztapalapa", "Iztapalapa", "cdmx", ["iztacalco", "nezahualcoyotl", "chalco", "tlahuac"], "empresas, plazas comerciales y centros educativos"),
+  zona("magdalena-contreras", "Magdalena Contreras", "cdmx", ["alvaro-obregon", "tlalpan", "cuajimalpa", "coyoacan"], "condominios, escuelas y locales en zona residencial"),
+  zona("miguel-hidalgo", "Miguel Hidalgo", "cdmx", ["cuauhtemoc", "naucalpan", "cuajimalpa", "alvaro-obregon"], "Polanco, Tacubaya y corporativos con alta exigencia normativa"),
+  zona("milpa-alta", "Milpa Alta", "cdmx", ["xochimilco", "tlahuac", "tlalpan", "chalco"], "comercios, escuelas y establecimientos del suroriente"),
+  zona("tlahuac", "Tláhuac", "cdmx", ["iztapalapa", "xochimilco", "milpa-alta", "chalco"], "locales, escuelas y empresas de la zona oriente-sur"),
+  zona("tlalpan", "Tlalpan", "cdmx", ["coyoacan", "magdalena-contreras", "xochimilco", "huixquilucan"], "hospitales, universidades, condominios e industria ligera"),
+  zona("venustiano-carranza", "Venustiano Carranza", "cdmx", ["cuauhtemoc", "iztacalco", "gustavo-a-madero", "nezahualcoyotl"], "aeropuerto, comercios y oficinas del oriente capitalino"),
+  zona("xochimilco", "Xochimilco", "cdmx", ["tlalpan", "tlahuac", "milpa-alta", "coyoacan"], "turismo, comercios, escuelas y establecimientos locales"),
+  // Estado de México
+  zona("atizapan", "Atizapán de Zaragoza", "edomex", ["naucalpan", "tlalnepantla", "nicolas-romero", "cuautitlan-izcalli"], "residenciales, oficinas y comercios del norte poniente"),
+  zona("chalco", "Chalco", "edomex", ["valle-de-chalco", "ixtapaluca", "iztapalapa", "tlahuac"], "comercios, escuelas y empresas del oriente del Valle"),
+  zona("chicoloapan", "Chicoloapan", "edomex", ["texcoco", "la-paz", "ixtapaluca", "nezahualcoyotl"], "locales, condominios y establecimientos del oriente"),
+  zona("chimalhuacan", "Chimalhuacán", "edomex", ["nezahualcoyotl", "la-paz", "texcoco", "iztapalapa"], "comercios, escuelas y puntos de venta del oriente"),
+  zona("coacalco", "Coacalco", "edomex", ["ecatepec", "tultitlan", "tecamac", "tlalnepantla"], "plazas, condominios y empresas del norte"),
+  zona("cuautitlan", "Cuautitlán", "edomex", ["cuautitlan-izcalli", "tultitlan", "tepotzotlan", "coacalco"], "industria, comercios y centros de trabajo del norte"),
+  zona("cuautitlan-izcalli", "Cuautitlán Izcalli", "edomex", ["cuautitlan", "atizapan", "tultitlan", "tepotzotlan"], "parques industriales, oficinas y residenciales"),
+  zona("ecatepec", "Ecatepec", "edomex", ["gustavo-a-madero", "coacalco", "tecamac", "tlalnepantla"], "empresas, plazas y condominios del norte oriente"),
+  zona("huixquilucan", "Huixquilucan", "edomex", ["cuajimalpa", "naucalpan", "alvaro-obregon", "miguel-hidalgo"], "corporativos, residenciales e Interlomas"),
+  zona("ixtapaluca", "Ixtapaluca", "edomex", ["chalco", "la-paz", "chicoloapan", "valle-de-chalco"], "comercios, escuelas y empresas del oriente"),
+  zona("la-paz", "La Paz", "edomex", ["nezahualcoyotl", "chimalhuacan", "ixtapaluca", "chicoloapan"], "locales, condominios y puntos comerciales"),
+  zona("lerma", "Lerma", "edomex", ["toluca", "metepec", "huixquilucan", "zinacantepec"], "industria, bodegas y empresas del corredor Toluca"),
+  zona("metepec", "Metepec", "edomex", ["toluca", "lerma", "zinacantepec", "huixquilucan"], "oficinas, comercios y residenciales de la zona Toluca"),
+  zona("naucalpan", "Naucalpan", "edomex", ["miguel-hidalgo", "azcapotzalco", "atizapan", "huixquilucan"], "industria, oficinas y comercios del poniente"),
+  zona("nezahualcoyotl", "Nezahualcóyotl", "edomex", ["iztapalapa", "iztacalco", "chimalhuacan", "la-paz"], "comercios, escuelas y empresas del oriente metropolitano"),
+  zona("nicolas-romero", "Nicolás Romero", "edomex", ["atizapan", "cuautitlan-izcalli", "tlalnepantla", "naucalpan"], "comercios, escuelas y establecimientos del norte poniente"),
+  zona("tecamac", "Tecámac", "edomex", ["ecatepec", "coacalco", "zumpango", "tultitlan"], "desarrollos habitacionales, comercios y empresas"),
+  zona("tepotzotlan", "Tepotzotlán", "edomex", ["cuautitlan-izcalli", "cuautitlan", "tultitlan", "zumpango"], "industria, turismo y centros de trabajo del norte"),
+  zona("texcoco", "Texcoco", "edomex", ["chicoloapan", "chimalhuacan", "nezahualcoyotl", "ecatepec"], "comercios, universidades y empresas del oriente"),
+  zona("tlalnepantla", "Tlalnepantla", "edomex", ["azcapotzalco", "naucalpan", "atizapan", "ecatepec"], "parques industriales, oficinas y comercios del norte"),
+  zona("toluca", "Toluca", "edomex", ["metepec", "lerma", "zinacantepec", "huixquilucan"], "capital del Estado de México: oficinas, industria y comercios"),
+  zona("tultitlan", "Tultitlán", "edomex", ["cuautitlan", "coacalco", "tlalnepantla", "cuautitlan-izcalli"], "industria, bodegas y comercios del norte"),
+  zona("valle-de-chalco", "Valle de Chalco", "edomex", ["chalco", "ixtapaluca", "iztapalapa", "tlahuac"], "comercios, escuelas y establecimientos locales"),
+  zona("zinacantepec", "Zinacantepec", "edomex", ["toluca", "metepec", "lerma", "huixquilucan"], "comercios, escuelas y empresas de la zona Toluca"),
+  zona("zumpango", "Zumpango", "edomex", ["tecamac", "tepotzotlan", "cuautitlan", "ecatepec"], "comercios, escuelas y empresas del norte del Estado"),
 ];
 
+export const zonasCdmx = zonas.filter((z) => z.region === "cdmx");
+export const zonasEdomex = zonas.filter((z) => z.region === "edomex");
+
 export function zonaBySlug(slug) {
-  return zonasCdmx.find((z) => z.slug === slug);
+  return zonas.find((z) => z.slug === slug);
+}
+
+export function zonaRegionLabel(zona) {
+  return zona?.region === "edomex" ? "Estado de México" : "Ciudad de México";
+}
+
+export function zonaTypeLabel(zona) {
+  return zona?.region === "edomex" ? "Municipio" : "Alcaldía";
 }
 
 export const blogPosts = [

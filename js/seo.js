@@ -13,7 +13,10 @@ import {
   blogPosts,
   blogPostBySlug,
   zonasCdmx,
+  zonasEdomex,
+  zonas,
   zonaBySlug,
+  zonaRegionLabel,
 } from "./data.js";
 import { basePath } from "./base.js";
 
@@ -111,6 +114,7 @@ function localBusiness() {
       "Ciudad de México",
       "Estado de México",
       ...zonasCdmx.map((z) => `${z.name}, Ciudad de México`),
+      ...zonasEdomex.map((z) => `${z.name}, Estado de México`),
     ],
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
@@ -268,11 +272,12 @@ function resolvePage(page) {
         .replace(/\/$/, "");
     const zona = zonaBySlug(slug);
     if (!zona) return { ...pageSeo.zonas };
+    const region = zonaRegionLabel(zona);
     return {
       path: `/zonas/${zona.slug}`,
       title: `CRM Extintores en ${zona.name} | Grupo CRM Extintores`,
       description: clipDesc(
-        `Venta, recarga e instalación de extintores en ${zona.name}, CDMX. Primera visita sin costo. Cotice con Grupo CRM Extintores.`
+        `Venta, recarga e instalación de extintores en ${zona.name}, ${region}. Primera visita sin costo. Cotice con Grupo CRM Extintores.`
       ),
       type: "zona",
       zona,
@@ -361,7 +366,7 @@ export function applySeo(page) {
       "seo-crumbs",
       breadcrumbs([
         { name: "Inicio", path: "/" },
-        { name: "Cobertura CDMX", path: "/zonas" },
+        { name: "Cobertura", path: "/zonas" },
       ])
     );
   } else if (seo.zona) {
@@ -369,7 +374,7 @@ export function applySeo(page) {
       "seo-crumbs",
       breadcrumbs([
         { name: "Inicio", path: "/" },
-        { name: "Cobertura CDMX", path: "/zonas" },
+        { name: "Cobertura", path: "/zonas" },
         { name: seo.zona.name, path: seo.path },
       ])
     );
@@ -380,7 +385,7 @@ export function applySeo(page) {
       provider: { "@type": "LocalBusiness", name: company.name, url: SITE.origin },
       areaServed: {
         "@type": "AdministrativeArea",
-        name: `${seo.zona.name}, Ciudad de México`,
+        name: `${seo.zona.name}, ${zonaRegionLabel(seo.zona)}`,
       },
       url,
     });
@@ -400,7 +405,7 @@ export function sitemapUrls() {
     "/mapa-sitio",
     "/blog",
     "/zonas",
-    ...zonasCdmx.map((z) => `/zonas/${z.slug}`),
+    ...zonas.map((z) => `/zonas/${z.slug}`),
     ...blogPosts.map((post) => post.path),
     ...categories.map((c) => `/productos?cat=${c.id}`),
     ...products.map((p) => `/producto?sku=${p.sku}`),

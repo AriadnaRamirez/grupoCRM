@@ -445,6 +445,35 @@ export function applySeo(page) {
   setMeta("twitter:description", seo.description);
   setMeta("twitter:image", image);
 
+  if (seo.article) {
+    setMeta("article:published_time", seo.article.datePublished, "property");
+    setMeta(
+      "article:modified_time",
+      seo.article.dateModified || seo.article.datePublished,
+      "property"
+    );
+  } else if (SITE.contentPublished && SITE.contentModified) {
+    setMeta("article:published_time", SITE.contentPublished, "property");
+    setMeta("article:modified_time", SITE.contentModified, "property");
+  }
+
+  setJsonLd("seo-webpage", {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${url}#webpage`,
+    url,
+    name: seo.title,
+    description: seo.description,
+    inLanguage: "es-MX",
+    isPartOf: { "@type": "WebSite", "@id": `${SITE.origin}/#website`, name: company.name, url: SITE.origin },
+    datePublished: seo.article?.datePublished || SITE.contentPublished,
+    dateModified:
+      seo.article?.dateModified ||
+      seo.article?.datePublished ||
+      SITE.contentModified ||
+      SITE.contentPublished,
+  });
+
   const businessArea = seo.zona
     ? [{ "@type": "AdministrativeArea", name: seo.zona.name }]
     : undefined;
@@ -548,6 +577,9 @@ export function sitemapUrls() {
     "/galeria",
     "/contacto",
     "/aviso-privacidad",
+    "/politica-de-servicio",
+    "/fuentes-y-normatividad",
+    "/caso-agencia-automotriz",
     "/mapa-sitio",
     "/blog",
     "/extintores-cdmx",

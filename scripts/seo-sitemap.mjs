@@ -9,7 +9,11 @@ const xml = `<?xml version="1.0" encoding="UTF-8"?>
 ${urls
     .map((path) => {
       const loc = `${SITE.origin}${path}`.replace(/&/g, "&amp;");
-      const isLegal = path.includes("aviso") || path.includes("mapa");
+      const isLegal =
+        path.includes("aviso") ||
+        path.includes("mapa") ||
+        path.includes("politica") ||
+        path.includes("fuentes");
       const priority = path === "/" ? "1.0" : path.startsWith("/producto?") ? "0.6" : path.startsWith("/productos") ? "0.8" : isLegal ? "0.3" : "0.7";
       return `  <url>
     <loc>${loc}</loc>

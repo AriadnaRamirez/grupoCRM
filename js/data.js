@@ -9,6 +9,11 @@ export const company = {
   mcd: "Mexicana de Conformidad y Dictaminación",
   mcdUrl: "http://www.mcdmx.com/site/Casa.html",
   nom: "NOM-154-SCFI-2005",
+  nomUrl: "https://www.dof.gob.mx/nota_detalle.php?codigo=2103192&fecha=26/12/2005",
+  nomCatalogUrl: "https://platiica.economia.gob.mx/normalizacion/nom-154-scfi-2005/",
+  nomModPdfUrl: "https://platiica.economia.gob.mx/wp-content/uploads/sites/2/PDF_Normas_Publicas/154scfi05mod.pdf",
+  nom002: "NOM-002-STPS-2010",
+  nom002Url: "https://www.dof.gob.mx/nota_detalle.php?codigo=5170410&fecha=09/12/2010",
   phone: "56 6748 1489",
   phoneTel: "5667481489",
   phoneAlt: "56 5947 4605",
@@ -28,6 +33,8 @@ export const company = {
   instagramUrl: "https://www.instagram.com/grupo_crm_extintores/",
   hours: "Lunes a viernes 9:00–18:00",
   coverage: "Ciudad de México y Estado de México",
+  /** GA4 Measurement ID (G-…). Vacío = no cargar gtag (evita inventar tracking). */
+  gaId: "",
   location: "Atención en Ciudad de México y Estado de México",
   address: "Chamixto 131, Col. Loma del Padre, Alcaldía Cuajimalpa, CDMX",
   streetAddress: "Chamixto 131, Col. Loma del Padre",
@@ -49,11 +56,30 @@ export const company = {
   valores: ["Confianza", "Seguridad", "Calidad", "Lealtad", "Trabajo en equipo"],
 };
 
+/** Public service roles — accountability without inventing personal bios. */
+export const serviceRoles = [
+  {
+    title: "Atención y cotización",
+    text: "La misma línea de la empresa responde WhatsApp, teléfono y formulario. Le orientamos sobre el equipo, le cotizamos y agendamos la visita.",
+  },
+  {
+    title: "Servicio técnico en sitio",
+    text: "Quien va a su inmueble revisa presión, sello, etiqueta y puntos de incendio. Le deja claro qué se recarga, qué se sustituye y qué ya no conviene reparar.",
+  },
+  {
+    title: "Norma y evidencia",
+    text: "El servicio de recarga se alinea a la NOM-154-SCFI-2005, con verificación de MCD cuando corresponde al proceso. Usted se lleva etiqueta y constancia útiles en inspección.",
+  },
+];
+
 export const SITE = {
   origin: "https://www.crmextintores.com.mx",
   locale: "es_MX",
   themeColor: "#D51A32",
   ogImage: "/assets/img/logo-crm.png",
+  /** Visible freshness for main marketing pages (not legal boilerplate alone). */
+  contentPublished: "2026-08-24",
+  contentModified: "2026-09-22",
 };
 
 export const pageSeo = {
@@ -110,6 +136,24 @@ export const pageSeo = {
     title: "Aviso de privacidad | Grupo CRM Extintores",
     description:
       "Aviso de privacidad de Grupo CRM Extintores. Cómo tratamos sus datos de contacto para cotizar extintores en CDMX y Estado de México.",
+  },
+  "politica-servicio": {
+    path: "/politica-de-servicio",
+    title: "Política de servicio y cotización | Grupo CRM Extintores",
+    description:
+      "Cómo cotizamos, visitamos y documentamos el servicio de extintores en CDMX y Estado de México. Horario, pagos y alcance claros.",
+  },
+  "fuentes-normatividad": {
+    path: "/fuentes-y-normatividad",
+    title: "Fuentes y normatividad | Grupo CRM Extintores",
+    description:
+      "Enlaces oficiales a la NOM-154-SCFI-2005, NOM-002-STPS-2010 y MCD. Fuentes técnicas que respaldan nuestro servicio de extintores.",
+  },
+  caso: {
+    path: "/caso-agencia-automotriz",
+    title: "Caso: instalación en agencia automotriz | Grupo CRM",
+    description:
+      "Instalación de extintores PQS y CO₂ en agencia automotriz (showroom, acceso y taller). Trabajo documentado en la galería de Grupo CRM.",
   },
   blog: {
     path: "/blog",
@@ -347,6 +391,7 @@ export const blogPosts = [
     kicker: "Instalación",
     excerpt: "Altura, ubicación, señalamiento y errores comunes. Deje el punto listo y cotice instalación con Grupo CRM.",
     datePublished: "2026-09-01",
+    dateModified: "2026-09-01",
     image: "/assets/img/opt/full/blog-instalar-1400.webp",
     imageAlt: "Extintor Grupo CRM instalado con señalamiento EXTINTOR",
   },
@@ -360,6 +405,7 @@ export const blogPosts = [
     kicker: "Guía práctica",
     excerpt: "Qué cubre cada clase de fuego y cómo elegir PQS ABC, CO₂, agua o tipo K según su condominio, restaurante u oficina.",
     datePublished: "2026-08-27",
+    dateModified: "2026-09-22",
     image: "/assets/img/opt/full/blog-tipos-fuego-1400.webp",
     imageAlt: "Guía de uso de extintores Grupo CRM según tipo de fuego",
   },
@@ -373,6 +419,7 @@ export const blogPosts = [
     kicker: "Guía práctica",
     excerpt: "Partes del extintor, qué contiene y cómo actuar solo si el fuego sigue en su etapa inicial.",
     datePublished: "2026-08-24",
+    dateModified: "2026-08-24",
     image: "/assets/img/opt/full/blog-extintor-uso-1400.webp",
     imageAlt: "Uso de extintor de agente limpio Grupo CRM ante un conato eléctrico",
   },
@@ -386,6 +433,7 @@ export const blogPosts = [
     kicker: "Cobertura",
     excerpt: "Empresa mexicana para condominios, restaurantes y oficinas en CDMX y Estado de México.",
     datePublished: "2026-08-24",
+    dateModified: "2026-09-22",
     image: "/assets/img/opt/full/blog-extintores-cdmx-1400.webp",
     imageAlt: "Punto de extintor, salida de emergencia y botiquín en un inmueble de CDMX",
   },
@@ -399,6 +447,7 @@ export const blogPosts = [
     kicker: "Catálogo",
     excerpt: "PQS, CO₂, tipo K y agente limpio. Le ayudamos a elegir el que de verdad necesita.",
     datePublished: "2026-08-24",
+    dateModified: "2026-08-24",
     image: "/assets/img/opt/full/blog-extintor-6kg-1400.webp",
     imageAlt: "Extintores Grupo CRM de 6 kg: PQS, tipo K y agente limpio",
   },
@@ -412,6 +461,7 @@ export const blogPosts = [
     kicker: "Normatividad",
     excerpt: "La norma del servicio de recarga: etiqueta, evidencia y un extintor que sí sirve en la inspección.",
     datePublished: "2026-09-01",
+    dateModified: "2026-09-22",
     image: "/assets/img/opt/full/blog-recarga-1400.webp",
     imageAlt: "Técnico Grupo CRM revisando un extintor en taller de recarga",
   },
@@ -425,6 +475,7 @@ export const blogPosts = [
     kicker: "Equipo de protección",
     excerpt: "Colores de casco por rol y características para elegir el equipo correcto en obra, almacén, industria o brigada.",
     datePublished: "2026-09-01",
+    dateModified: "2026-09-01",
     image: "/assets/img/opt/full/blog-cascos-1400.webp",
     imageAlt: "Cascos de seguridad por color y rol",
   },
@@ -728,7 +779,47 @@ export const faqs = [
   },
   {
     q: "¿Qué extintor necesito?",
-    a: 'Depende de lo que quiera proteger: clase A para sólidos, B para líquidos, C para equipo eléctrico y K para cocinas. En el blog explicamos <a href="/blog/tipos-de-fuego">cómo elegir el extintor</a>. En cada ficha viene la clase y, si tiene dudas, con gusto lo orientamos.',
+    a: 'Depende de lo que quiera proteger: clase A para sólidos, B para líquidos, C para equipo eléctrico y K para cocinas. En el blog explicamos <a href="/blog/tipos-de-fuego">cómo elegir el extintor</a> y en el inicio hay una <a href="/#comparar-extintores">tabla comparativa</a> de PQS ABC, CO₂ y tipo K. En cada ficha viene la clase y, si tiene dudas, con gusto lo orientamos.',
+  },
+  {
+    q: "¿Cada cuánto hay que recargar un extintor?",
+    a: 'El plazo lo marca la <a href="/blog/nom-154-scfi-2005">NOM-154-SCFI-2005</a> y el tipo de equipo: no es “cuando se vea vacío”. En inspección piden servicio vigente, etiqueta legible y evidencia de quién lo atendió. En la visita de revisión (sin costo) le decimos qué se recarga, qué se sustituye y si el cilindro ya requiere prueba hidrostática.',
+  },
+  {
+    q: "¿Qué revisan para dejar el inmueble listo ante una inspección?",
+    a: "Que el equipo exista, se vea y esté servido: manómetro en rango, sello, etiqueta con fecha y quién hizo el servicio, y a menudo señalamientos y puntos de incendio. Revisamos eso en sitio, le indicamos qué falta y dejamos evidencia útil cuando hacemos recarga o mantenimiento.",
+  },
+  {
+    q: "¿Qué incluye el mantenimiento de extintores?",
+    a: 'Forma parte de la revisión y recarga: presión, sello, etiqueta y estado físico del equipo. Cuando aplica, la recarga se hace bajo la NOM-154-SCFI-2005, con verificación de MCD cuando corresponde al proceso. Detalle en <a href="/mantenimiento-extintores">mantenimiento de extintores</a>.',
+  },
+];
+
+/** Short selection aid — facts already published in catálogo / blog tipos-de-fuego. */
+export const extinguisherCompare = [
+  {
+    name: "PQS ABC",
+    classes: "A, B, C",
+    use: "Pasillos, comercios, estacionamientos, oficinas y locales",
+    residue: "Deja residuo (polvo)",
+    note: "El más pedido; 6 kg es el que más se instala",
+    href: "/productos?cat=extintores#extintores",
+  },
+  {
+    name: "CO₂",
+    classes: "B, C",
+    use: "Cómputo, laboratorios, tableros y equipo eléctrico",
+    residue: "Sin residuo",
+    note: "No cubre sólidos (A) ni freidoras (K)",
+    href: "/producto?sku=CRM-0007",
+  },
+  {
+    name: "Tipo K",
+    classes: "K",
+    use: "Freidoras, parrillas, marmitas y cocinas",
+    residue: "Agente para grasas de cocina",
+    note: "No sustituye al PQS ABC en el resto del local",
+    href: "/producto?sku=CRM-0012",
   },
 ];
 

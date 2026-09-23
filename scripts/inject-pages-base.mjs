@@ -28,7 +28,7 @@ const cssBoot = `  <style id="css-boot">
   body:has([data-header] .site-chrome) {
     padding-top: calc(var(--chrome-h) + env(safe-area-inset-top, 0px));
   }
-  .brand img { display: block; width: auto; height: auto; max-height: 47px; aspect-ratio: 243 / 52; object-fit: contain; }
+  .brand img { display: block; width: auto; height: auto; max-height: 47px; aspect-ratio: 720 / 154; object-fit: contain; }
   .hero-slider { position: relative; isolation: isolate; min-height: min(72vh, 646px); overflow: hidden; background: #1a2031; }
   @media (max-width: 760px) {
     .hero-slider:not(.home-gallery) { min-height: min(78dvh, 660px); }

@@ -1,4 +1,5 @@
-import { company, categories, products, services, courses, sectors, faqs, reviews, clients, waUrl, safeDecode, catName, catCount, productBySku, productImg, productAlt, productUrl, readSku, relatedProducts, lookbook, lookAlt, lookFull, venues, carePoints, readyChecks, condo, seoServicePages, extintoresPath, extintoresHubPath } from "./data.js";
+import { company, categories, products, services, courses, sectors, faqs, reviews, clients, waUrl, safeDecode, catName, catCount, productBySku, productImg, productAlt, productUrl, readSku, relatedProducts, lookbook, lookAlt, lookFull, venues, carePoints, readyChecks, condo, seoServicePages, extintoresPath, extintoresHubPath, extinguisherCompare } from "./data.js";
+import { lookSize } from "./look-dims.js";
 import { applySeo } from "./seo.js";
 import { rebaseDocument, rebaseSrcset, withBase } from "./base.js";
 
@@ -87,8 +88,8 @@ function srcsetOf(prefix, stem, widths) {
   return widths.map((w) => `${absAsset(`${prefix}${stem}-${w}.webp`)} ${w}w`).join(", ");
 }
 
-function fullSrcset(stem) {
-  return srcsetOf("/assets/img/opt/full/", stem, [800, 1400, 1600]);
+function fullSrcset(stem, widths = [800, 1400, 1600]) {
+  return srcsetOf("/assets/img/opt/full/", stem, widths);
 }
 
 function catalogSrcset(sku) {
@@ -155,11 +156,12 @@ function clientSrcset(src) {
 function clientPicture(logo, { alt = "", extra = "", lazy = false } = {}) {
   const file = clientFile(logo.src);
   const src = file ? absAsset(`/assets/img/opt/clients/${file}-160.webp`) : absAsset(logo.src);
-  const srcset = clientSrcset(logo.src);
+  // Display ~52–80 CSS px; 160w covers 2x. Skip 320w to avoid oversized downloads.
+  const srcset = file ? `${absAsset(`/assets/img/opt/clients/${file}-160.webp`)} 160w` : clientSrcset(logo.src);
   const loading = imgLoadAttrs({ lazy });
   return `<picture>
     <source type="image/webp" srcset="${srcset}" sizes="80px">
-    <img${extra} src="${src}" alt="${alt}" width="160" height="72"${loading}>
+    <img${extra} src="${src}" alt="${alt}" width="160" height="160"${loading}>
   </picture>`;
 }
 
@@ -169,14 +171,17 @@ function imgLoadAttrs({ lazy = true, priority = false } = {}) {
   return ' decoding="async"';
 }
 
-function lookPicture(item, { sizes, lazy = true, priority = false, width = 480, height = 360, alt = "", extra = "" } = {}) {
+function lookPicture(item, { sizes, lazy = true, priority = false, width, height, alt = "", extra = "", srcWidths } = {}) {
   const loading = imgLoadAttrs({ lazy: lazy && !priority, priority });
   const stem = lookStem(item);
-  const srcset = fullSrcset(stem);
+  const natural = lookSize(stem);
+  const w = width || natural.width;
+  const h = height || natural.height;
+  const srcset = fullSrcset(stem, srcWidths || [800, 1400, 1600]);
   const src = lookThumbSrc(item);
   return `<picture>
     <source type="image/webp" srcset="${srcset}" sizes="${sizes}">
-    <img src="${src}" alt="${escapeAttr(alt)}" width="${width}" height="${height}"${loading}${extra}>
+    <img src="${src}" alt="${escapeAttr(alt)}" width="${w}" height="${h}"${loading}${extra}>
   </picture>`;
 }
 
@@ -454,7 +459,7 @@ function headerHTML(page) {
       </div>
       <header class="site-header">
         <div class="wrap header__inner">
-          <a class="brand" href="${withBase("/")}"><picture><source type="image/webp" srcset="${withBase("/assets/img/logo-crm.webp")}"><img src="${withBase("/assets/img/logo-crm.png")}" alt="Grupo CRM Extintores" title="Grupo CRM Extintores" width="243" height="52" decoding="async" fetchpriority="low"></picture></a>
+          <a class="brand" href="${withBase("/")}"><picture><source type="image/webp" srcset="${withBase("/assets/img/logo-crm.webp")}"><img src="${withBase("/assets/img/logo-crm.png")}" alt="Grupo CRM Extintores" title="Grupo CRM Extintores" width="720" height="154" decoding="async" fetchpriority="low"></picture></a>
           <nav class="nav" id="menu">
             ${item("/", "inicio", "Inicio")}
             ${item("/nosotros", "nosotros", "Nosotros")}
@@ -566,7 +571,10 @@ function footerHTML() {
             <li><a href="${withBase("/extintores-estado-de-mexico")}">Estado de México</a></li>
             <li><a href="${withBase("/blog")}">Blog</a></li>
             <li><a href="${withBase("/contacto")}">Contacto</a></li>
+            <li><a href="${withBase("/caso-agencia-automotriz")}">Caso: agencia automotriz</a></li>
             <li><a href="${withBase("/aviso-privacidad")}">Aviso de privacidad</a></li>
+            <li><a href="${withBase("/politica-de-servicio")}">Política de servicio</a></li>
+            <li><a href="${withBase("/fuentes-y-normatividad")}">Fuentes y normatividad</a></li>
             <li><a href="${withBase("/mapa-sitio")}">Mapa de sitio</a></li>
           </ul>
         </nav>
@@ -610,7 +618,7 @@ function footerHTML() {
       </div>
       <div class="wrap footer-legal">
         <p class="copy">© ${new Date().getFullYear()} Grupo CRM Extintores. Todos los derechos reservados.</p>
-        <p class="copy"><a href="${withBase("/aviso-privacidad")}">Aviso de privacidad</a> · ${company.coverage}</p>
+        <p class="copy"><a href="${withBase("/aviso-privacidad")}">Aviso de privacidad</a> · <a href="${withBase("/politica-de-servicio")}">Política de servicio</a> · <a href="${withBase("/fuentes-y-normatividad")}">Fuentes</a> · ${company.coverage}</p>
       </div>
     </footer>
     <div class="page-floats">
@@ -1258,7 +1266,7 @@ export function renderHomeCats() {
     .map((c) => {
       const cover = catCover(c);
       const media = cover
-        ? `<span class="cat-tile__media${cover.photo ? "" : " cat-tile__media--sku"}"><picture><source type="image/webp" srcset="${catSrcset(cover)}" sizes="(min-width: 900px) 180px, 45vw"><img src="${catImg(cover)}" alt="${escapeAttr(cover.alt)}" width="480" height="320" loading="lazy" decoding="async"></picture></span>`
+        ? `<span class="cat-tile__media${cover.photo ? "" : " cat-tile__media--sku"}"><picture><source type="image/webp" srcset="${catSrcset(cover)}" sizes="(min-width: 900px) 180px, 45vw"><img src="${catImg(cover, 480)}" alt="${escapeAttr(cover.alt)}" width="480" height="480" loading="lazy" decoding="async"></picture></span>`
         : "";
       const go = `Ver catálogo de ${String(c.name || "").toLowerCase()}`;
       return `<li>
@@ -1303,7 +1311,7 @@ export function renderHomeCatalog() {
   root.innerHTML = categories
     .filter((c) => HOME_BEST_CATS.includes(c.id))
     .map((c) => {
-      const items = homeCategoryItems(c.id, 4);
+      const items = homeCategoryItems(c.id, 2);
       if (!items.length) return "";
       return `
         <section class="shop-block" data-cat="${c.id}">
@@ -1311,7 +1319,7 @@ export function renderHomeCatalog() {
             <h3>${c.name}</h3>
             <a class="shop-more" href="${withBase(`/productos?cat=${c.id}#${c.id}`)}"><i class="fa-solid fa-table-cells" aria-hidden="true"></i> ${c.seeAll}</a>
           </header>
-          <div class="shop-grid shop-grid--4">${items.map((p, i) => productCard(p, { quote: true, eager: i < 2 })).join("")}</div>
+          <div class="shop-grid shop-grid--4">${items.map((p, i) => productCard(p, { quote: true, eager: false })).join("")}</div>
         </section>`;
     })
     .join("");
@@ -1517,7 +1525,7 @@ export function bindLookbook() {
     root.innerHTML = `
       <figure class="lookbook__hero">
         <button type="button" class="lookbook__open" data-lb-open aria-label="Ver ${escapeAttr(item.title)} en grande">
-          ${lookPicture(item, { sizes: "(min-width: 900px) 640px, 100vw", width: 800, height: 600, alt: lookAlt(item), lazy: false })}
+          ${lookPicture(item, { sizes: "(min-width: 900px) 640px, 100vw", alt: lookAlt(item), lazy: false, srcWidths: [800, 1400] })}
         </button>
         <figcaption>
           <p class="lookbook__count">${pad(index + 1)} / ${pad(lookbook.length)}</p>
@@ -1598,7 +1606,7 @@ function clientRailCard(c, { inert = false } = {}) {
     .map((logo) => {
       const round = c.round && !pair ? ' class="is-round"' : "";
       const alt = escapeAttr(logo.alt || `${c.name}, cliente Grupo CRM`);
-      return clientPicture(logo, { alt, extra: round });
+      return clientPicture(logo, { alt, extra: round, lazy: true });
     })
     .join("");
   const cls = [
@@ -1909,7 +1917,7 @@ function homeGalleryPicks() {
 
 function peekCard(item, i) {
   return `<button type="button" class="peek-rail__card" data-lb-open="${i}" aria-label="Ver ${escapeAttr(item.title)} en grande">
-    ${lookPicture(item, { sizes: "(min-width: 1024px) 340px, 74vw", width: 640, height: 854, alt: lookAlt(item), lazy: i >= 2 })}
+    ${lookPicture(item, { sizes: "(min-width: 1024px) 340px, 74vw", alt: lookAlt(item), lazy: i >= 1, srcWidths: [800] })}
     <span class="peek-rail__cap"><strong>${item.title}</strong></span>
   </button>`;
 }
@@ -1991,11 +1999,48 @@ export function renderFaqs() {
     .join("");
 }
 
+export function renderExtinguisherCompare() {
+  const roots = document.querySelectorAll("[data-compare-ext]");
+  if (!roots.length || !extinguisherCompare.length) return;
+  const rows = extinguisherCompare
+    .map(
+      (row) => `<tr>
+        <th scope="row"><a href="${withBase(row.href)}">${escapeHtml(row.name)}</a></th>
+        <td>${escapeHtml(row.classes)}</td>
+        <td>${escapeHtml(row.use)}</td>
+        <td>${escapeHtml(row.residue)}</td>
+        <td>${escapeHtml(row.note)}</td>
+      </tr>`
+    )
+    .join("");
+  const table = `<div class="compare-table-wrap">
+      <table class="compare-table">
+        <caption class="sr-only">Comparación de extintores PQS ABC, CO₂ y tipo K</caption>
+        <thead>
+          <tr>
+            <th scope="col">Tipo</th>
+            <th scope="col">Clases</th>
+            <th scope="col">Dónde se usa</th>
+            <th scope="col">Residuo</th>
+            <th scope="col">Nota</th>
+          </tr>
+        </thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
+    <p class="compare-table__more muted">Detalle de clases de fuego en la guía <a href="${withBase("/blog/tipos-de-fuego")}">tipos de fuego</a>. Caso real de instalación: <a href="${withBase("/caso-agencia-automotriz")}">agencia automotriz</a>.</p>`;
+  roots.forEach((root) => {
+    root.innerHTML = table;
+    root.setAttribute("aria-busy", "false");
+  });
+}
+
 export function renderHome() {
   bindHeroSlider();
   const hydrate = () => {
     renderHomeCats();
     renderHomeCatalog();
+    renderExtinguisherCompare();
     paintServices();
     paintCursos();
     renderCarePoints();
@@ -2021,6 +2066,7 @@ export function renderHome() {
 export function renderProductos() {
   renderCatalogExtend();
   bindCatalog("all");
+  renderExtinguisherCompare();
 }
 
 export function renderProducto() {
@@ -2188,7 +2234,7 @@ export function hookRevisionHTML() {
     <div class="wrap hook__inner">
       <div class="hook__copy">
         <p class="kicker">Primera visita</p>
-        <h2>Agende su visita de revisión,<span class="hook__cost">sin costo.</span></h2>
+        <p class="hook__title">Agende su visita de revisión,<span class="hook__cost">sin costo.</span></p>
         <hr class="rule rule-left hook__rule" aria-hidden="true">
         <p>Con mucho gusto vamos a su empresa, revisamos sus extintores y le decimos con claridad qué le hace falta. Usted elige el día y la hora; nosotros llegamos puntuales, sin compromiso.</p>
       </div>
@@ -2304,10 +2350,9 @@ function servicePhoto(service) {
   if (!shot) return "";
   return `<span class="svc-showcase__shot is-in">${lookPicture(shot, {
     sizes: "(min-width: 700px) 38vw, 100vw",
-    width: 800,
-    height: 600,
     alt: lookAlt(shot),
     lazy: false,
+    srcWidths: [800, 1400],
   })}</span>
   <figcaption>
     <span>${escapeHtml(service.title)}</span>
@@ -2390,9 +2435,8 @@ function paintCursos() {
     }
     root.innerHTML = lookPicture(shot, {
       sizes: "(min-width: 700px) 380px, 100vw",
-      width: 800,
-      height: 600,
       alt: lookAlt(shot),
+      srcWidths: [800],
     });
     bindMediaLoad(root);
   });
@@ -2673,7 +2717,7 @@ export function renderGaleria() {
       ? list
           .map(
             (item, i) => `<button type="button" class="gallery-tile" data-lb="${i}" aria-label="Ver ${escapeAttr(item.title)} en grande">
-              ${lookPicture(item, { sizes: "(min-width: 1100px) 25vw, (min-width: 760px) 30vw, 50vw", width: 800, height: 1000, alt: lookAlt(item), lazy: i >= 4 })}
+              ${lookPicture(item, { sizes: "(min-width: 1100px) 25vw, (min-width: 760px) 30vw, 50vw", alt: lookAlt(item), lazy: i >= 4, srcWidths: [800, 1400] })}
               <span class="gallery-tile__cap">
                 <span class="gallery-tile__idx">${String(i + 1).padStart(2, "0")}</span>
                 <strong>${item.title}</strong>

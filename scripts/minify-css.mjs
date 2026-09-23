@@ -4,17 +4,20 @@
  *
  * Important: do NOT strip spaces around + / - inside calc()/clamp()/min()/max(),
  * or those declarations become invalid and silently fall back (e.g. hero type).
+ *
+ * Bundles tokens.css + main.css into one file to cut an HTTP request.
  */
 import { readFileSync, writeFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
+const tokens = join(root, "css", "tokens.css");
 const src = join(root, "css", "main.css");
 const dest = join(root, "css", "main.min.css");
 
 const held = [];
-let css = readFileSync(src, "utf8");
+let css = `${readFileSync(tokens, "utf8")}\n${readFileSync(src, "utf8")}`;
 css = css
   .replace(/\/\*[\s\S]*?\*\//g, "")
   // Preserve math functions so "1.5rem + 3.7vw" keeps required spaces around +/−
@@ -32,4 +35,4 @@ css = css
   .trim();
 
 writeFileSync(dest, css);
-console.log(`main.min.css ${(css.length / 1024).toFixed(1)} KiB (from ${(readFileSync(src).length / 1024).toFixed(1)} KiB)`);
+console.log(`main.min.css ${(css.length / 1024).toFixed(1)} KiB (tokens+main bundled)`);

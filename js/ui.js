@@ -52,7 +52,6 @@ export function mountShell(page) {
   if (header) header.innerHTML = headerHTML(page);
   if (footer) footer.innerHTML = footerHTML();
   rebaseDocument();
-  if (header) hydrateLazy(header);
   bindChrome();
   bindBackTop();
 }
@@ -1288,7 +1287,7 @@ export function renderHomeCats() {
 const HOME_BEST = {
   extintores: ["CRM-0003", "CRM-0006", "CRM-0012", "CRM-0004"],
   "senalamiento-vial": ["CRM-0023", "CRM-0030", "CRM-0033", "CRM-0024"],
-  "equipo-proteccion": ["CRM-0049", "CRM-0050", "CRM-0051", "CRM-0052"],
+  "equipo-proteccion": ["CRM-0049", "CRM-0050", "CRM-0054", "CRM-0053"],
 };
 
 function homeCategoryItems(catId, limit = 4) {
@@ -1320,7 +1319,7 @@ export function renderHomeCatalog() {
             <h3>${c.name}</h3>
             <a class="shop-more" href="${withBase(`/productos?cat=${c.id}#${c.id}`)}"><i class="fa-solid fa-table-cells" aria-hidden="true"></i> ${c.seeAll}</a>
           </header>
-          <div class="shop-grid shop-grid--4">${items.map((p) => productCard(p, { quote: true, eager: true })).join("")}</div>
+          <div class="shop-grid shop-grid--4">${items.map((p, i) => productCard(p, { quote: true, eager: false })).join("")}</div>
         </section>`;
     })
     .join("");
@@ -2038,18 +2037,29 @@ export function renderExtinguisherCompare() {
 
 export function renderHome() {
   bindHeroSlider();
-  renderHomeCats();
-  renderHomeCatalog();
-  paintServices();
-  paintCursos();
-  renderCarePoints();
-  renderClientLogos();
-  renderReviews();
-  renderCompactSectors();
-  renderHook();
-  renderHomeGallerySlider();
-  renderFaqs();
-  renderNosotros();
+  const hydrate = () => {
+    renderHomeCats();
+    renderHomeCatalog();
+    paintServices();
+    paintCursos();
+    renderCarePoints();
+    renderClientLogos();
+    renderReviews();
+    renderCompactSectors();
+    renderHook();
+    renderHomeGallerySlider();
+    renderFaqs();
+    renderNosotros();
+  };
+  // Mobile: keep first paint free of catalog/reviews/gallery work.
+  const mobile = window.matchMedia("(max-width: 760px)").matches;
+  if (mobile && "requestIdleCallback" in window) {
+    window.requestIdleCallback(hydrate, { timeout: 2200 });
+  } else if (mobile) {
+    window.setTimeout(hydrate, 120);
+  } else {
+    hydrate();
+  }
 }
 
 export function renderProductos() {

@@ -1787,11 +1787,10 @@ function bindClientRail(root) {
     </div>`;
   const viewport = root.querySelector(".client-rail__viewport");
   const groups = [...root.querySelectorAll(".client-rail__group")];
-  const mqCollage = window.matchMedia("(max-width: 699px)");
   const pxPerSec = 42;
 
   function isCollage() {
-    return mqCollage.matches;
+    return false;
   }
 
   function fillGroups() {
@@ -1834,7 +1833,6 @@ function bindClientRail(root) {
     if (!isCollage()) fillGroups();
   };
 
-  mqCollage.addEventListener("change", setMode);
   window.addEventListener("resize", onResize);
   root.querySelectorAll("img").forEach((img) => {
     if (img.complete) return;
@@ -1842,7 +1840,6 @@ function bindClientRail(root) {
     img.addEventListener("error", onResize, { once: true });
   });
   root._clientRailStop = () => {
-    mqCollage.removeEventListener("change", setMode);
     window.removeEventListener("resize", onResize);
   };
   setMode();

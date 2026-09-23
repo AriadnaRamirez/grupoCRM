@@ -3536,7 +3536,7 @@ body.is-nav-open { overflow: hidden; }
   padding: 0;
 }
 .client-rail {
-  --client-gap: 28px;
+  --client-gap: clamp(34px, 5vw, 72px);
   --client-marquee-duration: 40s;
   position: relative;
   display: block;

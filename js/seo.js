@@ -128,9 +128,9 @@ function professionalService({ areaServed } = {}) {
     "@type": ["LocalBusiness", "ProfessionalService"],
     "@id": `${SITE.origin}/#business`,
     name: company.name,
-    alternateName: ["CRM Extintores", "Grupo CRM", "GRUPO CRM Extintores"],
+    alternateName: [company.brandShort, "CRM Extintores", "GRUPO CRM Extintores"],
     legalName: company.legalName || company.name,
-    brand: { "@type": "Brand", name: "CRM Extintores", alternateName: [company.name, "Grupo CRM", "GRUPO CRM Extintores"] },
+    brand: { "@type": "Brand", name: company.brandShort, alternateName: [company.name, "CRM Extintores", "GRUPO CRM Extintores"] },
     description: company.about,
     url: SITE.origin,
     image: [
@@ -193,6 +193,7 @@ function professionalService({ areaServed } = {}) {
     },
     sameAs: [company.facebookUrl, company.instagramUrl].filter(Boolean),
     knowsAbout: [
+      company.brandShort,
       "CRM Extintores",
       "Grupo CRM Extintores",
       "Extintores Chamixto",
@@ -243,7 +244,7 @@ function organizationNode() {
     "@id": `${SITE.origin}/#organization`,
     name: company.name,
     legalName: company.legalName || company.name,
-    alternateName: ["CRM Extintores", "Grupo CRM", "GRUPO CRM Extintores"],
+    alternateName: [company.brandShort, "CRM Extintores", "GRUPO CRM Extintores"],
     url: SITE.origin,
     logo: {
       "@type": "ImageObject",
@@ -268,8 +269,8 @@ function websiteNode() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": `${SITE.origin}/#website`,
-    name: "CRM Extintores",
-    alternateName: [company.name, "Grupo CRM", "GRUPO CRM Extintores"],
+    name: company.brandShort,
+    alternateName: [company.name, "CRM Extintores", "GRUPO CRM Extintores"],
     url: SITE.origin,
     inLanguage: "es-MX",
     publisher: { "@id": `${SITE.origin}/#organization` },
@@ -496,7 +497,7 @@ export function applySeo(page) {
   setLink("canonical", url);
   setMeta("og:type", seo.type === "product" ? "product" : seo.type === "article" ? "article" : "website", "property");
   setMeta("og:locale", SITE.locale, "property");
-  setMeta("og:site_name", company.shortName, "property");
+  setMeta("og:site_name", company.brandShort, "property");
   setMeta("og:title", seo.title, "property");
   setMeta("og:description", seo.description, "property");
   setMeta("og:url", url, "property");
@@ -544,7 +545,7 @@ export function applySeo(page) {
     name: seo.title,
     description: seo.description,
     inLanguage: "es-MX",
-    isPartOf: { "@type": "WebSite", "@id": `${SITE.origin}/#website`, name: company.shortName, url: SITE.origin },
+    isPartOf: { "@type": "WebSite", "@id": `${SITE.origin}/#website`, name: company.brandShort, url: SITE.origin },
     datePublished: seo.article?.datePublished || SITE.contentPublished,
     dateModified:
       seo.article?.dateModified ||
@@ -581,7 +582,7 @@ export function applySeo(page) {
       "seo-crumbs",
       breadcrumbs([
         { name: "Inicio", path: "/" },
-        { name: "Grupo CRM Extintores", path: "/grupo-crm-extintores" },
+        { name: "Grupo CRM", path: "/grupo-crm-extintores" },
       ])
     );
   } else if (page === "extintores-chamixto") {

@@ -426,12 +426,12 @@ export const blogPosts = [
   {
     slug: "extintores-cdmx",
     path: "/blog/extintores-cdmx",
-    title: "Extintores en CDMX y Estado de México | Grupo CRM Extintores",
-    heading: "Extintores en CDMX y Estado de México",
+    title: "Guía de extintores en CDMX para empresas | Grupo CRM",
+    heading: "Guía de extintores en CDMX para empresas",
     description:
-      "Venta, recarga e instalación de extintores y equipo contra incendios en la Ciudad de México y el Estado de México. Cotice con Grupo CRM.",
+      "Guía para elegir, instalar y mantener extintores en empresas de CDMX y Estado de México. Conozca clases, recarga, señalamientos y cumplimiento.",
     kicker: "Cobertura",
-    excerpt: "Empresa mexicana para condominios, restaurantes y oficinas en CDMX y Estado de México.",
+    excerpt: "Qué revisar antes de comprar, instalar o recargar extintores en una empresa de CDMX o Estado de México.",
     datePublished: "2026-08-24",
     dateModified: "2026-09-22",
     image: "/assets/img/opt/full/blog-extintores-cdmx-1400.webp",
@@ -963,9 +963,10 @@ export function productAlt(p, { detail = false } = {}) {
     ? `${p.title} certificado de Grupo CRM Extintores`
     : `${p.title} Grupo CRM Extintores`;
   if (p.cat === "extintores") {
+    const label = /^extintor/i.test(p.title) ? p.title : `Extintor ${p.title}`;
     return detail
-      ? `Extintor ${p.title} certificado Grupo CRM para CDMX y Estado de México`
-      : `Extintor ${p.title} Grupo CRM`;
+      ? `${label} certificado Grupo CRM para CDMX y Estado de México`
+      : `${label} Grupo CRM`;
   }
   return base;
 }

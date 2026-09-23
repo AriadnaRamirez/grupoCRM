@@ -2037,29 +2037,18 @@ export function renderExtinguisherCompare() {
 
 export function renderHome() {
   bindHeroSlider();
-  const hydrate = () => {
-    renderHomeCats();
-    renderHomeCatalog();
-    paintServices();
-    paintCursos();
-    renderCarePoints();
-    renderClientLogos();
-    renderReviews();
-    renderCompactSectors();
-    renderHook();
-    renderHomeGallerySlider();
-    renderFaqs();
-    renderNosotros();
-  };
-  // Mobile: keep first paint free of catalog/reviews/gallery work.
-  const mobile = window.matchMedia("(max-width: 760px)").matches;
-  if (mobile && "requestIdleCallback" in window) {
-    window.requestIdleCallback(hydrate, { timeout: 2200 });
-  } else if (mobile) {
-    window.setTimeout(hydrate, 120);
-  } else {
-    hydrate();
-  }
+  renderHomeCats();
+  renderHomeCatalog();
+  paintServices();
+  paintCursos();
+  renderCarePoints();
+  renderClientLogos();
+  renderReviews();
+  renderCompactSectors();
+  renderHook();
+  renderHomeGallerySlider();
+  renderFaqs();
+  renderNosotros();
 }
 
 export function renderProductos() {

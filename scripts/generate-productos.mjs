@@ -24,7 +24,7 @@ import {
 } from "../js/data.js";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const CACHE = "rb-15";
+const CACHE = "rb-19";
 
 const MONTHS_ES = [
   "enero",
@@ -251,8 +251,8 @@ function productFaqs(p) {
       a: `${p.use || p.desc} Lo cotizamos e instalamos en CDMX y Estado de México desde la oficina de Cuajimalpa.`,
     },
     {
-      q: "¿El precio incluye instalación?",
-      a: "La ficha es de equipo. La cotización puede incluir solo el artículo, o venta con instalación y señalamientos según su inmueble. Confirmamos el alcance por escrito.",
+      q: "¿La cotización incluye instalación?",
+      a: "La ficha es de equipo. Le enviamos la cotización por WhatsApp: puede ser solo el artículo, o venta con instalación y señalamientos según su inmueble.",
     },
     {
       q: "¿Atienden recarga de este tipo de equipo?",
@@ -373,7 +373,7 @@ function productHtml(p) {
               <p>${escapeHtml(p.use)}</p>
             </div>
             <table class="specs">${specs.map(([k, v]) => `<tr><th>${escapeHtml(k)}</th><td>${escapeHtml(v)}</td></tr>`).join("")}</table>
-            <p>Servicio en CDMX y Estado de México, coordinado desde la oficina de Cuajimalpa. El precio se confirma por escrito según cantidad, instalación y señalamientos.</p>
+            <p>Servicio en CDMX y Estado de México, coordinado desde la oficina de Cuajimalpa. Le enviamos la cotización por WhatsApp según cantidad, instalación y señalamientos.</p>
             ${serviceLink}
             <div class="actions">
               <a class="btn btn-wa" href="${waHref(`Hola, quiero cotizar ${p.sku} — ${p.title}`)}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i><span>Cotizar por WhatsApp</span></a>

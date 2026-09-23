@@ -25,7 +25,7 @@ import {
 } from "../js/data.js";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const CACHE = "rb-15";
+const CACHE = "rb-19";
 const MONTHS_ES = [
   "enero",
   "febrero",
@@ -761,7 +761,7 @@ function locationHtml(zona) {
           copy.isBase
             ? ` Cómo pedimos el servicio en la alcaldía: <a href="/blog/recarga-extintores-cuajimalpa">recarga de extintores en Cuajimalpa</a>.`
             : ""
-        } Rangos de referencia: <a href="/blog/precio-recarga-extintores-cdmx">precio de recarga en CDMX</a>.</p>
+        } La cotización se envía por WhatsApp.</p>
 
         <h2>Mantenimiento de extintores en ${escapeHtml(zona.name)}</h2>
         <p>${escapeHtml(copy.mant)}</p>
@@ -828,8 +828,8 @@ function hubCdmx() {
       a: "Sí. La recarga y el mantenimiento se alinean a la NOM-154-SCFI-2005, con verificación de MCD cuando corresponde al proceso.",
     },
     {
-      q: "¿Publican precios de recarga?",
-      a: "Publicamos rangos de referencia de mercado en la guía de precio de recarga. La cifra de Grupo CRM Extintores se confirma por escrito después de revisar sus equipos.",
+      q: "¿Cómo pido el precio?",
+      a: "Le enviamos la cotización por WhatsApp. No publicamos listas ni promedios. Indique alcaldía, giro y, si puede, fotos de sus equipos. La primera visita de revisión no tiene costo.",
     },
   ];
   const faqLd = {
@@ -868,7 +868,7 @@ function hubCdmx() {
         <li><a href="/instalacion-extintores">Instalación</a> en sitio y <a href="/senalizacion">señalización</a></li>
       </ul>
       <p>En una inspección suelen pedir tres cosas: que el extintor exista, que se vea y que esté servido. Por eso no separamos el catálogo de la recarga: le decimos qué comprar, qué recargar y qué ya no conviene dejar en el muro.</p>
-      <p>Rangos de referencia (no lista cerrada): <a href="/blog/precio-recarga-extintores-cdmx">precio de recarga de extintores en CDMX</a>. Norma del servicio: <a href="/blog/nom-154-scfi-2005">NOM-154-SCFI-2005</a>. Catálogo oficial: <a href="/productos">crmextintores.com.mx/productos</a>.</p>
+      <p>Norma del servicio: <a href="/blog/nom-154-scfi-2005">NOM-154-SCFI-2005</a>. Catálogo oficial: <a href="/productos">crmextintores.com.mx/productos</a>. La cotización se envía por WhatsApp.</p>
 
       <h2>Cómo trabajamos</h2>
       <ul class="zona-page__points">
@@ -960,7 +960,7 @@ function hubEdomex() {
           ${gridItems(zonasEdomex)}
       </ul>
 
-      <p class="zona-page__more muted">Ver también <a href="/extintores-cdmx">extintores en Ciudad de México</a>, el <a href="/productos">catálogo</a> y <a href="/blog/precio-recarga-extintores-cdmx">precio de recarga</a>.</p>
+      <p class="zona-page__more muted">Ver también <a href="/extintores-cdmx">extintores en Ciudad de México</a>, el <a href="/productos">catálogo</a> y <a href="/recarga-extintores">recarga de extintores</a>.</p>
     </div>
   </section>`;
   return pageShell({
@@ -1035,13 +1035,13 @@ function serviceHtml(svc) {
     : "";
   const recargaNote =
     svc.slug === "recarga-extintores"
-      ? `<p>La recarga se alinea a la <a href="/blog/nom-154-scfi-2005">NOM-154-SCFI-2005</a>, con verificación de <a href="${escapeHtml(company.mcdUrl)}" target="_blank" rel="noopener noreferrer">MCD</a> cuando corresponde al proceso. Rangos de referencia: <a href="/blog/precio-recarga-extintores-cdmx">precio de recarga de extintores en CDMX</a>.</p>`
+      ? `<p>La recarga se alinea a la <a href="/blog/nom-154-scfi-2005">NOM-154-SCFI-2005</a>, con verificación de <a href="${escapeHtml(company.mcdUrl)}" target="_blank" rel="noopener noreferrer">MCD</a> cuando corresponde al proceso. La cotización se envía por WhatsApp.</p>`
       : svc.slug === "venta-extintores"
         ? `<p>Catálogo oficial en este sitio: <a href="/productos">productos</a>. Guía para elegir: <a href="/blog/tipos-de-fuego">tipos de fuego</a>.</p>`
         : svc.slug === "instalacion-extintores"
           ? `<p>Guía práctica: <a href="/blog/como-instalar-mi-extintor">cómo instalar un extintor</a>.</p>`
           : svc.slug === "mantenimiento-extintores"
-            ? `<p>Norma del servicio: <a href="/blog/nom-154-scfi-2005">NOM-154-SCFI-2005</a>. Rangos de referencia de recarga: <a href="/blog/precio-recarga-extintores-cdmx">precio de recarga en CDMX</a>.</p>`
+            ? `<p>Norma del servicio: <a href="/blog/nom-154-scfi-2005">NOM-154-SCFI-2005</a>. La cotización de recarga se envía por WhatsApp.</p>`
             : "";
   const faqLd = svc.faqs?.length
     ? {

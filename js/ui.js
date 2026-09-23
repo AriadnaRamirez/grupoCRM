@@ -583,7 +583,7 @@ function footerHTML() {
             <li><a href="${withBase("/extintores-cdmx")}">Cobertura CDMX</a></li>
             <li><a href="${withBase("/extintores-estado-de-mexico")}">Estado de México</a></li>
             <li><a href="${withBase("/blog")}">Blog</a></li>
-            <li><a href="${withBase("/blog/precio-recarga-extintores-cdmx")}">Precio de recarga</a></li>
+            <li><a href="${withBase("/recarga-extintores")}">Recarga de extintores</a></li>
             <li><a href="${withBase("/contacto")}">Contacto</a></li>
             <li><a href="${withBase("/aviso-privacidad")}">Aviso de privacidad</a></li>
             <li><a href="${withBase("/politica-de-servicio")}">Política de servicio</a></li>

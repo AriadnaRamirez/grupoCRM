@@ -1,38 +1,18 @@
 <!DOCTYPE html>
-<html lang="es-MX" prefix="og: https://ogp.me/ns#">
+<html lang="es-MX">
 <head>
   <meta charset="UTF-8">
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   <script>!function(){if(!/\.github\.io$/i.test(location.hostname))return;var s=document.createElement("script");s.src="/js/pages-base.js";document.head.appendChild(s)}();</script>
-  <style id="css-boot">
-  /* Critical first paint: reserve chrome + hero before async main.css (CLS) */
-  :root { --chrome-h: 108px; }
+    <style id="css-boot">
+  /* Critical first paint: chrome + hero before main.css (FOUC / CLS) */
+  :root { --chrome-h: 108px; --photo-w: min(50%, 720px); }
   @media (min-width: 1024px) { :root { --chrome-h: 113px; } }
   html { background: #fff; }
   body { margin: 0; color: #202020; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
-  .bot-nav {
-    position: absolute !important; width: 1px !important; height: 1px !important;
-    padding: 0 !important; margin: -1px !important; overflow: hidden !important;
-    clip: rect(0, 0, 0, 0) !important; clip-path: inset(50%) !important;
-    white-space: nowrap !important; border: 0 !important;
-  }
   .site-chrome { position: fixed; top: 0; left: 0; right: 0; z-index: 60; background: #fff; }
   .header-skel { height: var(--chrome-h); max-height: var(--chrome-h); overflow: hidden; pointer-events: none; }
   .header-skel .brand { pointer-events: auto; }
-  .header-skel .nav, .header-skel .header__cta { display: none !important; }
+  .header-skel .nav, .header-skel .header__cta, .header-skel__nav, .header-skel__cta { display: none !important; }
   body:has([data-header]:empty),
   body:has([data-header] .header-skel),
   body:has([data-header] .site-chrome) {
@@ -40,104 +20,71 @@
   }
   .brand img { display: block; width: auto; height: auto; max-height: 47px; aspect-ratio: 720 / 154; object-fit: contain; }
   .hero-slider { position: relative; isolation: isolate; min-height: min(72vh, 646px); overflow: hidden; background: #1a2031; }
+  .slide { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; color: #fff; background-color: #1a2031; }
+  .slide.is-active { opacity: 1; visibility: visible; pointer-events: auto; z-index: 1; }
+  .slide__photo {
+    position: absolute; inset: 0 0 0 auto; width: var(--photo-w);
+    background-color: #1a2031; background-repeat: no-repeat; background-size: cover; background-position: center bottom;
+  }
+  .slide__photo.media-load:not(.is-ready) { background-image: none !important; }
+  .slide__photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center bottom; }
+  .shop-grid { display: grid; }
+  body[data-page="inicio"] .shop-home .shop-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   @media (max-width: 760px) {
     .hero-slider:not(.home-gallery) { min-height: min(78dvh, 660px); }
+    :root { --photo-w: 100%; }
   }
   @media (max-width: 480px) {
     .hero-slider:not(.home-gallery) { min-height: min(74dvh, 600px); }
   }
-  .slide { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; color: #fff; }
-  .slide.is-active { opacity: 1; visibility: visible; pointer-events: auto; }
-  .slide__photo { position: absolute; inset: 0 0 0 auto; width: min(50%, 720px); }
-  .slide__photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center bottom; }
+  @media (max-width: 767px) {
+    body[data-page="inicio"] .shop-home .shop-grid--4 { grid-template-columns: 1fr 1fr; }
+  }
   </style>
-<link rel="preload" as="style" href="css/main.min.css?v=rb-1" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="css/main.min.css?v=rb-1"></noscript>
-  <script>!function(){var l=document.querySelector('link[rel="preload"][as="style"]');if(l&&!l.sheet){l.addEventListener("load",function(){this.onload=null;this.rel="stylesheet"});if(l.relList&&!l.relList.supports("preload"))l.rel="stylesheet"}}();</script>
-  <script>document.documentElement.classList.add("is-css");</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Extintores en CDMX y Estado de México | Grupo CRM Extintores</title>
-  <meta name="description" content="Grupo CRM Extintores: venta, recarga e instalación de extintores en CDMX y Estado de México. Primera visita sin costo. WhatsApp 56 6748 1489.">
+  <title>Extintores y recarga en CDMX | Grupo CRM Extintores</title>
+  <meta name="description" content="Extintores, recarga e inspección sin costo en CDMX y Estado de México. Evite multas de Protección Civil. Cotice por WhatsApp 55 5438 3241.">
   <meta name="author" content="Grupo CRM Extintores">
-  <meta name="theme-color" content="#D51A32">
+  <meta name="theme-color" content="#A91430">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.crmextintores.com.mx/">
-  
-  <link rel="sitemap" type="application/xml" href="https://www.crmextintores.com.mx/sitemap.xml">
+  <link rel="canonical" href="https://www.crmextintores.com/">
+  <link rel="alternate" hreflang="es-MX" href="https://www.crmextintores.com/">
+  <link rel="alternate" hreflang="x-default" href="https://www.crmextintores.com/">
+  <link rel="sitemap" type="application/xml" href="https://www.crmextintores.com/sitemap.xml">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_MX">
   <meta property="og:site_name" content="Grupo CRM Extintores">
-  <meta property="og:title" content="Extintores en CDMX y Estado de México | Grupo CRM Extintores">
-  <meta property="og:description" content="Grupo CRM Extintores: venta, recarga e instalación de extintores en CDMX y Estado de México. Primera visita sin costo. WhatsApp 56 6748 1489.">
-  <meta property="og:url" content="https://www.crmextintores.com.mx/">
-  <meta property="og:image" content="https://www.crmextintores.com.mx/assets/img/logo-crm.png">
+  <meta property="og:title" content="Extintores y recarga en CDMX | Grupo CRM Extintores">
+  <meta property="og:description" content="Extintores, recarga e inspección sin costo en CDMX y Estado de México. Evite multas de Protección Civil. Cotice por WhatsApp 55 5438 3241.">
+  <meta property="og:url" content="https://www.crmextintores.com/">
+  <meta property="og:image" content="https://www.crmextintores.com/assets/img/logo-crm.png">
   <meta property="og:image:alt" content="Logotipo de Grupo CRM Extintores">
-  <meta property="og:image:width" content="720">
-  <meta property="og:image:height" content="154">
-  <meta property="og:image:type" content="image/png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Extintores en CDMX y Estado de México | Grupo CRM Extintores">
-  <meta name="twitter:description" content="Grupo CRM Extintores: venta, recarga e instalación de extintores en CDMX y Estado de México. Primera visita sin costo. WhatsApp 56 6748 1489.">
-  <meta name="twitter:image" content="https://www.crmextintores.com.mx/assets/img/logo-crm.png">
-  <script type="application/ld+json" id="seo-business">{"@context":"https://schema.org","@type":"ProfessionalService","@id":"https://www.crmextintores.com.mx/#business","name":"Grupo CRM Extintores","alternateName":["CRM Extintores","Grupo CRM"],"legalName":"Grupo CRM Extintores","description":"Lo acompañamos con venta, recarga e instalación en CDMX y Estado de México. MCD (Mexicana de Conformidad y Dictaminación), cumplimiento de la norma NOM-154-SCFI-2005.","url":"https://www.crmextintores.com.mx","image":"https://www.crmextintores.com.mx/assets/img/logo-crm.png","logo":{"@type":"ImageObject","url":"https://www.crmextintores.com.mx/assets/img/logo-crm.png"},"email":"crm.extintores@gmail.com","telephone":"+525667481489","priceRange":"$$","address":{"@type":"PostalAddress","streetAddress":"Chamixto 131, Col. Loma del Padre","addressLocality":"Cuajimalpa","addressRegion":"CDMX","postalCode":"05020","addressCountry":"MX"},"areaServed":["Cuajimalpa","Álvaro Obregón","Miguel Hidalgo","Benito Juárez","Coyoacán","Cuauhtémoc","Ciudad de México","Estado de México"],"openingHours":"Mo-Fr 09:00-18:00","openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"18:00"},"sameAs":["https://www.facebook.com/people/GRUPO-CRM-Extintores/100075736857787/","https://www.instagram.com/grupo_crm_extintores/"]}</script>
-  <script type="application/ld+json" id="seo-faq">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Qué equipo puedo cotizar?","acceptedAnswer":{"@type":"Answer","text":"Extintores, chalecos, señalamientos, gabinetes, botiquines y equipo de protección. Si no encuentra algo, escríbanos y con gusto lo buscamos por usted."}},{"@type":"Question","name":"¿En qué zonas atienden?","acceptedAnswer":{"@type":"Answer","text":"Atendemos toda la Ciudad de México y el Estado de México. Nos encuentra en Chamixto 131, Col. Loma del Padre, Cuajimalpa."}},{"@type":"Question","name":"¿Cómo pido una cotización?","acceptedAnswer":{"@type":"Answer","text":"Como le resulte más cómodo: WhatsApp 56 6748 1489, teléfono o el formulario de contacto. Aceptamos tarjeta y meses sin intereses."}},{"@type":"Question","name":"¿Cuál es el horario de atención?","acceptedAnswer":{"@type":"Answer","text":"Lunes a viernes, de 9:00 a 18:00."}},{"@type":"Question","name":"¿Me ayudan a cumplir con Protección Civil en mi condominio?","acceptedAnswer":{"@type":"Answer","text":"Claro que sí. Revisamos extintores, señalamientos y puntos de incendio, y le decimos con claridad qué le falta. La recarga se hace bajo la NOM-154-SCFI-2005. La primera visita es sin costo."}},{"@type":"Question","name":"¿Qué extintor necesito?","acceptedAnswer":{"@type":"Answer","text":"Depende de lo que quiera proteger: clase A para sólidos, B para líquidos, C para equipo eléctrico y K para cocinas. En el blog explicamos cómo elegir el extintor y en el inicio hay una tabla comparativa de PQS ABC, CO₂ y tipo K. En cada ficha viene la clase y, si tiene dudas, con gusto lo orientamos."}},{"@type":"Question","name":"¿Cada cuánto hay que recargar un extintor?","acceptedAnswer":{"@type":"Answer","text":"El plazo lo marca la NOM-154-SCFI-2005 y el tipo de equipo: no es “cuando se vea vacío”. En inspección piden servicio vigente, etiqueta legible y evidencia de quién lo atendió. En la visita de revisión (sin costo) le decimos qué se recarga, qué se sustituye y si el cilindro ya requiere prueba hidrostática."}},{"@type":"Question","name":"¿Qué revisan para dejar el inmueble listo ante una inspección?","acceptedAnswer":{"@type":"Answer","text":"Que el equipo exista, se vea y esté servido: manómetro en rango, sello, etiqueta con fecha y quién hizo el servicio, y a menudo señalamientos y puntos de incendio. Revisamos eso en sitio, le indicamos qué falta y dejamos evidencia útil cuando hacemos recarga o mantenimiento."}},{"@type":"Question","name":"¿Qué incluye el mantenimiento de extintores?","acceptedAnswer":{"@type":"Answer","text":"Forma parte de la revisión y recarga: presión, sello, etiqueta y estado físico del equipo. Cuando aplica, la recarga se hace bajo la NOM-154-SCFI-2005, con verificación de MCD cuando corresponde al proceso. Detalle en mantenimiento de extintores."}}]}</script>
-<link rel="preload" as="image" type="image/webp" href="assets/img/hero/hero-desktop-640.webp" media="(max-width: 760px)" fetchpriority="high">
-  <link rel="preload" as="image" type="image/webp" href="assets/img/hero/hero-desktop-800.webp" media="(min-width: 761px)" fetchpriority="high" imagesizes="min(56vw, 840px)">
+  <meta name="twitter:title" content="Extintores y recarga en CDMX | Grupo CRM Extintores">
+  <meta name="twitter:description" content="Extintores, recarga e inspección sin costo en CDMX y Estado de México. Evite multas de Protección Civil. Cotice por WhatsApp 55 5438 3241.">
+  <meta name="twitter:image" content="https://www.crmextintores.com/assets/img/logo-crm.png">
+  <script type="application/ld+json" id="seo-business">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Grupo CRM Extintores","description":"Venta, recarga e instalación de extintores en CDMX y Estado de México. Inspección sin costo en la primera visita.","url":"https://www.crmextintores.com","image":"https://www.crmextintores.com/assets/img/logo-crm.png","logo":"https://www.crmextintores.com/assets/img/logo-crm.png","email":"crm.extintores@gmail.com","telephone":["+525659474605","+525667481489"],"address":{"@type":"PostalAddress","streetAddress":"Chamixto 131, Col. Loma del Padre","addressLocality":"Cuajimalpa","addressRegion":"Ciudad de México","addressCountry":"MX"},"areaServed":["Ciudad de México","Estado de México"],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"18:00"},"sameAs":["https://www.facebook.com/people/GRUPO-CRM-Extintores/100075736857787/","https://www.instagram.com/grupo_crm_extintores/"]}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preload" as="image" href="assets/img/galeria-evento.png" fetchpriority="high">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <link rel="apple-touch-icon" href="assets/img/favicon.png">
-<script>
-  (function () {
-    function loadFa() {
-      if (document.getElementById("fa-css")) return;
-      var link = document.createElement("link");
-      link.id = "fa-css";
-      link.rel = "stylesheet";
-      link.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css";
-      link.crossOrigin = "anonymous";
-      link.referrerPolicy = "no-referrer";
-      document.head.appendChild(link);
-    }
-    if ("requestIdleCallback" in window) window.requestIdleCallback(loadFa, { timeout: 6000 });
-    else window.addEventListener("load", function(){ setTimeout(loadFa, 2500); }, { once: true });
-  })();
-  </script>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'" crossorigin="anonymous" referrerpolicy="no-referrer">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
 </head>
 <body data-page="inicio">
   <a class="skip-link" href="#contenido">Ir al contenido</a>
-  <nav class="bot-nav" aria-label="Enlaces del sitio">
-    <a href="/">Inicio</a>
-    <a href="/productos">Productos</a>
-    <a href="/nosotros">Nosotros</a>
-    <a href="/venta-extintores">Venta de extintores</a>
-    <a href="/recarga-extintores">Recarga</a>
-    <a href="/mantenimiento-extintores">Mantenimiento</a>
-    <a href="/instalacion-extintores">Instalación</a>
-    <a href="/senalizacion">Señalización</a>
-    <a href="/galeria">Galería</a>
-    <a href="/blog">Blog</a>
-    <a href="/contacto">Contacto</a>
-    <a href="/extintores-cdmx">Extintores CDMX</a>
-    <a href="/extintores-estado-de-mexico">Estado de México</a>
-    <a href="/extintores-cuajimalpa">Cuajimalpa</a>
-    <a href="/extintores-naucalpan">Naucalpan</a>
-    <a href="/extintores-huixquilucan">Huixquilucan</a>
-    <a href="/mapa-sitio">Mapa de sitio</a>
-    <a href="/aviso-privacidad">Aviso de privacidad</a>
-    <a href="/politica-de-servicio">Política de servicio</a>
-    <a href="/fuentes-y-normatividad">Fuentes y normatividad</a>
-    <a href="/caso-agencia-automotriz">Caso agencia automotriz</a>
-    <a href="tel:5667481489">56 6748 1489</a>
-    <a href="mailto:crm.extintores@gmail.com">crm.extintores@gmail.com</a>
-  </nav>
   <div data-header>
     <div class="site-chrome header-skel" aria-hidden="true">
       <div class="site-topbar"><div class="wrap topbar__inner"></div></div>
       <header class="site-header">
         <div class="wrap header__inner">
-          <a class="brand" href="/"><picture><source type="image/webp" srcset="/assets/img/logo-crm.webp"><img src="/assets/img/logo-crm.png" alt="" width="720" height="154" decoding="async"></picture></a>
-          <span class="header-skel__nav" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span>
-          <span class="header-skel__cta" aria-hidden="true"></span>
+          <a class="brand" href="/"><img src="/assets/img/logo-crm.png" alt="Grupo CRM Extintores" width="243" height="52"></a>
+          <nav class="nav header-skel__nav"><span></span><span></span><span></span><span></span><span></span></nav>
+          <span class="header-skel__cta"></span>
         </div>
       </header>
     </div>
@@ -145,103 +92,82 @@
   <main id="contenido">
 
   <section class="hero-slider" id="inicio" data-slider aria-roledescription="carrusel" aria-label="Presentación de Grupo CRM Extintores">
-    <article class="slide slide--hero-desktop is-active" data-bg="assets/img/hero/hero-desktop-1280.webp">
-      <span class="slide__photo media-load" aria-hidden="true">
-        <picture>
-          <source media="(min-width: 761px)" type="image/webp" srcset="assets/img/hero/hero-desktop-800.webp 800w, assets/img/hero/hero-desktop-1280.webp 1024w" sizes="min(56vw, 840px)">
-          <source media="(max-width: 760px)" type="image/webp" srcset="assets/img/hero/hero-desktop-640.webp 640w, assets/img/hero/hero-desktop-800.webp 800w" sizes="100vw">
-          <img src="assets/img/hero/hero-desktop-640.webp" alt="Extintores y equipo contra incendios Grupo CRM listos para Protección Civil en CDMX" title="Extintores Grupo CRM para Protección Civil en CDMX" width="800" height="446" sizes="(max-width: 760px) 100vw, min(56vw, 840px)" fetchpriority="high" decoding="async">
-        </picture>
-      </span>
+    <article class="slide slide--low is-active" data-bg="assets/img/galeria-evento.png">
+      <span class="slide__photo" aria-hidden="true"></span>
       <div class="wrap">
         <div class="hero-copy">
-          <p class="hero-copy__title">Cumpla con Protección Civil y evite multas.</p>
+          <h1>Evita multas y cumple con Protección Civil.</h1>
+          <p class="lead">Condominios, restaurantes y oficinas.</p>
           <div class="hero-actions" role="group" aria-label="Llamar o escribir por WhatsApp">
-            <a class="btn btn-red" href="tel:5667481489" aria-label="Llámenos al 56 6748 1489"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.4 21 3 13.6 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg> Llámenos</a>
-            <a class="btn btn-wa" href="https://wa.me/525667481489?text=Hola%2C%20quiero%20una%20cotizaci%C3%B3n%20de%20extintores%20y%20equipo%20contra%20incendio%20para%20mi%20empresa." target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.5 3.5A11 11 0 0 0 3.1 17.4L2 22l4.7-1.2A11 11 0 1 0 20.5 3.5zm-8.5 17a9.1 9.1 0 0 1-4.6-1.3l-.3-.2-2.8.7.7-2.7-.2-.3a9.1 9.1 0 1 1 7.2 3.8zm5-6.8c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.6.1a7.4 7.4 0 0 1-2.2-1.4 8.2 8.2 0 0 1-1.5-1.9c-.2-.3 0-.4.1-.6l.5-.6c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.1c-.2-.5-.5-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.8 2.8 4.4 3.9 2.6 1.1 2.6.7 3.1.7.5 0 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.3-.2-.6-.3z"/></svg> Cotizar por WhatsApp</a>
+            <a class="btn btn-red" href="tel:5659474605" aria-label="Llamar al 56 5947 4605"><i class="fa-solid fa-phone phone-icon" aria-hidden="true"></i> Llamar</a>
+            <a class="btn btn-wa" href="https://wa.me/525554383241?text=Hola%2C%20quiero%20una%20cotizaci%C3%B3n%20de%20extintores%20y%20equipo%20contra%20incendio%20para%20mi%20negocio." target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp wa-icon" aria-hidden="true"></i> WhatsApp</a>
           </div>
-          <p class="lead">Acompañamos a condominios, restaurantes y oficinas. La primera visita o levantamiento no tiene costo.</p>
         </div>
       </div>
     </article>
-    <article class="slide slide--hero-linea" data-bg="assets/img/hero/hero-linea-1280.webp">
-      <span class="slide__photo" aria-hidden="true">
-        <picture>
-          <source media="(min-width: 761px)" type="image/webp" data-srcset="assets/img/hero/hero-linea-800.webp 800w, assets/img/hero/hero-linea-1280.webp 1024w" sizes="min(52vw, 760px)">
-          <source media="(max-width: 760px)" type="image/webp" data-srcset="assets/img/hero/hero-linea-800.webp 800w" sizes="100vw">
-          <img data-src="assets/img/hero/hero-linea-800.webp" alt="Línea de extintores certificados Grupo CRM para empresas" width="800" height="446" decoding="async">
-        </picture>
-      </span>
+    <article class="slide" data-bg="assets/img/galeria-inventario.png">
+      <span class="slide__photo" aria-hidden="true"></span>
       <div class="wrap">
         <div class="hero-copy">
-          <h1>Extintores y equipo contra incendios para su empresa.</h1>
-          <div class="hero-actions" role="group" aria-label="Ver equipos o pedir cotización">
-            <a class="btn btn-red" href="/productos"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i> Ver catálogo de extintores</a>
-            <a class="btn btn-wa" href="https://wa.me/525667481489?text=Hola%2C%20quiero%20una%20cotizaci%C3%B3n%20de%20extintores%20para%20mi%20empresa." target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp wa-icon" aria-hidden="true"></i> Cotizar extintores</a>
+          <h2>El equipo que su negocio necesita.</h2>
+          <div class="hero-actions">
+            <a class="btn btn-red" href="productos.html"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i> Ver equipos</a>
           </div>
-          <p class="lead">Extintores y equipo contra incendios para su empresa: gabinetes, señalamientos y protección, con la asesoría para elegir lo que le corresponde.</p>
+          <p class="lead">Extintores, señalamientos, gabinetes y protección.</p>
         </div>
       </div>
     </article>
-    <article class="slide slide--hero-fuego" data-bg="assets/img/hero/hero-fuego-1280.webp">
-      <span class="slide__photo" aria-hidden="true">
-        <picture>
-          <source media="(min-width: 761px)" type="image/webp" data-srcset="assets/img/hero/hero-fuego-800.webp 800w, assets/img/hero/hero-fuego-1280.webp 1024w" sizes="min(52vw, 760px)">
-          <source media="(max-width: 760px)" type="image/webp" data-srcset="assets/img/hero/hero-fuego-800.webp 800w" sizes="100vw">
-          <img data-src="assets/img/hero/hero-fuego-800.webp" alt="Equipo contra incendios Grupo CRM para prevenir conatos en empresas" width="800" height="446" decoding="async">
-        </picture>
-      </span>
+    <article class="slide" data-bg="assets/img/galeria-extintores-sitio.png">
+      <span class="slide__photo" aria-hidden="true"></span>
       <div class="wrap">
         <div class="hero-copy">
-          <p class="hero-copy__title">El equipo que su empresa necesita.</p>
-          <div class="hero-actions" role="group" aria-label="Ver catálogo o llamarnos">
-            <a class="btn btn-red" href="/productos"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i> Explorar productos</a>
-            <a class="btn btn-ink" href="tel:5667481489" aria-label="Llámenos al 56 6748 1489"><i class="fa-solid fa-phone phone-icon" aria-hidden="true"></i> Llámenos</a>
+          <h2>Inspección sin costo.</h2>
+          <div class="hero-actions">
+            <a class="btn btn-red" href="https://wa.me/525554383241?text=Hola%2C%20quiero%20agendar%20mi%20inspecci%C3%B3n%20sin%20costo." target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp wa-icon" aria-hidden="true"></i> Agendar</a>
           </div>
-          <p class="lead">Extintores, señalamientos, gabinetes y protección, con la asesoría incluida.</p>
+          <p class="lead">Vamos a su sitio y le decimos qué falta.</p>
         </div>
       </div>
     </article>
-    <article class="slide slide--hero-producto" data-bg="assets/img/hero/hero-producto-1280.webp">
-      <span class="slide__photo" aria-hidden="true">
-        <picture>
-          <source media="(min-width: 761px)" type="image/webp" data-srcset="assets/img/hero/hero-producto-800.webp 800w, assets/img/hero/hero-producto-1280.webp 1024w" sizes="min(52vw, 760px)">
-          <source media="(max-width: 760px)" type="image/webp" data-srcset="assets/img/hero/hero-producto-800.webp 800w" sizes="100vw">
-          <img data-src="assets/img/hero/hero-producto-800.webp" alt="Técnico Grupo CRM en visita de revisión de extintores sin costo" width="800" height="446" decoding="async">
-        </picture>
-      </span>
-      <div class="wrap">
-        <div class="hero-copy">
-          <p class="hero-copy__title">La primera visita o levantamiento no tiene costo.</p>
-          <div class="hero-actions" role="group" aria-label="Agendar visita o llamarnos">
-            <a class="btn btn-wa" href="https://wa.me/525667481489?text=Hola%2C%20quiero%20agendar%20mi%20visita%20de%20revisi%C3%B3n%20sin%20costo." target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp wa-icon" aria-hidden="true"></i> Agendar visita</a>
-            <a class="btn btn-red" href="tel:5667481489" aria-label="Llámenos al 56 6748 1489"><i class="fa-solid fa-phone phone-icon" aria-hidden="true"></i> Llámenos</a>
-          </div>
-          <p class="lead">Con gusto vamos a su empresa y le decimos qué le hace falta.</p>
-        </div>
-      </div>
-    </article>
-    <button type="button" class="slide-btn slide-btn--prev" data-prev aria-label="Diapositiva anterior"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
-    <button type="button" class="slide-btn slide-btn--next" data-next aria-label="Diapositiva siguiente"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+    <button class="slide-btn slide-btn--prev" type="button" data-prev aria-label="Anterior"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+    <button class="slide-btn slide-btn--next" type="button" data-next aria-label="Siguiente"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
     <div class="slide-dots" data-dots></div>
+  </section>
+
+  <section class="hero-features" aria-label="Pilares">
+    <div class="wrap">
+      <ul class="feature-grid">
+        <li class="feature-card">
+          <i class="fa-solid fa-shield-halved feature-card__icon" aria-hidden="true"></i>
+          <h3>Listo para la inspección</h3>
+          <p>Equipo y documentación en regla.</p>
+        </li>
+        <li class="feature-card">
+          <i class="fa-solid fa-clock-rotate-left feature-card__icon" aria-hidden="true"></i>
+          <h3>Cotización el mismo día</h3>
+          <p>Respuesta en menos de 24 h.</p>
+        </li>
+        <li class="feature-card">
+          <i class="fa-solid fa-people-group feature-card__icon" aria-hidden="true"></i>
+          <h3>Nosotros nos encargamos</h3>
+          <p>Usted agenda. Nosotros instalamos.</p>
+        </li>
+      </ul>
+    </div>
   </section>
 
   <section class="section section--tight section--nosotros" id="nosotros">
     <div class="wrap about-teaser">
       <figure class="about-teaser__mascot">
-        <img src="assets/img/opt/mascot-inspector-extintor.webp" width="640" height="858" alt="Inspector CRM, mascota de Grupo CRM Extintores" title="Inspector CRM" loading="lazy" decoding="async">
+        <img src="assets/img/mascot-inspector-crm.png" width="283" height="379" alt="Inspector CRM, mascota de Grupo CRM Extintores" loading="lazy" decoding="async">
       </figure>
-      <div class="about-teaser__copy">
-        <p class="kicker">¿Quiénes somos?</p>
-        <p class="about-teaser__title">Grupo CRM</p>
+      <div>
+        <p class="kicker">Quiénes somos</p>
+        <h2>El equipo que lo visita y lo deja en regla</h2>
         <hr class="rule rule-left">
-        <p class="muted">Empresa 100% mexicana especializada en seguridad contra incendios.</p>
-        <p class="muted">Venta, recarga e instalación de extintores en CDMX y Estado de México, en cumplimiento a la norma NOM-154-SCFI-2005, verificado por <a href="http://www.mcdmx.com/site/Casa.html" target="_blank" rel="noopener noreferrer">MCD (Mexicana de Conformidad y Dictaminación)</a>.</p>
-      </div>
-      <div class="about-teaser__more">
-        <p class="chips-label" id="home-valores">Valores</p>
-        <ul class="value-grid" data-values aria-busy="true" aria-labelledby="home-valores"></ul>
-        <p><a class="btn btn-ink" href="/nosotros"><i class="fa-solid fa-building" aria-hidden="true"></i> Conozca Grupo CRM</a></p>
+        <p class="muted">Empresa mexicana. Venta, recarga e instalación, sin complicaciones.</p>
+        <ul class="value-grid" data-values></ul>
+        <p><a class="btn btn-ink" href="nosotros.html"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Conozca Grupo CRM</a></p>
       </div>
     </div>
   </section>
@@ -250,29 +176,20 @@
     <div class="wrap">
       <header class="cat-band__head">
         <div>
-          <p class="kicker">Productos por categoría</p>
+          <p class="kicker">Para su negocio</p>
           <h2>Encuentre el equipo que necesita</h2>
-          <p>Extintores, señalamientos, gabinetes y protección para equipar su empresa. Si no sabe cuál elegir, le orientamos.</p>
+          <p>Extintores, señalamientos y protección.</p>
         </div>
-        <a class="cat-band__more" href="/productos"><i class="fa-solid fa-table-cells" aria-hidden="true"></i> Ver catálogo completo</a>
+        <a class="cat-band__more" href="productos.html">Ver catálogo <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
       </header>
-      <ul class="cat-band__grid" data-home-cats aria-busy="true">
-        <li><a href="/productos?cat=extintores">Extintores</a></li>
-        <li><a href="/productos?cat=chalecos">Chalecos</a></li>
-        <li><a href="/productos?cat=senalamiento-vial">Señalamiento vial</a></li>
-        <li><a href="/productos?cat=gabinetes-herrajes">Gabinetes y herrajes</a></li>
-        <li><a href="/productos?cat=botiquines">Botiquines</a></li>
-        <li><a href="/productos?cat=equipo-proteccion">Equipo de protección</a></li>
-      </ul>
+      <ul class="cat-band__grid" data-home-cats></ul>
     </div>
     <div class="wrap wrap-shop shop-home__best">
       <header class="cat-band__head">
         <div>
-          <p class="kicker">Catálogo</p>
-          <h3>Productos más vendidos</h3>
-          <p>Los equipos que más nos piden para dejar su empresa lista ante una inspección.</p>
+          <h2>Más vendidos</h2>
         </div>
-        <a class="cat-band__more" href="/productos"><i class="fa-solid fa-table-cells" aria-hidden="true"></i> Ver todo</a>
+        <a class="cat-band__more" href="productos.html">Ver todo <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
       </header>
       <div data-home-catalog aria-busy="true">
         <div class="shop-grid shop-grid--4 skel-grid" aria-hidden="true">
@@ -282,137 +199,94 @@
           <span class="skel-card"></span>
         </div>
       </div>
-      <p class="shop-choose-hint">¿Cómo elegir entre PQS ABC, CO₂ o tipo K? <a href="/blog/tipos-de-fuego#comparar-extintores">Ver tabla en la guía</a>.</p>
     </div>
   </section>
 
   <section class="section trust trust--logos" id="clientes">
     <div class="wrap">
       <header class="trust__head trust__head--center">
-        <p class="kicker">Clientes CRM</p>
-        <h2>Protegemos empresas como la suya</h2>
+        <p class="kicker">Clientes</p>
+        <h2>Clientes que confían en Grupo CRM</h2>
         <hr class="rule" aria-hidden="true">
-        <p>Gastronomía, transporte, educación y automotriz en CDMX y Estado de México.</p>
       </header>
     </div>
-    <div data-client-logos aria-busy="true" aria-roledescription="carrusel" aria-label="Clientes"></div>
+    <div data-client-logos aria-roledescription="carrusel" aria-label="Clientes"></div>
   </section>
 
   <section class="section svc-home" id="servicios">
-    <div class="wrap svc-showcase__layout">
-      <div class="svc-showcase__main">
-        <header class="svc-home__head">
-          <div class="svc-home__intro">
-            <p class="kicker">¿Qué hacemos?</p>
-            <h2>Seguridad contra incendios para su empresa</h2>
-            <hr class="rule" aria-hidden="true">
-            <p class="svc-home__lead">Vendemos, recargamos e instalamos extintores y equipo contra incendios para su empresa en Ciudad de México y Estado de México. También colocamos señalamientos, botiquines y gabinetes, y capacitamos a su personal para actuar ante un conato. La primera visita de revisión no tiene costo.</p>
-          </div>
-        </header>
-        <ul class="svc-showcase" data-services-showcase aria-busy="true" aria-label="Servicios de Grupo CRM">
-          <li>Venta e instalación de extintores nuevos y certificados según el riesgo de su inmueble.</li>
-          <li>Recarga y mantenimiento bajo la norma NOM-154-SCFI-2005.</li>
-          <li>Señalamientos de emergencia y vialidad para rutas de evacuación.</li>
-          <li>Botiquines y equipo de protección para empresas e instalaciones.</li>
-          <li>Cursos de brigada, combate de incendios y primeros auxilios.</li>
-          <li>Revisión en sitio para cumplir con Protección Civil y evitar multas.</li>
-        </ul>
-        <p class="svc-home__cta muted">Detalle del servicio en <a href="/nosotros#servicios">Nosotros · Servicios</a>, equipos en el <a href="/productos">catálogo de productos</a> y visitas en <a href="/contacto">Contacto CRM</a>.</p>
+    <div class="wrap svc-home__layout">
+      <div class="svc-home__intro">
+        <p class="kicker">Servicios</p>
+        <h2>Venta, recarga e instalación</h2>
+        <p class="svc-home__lead">Señalamientos, botiquines y seguimiento.</p>
+        <ul class="svc-home__points" data-care aria-label="Por qué cotizar con Grupo CRM"></ul>
+        <p class="svc-home__cta"><a class="cat-band__more cat-band__more--ghost" href="nosotros.html#servicios">Ver servicios <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></p>
       </div>
-      <figure class="svc-showcase__photo media-load" data-services-photo aria-busy="true"></figure>
+      <ul class="svc-hover-grid" data-services></ul>
     </div>
   </section>
 
   <section class="contact-band home-contact" id="contacto">
     <div class="wrap home-contact__peek-head">
-      <p class="kicker">Nuestro trabajo</p>
-      <h2>Vea lo que podemos hacer por su empresa</h2>
-      <p class="muted">Trabajos reales y soluciones que llevamos directamente a cada empresa. Ejemplo documentado: <a href="/caso-agencia-automotriz">instalación en agencia automotriz</a>.</p>
+      <p class="kicker">Instalaciones</p>
+      <h2>Así queda su negocio protegido</h2>
     </div>
-    <div class="peek-rail" data-home-gallery aria-roledescription="carrusel" aria-label="Trabajos de Grupo CRM"></div>
-  </section>
-
-  <section class="section reviews" id="resenas">
-    <div class="wrap">
-      <header class="reviews__head">
-        <p class="kicker">Facebook</p>
-        <div class="reviews__title">
-          <h2>Opiniones de clientes</h2>
-          <a class="cat-band__more cat-band__more--facebook" href="https://www.facebook.com/people/GRUPO-CRM-Extintores/100075736857787/?sk=reviews" target="_blank" rel="noopener noreferrer" aria-label="Ver reseñas en Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i> Facebook</a>
-        </div>
-        <hr class="rule" aria-hidden="true">
-        <p class="reviews__proof">Recomendado por el 100 % · 11 opiniones</p>
-        <p class="muted">Reseñas públicas en Facebook que puede abrir y verificar. <a href="https://www.facebook.com/people/GRUPO-CRM-Extintores/100075736857787/?sk=reviews" target="_blank" rel="noopener noreferrer">Ver en Facebook</a> · <a href="/fuentes-y-normatividad">Fuentes y normatividad</a></p>
-      </header>
-      <ul class="reviews__grid" data-reviews aria-busy="true"></ul>
-    </div>
-  </section>
-
-  <section class="section cursos-home" id="cursos">
-    <div class="wrap cursos-home__layout">
-      <header class="cursos-home__head" data-cursos-head>
-        <p class="kicker">Cursos y capacitaciones</p>
-        <h2>Prepare a su equipo para actuar cuando más importa</h2>
-        <p>Capacitamos a su personal en primeros auxilios, combate contra incendios, búsqueda y rescate, evacuación, materiales peligrosos y conformación de brigadas, en su empresa o en campo.</p>
-      </header>
-      <figure class="cursos-home__photo" data-cursos-photo aria-busy="true"></figure>
-      <p class="cursos-home__list-lead" data-cursos-list-lead hidden></p>
-      <ul class="cursos-home__list" data-cursos aria-busy="true"></ul>
-    </div>
+    <div class="peek-rail" data-home-gallery aria-roledescription="carrusel" aria-label="Instalaciones Grupo CRM"></div>
   </section>
 
   <section class="hook" id="revision" data-hook></section>
 
+  <section class="contact-band home-contact home-contact--form">
+    <div class="wrap home-contact__layout">
+      <div class="home-contact__form-col">
+        <p class="kicker">Contacto</p>
+        <h2>Pida su cotización</h2>
+        <form class="contact-form" data-contact>
+          <label class="contact-form__half">Nombre <input name="nombre" required minlength="2" autocomplete="name" placeholder="Su nombre"></label>
+          <label class="contact-form__half">Empresa o condominio <input name="empresa" autocomplete="organization" placeholder="Opcional"></label>
+          <label class="contact-form__half">Correo <input type="email" name="correo" autocomplete="email" placeholder="correo@empresa.com"></label>
+          <label class="contact-form__half">Teléfono <input name="telefono" required minlength="8" inputmode="tel" autocomplete="tel" placeholder="55 1234 5678"></label>
+          <label>Equipo de interés
+            <select name="producto">
+              <option value="">Seleccione una línea</option>
+              <option value="extintores">Extintores</option>
+              <option value="chalecos">Chalecos</option>
+              <option value="senalamiento-vial">Señalamiento vial</option>
+              <option value="gabinetes-herrajes">Gabinetes y herrajes</option>
+              <option value="botiquines">Botiquines</option>
+              <option value="equipo-proteccion">Equipo de protección</option>
+              <option value="otro">Otro / no lo sé</option>
+            </select>
+          </label>
+          <label>Mensaje <textarea name="mensaje" rows="2" required minlength="8" placeholder="Ej. necesito recargar extintores en mi condominio"></textarea></label>
+          <div class="hp" hidden aria-hidden="true">
+            <label>Sitio web <input name="website" tabindex="-1" autocomplete="off" aria-hidden="true"></label>
+          </div>
+          <label class="check-row">
+            <input type="checkbox" name="privacidad" required>
+            <span>Acepto el <a href="aviso-privacidad.html">aviso de privacidad</a></span>
+          </label>
+          <p class="form-status" data-form-status role="status" aria-live="polite" hidden></p>
+          <button class="btn btn-wa" type="submit" aria-live="polite"><i class="fa-brands fa-whatsapp wa-icon" aria-hidden="true"></i> Enviar por WhatsApp</button>
+        </form>
+      </div>
+      <figure class="home-contact__photo">
+        <img src="assets/img/full/galeria-comercio.jpg" width="1200" height="1600" alt="Extintores instalados en un comercio por Grupo CRM" loading="lazy" decoding="async">
+      </figure>
+    </div>
+  </section>
+
   <section class="section faqs" id="faqs">
     <div class="wrap faqs__inner">
       <header class="faqs__head">
-        <p class="kicker">FAQ</p>
         <h2>Preguntas frecuentes</h2>
-        <p class="muted">Dudas frecuentes para cotizar y elegir equipo.</p>
       </header>
-      <div class="faqs__list" data-faqs aria-busy="true">
-        <details>
-          <summary>¿Qué equipo puedo cotizar?</summary>
-          <p>Extintores, chalecos, señalamientos, gabinetes, botiquines y equipo de protección. Si no encuentra algo, <a href="https://wa.me/525667481489?text=Hola%2C%20quiero%20una%20cotizaci%C3%B3n%20de%20extintores%20y%20equipo%20contra%20incendio%20para%20mi%20empresa." target="_blank" rel="noopener noreferrer">escríbanos por WhatsApp</a> y con gusto lo buscamos por usted.</p>
-        </details>
-        <details>
-          <summary>¿En qué zonas atienden?</summary>
-          <p>Atendemos toda la Ciudad de México y el Estado de México. Nos encuentra en Chamixto 131, Col. Loma del Padre, Cuajimalpa.</p>
-        </details>
-        <details>
-          <summary>¿Cómo pido una cotización?</summary>
-          <p>Como le resulte más cómodo: <a href="https://wa.me/525667481489?text=Hola%2C%20quiero%20una%20cotizaci%C3%B3n%20de%20extintores%20y%20equipo%20contra%20incendio%20para%20mi%20empresa." target="_blank" rel="noopener noreferrer">WhatsApp 56 6748 1489</a>, <a href="tel:5667481489">teléfono</a> o el <a href="/contacto">formulario de contacto</a>. Aceptamos tarjeta y meses sin intereses.</p>
-        </details>
-        <details>
-          <summary>¿Cuál es el horario de atención?</summary>
-          <p>Lunes a viernes, de 9:00 a 18:00.</p>
-        </details>
-        <details>
-          <summary>¿Me ayudan a cumplir con Protección Civil en mi condominio?</summary>
-          <p>Claro que sí. Revisamos extintores, señalamientos y puntos de incendio, y le decimos con claridad qué le falta. La recarga se hace bajo la <a href="/blog/nom-154-scfi-2005">NOM-154-SCFI-2005</a>. La primera visita es sin costo.</p>
-        </details>
-        <details>
-          <summary>¿Qué extintor necesito?</summary>
-          <p>Depende de lo que quiera proteger: clase A para sólidos, B para líquidos, C para equipo eléctrico y K para cocinas. En el blog está la <a href="/blog/tipos-de-fuego#comparar-extintores">tabla PQS ABC, CO₂ y tipo K</a> y la guía de <a href="/blog/tipos-de-fuego">tipos de fuego</a>. En cada ficha viene la clase y, si tiene dudas, con gusto lo orientamos.</p>
-        </details>
-        <details>
-          <summary>¿Cada cuánto hay que recargar un extintor?</summary>
-          <p>El plazo lo marca la <a href="/blog/nom-154-scfi-2005">NOM-154-SCFI-2005</a> y el tipo de equipo: no es “cuando se vea vacío”. En inspección piden servicio vigente, etiqueta legible y evidencia de quién lo atendió. En la visita de revisión (sin costo) le decimos qué se recarga, qué se sustituye y si el cilindro ya requiere prueba hidrostática.</p>
-        </details>
-        <details>
-          <summary>¿Qué revisan para dejar el inmueble listo ante una inspección?</summary>
-          <p>Que el equipo exista, se vea y esté servido: manómetro en rango, sello, etiqueta con fecha y quién hizo el servicio, y a menudo señalamientos y puntos de incendio. Revisamos eso en sitio, le indicamos qué falta y dejamos evidencia útil cuando hacemos recarga o mantenimiento.</p>
-        </details>
-        <details>
-          <summary>¿Qué incluye el mantenimiento de extintores?</summary>
-          <p>Forma parte de la revisión y recarga: presión, sello, etiqueta y estado físico del equipo. Cuando aplica, la recarga se hace bajo la NOM-154-SCFI-2005, con verificación de MCD cuando corresponde al proceso. Detalle en <a href="/mantenimiento-extintores">mantenimiento de extintores</a>.</p>
-        </details>
-      </div>
+      <div class="faqs__list" data-faqs></div>
     </div>
   </section>
 
   </main>
   <div data-footer></div>
-  <script type="module" src="js/app.min.js?v=rb-1" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
+  <script type="module" src="js/main.js" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
 </body>
 </html>

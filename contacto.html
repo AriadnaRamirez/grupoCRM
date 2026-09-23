@@ -1,38 +1,18 @@
 <!DOCTYPE html>
-<html lang="es-MX" prefix="og: https://ogp.me/ns#">
+<html lang="es-MX">
 <head>
   <meta charset="UTF-8">
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   <script>!function(){if(!/\.github\.io$/i.test(location.hostname))return;var s=document.createElement("script");s.src="/js/pages-base.js";document.head.appendChild(s)}();</script>
-  <style id="css-boot">
-  /* Critical first paint: reserve chrome + hero before async main.css (CLS) */
-  :root { --chrome-h: 108px; }
+    <style id="css-boot">
+  /* Critical first paint: chrome + hero before main.css (FOUC / CLS) */
+  :root { --chrome-h: 108px; --photo-w: min(50%, 720px); }
   @media (min-width: 1024px) { :root { --chrome-h: 113px; } }
   html { background: #fff; }
   body { margin: 0; color: #202020; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
-  .bot-nav {
-    position: absolute !important; width: 1px !important; height: 1px !important;
-    padding: 0 !important; margin: -1px !important; overflow: hidden !important;
-    clip: rect(0, 0, 0, 0) !important; clip-path: inset(50%) !important;
-    white-space: nowrap !important; border: 0 !important;
-  }
   .site-chrome { position: fixed; top: 0; left: 0; right: 0; z-index: 60; background: #fff; }
   .header-skel { height: var(--chrome-h); max-height: var(--chrome-h); overflow: hidden; pointer-events: none; }
   .header-skel .brand { pointer-events: auto; }
-  .header-skel .nav, .header-skel .header__cta { display: none !important; }
+  .header-skel .nav, .header-skel .header__cta, .header-skel__nav, .header-skel__cta { display: none !important; }
   body:has([data-header]:empty),
   body:has([data-header] .header-skel),
   body:has([data-header] .site-chrome) {
@@ -40,170 +20,103 @@
   }
   .brand img { display: block; width: auto; height: auto; max-height: 47px; aspect-ratio: 720 / 154; object-fit: contain; }
   .hero-slider { position: relative; isolation: isolate; min-height: min(72vh, 646px); overflow: hidden; background: #1a2031; }
+  .slide { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; color: #fff; background-color: #1a2031; }
+  .slide.is-active { opacity: 1; visibility: visible; pointer-events: auto; z-index: 1; }
+  .slide__photo {
+    position: absolute; inset: 0 0 0 auto; width: var(--photo-w);
+    background-color: #1a2031; background-repeat: no-repeat; background-size: cover; background-position: center bottom;
+  }
+  .slide__photo.media-load:not(.is-ready) { background-image: none !important; }
+  .slide__photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center bottom; }
+  .shop-grid { display: grid; }
+  body[data-page="inicio"] .shop-home .shop-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   @media (max-width: 760px) {
     .hero-slider:not(.home-gallery) { min-height: min(78dvh, 660px); }
+    :root { --photo-w: 100%; }
   }
   @media (max-width: 480px) {
     .hero-slider:not(.home-gallery) { min-height: min(74dvh, 600px); }
   }
-  .slide { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; color: #fff; }
-  .slide.is-active { opacity: 1; visibility: visible; pointer-events: auto; }
-  .slide__photo { position: absolute; inset: 0 0 0 auto; width: min(50%, 720px); }
-  .slide__photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center bottom; }
+  @media (max-width: 767px) {
+    body[data-page="inicio"] .shop-home .shop-grid--4 { grid-template-columns: 1fr 1fr; }
+  }
   </style>
-<link rel="preload" as="style" href="css/main.min.css?v=rb-1" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="css/main.min.css?v=rb-1"></noscript>
-  <script>!function(){var l=document.querySelector('link[rel="preload"][as="style"]');if(l&&!l.sheet){l.addEventListener("load",function(){this.onload=null;this.rel="stylesheet"});if(l.relList&&!l.relList.supports("preload"))l.rel="stylesheet"}}();</script>
-  <script>document.documentElement.classList.add("is-css");</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Contacto y cotización por WhatsApp | Grupo CRM Extintores</title>
-  <meta name="description" content="Pida su cotización por WhatsApp 56 6748 1489. Con gusto lo atendemos y la primera visita de revisión es sin costo. Chamixto 131, Cuajimalpa, CDMX.">
+  <meta name="description" content="Pida su cotización por WhatsApp 55 5438 3241. Inspección sin costo en la primera visita. Chamixto 131, Cuajimalpa, CDMX.">
   <meta name="author" content="Grupo CRM Extintores">
-  <meta name="theme-color" content="#D51A32">
+  <meta name="theme-color" content="#A91430">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.crmextintores.com.mx/contacto">
-  
+  <link rel="canonical" href="https://www.crmextintores.com/contacto">
+  <link rel="alternate" hreflang="es-MX" href="https://www.crmextintores.com/contacto">
+  <link rel="alternate" hreflang="x-default" href="https://www.crmextintores.com/contacto">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_MX">
   <meta property="og:site_name" content="Grupo CRM Extintores">
   <meta property="og:title" content="Contacto y cotización por WhatsApp | Grupo CRM Extintores">
-  <meta property="og:description" content="Pida su cotización por WhatsApp 56 6748 1489. Con gusto lo atendemos y la primera visita de revisión es sin costo. Chamixto 131, Cuajimalpa, CDMX.">
-  <meta property="og:url" content="https://www.crmextintores.com.mx/contacto">
-  <meta property="og:image" content="https://www.crmextintores.com.mx/assets/img/logo-crm.png">
+  <meta property="og:description" content="Pida su cotización por WhatsApp 55 5438 3241. Inspección sin costo en la primera visita. Chamixto 131, Cuajimalpa, CDMX.">
+  <meta property="og:url" content="https://www.crmextintores.com/contacto">
+  <meta property="og:image" content="https://www.crmextintores.com/assets/img/logo-crm.png">
   <meta property="og:image:alt" content="Logotipo de Grupo CRM Extintores">
-  <meta property="og:image:width" content="720">
-  <meta property="og:image:height" content="154">
-  <meta property="og:image:type" content="image/png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Contacto y cotización por WhatsApp | Grupo CRM Extintores">
-  <meta name="twitter:description" content="Pida su cotización por WhatsApp 56 6748 1489. Con gusto lo atendemos y la primera visita de revisión es sin costo. Chamixto 131, Cuajimalpa, CDMX.">
-  <meta name="twitter:image" content="https://www.crmextintores.com.mx/assets/img/logo-crm.png">
-<link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <meta name="twitter:description" content="Pida su cotización por WhatsApp 55 5438 3241. Inspección sin costo en la primera visita. Chamixto 131, Cuajimalpa, CDMX.">
+  <meta name="twitter:image" content="https://www.crmextintores.com/assets/img/logo-crm.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <link rel="apple-touch-icon" href="assets/img/favicon.png">
-<script>
-  (function () {
-    function loadFa() {
-      if (document.getElementById("fa-css")) return;
-      var link = document.createElement("link");
-      link.id = "fa-css";
-      link.rel = "stylesheet";
-      link.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css";
-      link.crossOrigin = "anonymous";
-      link.referrerPolicy = "no-referrer";
-      document.head.appendChild(link);
-    }
-    if ("requestIdleCallback" in window) window.requestIdleCallback(loadFa, { timeout: 6000 });
-    else window.addEventListener("load", function () { setTimeout(loadFa, 2500); }, { once: true });
-  })();
-  </script>
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body data-page="contacto">
   <a class="skip-link" href="#contenido">Ir al contenido</a>
-  <nav class="bot-nav" aria-label="Enlaces del sitio">
-    <a href="/">Inicio</a>
-    <a href="/productos">Productos</a>
-    <a href="/nosotros">Nosotros</a>
-    <a href="/venta-extintores">Venta de extintores</a>
-    <a href="/recarga-extintores">Recarga</a>
-    <a href="/mantenimiento-extintores">Mantenimiento</a>
-    <a href="/instalacion-extintores">Instalación</a>
-    <a href="/senalizacion">Señalización</a>
-    <a href="/galeria">Galería</a>
-    <a href="/blog">Blog</a>
-    <a href="/contacto">Contacto</a>
-    <a href="/extintores-cdmx">Extintores CDMX</a>
-    <a href="/extintores-estado-de-mexico">Estado de México</a>
-    <a href="/extintores-cuajimalpa">Cuajimalpa</a>
-    <a href="/extintores-naucalpan">Naucalpan</a>
-    <a href="/extintores-huixquilucan">Huixquilucan</a>
-    <a href="/mapa-sitio">Mapa de sitio</a>
-    <a href="/aviso-privacidad">Aviso de privacidad</a>
-    <a href="/politica-de-servicio">Política de servicio</a>
-    <a href="/fuentes-y-normatividad">Fuentes y normatividad</a>
-    <a href="/caso-agencia-automotriz">Caso agencia automotriz</a>
-    <a href="tel:5667481489">56 6748 1489</a>
-    <a href="mailto:crm.extintores@gmail.com">crm.extintores@gmail.com</a>
-  </nav>
-  <div data-header>
-    <div class="site-chrome header-skel" aria-hidden="true">
-      <div class="site-topbar"><div class="wrap topbar__inner"></div></div>
-      <header class="site-header">
-        <div class="wrap header__inner">
-          <a class="brand" href="/"><picture><source type="image/webp" srcset="/assets/img/logo-crm.webp"><img src="/assets/img/logo-crm.png" alt="" width="720" height="154" decoding="async"></picture></a>
-          <span class="header-skel__nav" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span>
-          <span class="header-skel__cta" aria-hidden="true"></span>
-        </div>
-      </header>
-    </div>
-  </div>
+  <div data-header></div>
   <main id="contenido">
-  <section class="contact-page" aria-labelledby="contact-title">
-    <div class="wrap">
-      <div class="contact-page__grid">
-        <header class="contact-page__head">
+  <section class="contact-band">
+    <div class="wrap contact-layout">
+      <div class="contact-info">
+        <div class="contact-info__head">
           <p class="kicker">Contacto</p>
-          <h1 id="contact-title">Pida su cotización</h1>
-          <hr class="rule rule-left" aria-hidden="true">
-          <p class="contact-page__lead">Cuéntenos qué necesita y le respondemos el mismo día. La primera visita de revisión no tiene costo.</p>
-        <p class="muted">Atendemos venta, recarga e instalación de extintores y equipo contra incendios en Ciudad de México y Estado de México. Indique alcaldía o municipio, giro del inmueble y si ya cuenta con equipos vencidos para preparar una cotización clara.</p>
-          <p class="muted">También puede escribirnos por WhatsApp, llamar a la oficina en Cuajimalpa o revisar la <a href="/zonas">cobertura por zona</a> y el <a href="/productos">catálogo de equipos</a> antes de enviar el formulario. Horario de atención: lunes a viernes, de 9:00 a 18:00.</p>
-        </header>
-        <aside class="contact-page__facts" aria-label="Datos de contacto">
-          <ul class="contact-list">
-            <li>
-              <a class="contact-list__row" href="https://www.google.com/maps/search/?api=1&query=Chamixto+131+Col.+Loma+del+Padre+Cuajimalpa+Ciudad+de+M%C3%A9xico" target="_blank" rel="noopener noreferrer">
-                <span class="contact-list__ico" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></span>
-                <span class="contact-list__body">
-                  <span class="contact-list__lab">Dirección</span>
-                  <span class="contact-list__val">Chamixto 131, Col. Loma del Padre, Cuajimalpa, CDMX</span>
-                </span>
-              </a>
-            </li>
-            <li>
-              <div class="contact-list__row">
-                <span class="contact-list__ico" aria-hidden="true"><i class="fa-solid fa-clock"></i></span>
-                <span class="contact-list__body">
-                  <span class="contact-list__lab">Horario</span>
-                  <span class="contact-list__val">Lunes a viernes · 9:00–18:00</span>
-                </span>
-              </div>
-            </li>
-            <li>
-              <div class="contact-list__row">
-                <span class="contact-list__ico" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
-                <span class="contact-list__body">
-                  <span class="contact-list__lab">Teléfono y WhatsApp</span>
-                  <span class="contact-list__val contact-list__phones">
-                    <span class="contact-phone">
-                      <a href="tel:5667481489" aria-label="Llámenos al 56 6748 1489"><i class="fa-solid fa-phone" aria-hidden="true"></i></a>
-                      <a href="https://wa.me/525667481489" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp 56 6748 1489"><i class="fa-brands fa-whatsapp wa-icon" aria-hidden="true"></i></a>
-                      <a href="tel:5667481489">56 6748 1489</a>
-                    </span>
-                    <span class="contact-phone">
-                      <a href="tel:5659474605" aria-label="Llámenos al 56 5947 4605"><i class="fa-solid fa-phone" aria-hidden="true"></i></a>
-                      <a href="https://wa.me/525659474605" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp 56 5947 4605"><i class="fa-brands fa-whatsapp wa-icon" aria-hidden="true"></i></a>
-                      <a href="tel:5659474605">56 5947 4605</a>
-                    </span>
-                  </span>
-                </span>
-              </div>
-            </li>
-            <li>
-              <a class="contact-list__row" href="mailto:crm.extintores@gmail.com">
-                <span class="contact-list__ico" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
-                <span class="contact-list__body">
-                  <span class="contact-list__lab">Correo</span>
-                  <span class="contact-list__val">crm.extintores@gmail.com</span>
-                </span>
-              </a>
-            </li>
-          </ul>
-          <p class="contact-page__social">
+          <h1>Pida su cotización</h1>
+          <div class="contact-meta muted">
+            <p><i class="fa-solid fa-clock" aria-hidden="true"></i> Lun–vie 9:00–18:00</p>
+            <p><a href="https://www.google.com/maps/search/?api=1&query=Chamixto+131+Col.+Loma+del+Padre+Cuajimalpa+Ciudad+de+M%C3%A9xico" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Chamixto 131, Col. Loma del Padre, Cuajimalpa, CDMX</a></p>
+          </div>
+        </div>
+        <ul class="contact-list">
+          <li>
+            <a class="wa-link" href="https://wa.me/525554383241" target="_blank" rel="noopener noreferrer">
+              <span class="contact-list__lab"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp</span>
+              <strong>55 5438 3241</strong>
+            </a>
+          </li>
+          <li>
+            <div class="contact-list__phones">
+              <span class="contact-list__lab"><i class="fa-solid fa-phone" aria-hidden="true"></i> Teléfono</span>
+              <span class="contact-list__vals">
+                <a href="tel:5659474605"><strong>56 5947 4605</strong></a>
+                <span class="contact-list__sep" aria-hidden="true">·</span>
+                <a href="tel:5667481489"><strong>56 6748 1489</strong></a>
+              </span>
+            </div>
+          </li>
+          <li>
+            <a href="mailto:crm.extintores@gmail.com">
+              <span class="contact-list__lab"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Correo</span>
+              <strong>crm.extintores@gmail.com</strong>
+            </a>
+          </li>
+        </ul>
+        <div class="contact-info__foot">
+          <p class="contact-social">
             <a href="https://www.facebook.com/people/GRUPO-CRM-Extintores/100075736857787/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i> Facebook</a>
             <a href="https://www.instagram.com/grupo_crm_extintores/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram</a>
           </p>
-        </aside>
+        </div>
+      </div>
         <form class="contact-form" data-contact>
           <label class="contact-form__half">Nombre <input name="nombre" required minlength="2" autocomplete="name" placeholder="Su nombre"></label>
           <label class="contact-form__half">Empresa o condominio <input name="empresa" autocomplete="organization" placeholder="Opcional"></label>
@@ -227,25 +140,16 @@
           </div>
           <label class="check-row">
             <input type="checkbox" name="privacidad" required>
-            <span>Acepto el <a href="/aviso-privacidad">aviso de privacidad</a></span>
+            <span>Acepto el <a href="aviso-privacidad.html">aviso de privacidad</a></span>
           </label>
           <p class="form-status" data-form-status role="status" aria-live="polite" hidden></p>
-          <div class="contact-form__actions">
-            <button class="btn btn-wa" type="submit" aria-live="polite"><i class="fa-brands fa-whatsapp wa-icon" aria-hidden="true"></i> Enviar por WhatsApp</button>
-            <a class="btn btn-red" href="tel:5667481489" aria-label="Llámenos al 56 6748 1489"><i class="fa-solid fa-phone phone-icon" aria-hidden="true"></i> Llámenos</a>
-          </div>
+          <button class="btn btn-wa" type="submit" aria-live="polite"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Enviar por WhatsApp</button>
         </form>
-      </div>
     </div>
   </section>
-    <div class="wrap content-dates-wrap"><p class="content-dates content-dates--foot">
-          <span>Publicado el <time datetime="2026-08-24">24 de agosto de 2026</time></span>
-          <span class="content-dates__sep" aria-hidden="true">·</span>
-          <span>Actualizado el <time datetime="2026-09-22">22 de septiembre de 2026</time></span>
-        </p>
-  </div>
+  <section class="hook" data-hook></section>
   </main>
   <div data-footer></div>
-  <script type="module" src="js/app.min.js?v=rb-1" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
+  <script type="module" src="js/main.js" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
 </body>
 </html>

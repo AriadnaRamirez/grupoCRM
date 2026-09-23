@@ -1,38 +1,18 @@
 <!DOCTYPE html>
-<html lang="es-MX" prefix="og: https://ogp.me/ns#">
+<html lang="es-MX">
 <head>
   <meta charset="UTF-8">
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   <script>!function(){if(!/\.github\.io$/i.test(location.hostname))return;var s=document.createElement("script");s.src="/js/pages-base.js";document.head.appendChild(s)}();</script>
-  <style id="css-boot">
-  /* Critical first paint: reserve chrome + hero before async main.css (CLS) */
-  :root { --chrome-h: 108px; }
+    <style id="css-boot">
+  /* Critical first paint: chrome + hero before main.css (FOUC / CLS) */
+  :root { --chrome-h: 108px; --photo-w: min(50%, 720px); }
   @media (min-width: 1024px) { :root { --chrome-h: 113px; } }
   html { background: #fff; }
   body { margin: 0; color: #202020; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
-  .bot-nav {
-    position: absolute !important; width: 1px !important; height: 1px !important;
-    padding: 0 !important; margin: -1px !important; overflow: hidden !important;
-    clip: rect(0, 0, 0, 0) !important; clip-path: inset(50%) !important;
-    white-space: nowrap !important; border: 0 !important;
-  }
   .site-chrome { position: fixed; top: 0; left: 0; right: 0; z-index: 60; background: #fff; }
   .header-skel { height: var(--chrome-h); max-height: var(--chrome-h); overflow: hidden; pointer-events: none; }
   .header-skel .brand { pointer-events: auto; }
-  .header-skel .nav, .header-skel .header__cta { display: none !important; }
+  .header-skel .nav, .header-skel .header__cta, .header-skel__nav, .header-skel__cta { display: none !important; }
   body:has([data-header]:empty),
   body:has([data-header] .header-skel),
   body:has([data-header] .site-chrome) {
@@ -40,217 +20,104 @@
   }
   .brand img { display: block; width: auto; height: auto; max-height: 47px; aspect-ratio: 720 / 154; object-fit: contain; }
   .hero-slider { position: relative; isolation: isolate; min-height: min(72vh, 646px); overflow: hidden; background: #1a2031; }
+  .slide { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; color: #fff; background-color: #1a2031; }
+  .slide.is-active { opacity: 1; visibility: visible; pointer-events: auto; z-index: 1; }
+  .slide__photo {
+    position: absolute; inset: 0 0 0 auto; width: var(--photo-w);
+    background-color: #1a2031; background-repeat: no-repeat; background-size: cover; background-position: center bottom;
+  }
+  .slide__photo.media-load:not(.is-ready) { background-image: none !important; }
+  .slide__photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center bottom; }
+  .shop-grid { display: grid; }
+  body[data-page="inicio"] .shop-home .shop-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   @media (max-width: 760px) {
     .hero-slider:not(.home-gallery) { min-height: min(78dvh, 660px); }
+    :root { --photo-w: 100%; }
   }
   @media (max-width: 480px) {
     .hero-slider:not(.home-gallery) { min-height: min(74dvh, 600px); }
   }
-  .slide { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; color: #fff; }
-  .slide.is-active { opacity: 1; visibility: visible; pointer-events: auto; }
-  .slide__photo { position: absolute; inset: 0 0 0 auto; width: min(50%, 720px); }
-  .slide__photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center bottom; }
+  @media (max-width: 767px) {
+    body[data-page="inicio"] .shop-home .shop-grid--4 { grid-template-columns: 1fr 1fr; }
+  }
   </style>
-<link rel="preload" as="style" href="/css/main.min.css?v=rb-1" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="/css/main.min.css?v=rb-1"></noscript>
-  <script>!function(){var l=document.querySelector('link[rel="preload"][as="style"]');if(l&&!l.sheet){l.addEventListener("load",function(){this.onload=null;this.rel="stylesheet"});if(l.relList&&!l.relList.supports("preload"))l.rel="stylesheet"}}();</script>
-  <script>document.documentElement.classList.add("is-css");</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>¿Cómo usar un extintor ante un conato de incendio? | Grupo CRM</title>
+  <title>Cómo usar un extintor ante un conato de incendio | Grupo CRM</title>
   <meta name="description" content="Aprenda a usar un extintor, sus partes y qué contiene. Qué es un fuego incipiente y cuándo evacuar. Atención en CDMX y Estado de México.">
   <meta name="author" content="Grupo CRM Extintores">
-  <meta name="theme-color" content="#D51A32">
+  <meta name="theme-color" content="#A91430">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.crmextintores.com.mx/blog/como-usar-un-extintor">
-  
+  <link rel="canonical" href="https://www.crmextintores.com/blog/como-usar-un-extintor">
+  <link rel="alternate" hreflang="es-MX" href="https://www.crmextintores.com/blog/como-usar-un-extintor">
+  <link rel="alternate" hreflang="x-default" href="https://www.crmextintores.com/blog/como-usar-un-extintor">
   <meta property="og:type" content="article">
   <meta property="og:locale" content="es_MX">
   <meta property="og:site_name" content="Grupo CRM Extintores">
-  <meta property="og:title" content="¿Cómo usar un extintor ante un conato de incendio? | Grupo CRM">
+  <meta property="og:title" content="Cómo usar un extintor ante un conato de incendio | Grupo CRM">
   <meta property="og:description" content="Aprenda a usar un extintor, sus partes y qué contiene. Qué es un fuego incipiente y cuándo evacuar. Atención en CDMX y Estado de México.">
-  <meta property="og:url" content="https://www.crmextintores.com.mx/blog/como-usar-un-extintor">
-  <meta property="og:image" content="https://www.crmextintores.com.mx/assets/img/opt/full/blog-extintor-uso-1400.webp">
-  <meta property="og:image:alt" content="Uso de extintor de agente limpio Grupo CRM ante un conato eléctrico">
-  <meta property="og:image:width" content="720">
-  <meta property="og:image:height" content="154">
-  <meta property="og:image:type" content="image/png">
+  <meta property="og:url" content="https://www.crmextintores.com/blog/como-usar-un-extintor">
+  <meta property="og:image" content="https://www.crmextintores.com/assets/img/categoria-extintores.png">
+  <meta property="og:image:alt" content="Extintor montado en pared">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="¿Cómo usar un extintor ante un conato de incendio? | Grupo CRM">
+  <meta name="twitter:title" content="Cómo usar un extintor ante un conato de incendio | Grupo CRM">
   <meta name="twitter:description" content="Aprenda a usar un extintor, sus partes y qué contiene. Qué es un fuego incipiente y cuándo evacuar. Atención en CDMX y Estado de México.">
-  <meta name="twitter:image" content="https://www.crmextintores.com.mx/assets/img/opt/full/blog-extintor-uso-1400.webp">
-<link rel="preload" as="image" type="image/webp" href="/assets/img/opt/full/blog-extintor-uso-800.webp" fetchpriority="high">
+  <meta name="twitter:image" content="https://www.crmextintores.com/assets/img/categoria-extintores.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="/assets/img/favicon.png">
   <link rel="apple-touch-icon" href="/assets/img/favicon.png">
-<script>
-  (function () {
-    function loadFa() {
-      if (document.getElementById("fa-css")) return;
-      var link = document.createElement("link");
-      link.id = "fa-css";
-      link.rel = "stylesheet";
-      link.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css";
-      link.crossOrigin = "anonymous";
-      link.referrerPolicy = "no-referrer";
-      document.head.appendChild(link);
-    }
-    if ("requestIdleCallback" in window) window.requestIdleCallback(loadFa, { timeout: 6000 });
-    else window.addEventListener("load", function () { setTimeout(loadFa, 2500); }, { once: true });
-  })();
-  </script>
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body data-page="articulo" data-article="como-usar-un-extintor">
   <a class="skip-link" href="#contenido">Ir al contenido</a>
-  <nav class="bot-nav" aria-label="Enlaces del sitio">
-    <a href="/">Inicio</a>
-    <a href="/productos">Productos</a>
-    <a href="/nosotros">Nosotros</a>
-    <a href="/venta-extintores">Venta de extintores</a>
-    <a href="/recarga-extintores">Recarga</a>
-    <a href="/mantenimiento-extintores">Mantenimiento</a>
-    <a href="/instalacion-extintores">Instalación</a>
-    <a href="/senalizacion">Señalización</a>
-    <a href="/galeria">Galería</a>
-    <a href="/blog">Blog</a>
-    <a href="/contacto">Contacto</a>
-    <a href="/extintores-cdmx">Extintores CDMX</a>
-    <a href="/extintores-estado-de-mexico">Estado de México</a>
-    <a href="/extintores-cuajimalpa">Cuajimalpa</a>
-    <a href="/extintores-naucalpan">Naucalpan</a>
-    <a href="/extintores-huixquilucan">Huixquilucan</a>
-    <a href="/mapa-sitio">Mapa de sitio</a>
-    <a href="/aviso-privacidad">Aviso de privacidad</a>
-    <a href="/politica-de-servicio">Política de servicio</a>
-    <a href="/fuentes-y-normatividad">Fuentes y normatividad</a>
-    <a href="/caso-agencia-automotriz">Caso agencia automotriz</a>
-    <a href="tel:5667481489">56 6748 1489</a>
-    <a href="mailto:crm.extintores@gmail.com">crm.extintores@gmail.com</a>
-  </nav>
-  <div data-header>
-    <div class="site-chrome header-skel" aria-hidden="true">
-      <div class="site-topbar"><div class="wrap topbar__inner"></div></div>
-      <header class="site-header">
-        <div class="wrap header__inner">
-          <a class="brand" href="/"><picture><source type="image/webp" srcset="/assets/img/logo-crm.webp"><img src="/assets/img/logo-crm.png" alt="" width="720" height="154" decoding="async"></picture></a>
-          <span class="header-skel__nav" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span>
-          <span class="header-skel__cta" aria-hidden="true"></span>
-        </div>
-      </header>
-    </div>
-  </div>
+  <div data-header></div>
   <main id="contenido">
   <article class="section article-page">
     <div class="wrap wrap-article">
-      <p class="article-crumb"><a href="/">Inicio</a> · <a href="/blog">Blog</a> · ¿Cómo usar un extintor?</p>
+      <p class="article-crumb"><a href="/">Inicio</a> · <a href="/blog">Blog</a> · Cómo usar un extintor</p>
       <header class="article-measure">
         <p class="kicker">Guía práctica</p>
-        <h1>¿Cómo usar un extintor ante un conato de incendio?</h1>
+        <h1>Cómo usar un extintor ante un conato de incendio</h1>
         <hr class="rule rule-left">
-        <p class="article-dek">Un extintor portátil sirve para un fuego pequeño y reciente. Si crece, evacúe y marque al 911. En inglés se le llama fire extinguisher; aquí lo que importa es el agente y la clase de fuego.</p>
-        <p class="content-dates">
-          <span>Publicado el <time datetime="2026-08-24">24 de agosto de 2026</time></span>
-        </p>
+        <p class="muted">Un extintor portátil sirve para un fuego pequeño y reciente. Si crece, evacúe y marque al 911. En inglés se le llama fire extinguisher; aquí lo que importa es el agente y la clase de fuego.</p>
       </header>
-      <figure class="article-hero article-hero--action">
-        <picture>
-          <source type="image/webp" srcset="/assets/img/opt/full/blog-extintor-uso-800.webp 800w, /assets/img/opt/full/blog-extintor-uso-1400.webp 1400w, /assets/img/opt/full/blog-extintor-uso-1600.webp 1600w" sizes="(min-width: 800px) 720px, 100vw">
-          <img src="/assets/img/opt/full/blog-extintor-uso-800.webp" alt="Uso de extintor de agente limpio Grupo CRM ante un conato eléctrico" width="1400" height="933" decoding="async" fetchpriority="high">
-        </picture>
-        <figcaption>Sujete el extintor, quite el seguro y apunte la manguera a la base del fuego.</figcaption>
+      <figure class="article-hero">
+        <img src="/assets/img/categoria-extintores.png" alt="Extintor montado en pared" width="960" height="540" decoding="async">
       </figure>
       <div class="article-measure">
-        <h2>¿Qué es un fuego incipiente y un conato de incendio?</h2>
+        <h2>Qué es un fuego incipiente y un conato de incendio</h2>
         <p>Un <strong>fuego incipiente</strong> es el que acaba de iniciar: aún es pequeño, está contenido y una persona capacitada puede intentar controlarlo con el extintor correcto, sin ponerse en riesgo.</p>
         <p>Un <strong>conato de incendio</strong> es ese mismo principio de fuego: humo o llamas en un bote, un trapo, una papelera o un equipo, todavía sin extenderse a techos, ductos o habitaciones vecinas.</p>
-        <div class="article-callout article-callout--warn">
-          <p>Si el humo es denso, el fuego rebasa el extintor, no tiene salida a su espalda o no está seguro del tipo de fuego, no intente combatirlo. Saque a las personas, cierre puertas al salir si puede y llame al 911.</p>
-        </div>
+        <p>Si el humo es denso, el fuego rebasa el extintor, no tiene salida a su espalda o no está seguro del tipo de fuego, no intente combatirlo. Saque a las personas, cierre puertas al salir si puede y llame al 911.</p>
 
         <h2>Partes de un extintor</h2>
         <p>Antes de usarlo, reconozca el equipo. En un extintor portátil de presión contenida suele ver:</p>
-        <ul class="article-pick-grid">
-          <li class="article-pick">
-            <span class="article-pick__mark">1</span>
-            <div>
-              <h3>Manija o palanca</h3>
-              <p>Al oprimirla sale el agente.</p>
-            </div>
-          </li>
-          <li class="article-pick">
-            <span class="article-pick__mark">2</span>
-            <div>
-              <h3>Seguro (pasador)</h3>
-              <p>Evita una descarga accidental. Hay que retirarlo para operar.</p>
-            </div>
-          </li>
-          <li class="article-pick">
-            <span class="article-pick__mark">3</span>
-            <div>
-              <h3>Manguera o boquilla</h3>
-              <p>Dirige el chorro a la base de las llamas.</p>
-            </div>
-          </li>
-          <li class="article-pick">
-            <span class="article-pick__mark">4</span>
-            <div>
-              <h3>Manómetro</h3>
-              <p>En PQS o agua indica si hay presión. El CO₂ no lleva este tipo de manómetro.</p>
-            </div>
-          </li>
-          <li class="article-pick">
-            <span class="article-pick__mark">5</span>
-            <div>
-              <h3>Cilindro</h3>
-              <p>El tanque que guarda el agente.</p>
-            </div>
-          </li>
-          <li class="article-pick">
-            <span class="article-pick__mark">6</span>
-            <div>
-              <h3>Etiqueta</h3>
-              <p>Clase de fuego (A, B, C, K), agente y vigencia.</p>
-            </div>
-          </li>
+        <ul>
+          <li><strong>Manija o palanca de disparo:</strong> al oprimirla sale el agente.</li>
+          <li><strong>Seguro (pasador):</strong> evita una descarga accidental. Hay que retirarlo para operar.</li>
+          <li><strong>Manguera o boquilla:</strong> dirige el chorro a la base de las llamas.</li>
+          <li><strong>Manómetro:</strong> en equipos de PQS o agua indica si hay presión. El CO₂ no lleva manómetro de este tipo.</li>
+          <li><strong>Cilindro:</strong> el tanque que guarda el agente.</li>
+          <li><strong>Etiqueta:</strong> clase de fuego (A, B, C, K), agente y vigencia.</li>
         </ul>
         <p>Revise el manómetro y la etiqueta en cada visita de mantenimiento. Un extintor descargado o vencido no sirve en la inspección ni en un conato.</p>
 
-        <h2>¿Qué contiene el extintor?</h2>
+        <h2>Qué contiene el extintor</h2>
         <p>El contenido no es “polvo genérico”. El agente define contra qué fuego puede usarlo:</p>
-        <ul class="article-pick-grid">
-          <li class="article-pick">
-            <span class="article-pick__mark">PQS</span>
-            <div>
-              <h3>Polvo químico seco ABC</h3>
-              <p>Sólidos, líquidos inflamables y equipo eléctrico. El más común en comercios y condominios.</p>
-            </div>
-          </li>
-          <li class="article-pick">
-            <span class="article-pick__mark">CO₂</span>
-            <div>
-              <h3>Bióxido de carbono</h3>
-              <p>Líquidos y eléctricos; no deja residuo. Cómputo, tableros y laboratorios.</p>
-            </div>
-          </li>
-          <li class="article-pick">
-            <span class="article-pick__mark">H₂O</span>
-            <div>
-              <h3>Agua</h3>
-              <p>Solo clase A (papel, madera, textiles). No lo use en eléctricos ni en grasas.</p>
-            </div>
-          </li>
-          <li class="article-pick">
-            <span class="article-pick__mark">K</span>
-            <div>
-              <h3>Tipo K</h3>
-              <p>Aceites y grasas de cocina.</p>
-            </div>
-          </li>
+        <ul>
+          <li><strong>Polvo químico seco (PQS) ABC:</strong> sólidos, líquidos inflamables y equipo eléctrico energizado. Es el más común en comercios y condominios.</li>
+          <li><strong>CO₂:</strong> líquidos y eléctricos; no deja residuo. Útil en cómputo, tableros y laboratorios.</li>
+          <li><strong>Agua:</strong> solo clase A (papel, madera, textiles). No lo use en eléctricos ni en grasas.</li>
+          <li><strong>Tipo K:</strong> aceites y grasas de cocina.</li>
         </ul>
-        <p>Vea las fichas en el <a href="/productos?cat=extintores#extintores">catálogo de extintores</a>, la guía de <a href="/blog/tipos-de-fuego">tipos de fuego</a> y la del <a href="/blog/extintor-6-kg">extintor de 6 kg</a> si necesita elegir capacidad.</p>
+        <p>Vea las fichas en el <a href="/productos?cat=extintores#extintores">catálogo de extintores</a> y la guía del <a href="/blog/extintor-6-kg">extintor de 6 kg</a> si necesita elegir capacidad.</p>
 
-        <h2>¿Cómo usar un extintor?</h2>
+        <h2>Cómo usar un extintor</h2>
         <p>Solo si el fuego sigue siendo un conato, el extintor es el adecuado y usted tiene una ruta de salida a la espalda:</p>
-        <ol class="article-steps">
+        <ol>
           <li>Quite el seguro tirando del pasador.</li>
           <li>Apunte la manguera a la <strong>base</strong> de las llamas, no a la punta del humo.</li>
           <li>Oprima la palanca con pulso firme.</li>
@@ -260,19 +127,19 @@
         <p>Esta guía no sustituye una brigada ni a bomberos. En CDMX y Estado de México, si el conato se sale de control, evacúe y deje el combate a profesionales.</p>
 
         <div class="article-cta">
-          <p>¿Necesita extintores nuevos, una recarga o que le ayudemos a elegir el equipo correcto? Con gusto lo atendemos.</p>
+          <p>¿Necesita extintores nuevos, recarga o que le indiquemos el equipo correcto?</p>
           <p class="actions">
-            <a class="btn btn-wa" href="https://wa.me/525667481489?text=Hola%2C%20quiero%20cotizar%20extintores%20y%20orientaci%C3%B3n%20sobre%20el%20equipo%20correcto." target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Cotizar por WhatsApp</a>
-            <a class="btn btn-ink" href="/contacto"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Pedir cotización</a>
+            <a class="btn btn-wa" href="https://wa.me/525554383241?text=Hola%2C%20quiero%20cotizar%20extintores%20y%20orientaci%C3%B3n%20sobre%20el%20equipo%20correcto." target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Cotizar por WhatsApp</a>
+            <a class="btn btn-ink" href="/contacto">Pedir cotización</a>
           </p>
         </div>
 
         <aside class="article-related">
           <h2>Siga leyendo</h2>
           <ul>
-            <li><a href="/blog/tipos-de-fuego">Tipos de fuego y cómo elegir el extintor</a></li>
-            <li><a href="/blog/extintor-6-kg">Extintor de 6 kg: tipos y cotización</a></li>
             <li><a href="/blog/extintores-cdmx">Extintores en CDMX y Estado de México</a></li>
+            <li><a href="/blog/extintor-6-kg">Extintor de 6 kg: tipos y cotización</a></li>
+            <li><a href="/blog/nom-002-stps-2010">NOM-002-STPS-2010 y señalización</a></li>
           </ul>
         </aside>
       </div>
@@ -281,6 +148,6 @@
   <section class="hook" data-hook></section>
   </main>
   <div data-footer></div>
-  <script type="module" src="/js/app.min.js?v=rb-1" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
+  <script type="module" src="/js/main.js" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
 </body>
 </html>

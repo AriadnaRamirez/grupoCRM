@@ -1,38 +1,18 @@
 <!DOCTYPE html>
-<html lang="es-MX" prefix="og: https://ogp.me/ns#">
+<html lang="es-MX">
 <head>
   <meta charset="UTF-8">
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   <script>!function(){if(!/\.github\.io$/i.test(location.hostname))return;var s=document.createElement("script");s.src="/js/pages-base.js";document.head.appendChild(s)}();</script>
-  <style id="css-boot">
-  /* Critical first paint: reserve chrome + hero before async main.css (CLS) */
-  :root { --chrome-h: 108px; }
+    <style id="css-boot">
+  /* Critical first paint: chrome + hero before main.css (FOUC / CLS) */
+  :root { --chrome-h: 108px; --photo-w: min(50%, 720px); }
   @media (min-width: 1024px) { :root { --chrome-h: 113px; } }
   html { background: #fff; }
   body { margin: 0; color: #202020; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
-  .bot-nav {
-    position: absolute !important; width: 1px !important; height: 1px !important;
-    padding: 0 !important; margin: -1px !important; overflow: hidden !important;
-    clip: rect(0, 0, 0, 0) !important; clip-path: inset(50%) !important;
-    white-space: nowrap !important; border: 0 !important;
-  }
   .site-chrome { position: fixed; top: 0; left: 0; right: 0; z-index: 60; background: #fff; }
   .header-skel { height: var(--chrome-h); max-height: var(--chrome-h); overflow: hidden; pointer-events: none; }
   .header-skel .brand { pointer-events: auto; }
-  .header-skel .nav, .header-skel .header__cta { display: none !important; }
+  .header-skel .nav, .header-skel .header__cta, .header-skel__nav, .header-skel__cta { display: none !important; }
   body:has([data-header]:empty),
   body:has([data-header] .header-skel),
   body:has([data-header] .site-chrome) {
@@ -40,207 +20,132 @@
   }
   .brand img { display: block; width: auto; height: auto; max-height: 47px; aspect-ratio: 720 / 154; object-fit: contain; }
   .hero-slider { position: relative; isolation: isolate; min-height: min(72vh, 646px); overflow: hidden; background: #1a2031; }
+  .slide { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; color: #fff; background-color: #1a2031; }
+  .slide.is-active { opacity: 1; visibility: visible; pointer-events: auto; z-index: 1; }
+  .slide__photo {
+    position: absolute; inset: 0 0 0 auto; width: var(--photo-w);
+    background-color: #1a2031; background-repeat: no-repeat; background-size: cover; background-position: center bottom;
+  }
+  .slide__photo.media-load:not(.is-ready) { background-image: none !important; }
+  .slide__photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center bottom; }
+  .shop-grid { display: grid; }
+  body[data-page="inicio"] .shop-home .shop-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   @media (max-width: 760px) {
     .hero-slider:not(.home-gallery) { min-height: min(78dvh, 660px); }
+    :root { --photo-w: 100%; }
   }
   @media (max-width: 480px) {
     .hero-slider:not(.home-gallery) { min-height: min(74dvh, 600px); }
   }
-  .slide { position: absolute; inset: 0; opacity: 0; visibility: hidden; pointer-events: none; color: #fff; }
-  .slide.is-active { opacity: 1; visibility: visible; pointer-events: auto; }
-  .slide__photo { position: absolute; inset: 0 0 0 auto; width: min(50%, 720px); }
-  .slide__photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center bottom; }
+  @media (max-width: 767px) {
+    body[data-page="inicio"] .shop-home .shop-grid--4 { grid-template-columns: 1fr 1fr; }
+  }
   </style>
-<link rel="preload" as="style" href="css/main.min.css?v=rb-1" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="css/main.min.css?v=rb-1"></noscript>
-  <script>!function(){var l=document.querySelector('link[rel="preload"][as="style"]');if(l&&!l.sheet){l.addEventListener("load",function(){this.onload=null;this.rel="stylesheet"});if(l.relList&&!l.relList.supports("preload"))l.rel="stylesheet"}}();</script>
-  <script>document.documentElement.classList.add("is-css");</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Mapa de sitio | Grupo CRM Extintores</title>
   <meta name="description" content="Encuentre equipos, servicios y contacto para cotizar extintores con Grupo CRM en CDMX y Estado de México.">
   <meta name="author" content="Grupo CRM Extintores">
-  <meta name="theme-color" content="#D51A32">
+  <meta name="theme-color" content="#A91430">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.crmextintores.com.mx/mapa-sitio">
-  
+  <link rel="canonical" href="https://www.crmextintores.com/mapa-sitio">
+  <link rel="alternate" hreflang="es-MX" href="https://www.crmextintores.com/mapa-sitio">
+  <link rel="alternate" hreflang="x-default" href="https://www.crmextintores.com/mapa-sitio">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_MX">
   <meta property="og:site_name" content="Grupo CRM Extintores">
   <meta property="og:title" content="Mapa de sitio | Grupo CRM Extintores">
   <meta property="og:description" content="Encuentre equipos, servicios y contacto para cotizar extintores con Grupo CRM en CDMX y Estado de México.">
-  <meta property="og:url" content="https://www.crmextintores.com.mx/mapa-sitio">
-  <meta property="og:image" content="https://www.crmextintores.com.mx/assets/img/logo-crm.png">
+  <meta property="og:url" content="https://www.crmextintores.com/mapa-sitio">
+  <meta property="og:image" content="https://www.crmextintores.com/assets/img/logo-crm.png">
   <meta property="og:image:alt" content="Logotipo de Grupo CRM Extintores">
-  <meta property="og:image:width" content="720">
-  <meta property="og:image:height" content="154">
-  <meta property="og:image:type" content="image/png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Mapa de sitio | Grupo CRM Extintores">
   <meta name="twitter:description" content="Encuentre equipos, servicios y contacto para cotizar extintores con Grupo CRM en CDMX y Estado de México.">
-  <meta name="twitter:image" content="https://www.crmextintores.com.mx/assets/img/logo-crm.png">
-<link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <meta name="twitter:image" content="https://www.crmextintores.com/assets/img/logo-crm.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <link rel="apple-touch-icon" href="assets/img/favicon.png">
-<script>
-  (function () {
-    function loadFa() {
-      if (document.getElementById("fa-css")) return;
-      var link = document.createElement("link");
-      link.id = "fa-css";
-      link.rel = "stylesheet";
-      link.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css";
-      link.crossOrigin = "anonymous";
-      link.referrerPolicy = "no-referrer";
-      document.head.appendChild(link);
-    }
-    if ("requestIdleCallback" in window) window.requestIdleCallback(loadFa, { timeout: 6000 });
-    else window.addEventListener("load", function () { setTimeout(loadFa, 2500); }, { once: true });
-  })();
-  </script>
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body data-page="mapa">
   <a class="skip-link" href="#contenido">Ir al contenido</a>
-  <nav class="bot-nav" aria-label="Enlaces del sitio">
-    <a href="/">Inicio</a>
-    <a href="/productos">Productos</a>
-    <a href="/nosotros">Nosotros</a>
-    <a href="/venta-extintores">Venta de extintores</a>
-    <a href="/recarga-extintores">Recarga</a>
-    <a href="/mantenimiento-extintores">Mantenimiento</a>
-    <a href="/instalacion-extintores">Instalación</a>
-    <a href="/senalizacion">Señalización</a>
-    <a href="/galeria">Galería</a>
-    <a href="/blog">Blog</a>
-    <a href="/contacto">Contacto</a>
-    <a href="/extintores-cdmx">Extintores CDMX</a>
-    <a href="/extintores-estado-de-mexico">Estado de México</a>
-    <a href="/extintores-cuajimalpa">Cuajimalpa</a>
-    <a href="/extintores-naucalpan">Naucalpan</a>
-    <a href="/extintores-huixquilucan">Huixquilucan</a>
-    <a href="/mapa-sitio">Mapa de sitio</a>
-    <a href="/aviso-privacidad">Aviso de privacidad</a>
-    <a href="/politica-de-servicio">Política de servicio</a>
-    <a href="/fuentes-y-normatividad">Fuentes y normatividad</a>
-    <a href="/caso-agencia-automotriz">Caso agencia automotriz</a>
-    <a href="tel:5667481489">56 6748 1489</a>
-    <a href="mailto:crm.extintores@gmail.com">crm.extintores@gmail.com</a>
-  </nav>
-  <div data-header>
-    <div class="site-chrome header-skel" aria-hidden="true">
-      <div class="site-topbar"><div class="wrap topbar__inner"></div></div>
-      <header class="site-header">
-        <div class="wrap header__inner">
-          <a class="brand" href="/"><picture><source type="image/webp" srcset="/assets/img/logo-crm.webp"><img src="/assets/img/logo-crm.png" alt="" width="720" height="154" decoding="async"></picture></a>
-          <span class="header-skel__nav" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span>
-          <span class="header-skel__cta" aria-hidden="true"></span>
-        </div>
-      </header>
-    </div>
-  </div>
+  <div data-header></div>
   <main id="contenido">
   <section class="section sitemap-page">
     <div class="wrap">
       <p class="kicker">Navegación</p>
       <h1>Mapa de sitio</h1>
       <hr class="rule rule-left">
-      <p class="muted">Encuentre rápido lo que busca: productos, servicios y contacto.</p>
+      <p class="muted">Páginas de productos, servicios y contacto.</p>
       <div class="sitemap-groups">
         <nav>
           <h2>Empresa</h2>
           <ul>
-            <li><a href="/">Inicio</a></li>
-            <li><a href="/nosotros">Nosotros y servicios</a></li>
-            <li><a href="/nosotros#cursos">Cursos y capacitaciones</a></li>
-            <li><a href="/galeria">Galería de instalaciones</a></li>
-            <li><a href="/extintores-cdmx">Cobertura CDMX</a></li>
-            <li><a href="/extintores-estado-de-mexico">Estado de México</a></li>
-            <li><a href="/blog">Blog de extintores</a></li>
-            <li><a href="/mapa-sitio">Mapa de sitio</a></li>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="nosotros.html#servicios">Servicios</a></li>
+            <li><a href="galeria.html">Galería</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="mapa-sitio.html">Mapa de sitio</a></li>
           </ul>
         </nav>
         <nav>
           <h2>Catálogo</h2>
           <ul>
-            <li><a href="/productos">Ver equipos</a></li>
-            <li><a href="/productos?cat=extintores#extintores">Extintores</a></li>
-            <li><a href="/productos?cat=chalecos#chalecos">Chalecos</a></li>
-            <li><a href="/productos?cat=senalamiento-vial#senalamiento-vial">Señalamiento vial</a></li>
-            <li><a href="/productos?cat=gabinetes-herrajes#gabinetes-herrajes">Gabinetes y herrajes</a></li>
-            <li><a href="/productos?cat=botiquines#botiquines">Botiquines</a></li>
-            <li><a href="/productos?cat=equipo-proteccion#equipo-proteccion">Equipo de protección</a></li>
+            <li><a href="productos.html">Ver equipos</a></li>
+            <li><a href="productos.html?cat=extintores#extintores">Extintores</a></li>
+            <li><a href="productos.html?cat=chalecos#chalecos">Chalecos</a></li>
+            <li><a href="productos.html?cat=senalamiento-vial#senalamiento-vial">Señalamiento vial</a></li>
+            <li><a href="productos.html?cat=gabinetes-herrajes#gabinetes-herrajes">Gabinetes y herrajes</a></li>
+            <li><a href="productos.html?cat=botiquines#botiquines">Botiquines</a></li>
+            <li><a href="productos.html?cat=equipo-proteccion#equipo-proteccion">Equipo de protección</a></li>
           </ul>
         </nav>
         <nav>
           <h2>Inicio</h2>
           <ul>
-            <li><a href="/#nosotros">¿Quiénes somos?</a></li>
-            <li><a href="/#catalogo">Productos</a></li>
-            <li><a href="/#servicios">Servicios</a></li>
-            <li><a href="/#cursos">Cursos y capacitaciones</a></li>
-            <li><a href="/#revision">Atención a condominios</a></li>
-            <li><a href="/#clientes">Nuestros clientes</a></li>
-            <li><a href="/#resenas">Reseñas</a></li>
-            <li><a href="/#faqs">Preguntas frecuentes</a></li>
-            <li><a href="/#contacto">Contacto en inicio</a></li>
+            <li><a href="index.html#nosotros">Quiénes somos</a></li>
+            <li><a href="index.html#catalogo">Productos</a></li>
+            <li><a href="index.html#servicios">Servicios</a></li>
+            <li><a href="index.html#revision">Atención a condominios</a></li>
+            <li><a href="index.html#clientes">Nuestros clientes</a></li>
+            <li><a href="index.html#faqs">Preguntas frecuentes</a></li>
+            <li><a href="index.html#contacto">Contacto en inicio</a></li>
           </ul>
         </nav>
         <nav>
           <h2>Blog</h2>
           <ul>
             <li><a href="/blog">Índice de guías</a></li>
-            <li><a href="/blog/tipos-de-fuego">Tipos de fuego y cómo elegir el extintor</a></li>
-            <li><a href="/blog/como-usar-un-extintor">¿Cómo usar un extintor?</a></li>
+            <li><a href="/blog/como-usar-un-extintor">Cómo usar un extintor</a></li>
             <li><a href="/blog/extintores-cdmx">Extintores en CDMX y Estado de México</a></li>
             <li><a href="/blog/extintor-6-kg">Extintor de 6 kg</a></li>
-            <li><a href="/blog/nom-154-scfi-2005">NOM-154-SCFI-2005</a></li>
-            <li><a href="/blog/como-instalar-mi-extintor">¿Cómo instalar mi extintor?</a></li>
-            <li><a href="/blog/casco-seguridad-colores">Casco de seguridad</a></li>
+            <li><a href="/blog/nom-002-stps-2010">NOM-002-STPS-2010</a></li>
+            <li><a href="/blog/botiquin-primeros-auxilios">Botiquín de primeros auxilios</a></li>
           </ul>
         </nav>
         <nav>
           <h2>Contacto</h2>
           <ul>
-            <li><a href="/contacto">Página de contacto y cotización</a></li>
-            <li><a href="/aviso-privacidad">Aviso de privacidad</a></li>
-            <li><a href="/politica-de-servicio">Política de servicio</a></li>
-            <li><a href="/fuentes-y-normatividad">Fuentes y normatividad</a></li>
-            <li><a href="/caso-agencia-automotriz">Caso: agencia automotriz</a></li>
-            <li><a href="/#revision">Agendar revisión gratis de extintores</a></li>
+            <li><a href="contacto.html">Página de contacto</a></li>
+            <li><a href="aviso-privacidad.html">Aviso de privacidad</a></li>
+            <li><a href="index.html#revision">Revisión gratis</a></li>
             <li><a href="https://www.google.com/maps/search/?api=1&query=Chamixto+131+Col.+Loma+del+Padre+Cuajimalpa+Ciudad+de+M%C3%A9xico" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Chamixto 131, Col. Loma del Padre, Cuajimalpa</a></li>
-            <li><a href="tel:5667481489"><i class="fa-solid fa-phone" aria-hidden="true"></i> Tel. 56 6748 1489</a></li>
             <li><a href="tel:5659474605"><i class="fa-solid fa-phone" aria-hidden="true"></i> Tel. 56 5947 4605</a></li>
-            <li><a href="https://wa.me/525667481489" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp 56 6748 1489</a></li>
+            <li><a href="tel:5667481489"><i class="fa-solid fa-phone" aria-hidden="true"></i> Tel. 56 6748 1489</a></li>
+            <li><a href="https://wa.me/525554383241" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp 55 5438 3241</a></li>
             <li><a href="mailto:crm.extintores@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> crm.extintores@gmail.com</a></li>
-          </ul>
-        </nav>
-        <nav>
-          <h2>Cobertura y servicios</h2>
-          <ul>
-            <li><a href="/extintores-cdmx">Extintores en CDMX</a></li>
-            <li><a href="/extintores-estado-de-mexico">Extintores en Estado de México</a></li>
-            <li><a href="/extintores-cuajimalpa">Extintores en Cuajimalpa</a></li>
-            <li><a href="/extintores-benito-juarez">Extintores en Benito Juárez</a></li>
-            <li><a href="/extintores-naucalpan">Extintores en Naucalpan</a></li>
-            <li><a href="/extintores-huixquilucan">Extintores en Huixquilucan</a></li>
-            <li><a href="/venta-extintores">Venta de extintores</a></li>
-            <li><a href="/recarga-extintores">Recarga de extintores</a></li>
-            <li><a href="/mantenimiento-extintores">Mantenimiento</a></li>
-            <li><a href="/instalacion-extintores">Instalación</a></li>
-            <li><a href="/senalizacion">Señalización</a></li>
-            <li><a href="/blog/extintores-cdmx">Guía: extintores en CDMX</a></li>
           </ul>
         </nav>
       </div>
     </div>
   </section>
-    <div class="wrap content-dates-wrap"><p class="content-dates content-dates--foot">
-          <span>Publicado el <time datetime="2026-08-24">24 de agosto de 2026</time></span>
-          <span class="content-dates__sep" aria-hidden="true">·</span>
-          <span>Actualizado el <time datetime="2026-09-22">22 de septiembre de 2026</time></span>
-        </p>
-  </div>
   </main>
   <div data-footer></div>
-  <script type="module" src="js/app.min.js?v=rb-1" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
+  <script type="module" src="js/main.js" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
 </body>
 </html>

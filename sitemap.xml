@@ -1095,7 +1095,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/productos?cat=extintores</loc>
+    <loc>https://www.crmextintores.com.mx/productos/extintores</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -1201,7 +1201,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/productos?cat=chalecos</loc>
+    <loc>https://www.crmextintores.com.mx/productos/chalecos</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -1227,7 +1227,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/productos?cat=senalamiento-vial</loc>
+    <loc>https://www.crmextintores.com.mx/productos/senalamiento-vial</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -1298,7 +1298,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/productos?cat=gabinetes-herrajes</loc>
+    <loc>https://www.crmextintores.com.mx/productos/gabinetes-herrajes</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -1364,7 +1364,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/productos?cat=botiquines</loc>
+    <loc>https://www.crmextintores.com.mx/productos/botiquines</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -1390,7 +1390,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/productos?cat=equipo-proteccion</loc>
+    <loc>https://www.crmextintores.com.mx/productos/equipo-proteccion</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -1436,10 +1436,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0001</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0001</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0001-800.webp</image:loc>
       <image:title>Extintor automotriz de PQS ABC - 1.0 kg</image:title>
@@ -1447,10 +1447,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0002</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0002</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0002-800.webp</image:loc>
       <image:title>Extintor automotriz de PQS ABC - 2.0 kg</image:title>
@@ -1458,10 +1458,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0003</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0003</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0003-800.webp</image:loc>
       <image:title>Extintor de PQS ABC para uso comercial e industrial - 4.5 kg</image:title>
@@ -1469,10 +1469,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0004</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0004</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0004-800.webp</image:loc>
       <image:title>Extintor de PQS ABC para uso comercial e industrial - 6.0 kg</image:title>
@@ -1480,10 +1480,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0005</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0005</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0005-800.webp</image:loc>
       <image:title>Extintor de PQS ABC para uso comercial e industrial - 9.0 kg</image:title>
@@ -1491,10 +1491,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0006</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0006</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0006-800.webp</image:loc>
       <image:title>Extintor de CO₂ - 2.3 kg</image:title>
@@ -1502,10 +1502,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0007</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0007</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0007-800.webp</image:loc>
       <image:title>Extintor de CO₂ - 4.5 kg</image:title>
@@ -1513,10 +1513,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0008</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0008</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0008-800.webp</image:loc>
       <image:title>Extintor de CO₂ - 6.8 kg</image:title>
@@ -1524,10 +1524,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0009</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0009</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0009-800.webp</image:loc>
       <image:title>Extintor de agente limpio HFC-236fa - 2.0 kg</image:title>
@@ -1535,10 +1535,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0010</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0010</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0010-800.webp</image:loc>
       <image:title>Extintor de agente limpio HFC-236fa - 4.5 kg</image:title>
@@ -1546,10 +1546,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0011</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0011</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0011-800.webp</image:loc>
       <image:title>Extintor de agente limpio HFC-236fa - 6.0 kg</image:title>
@@ -1557,10 +1557,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0012</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0012</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0012-800.webp</image:loc>
       <image:title>Extintor tipo K para cocinas - 2.4 L</image:title>
@@ -1568,10 +1568,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0013</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0013</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0013-800.webp</image:loc>
       <image:title>Extintor tipo K para cocinas - 4.0 L</image:title>
@@ -1579,10 +1579,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0014</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0014</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0014-800.webp</image:loc>
       <image:title>Extintor tipo K para cocinas - 6.0 L</image:title>
@@ -1590,10 +1590,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0015</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0015</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0015-800.webp</image:loc>
       <image:title>Extintor de agua a presión - 10 L</image:title>
@@ -1601,10 +1601,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0016</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0016</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0016-800.webp</image:loc>
       <image:title>Unidad móvil de PQS ABC - 35 kg</image:title>
@@ -1612,10 +1612,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0017</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0017</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0017-800.webp</image:loc>
       <image:title>Unidad móvil de PQS ABC - 50 kg</image:title>
@@ -1623,10 +1623,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0018</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0018</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0018-800.webp</image:loc>
       <image:title>Unidad móvil de PQS ABC - 70 kg</image:title>
@@ -1634,10 +1634,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0019</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0019</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0019-800.webp</image:loc>
       <image:title>Unidad móvil de agua a presión - 50 L</image:title>
@@ -1645,10 +1645,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0020</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0020</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0020-800.webp</image:loc>
       <image:title>Chaleco de malla para brigadas</image:title>
@@ -1656,10 +1656,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0021</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0021</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0021-800.webp</image:loc>
       <image:title>Chaleco reflejante de alta visibilidad</image:title>
@@ -1667,10 +1667,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0022</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0022</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0022-800.webp</image:loc>
       <image:title>Chaleco de gabardina para brigadista</image:title>
@@ -1678,10 +1678,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0023</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0023</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0023-800.webp</image:loc>
       <image:title>Cono vial flexible - 45 cm</image:title>
@@ -1689,10 +1689,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0024</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0024</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0024-800.webp</image:loc>
       <image:title>Cono vial flexible - 71 cm</image:title>
@@ -1700,10 +1700,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0025</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0025</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0025-800.webp</image:loc>
       <image:title>Poste de seguridad para barricada - 117 cm</image:title>
@@ -1711,10 +1711,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0026</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0026</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0026-800.webp</image:loc>
       <image:title>Malla de seguridad para delimitación - 30 m</image:title>
@@ -1722,10 +1722,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0027</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0027</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0027-800.webp</image:loc>
       <image:title>Lámpara solar de destello para señalización</image:title>
@@ -1733,10 +1733,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0028</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0028</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0028-800.webp</image:loc>
       <image:title>Banderín reflejante para señalización</image:title>
@@ -1744,10 +1744,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0029</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0029</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0029-800.webp</image:loc>
       <image:title>Banderín de alta visibilidad para camión</image:title>
@@ -1755,10 +1755,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0030</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0030</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0030-800.webp</image:loc>
       <image:title>Cinta roja de delimitación «Peligro»</image:title>
@@ -1766,10 +1766,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0031</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0031</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0031-800.webp</image:loc>
       <image:title>Cinta amarilla de delimitación «Precaución»</image:title>
@@ -1777,10 +1777,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0032</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0032</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0032-800.webp</image:loc>
       <image:title>Cinta amarilla de delimitación «Prohibido el paso»</image:title>
@@ -1788,10 +1788,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0033</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0033</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0033-800.webp</image:loc>
       <image:title>Señal preventiva de piso mojado</image:title>
@@ -1799,10 +1799,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0034</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0034</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0034-800.webp</image:loc>
       <image:title>Brazalete de identificación para brigadistas</image:title>
@@ -1810,10 +1810,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0035</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0035</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0035-800.webp</image:loc>
       <image:title>Portaextintor de piso tipo cenicero - 4.5 a 6.0 kg</image:title>
@@ -1821,10 +1821,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0036</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0036</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0036-800.webp</image:loc>
       <image:title>Portaextintor de piso tipo cenicero - 9.0 kg y 10 lb</image:title>
@@ -1832,10 +1832,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0037</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0037</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0037-800.webp</image:loc>
       <image:title>Gabinete metálico para manguera de hidrante</image:title>
@@ -1843,10 +1843,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0038</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0038</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0038-800.webp</image:loc>
       <image:title>Gabinete para un equipo de bombero</image:title>
@@ -1854,10 +1854,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0039</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0039</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0039-800.webp</image:loc>
       <image:title>Gabinete para dos equipos de bombero</image:title>
@@ -1865,10 +1865,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0040</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0040</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0040-800.webp</image:loc>
       <image:title>Gabinete para extintor - 4.5 a 6.0 kg</image:title>
@@ -1876,10 +1876,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0041</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0041</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0041-800.webp</image:loc>
       <image:title>Toma siamesa para red contra incendio</image:title>
@@ -1887,10 +1887,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0042</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0042</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0042-800.webp</image:loc>
       <image:title>Llave universal de bronce para coples</image:title>
@@ -1898,10 +1898,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0043</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0043</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0043-800.webp</image:loc>
       <image:title>Chiflón de neblina de tres pasos - 1½ pulgadas</image:title>
@@ -1909,10 +1909,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0044</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0044</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0044-800.webp</image:loc>
       <image:title>Manguera industrial contra incendio</image:title>
@@ -1920,10 +1920,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0045</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0045</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0045-800.webp</image:loc>
       <image:title>Válvula globo angular de bronce</image:title>
@@ -1931,10 +1931,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0046</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0046</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0046-800.webp</image:loc>
       <image:title>Botiquín metálico de pared - chico</image:title>
@@ -1942,10 +1942,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0047</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0047</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0047-800.webp</image:loc>
       <image:title>Botiquín metálico de pared - mediano</image:title>
@@ -1953,10 +1953,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0048</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0048</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0048-800.webp</image:loc>
       <image:title>Botiquín metálico de pared - grande</image:title>
@@ -1964,10 +1964,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0049</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0049</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0049-800.webp</image:loc>
       <image:title>Detector de humo con batería de 9 V</image:title>
@@ -1975,10 +1975,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0050</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0050</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0050-800.webp</image:loc>
       <image:title>Lámpara de emergencia recargable</image:title>
@@ -1986,10 +1986,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0051</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0051</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0051-800.webp</image:loc>
       <image:title>Camilla rígida para rescate e inmovilización</image:title>
@@ -1997,10 +1997,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0052</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0052</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0052-800.webp</image:loc>
       <image:title>Kit integral de inmovilización</image:title>
@@ -2008,10 +2008,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0053</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0053</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0053-800.webp</image:loc>
       <image:title>Guantes anticorte de alta resistencia</image:title>
@@ -2019,10 +2019,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0054</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0054</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0054-800.webp</image:loc>
       <image:title>Casco de seguridad con ajuste de matraca</image:title>
@@ -2030,10 +2030,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0055</loc>
+    <loc>https://www.crmextintores.com.mx/producto/CRM-0055</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0055-800.webp</image:loc>
       <image:title>Casco de seguridad de ala ancha</image:title>

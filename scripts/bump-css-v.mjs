@@ -16,18 +16,21 @@ const olds = [
   "proof-1",
   "h2-1",
   "img-1",
-  "rb-1",
-  "rb-2",
-  "rb-3",
-  "rb-4",
-  "rb-5",
-  "rb-6",
-  "rb-7",
-  "rb-8",
-  "rb-9",
+  "rb-12",
+  "rb-110",
+  "rb-11",
   "rb-10",
+  "rb-9",
+  "rb-8",
+  "rb-7",
+  "rb-6",
+  "rb-5",
+  "rb-4",
+  "rb-3",
+  "rb-2",
+  "rb-1",
 ];
-const neu = "rb-11";
+const neu = "rb-13";
 
 function walk(dir, out = []) {
   for (const name of readdirSync(dir)) {
@@ -39,15 +42,16 @@ function walk(dir, out = []) {
   return out;
 }
 
+function bumpToken(text, from, to) {
+  const escaped = from.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return text.replace(new RegExp(`(\\?v=)${escaped}(?!\\d)`, "g"), `$1${to}`);
+}
+
 let n = 0;
 for (const f of walk(root)) {
   let t = readFileSync(f, "utf8");
   const o = t;
-  for (const v of olds) {
-    t = t.split(`main.min.css?v=${v}`).join(`main.min.css?v=${neu}`);
-    t = t.split(`tokens.css?v=${v}`).join(`tokens.css?v=${neu}`);
-    t = t.split(`app.min.js?v=${v}`).join(`app.min.js?v=${neu}`);
-  }
+  for (const v of olds) t = bumpToken(t, v, neu);
   if (t !== o) {
     writeFileSync(f, t);
     n++;

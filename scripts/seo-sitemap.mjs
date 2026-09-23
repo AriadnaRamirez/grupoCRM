@@ -133,7 +133,7 @@ add(pageImages, "/blog", [
 ]);
 
 for (const c of categories) {
-  add(pageImages, `/productos?cat=${c.id}`, [
+  add(pageImages, `/productos/${c.id}`, [
     catImages[c.id],
     ...products
       .filter((p) => p.cat === c.id)
@@ -142,7 +142,7 @@ for (const c of categories) {
 }
 
 for (const p of products) {
-  add(pageImages, `/producto?sku=${p.sku}`, [
+  add(pageImages, `/producto/${p.sku}`, [
     img(`/assets/img/opt/catalog/${p.sku}-800.webp`, p.title, productAlt(p, { detail: true })),
   ]);
 }

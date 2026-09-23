@@ -575,7 +575,7 @@ function hubCdmx() {
       <h2>Tipos de clientes</h2>
       <p>Trabajamos con empresas e inmuebles que deben cumplir con Protección Civil: corporativos, plazas, locales, condominios y centros educativos, entre otros.</p>
 
-      <h2>Cómo solicitar cotización</h2>
+      <h2>¿Cómo solicitar cotización?</h2>
       <p>Indique alcaldía, giro y si ya cuenta con extintores. Le respondemos por WhatsApp (${escapeHtml(company.phone)}) o en el <a href="/contacto">formulario de contacto</a>.</p>
       ${ctaBlock("CDMX", "Hola, quiero cotizar extintores en Ciudad de México.")}
 

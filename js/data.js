@@ -384,8 +384,8 @@ export const blogPosts = [
   {
     slug: "como-instalar-mi-extintor",
     path: "/blog/como-instalar-mi-extintor",
-    title: "Cómo instalar mi extintor en una empresa | Grupo CRM",
-    heading: "Cómo instalar mi extintor para que sí sea útil",
+    title: "¿Cómo instalar mi extintor en una empresa? | Grupo CRM",
+    heading: "¿Cómo instalar mi extintor para que sí sea útil?",
     description:
       "Guía práctica para colocar un extintor: altura, visibilidad, acceso libre, señalamiento, soporte y cuándo pedir instalación profesional en CDMX y Estado de México.",
     kicker: "Instalación",
@@ -412,8 +412,8 @@ export const blogPosts = [
   {
     slug: "como-usar-un-extintor",
     path: "/blog/como-usar-un-extintor",
-    title: "Cómo usar un extintor ante un conato de incendio | Grupo CRM",
-    heading: "Cómo usar un extintor ante un conato de incendio",
+    title: "¿Cómo usar un extintor ante un conato de incendio? | Grupo CRM",
+    heading: "¿Cómo usar un extintor ante un conato de incendio?",
     description:
       "Aprenda a usar un extintor, sus partes y qué contiene. Qué es un fuego incipiente y cuándo evacuar. Atención en CDMX y Estado de México.",
     kicker: "Guía práctica",
@@ -468,8 +468,8 @@ export const blogPosts = [
   {
     slug: "casco-seguridad-colores",
     path: "/blog/casco-seguridad-colores",
-    title: "Qué casco de seguridad necesito: colores y características | Grupo CRM",
-    heading: "Qué casco de seguridad necesito: colores y características",
+    title: "¿Qué casco de seguridad necesito: colores y características? | Grupo CRM",
+    heading: "¿Qué casco de seguridad necesito: colores y características?",
     description:
       "Guía para elegir casco de seguridad por color, uso y características: tipo cachucha, ala ancha, ajuste de matraca y protección para obra, industria y brigadas.",
     kicker: "Equipo de protección",
@@ -759,7 +759,7 @@ export const reviews = [
 export const faqs = [
   {
     q: "¿Qué equipo puedo cotizar?",
-    a: "Extintores, chalecos, señalamientos, gabinetes, botiquines y equipo de protección. Si no encuentra algo, escríbanos y con gusto lo buscamos por usted.",
+    a: `Extintores, chalecos, señalamientos, gabinetes, botiquines y equipo de protección. Si no encuentra algo, <a href="https://wa.me/${company.whatsapp}?text=${encodeURIComponent("Hola, quiero una cotización de extintores y equipo contra incendio para mi empresa.")}" target="_blank" rel="noopener noreferrer">escríbanos por WhatsApp</a> y con gusto lo buscamos por usted.`,
   },
   {
     q: "¿En qué zonas atienden?",
@@ -767,11 +767,11 @@ export const faqs = [
   },
   {
     q: "¿Cómo pido una cotización?",
-    a: "Como le resulte más cómodo: WhatsApp 56 6748 1489, teléfono o el formulario de esta página. Aceptamos tarjeta y meses sin intereses.",
+    a: `Como le resulte más cómodo: <a href="https://wa.me/${company.whatsapp}?text=${encodeURIComponent("Hola, quiero una cotización de extintores y equipo contra incendio para mi empresa.")}" target="_blank" rel="noopener noreferrer">WhatsApp ${company.whatsappShow}</a>, <a href="tel:${company.phoneTel}">teléfono</a> o el <a href="/contacto">formulario de contacto</a>. Aceptamos tarjeta y meses sin intereses.`,
   },
   {
     q: "¿Cuál es el horario de atención?",
-    a: "Lunes a viernes, de 9:00 a 18:00. Si nos escribe fuera de ese horario, le respondemos al siguiente día hábil.",
+    a: "Lunes a viernes, de 9:00 a 18:00.",
   },
   {
     q: "¿Me ayudan a cumplir con Protección Civil en mi condominio?",

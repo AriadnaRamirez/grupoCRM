@@ -4757,6 +4757,15 @@ body[data-page="inicio"] .home-gallery .slide__photo {
   font-size: 0.95rem;
   box-shadow: none;
 }
+.faq p a {
+  color: var(--red);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.faq p a:hover {
+  color: var(--red-dark);
+}
 
 .contact-quiet {
   padding: var(--section-pad-sm) 0;
@@ -7887,14 +7896,23 @@ body[data-page="blog"] .blog-hub { padding-top: 36px; }
 }
 .content-dates__sep { opacity: 0.55; }
 .content-dates--page { margin-top: 12px; }
-.shop-hero__copy .content-dates,
-.hero-copy .content-dates {
-  color: rgba(255, 255, 255, 0.78);
+.content-dates-wrap {
+  margin: 0 auto;
+  padding-block: 0.35rem 1.35rem;
 }
-.shop-hero__copy .content-dates time,
-.hero-copy .content-dates time {
-  color: #fff;
-  font-weight: 700;
+.content-dates--foot {
+  margin: 0;
+  max-width: none;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.01em;
+  color: var(--muted);
+  opacity: 0.85;
+}
+.content-dates--foot time {
+  color: inherit;
+  font-weight: 500;
 }
 .article-page .rule,
 .article-page .rule-left {

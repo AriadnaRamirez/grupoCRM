@@ -67,7 +67,7 @@ makePage({
       <p>La primera visita o levantamiento de revisión en sitio no tiene costo. Sirve para indicarle qué requiere atención y qué podemos hacer. El servicio de recarga, venta o instalación se cotiza por separado según lo encontrado.</p>
 
       <h2>Horario y cobertura</h2>
-      <p>Atención de lunes a viernes, de 9:00 a 18:00. Oficina en Chamixto 131, Col. Loma del Padre, Alcaldía Cuajimalpa, CDMX. Cobertura de servicio: Ciudad de México y Estado de México. Mensajes fuera de horario se responden el siguiente día hábil.</p>
+      <p>Atención de lunes a viernes, de 9:00 a 18:00. Oficina en Chamixto 131, Col. Loma del Padre, Alcaldía Cuajimalpa, CDMX. Cobertura de servicio: Ciudad de México y Estado de México.</p>
 
       <h2>Pagos</h2>
       <p>Aceptamos pagos con tarjeta de crédito y meses sin intereses, además de los medios que le indiquemos al confirmar la cotización. No solicitamos datos de tarjeta en este sitio web.</p>

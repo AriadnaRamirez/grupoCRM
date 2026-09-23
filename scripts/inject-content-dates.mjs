@@ -1,5 +1,6 @@
 /**
  * Inject visible publish/update dates into blog articles and key marketing pages.
+ * Page dates sit at the bottom of <main> (discreet). Article dates stay under the dek.
  * Usage: node scripts/inject-content-dates.mjs
  */
 import { readFileSync, writeFileSync, readdirSync } from "node:fs";
@@ -47,7 +48,7 @@ function articleMeta(published, modified) {
 function pageMeta(published, modified) {
   const pub = published || SITE.contentPublished;
   const mod = modified || SITE.contentModified;
-  return `<p class="content-dates content-dates--page">
+  return `<p class="content-dates content-dates--foot">
           <span>Publicado el <time datetime="${pub}">${formatEs(pub)}</time></span>
           <span class="content-dates__sep" aria-hidden="true">·</span>
           <span>Actualizado el <time datetime="${mod}">${formatEs(mod)}</time></span>
@@ -55,7 +56,16 @@ function pageMeta(published, modified) {
 }
 
 const metaBlockRe =
-  /<p class="content-dates(?:\s+content-dates--page)?">[\s\S]*?<\/p>\s*/g;
+  /<p class="content-dates(?:\s+content-dates--(?:page|foot))?">[\s\S]*?<\/p>\s*/g;
+
+function injectFoot(html, block) {
+  const cleaned = html.replace(metaBlockRe, "");
+  if (!/<\/main>/i.test(cleaned)) return null;
+  return cleaned.replace(
+    /<\/main>/i,
+    `  <div class="wrap content-dates-wrap">${block}\n  </div>\n  </main>`
+  );
+}
 
 let n = 0;
 
@@ -76,103 +86,52 @@ for (const post of blogPosts) {
   n++;
 }
 
-/** Main marketing pages: insert after first h1 lead / shop-hero lead / zona head. */
+/** Marketing / local pages: dates at end of main (not in hero). */
 const pages = [
-  {
-    file: "index.html",
-    re: /(<p class="lead">Acompañamos a condominios, restaurantes y oficinas\. La primera visita o levantamiento no tiene costo\.<\/p>)/,
-    published: SITE.contentPublished,
-    modified: SITE.contentModified,
-  },
-  {
-    file: "nosotros.html",
-    re: /(<p class="lead">Empresa mexicana de venta[\s\S]*?<\/p>)/,
-    published: SITE.contentPublished,
-    modified: SITE.contentModified,
-  },
-  {
-    file: "productos.html",
-    re: /(<p class="lead">Extintores, señalamientos, gabinetes y protección para su empresa[\s\S]*?<\/p>)/,
-    published: SITE.contentPublished,
-    modified: SITE.contentModified,
-  },
-  {
-    file: "contacto.html",
-    re: /(<p class="contact-page__lead">[\s\S]*?<\/p>)/,
-    published: SITE.contentPublished,
-    modified: SITE.contentModified,
-  },
-  {
-    file: "galeria.html",
-    re: /(<h1>[\s\S]*?<\/h1>)/,
-    published: SITE.contentPublished,
-    modified: SITE.contentModified,
-  },
-  {
-    file: "venta-extintores.html",
-    re: /(<p class="lead">Grupo CRM Extintores vende extintores[\s\S]*?<\/p>)/,
-    published: SITE.contentPublished,
-    modified: SITE.contentModified,
-  },
-  {
-    file: "recarga-extintores.html",
-    re: /(<p class="lead">[\s\S]*?<\/p>)/,
-    published: SITE.contentPublished,
-    modified: SITE.contentModified,
-  },
-  {
-    file: "mantenimiento-extintores.html",
-    re: /(<p class="lead">[\s\S]*?<\/p>)/,
-    published: SITE.contentPublished,
-    modified: SITE.contentModified,
-  },
-  {
-    file: "instalacion-extintores.html",
-    re: /(<p class="lead">[\s\S]*?<\/p>)/,
-    published: SITE.contentPublished,
-    modified: SITE.contentModified,
-  },
-  {
-    file: "senalizacion.html",
-    re: /(<p class="lead">[\s\S]*?<\/p>)/,
-    published: SITE.contentPublished,
-    modified: SITE.contentModified,
-  },
-  {
-    file: "blog/index.html",
-    re: /(<h1>[\s\S]*?<\/h1>)/,
-    published: SITE.contentPublished,
-    modified: SITE.contentModified,
-  },
+  "index.html",
+  "nosotros.html",
+  "productos.html",
+  "contacto.html",
+  "galeria.html",
+  "venta-extintores.html",
+  "recarga-extintores.html",
+  "mantenimiento-extintores.html",
+  "instalacion-extintores.html",
+  "senalizacion.html",
+  "blog/index.html",
+  "politica-de-servicio.html",
+  "fuentes-y-normatividad.html",
+  "caso-agencia-automotriz.html",
+  "aviso-privacidad.html",
+  "mapa-sitio.html",
 ];
 
-for (const page of pages) {
-  const file = join(root, page.file);
-  let html = readFileSync(file, "utf8");
-  html = html.replace(metaBlockRe, "");
-  const block = pageMeta(page.published, page.modified);
-  if (!page.re.test(html)) {
-    console.warn("skip page (pattern)", page.file);
+for (const rel of pages) {
+  const file = join(root, rel);
+  let html;
+  try {
+    html = readFileSync(file, "utf8");
+  } catch {
+    console.warn("skip missing", rel);
     continue;
   }
-  html = html.replace(page.re, (m) => `${m}\n        ${block}`);
-  writeFileSync(file, html);
+  const block = pageMeta(SITE.contentPublished, SITE.contentModified);
+  const next = injectFoot(html, block);
+  if (!next) {
+    console.warn("skip page (no main)", rel);
+    continue;
+  }
+  writeFileSync(file, next);
   n++;
 }
 
-// Zona / hub pages: after first .lead in zona-page__head
 for (const name of readdirSync(root)) {
   if (!/^extintores-.*\.html$/.test(name)) continue;
   const file = join(root, name);
   let html = readFileSync(file, "utf8");
-  if (!html.includes("zona-page__head")) continue;
-  html = html.replace(metaBlockRe, "");
   const block = pageMeta(SITE.contentPublished, SITE.contentModified);
-  const next = html.replace(
-    /(<header class="zona-page__head">[\s\S]*?<p class="lead">[\s\S]*?<\/p>)/,
-    `$1\n        ${block}`
-  );
-  if (next === html) {
+  const next = injectFoot(html, block);
+  if (!next) {
     console.warn("skip zona", name);
     continue;
   }

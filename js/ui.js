@@ -1311,7 +1311,7 @@ export function renderHomeCatalog() {
   root.innerHTML = categories
     .filter((c) => HOME_BEST_CATS.includes(c.id))
     .map((c) => {
-      const items = homeCategoryItems(c.id, 2);
+      const items = homeCategoryItems(c.id, 4);
       if (!items.length) return "";
       return `
         <section class="shop-block" data-cat="${c.id}">

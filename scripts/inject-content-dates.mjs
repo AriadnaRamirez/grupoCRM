@@ -88,7 +88,6 @@ for (const post of blogPosts) {
 
 /** Marketing / local pages: dates at end of main (not in hero). */
 const pages = [
-  "index.html",
   "nosotros.html",
   "productos.html",
   "contacto.html",

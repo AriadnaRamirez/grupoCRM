@@ -2028,7 +2028,7 @@ export function renderExtinguisherCompare() {
         <tbody>${rows}</tbody>
       </table>
     </div>
-    <p class="compare-table__more muted">Detalle de clases de fuego en la guía <a href="${withBase("/blog/tipos-de-fuego")}">tipos de fuego</a>. Caso real de instalación: <a href="${withBase("/caso-agencia-automotriz")}">agencia automotriz</a>.</p>`;
+    <p class="compare-table__more muted">Caso real de instalación: <a href="${withBase("/caso-agencia-automotriz")}">agencia automotriz</a>. Ver <a href="${withBase("/productos?cat=extintores#extintores")}">catálogo de extintores</a>.</p>`;
   roots.forEach((root) => {
     root.innerHTML = table;
     root.setAttribute("aria-busy", "false");
@@ -2040,7 +2040,6 @@ export function renderHome() {
   const hydrate = () => {
     renderHomeCats();
     renderHomeCatalog();
-    renderExtinguisherCompare();
     paintServices();
     paintCursos();
     renderCarePoints();
@@ -2066,7 +2065,6 @@ export function renderHome() {
 export function renderProductos() {
   renderCatalogExtend();
   bindCatalog("all");
-  renderExtinguisherCompare();
 }
 
 export function renderProducto() {
@@ -2476,6 +2474,11 @@ export function renderNosotros() {
   renderCompactSectors();
   renderClientLogos();
   renderAboutMiniGallery();
+  const foldId = (location.hash || "").replace(/^#/, "");
+  if (foldId === "equipo" || foldId === "validacion") {
+    const fold = document.getElementById(foldId);
+    if (fold instanceof HTMLDetailsElement) fold.open = true;
+  }
 }
 
 const ABOUT_GALLERY_LIMIT = 8;

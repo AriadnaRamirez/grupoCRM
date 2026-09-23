@@ -18,6 +18,8 @@
     { "source": "/:path+/index.php", "destination": "/:path+", "statusCode": 301 },
     { "source": "/servicios.html", "destination": "/nosotros#servicios", "statusCode": 301 },
     { "source": "/servicios", "destination": "/nosotros#servicios", "statusCode": 301 },
+    { "source": "/grupo-crm", "destination": "/grupo-crm-extintores", "statusCode": 301 },
+    { "source": "/grupo-crm.html", "destination": "/grupo-crm-extintores", "statusCode": 301 },
     { "source": "/caso-agencia-automotriz", "destination": "/galeria", "statusCode": 301 },
     { "source": "/blog/nom-002-stps-2010", "destination": "/blog", "statusCode": 301 },
     { "source": "/blog/botiquin-primeros-auxilios", "destination": "/blog", "statusCode": 301 },

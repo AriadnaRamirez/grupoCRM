@@ -1287,7 +1287,7 @@ export function renderHomeCats() {
 const HOME_BEST = {
   extintores: ["CRM-0003", "CRM-0006", "CRM-0012", "CRM-0004"],
   "senalamiento-vial": ["CRM-0023", "CRM-0030", "CRM-0033", "CRM-0024"],
-  "equipo-proteccion": ["CRM-0049", "CRM-0050", "CRM-0051", "CRM-0052"],
+  "equipo-proteccion": ["CRM-0049", "CRM-0050", "CRM-0054", "CRM-0053"],
 };
 
 function homeCategoryItems(catId, limit = 4) {

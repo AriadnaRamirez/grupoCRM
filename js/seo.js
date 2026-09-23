@@ -482,6 +482,10 @@ export function applySeo(page) {
 
   if (page === "inicio") {
     setJsonLd("seo-faq", faqPage(faqs));
+  } else if (seo.servicio?.faqs?.length) {
+    setJsonLd("seo-faq", faqPage(seo.servicio.faqs));
+  } else if (seo.article?.faqs?.length) {
+    setJsonLd("seo-faq", faqPage(seo.article.faqs));
   }
 
   if (page === "blog") {

@@ -24,7 +24,7 @@ import {
 } from "../js/data.js";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const CACHE = "rb-1";
+const CACHE = "rb-5";
 const MONTHS_ES = [
   "enero",
   "febrero",
@@ -180,6 +180,7 @@ ${jsonLd}
     <a href="/aviso-privacidad">Aviso de privacidad</a>
     <a href="/politica-de-servicio">Política de servicio</a>
     <a href="/fuentes-y-normatividad">Fuentes y normatividad</a>
+    <a href="/caso-agencia-automotriz">Caso agencia automotriz</a>
     <a href="tel:5667481489">56 6748 1489</a>
     <a href="mailto:crm.extintores@gmail.com">crm.extintores@gmail.com</a>
   </nav>
@@ -188,7 +189,7 @@ ${jsonLd}
       <div class="site-topbar"><div class="wrap topbar__inner"></div></div>
       <header class="site-header">
         <div class="wrap header__inner">
-          <a class="brand" href="/"><picture><source type="image/webp" srcset="/assets/img/logo-crm.webp"><img src="/assets/img/logo-crm.png" alt="Grupo CRM Extintores" width="243" height="52" decoding="async"></picture></a>
+          <a class="brand" href="/"><picture><source type="image/webp" srcset="/assets/img/logo-crm.webp"><img src="/assets/img/logo-crm.png" alt="Grupo CRM Extintores" width="720" height="154" decoding="async"></picture></a>
           <span class="header-skel__nav" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span>
           <span class="header-skel__cta" aria-hidden="true"></span>
         </div>
@@ -495,7 +496,7 @@ function locationHtml(zona) {
 
         <h2>Recarga de extintores en ${escapeHtml(zona.name)}</h2>
         <p>${escapeHtml(copy.recarga)}</p>
-        <p>Detalle del servicio: <a href="/recarga-extintores">recarga de extintores</a>.</p>
+        <p>Detalle del servicio: <a href="/recarga-extintores">recarga de extintores</a>. Rangos de referencia: <a href="/blog/precio-recarga-extintores-cdmx">precio de recarga en CDMX</a>.</p>
 
         <h2>Mantenimiento de extintores en ${escapeHtml(zona.name)}</h2>
         <p>${escapeHtml(copy.mant)}</p>
@@ -552,6 +553,41 @@ function hubCdmx() {
       { "@type": "ListItem", position: 2, name: "Extintores en CDMX", item: canonical },
     ],
   };
+  const hubFaqs = [
+    {
+      q: "¿Tienen sucursal en todas las alcaldías?",
+      a: "No. La oficina de Grupo CRM Extintores está en Chamixto 131, Col. Loma del Padre, Cuajimalpa. El resto de la CDMX son áreas de servicio: vamos a su inmueble.",
+    },
+    {
+      q: "¿La primera visita tiene costo?",
+      a: "No. La primera visita de revisión o levantamiento no tiene costo. Recarga, venta o instalación se cotizan según lo encontrado.",
+    },
+    {
+      q: "¿Recargan bajo la NOM-154?",
+      a: "Sí. La recarga y el mantenimiento se alinean a la NOM-154-SCFI-2005, con verificación de MCD cuando corresponde al proceso.",
+    },
+    {
+      q: "¿Publican precios de recarga?",
+      a: "Publicamos rangos de referencia de mercado en la guía de precio de recarga. La cifra de Grupo CRM Extintores se confirma por escrito después de revisar sus equipos.",
+    },
+  ];
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: hubFaqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+  const faqsHtml = hubFaqs
+    .map(
+      (f) => `<details class="svc">
+          <summary class="svc__sum">${escapeHtml(f.q)}</summary>
+          <div class="svc__text"><p>${escapeHtml(f.a)}</p></div>
+        </details>`
+    )
+    .join("\n        ");
   const main = `  <section class="section zona-page zona-page--hub">
     <div class="wrap">
       <header class="zona-hub__head">
@@ -570,13 +606,38 @@ function hubCdmx() {
         <li><a href="/recarga-extintores">Recarga</a> y <a href="/mantenimiento-extintores">mantenimiento</a> alineados a NOM-154-SCFI-2005</li>
         <li><a href="/instalacion-extintores">Instalación</a> en sitio y <a href="/senalizacion">señalización</a></li>
       </ul>
+      <p>En una inspección suelen pedir tres cosas: que el extintor exista, que se vea y que esté servido. Por eso no separamos el catálogo de la recarga: le decimos qué comprar, qué recargar y qué ya no conviene dejar en el muro.</p>
+      <p>Rangos de referencia (no lista cerrada): <a href="/blog/precio-recarga-extintores-cdmx">precio de recarga de extintores en CDMX</a>. Norma del servicio: <a href="/blog/nom-154-scfi-2005">NOM-154-SCFI-2005</a>. Catálogo oficial: <a href="/productos">crmextintores.com.mx/productos</a>.</p>
+
+      <h2>Cómo trabajamos</h2>
+      <ul class="zona-page__points">
+        <li>WhatsApp o llamada: alcaldía, giro y, si puede, fotos de sus equipos.</li>
+        <li>Primera visita de revisión sin costo en su inmueble.</li>
+        <li>Cotización por escrito: recarga, venta, instalación o el combo.</li>
+        <li>Servicio en sitio y evidencia útil para inspección cuando recargamos.</li>
+      </ul>
 
       <h2>Tipos de clientes</h2>
-      <p>Trabajamos con empresas e inmuebles que deben cumplir con Protección Civil: corporativos, plazas, locales, condominios y centros educativos, entre otros.</p>
+      <p>Trabajamos con empresas e inmuebles que deben cumplir con Protección Civil: corporativos, plazas, locales, condominios y centros educativos, entre otros. También con quien recibió una observación y necesita dejar los puntos en regla sin inventar sucursal en cada colonia.</p>
+
+      <h2>Datos de Grupo CRM Extintores</h2>
+      <ul class="zona-page__points">
+        <li>Nombre: Grupo CRM Extintores</li>
+        <li>Oficina: Chamixto 131, Col. Loma del Padre, Alcaldía Cuajimalpa, CDMX, C.P. 05020</li>
+        <li>Horario: lunes a viernes, 9:00 a 18:00</li>
+        <li>Teléfono / WhatsApp: <a href="tel:${company.phoneTel}">${escapeHtml(company.phone)}</a> y <a href="tel:${company.phoneAltTel}">${escapeHtml(company.phoneAlt)}</a></li>
+        <li>Correo: <a href="mailto:${company.email}">${escapeHtml(company.email)}</a></li>
+        <li>Sitio: <a href="${SITE.origin}">${escapeHtml(company.website)}</a></li>
+      </ul>
 
       <h2>¿Cómo solicitar cotización?</h2>
       <p>Indique alcaldía, giro y si ya cuenta con extintores. Le respondemos por WhatsApp (${escapeHtml(company.phone)}) o en el <a href="/contacto">formulario de contacto</a>.</p>
       ${ctaBlock("CDMX", "Hola, quiero cotizar extintores en Ciudad de México.")}
+
+      <h2>Preguntas frecuentes</h2>
+      <div class="svc-list" data-faqs>
+        ${faqsHtml}
+      </div>
 
       <h2>Alcaldías donde ofrecemos servicio</h2>
       <p>Cobertura confirmada en el sitio para las ${zonasCdmx.length} alcaldías de la Ciudad de México. Nuestra <a href="/extintores-cuajimalpa">oficina está en Cuajimalpa</a>; el resto son áreas de servicio.</p>
@@ -584,7 +645,7 @@ function hubCdmx() {
           ${gridItems([zonasCdmx.find((z) => z.slug === "cuajimalpa"), ...zonasCdmx.filter((z) => z.slug !== "cuajimalpa")].filter(Boolean))}
       </ul>
 
-      <p class="zona-page__more muted">También atendemos el <a href="/extintores-estado-de-mexico">Estado de México</a>. Catálogo: <a href="/productos">productos</a>. Guía: <a href="/blog/extintores-cdmx">extintores en CDMX</a>.</p>
+      <p class="zona-page__more muted">También atendemos el <a href="/extintores-estado-de-mexico">Estado de México</a>. Catálogo: <a href="/productos">productos</a>. Guía: <a href="/blog/extintores-cdmx">extintores en CDMX</a>. Caso: <a href="/caso-agencia-automotriz">agencia automotriz</a>.</p>
     </div>
   </section>`;
   return pageShell({
@@ -593,7 +654,8 @@ function hubCdmx() {
     canonical,
     bodyAttrs: 'data-page="zonas" data-hub="cdmx"',
     main,
-    jsonLd: `  <script type="application/ld+json">${JSON.stringify(crumbs)}</script>`,
+    jsonLd: `  <script type="application/ld+json">${JSON.stringify(crumbs)}</script>
+  <script type="application/ld+json">${JSON.stringify(faqLd)}</script>`,
   });
 }
 
@@ -641,7 +703,7 @@ function hubEdomex() {
           ${gridItems(zonasEdomex)}
       </ul>
 
-      <p class="zona-page__more muted">Ver también <a href="/extintores-cdmx">extintores en Ciudad de México</a> y el <a href="/productos">catálogo</a>.</p>
+      <p class="zona-page__more muted">Ver también <a href="/extintores-cdmx">extintores en Ciudad de México</a>, el <a href="/productos">catálogo</a> y <a href="/blog/precio-recarga-extintores-cdmx">precio de recarga</a>.</p>
     </div>
   </section>`;
   return pageShell({
@@ -690,6 +752,55 @@ function serviceHtml(svc) {
   };
   const body = svc.body.map((p) => `<p>${escapeHtml(p)}</p>`).join("\n        ");
   const process = svc.process.map((p) => `<li>${escapeHtml(p)}</li>`).join("\n          ");
+  const includes = svc.includes?.length
+    ? `<h2>Qué incluye</h2>
+        <ul class="zona-page__points">
+          ${svc.includes.map((item) => `<li>${escapeHtml(item)}</li>`).join("\n          ")}
+        </ul>`
+    : "";
+  const logistics = svc.logistics?.length
+    ? `<h2>Visita, plazos y domicilio</h2>
+        ${svc.logistics.map((p) => `<p>${escapeHtml(p)}</p>`).join("\n        ")}`
+    : "";
+  const clients = `<h2>Tipos de clientes</h2>
+        <p>${escapeHtml(
+          svc.clients ||
+            "Empresas, oficinas, restaurantes, comercios, condominios, escuelas y clínicas en CDMX y Estado de México."
+        )}</p>`;
+  const faqsHtml = svc.faqs?.length
+    ? `<h2>Preguntas frecuentes</h2>
+        <div class="svc-list" data-faqs>
+        ${svc.faqs
+          .map(
+            (f) => `<details class="svc">
+          <summary class="svc__sum">${escapeHtml(f.q)}</summary>
+          <div class="svc__text"><p>${escapeHtml(f.a)}</p></div>
+        </details>`
+          )
+          .join("\n        ")}
+        </div>`
+    : "";
+  const recargaNote =
+    svc.slug === "recarga-extintores"
+      ? `<p>La recarga se alinea a la <a href="/blog/nom-154-scfi-2005">NOM-154-SCFI-2005</a>, con verificación de <a href="${escapeHtml(company.mcdUrl)}" target="_blank" rel="noopener noreferrer">MCD</a> cuando corresponde al proceso. Rangos de referencia: <a href="/blog/precio-recarga-extintores-cdmx">precio de recarga de extintores en CDMX</a>.</p>`
+      : svc.slug === "venta-extintores"
+        ? `<p>Catálogo oficial en este sitio: <a href="/productos">productos</a>. Guía para elegir: <a href="/blog/tipos-de-fuego">tipos de fuego</a>.</p>`
+        : svc.slug === "instalacion-extintores"
+          ? `<p>Guía práctica: <a href="/blog/como-instalar-mi-extintor">cómo instalar un extintor</a>.</p>`
+          : svc.slug === "mantenimiento-extintores"
+            ? `<p>Norma del servicio: <a href="/blog/nom-154-scfi-2005">NOM-154-SCFI-2005</a>. Rangos de referencia de recarga: <a href="/blog/precio-recarga-extintores-cdmx">precio de recarga en CDMX</a>.</p>`
+            : "";
+  const faqLd = svc.faqs?.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: svc.faqs.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
+      }
+    : null;
   const main = `  <section class="section zona-page">
     <div class="wrap zona-page__layout">
       <header class="zona-page__head">
@@ -704,14 +815,17 @@ function serviceHtml(svc) {
       </header>
       <div class="zona-page__body">
         ${body}
+        ${recargaNote}
+        ${includes}
         <h2>Proceso</h2>
         <ol class="zona-page__points">
           ${process}
         </ol>
-        <h2>Tipos de clientes</h2>
-        <p>Empresas, oficinas, restaurantes, comercios, condominios, escuelas y clínicas en CDMX y Estado de México.</p>
+        ${logistics}
+        ${clients}
+        ${faqsHtml}
         <h2>¿Dónde ofrecemos este servicio?</h2>
-        <p>Oficina en <a href="/extintores-cuajimalpa">Cuajimalpa</a> (Chamixto 131, Loma del Padre). También atendemos las zonas publicadas de <a href="/extintores-cdmx">Ciudad de México</a> y <a href="/extintores-estado-de-mexico">Estado de México</a>.</p>
+        <p>Oficina de Grupo CRM Extintores en <a href="/extintores-cuajimalpa">Cuajimalpa</a> (Chamixto 131, Col. Loma del Padre, C.P. 05020). También atendemos las zonas publicadas de <a href="/extintores-cdmx">Ciudad de México</a> y <a href="/extintores-estado-de-mexico">Estado de México</a>.</p>
         <ul class="zona-nearby">
             ${featured.map((z) => `<li><a href="${extintoresPath(z)}">${escapeHtml(svc.h1)} en ${escapeHtml(z.name)}</a></li>`).join("\n            ")}
         </ul>
@@ -731,7 +845,9 @@ function serviceHtml(svc) {
     bodyAttrs: `data-page="servicio" data-servicio="${svc.slug}"`,
     main,
     jsonLd: `  <script type="application/ld+json">${JSON.stringify(crumbs)}</script>
-  <script type="application/ld+json">${JSON.stringify(serviceLd)}</script>`,
+  <script type="application/ld+json">${JSON.stringify(serviceLd)}</script>${
+    faqLd ? `\n  <script type="application/ld+json">${JSON.stringify(faqLd)}</script>` : ""
+  }`,
   });
 }
 

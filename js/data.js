@@ -79,7 +79,7 @@ export const SITE = {
   ogImage: "/assets/img/logo-crm.png",
   /** Visible freshness for main marketing pages (not legal boilerplate alone). */
   contentPublished: "2026-08-24",
-  contentModified: "2026-09-22",
+  contentModified: "2026-09-23",
 };
 
 export const pageSeo = {
@@ -272,91 +272,215 @@ export const seoServicePages = [
   {
     slug: "venta-extintores",
     path: "/venta-extintores",
-    title: "Venta de Extintores en CDMX y Estado de México | Grupo CRM",
+    title: "Venta de Extintores en CDMX y Estado de México | Grupo CRM Extintores",
     h1: "Venta de Extintores",
     description:
-      "Venta de extintores certificados en CDMX y Estado de México. Asesoría para elegir el equipo adecuado y primera visita de revisión sin costo. Cotice con Grupo CRM Extintores.",
+      "Venta de extintores certificados en CDMX y Estado de México. Asesoría para elegir el equipo, entrega o instalación y primera visita sin costo. Cotice con Grupo CRM Extintores.",
     kicker: "Servicio",
     lead:
       "Grupo CRM Extintores vende extintores nuevos y certificados para empresas, comercios, condominios y oficinas en la Ciudad de México y el Estado de México.",
     body: [
-      "Le ayudamos a elegir el tipo y la capacidad correctos según el riesgo de su inmueble: polvo químico seco (PQS), CO₂, tipo K u otros agentes, de acuerdo con lo que requiera Protección Civil.",
+      "Le ayudamos a elegir el tipo y la capacidad correctos según el riesgo de su inmueble: polvo químico seco (PQS ABC), CO₂, tipo K, agua u otros agentes, de acuerdo con lo que suele pedirse en una revisión de Protección Civil.",
+      "No se trata solo de “un extintor rojo”. Un PQS ABC cubre pasillos y locales; un CO₂ protege tableros y equipo eléctrico; el tipo K es para cocinas con freidoras. Si elige mal, el punto existe y aun así no sirve.",
       "La venta puede acompañarse de instalación en sitio, señalamientos y una revisión inicial para dejar su empresa lista ante inspección. La primera visita de revisión no tiene costo.",
+      "Atendemos desde Chamixto 131, Col. Loma del Padre, Cuajimalpa. No tenemos sucursal en cada alcaldía: coordinamos entrega o instalación en su inmueble en CDMX y Estado de México.",
     ],
+    includes: [
+      "Orientación sobre tipo, capacidad y clase de fuego según el giro.",
+      "Cotización por escrito (WhatsApp o correo) antes de surtir.",
+      "Equipos del catálogo: extintores, gabinetes, soportes y señalamientos si los requiere.",
+      "Entrega o instalación en sitio, según lo acordado.",
+      "Primera visita de revisión o levantamiento sin costo.",
+    ],
+    logistics: [
+      "Cuéntenos alcaldía o municipio, giro y si ya tiene extintores. Con fotos por WhatsApp adelantamos la cotización.",
+      "El plazo de entrega depende de existencia y del alcance (solo equipo o equipo + instalación). Se confirma por escrito junto con el precio.",
+      "Aceptamos tarjeta y meses sin intereses. La cotización no obliga a comprar.",
+    ],
+    clients:
+      "Empresas, oficinas, restaurantes, comercios, condominios, escuelas, clínicas y talleres en CDMX y Estado de México. También atendemos inmuebles que van a su primera inspección o que deben reponer equipos observados.",
     process: [
       "Cuéntenos el giro y la ubicación (alcaldía o municipio).",
       "Le orientamos sobre el equipo adecuado y le enviamos cotización.",
       "Coordinamos entrega o instalación en su inmueble.",
+    ],
+    faqs: [
+      {
+        q: "¿Qué extintor me conviene comprar?",
+        a: "Depende del riesgo: PQS ABC para pasillos y locales, CO₂ para equipo eléctrico y tipo K para cocinas. En la visita o por WhatsApp le indicamos capacidad y cantidad. También puede ver la guía de tipos de fuego en el blog.",
+      },
+      {
+        q: "¿La venta incluye instalación?",
+        a: "Puede ser solo suministro o suministro con instalación y señalamientos. Lo dejamos claro en la cotización. La primera visita de levantamiento no tiene costo.",
+      },
+      {
+        q: "¿Atienden toda la CDMX?",
+        a: "Sí. La oficina está en Cuajimalpa; el resto de alcaldías y los municipios publicados del Estado de México son áreas de servicio.",
+      },
+      {
+        q: "¿Puedo pagar con tarjeta?",
+        a: "Sí. Aceptamos tarjeta de crédito y meses sin intereses. Precio y plazo se confirman por escrito antes de surtir.",
+      },
     ],
     related: ["recarga-extintores", "instalacion-extintores", "mantenimiento-extintores", "senalizacion"],
   },
   {
     slug: "recarga-extintores",
     path: "/recarga-extintores",
-    title: "Recarga de Extintores en CDMX y Estado de México | CRM",
+    title: "Recarga de Extintores en CDMX | NOM-154 | Grupo CRM Extintores",
     h1: "Recarga de Extintores",
     description:
-      "Recarga de extintores en CDMX y Estado de México bajo NOM-154-SCFI-2005. Mantenemos sus equipos listos para inspección. Cotice con Grupo CRM Extintores.",
+      "Recarga de extintores en CDMX y Estado de México bajo NOM-154-SCFI-2005, con evidencia para inspección. Primera visita sin costo. Cotice con Grupo CRM Extintores.",
     kicker: "Servicio",
     lead:
       "Recargamos extintores para que queden operativos y con evidencia útil para inspección, conforme a la NOM-154-SCFI-2005 y con verificación de MCD cuando corresponda al proceso de servicio.",
     body: [
-      "Si sus extintores están vencidos, descargados o con sello roto, podemos evaluarlos y cotizar la recarga. También le indicamos si conviene sustituir alguna unidad.",
-      "Atendemos empresas e inmuebles en CDMX y Estado de México desde nuestra base en Cuajimalpa. La primera visita de revisión es sin costo.",
+      "Si sus extintores están vencidos, descargados o con sello roto, podemos evaluarlos y cotizar la recarga. También le indicamos si conviene sustituir alguna unidad: no todo cilindro se recarga.",
+      "Un servicio profesional no es cambiar la calcomanía. Incluye el agente correcto, presión, sello, etiqueta legible y constancia de quién hizo el trabajo. Eso es lo que suelen pedir en una inspección.",
+      "Grupo CRM Extintores alinea la recarga a la NOM-154-SCFI-2005. Trabajamos con MCD (Mexicana de Conformidad y Dictaminación) cuando la verificación corresponde al proceso.",
+      "Atendemos empresas e inmuebles en CDMX y Estado de México desde Chamixto 131, Col. Loma del Padre, Cuajimalpa. La primera visita de revisión es sin costo.",
     ],
+    includes: [
+      "Revisión de presión, sello, etiqueta, manguera y estado del cilindro.",
+      "Recarga con el agente que corresponde al equipo (PQS, CO₂, tipo K u otro).",
+      "Indicación si toca prueba hidrostática o si el cilindro ya no conviene recargar.",
+      "Etiqueta de servicio y evidencia útil para inspección.",
+      "Reinstalación en su punto, cuando el alcance de la cotización lo incluye.",
+    ],
+    logistics: [
+      "Puede agendar visita en su inmueble o enviar fotos y datos por WhatsApp para una preevaluación.",
+      "El servicio se coordina desde Cuajimalpa y se realiza en su ubicación, o se acuerda recolección cuando el caso lo requiere. Logística y plazo quedan por escrito en la cotización.",
+      "El precio depende del agente, la capacidad, el estado del cilindro y las refacciones. Publicamos rangos de referencia en el blog; la cifra de Grupo CRM Extintores se confirma después de revisar sus equipos.",
+    ],
+    clients:
+      "Empresas, oficinas, restaurantes, comercios, condominios, escuelas y clínicas que deben mostrar servicio vigente. También inmuebles con una observación de Protección Civil o con equipos que nadie ha tocado en años.",
     process: [
       "Agende revisión o envíe fotos y datos de sus equipos por WhatsApp.",
       "Le confirmamos qué se puede recargar y qué conviene reemplazar.",
       "Realizamos el servicio y le entregamos el equipo listo, con la documentación del proceso.",
+    ],
+    faqs: [
+      {
+        q: "¿Cada cuánto hay que recargar un extintor?",
+        a: "El plazo lo marca la NOM-154-SCFI-2005 y el tipo de equipo: no es “cuando se vea vacío”. En inspección piden servicio vigente, etiqueta legible y evidencia de quién lo atendió.",
+      },
+      {
+        q: "¿Cuánto cuesta la recarga?",
+        a: "Varía por agente, kilos y estado del cilindro. En el blog publicamos rangos de referencia de mercado en CDMX. Grupo CRM Extintores cotiza por escrito después de revisar sus equipos. La primera visita no tiene costo.",
+      },
+      {
+        q: "¿Van a mi empresa o tengo que llevar los extintores?",
+        a: "Coordinamos visita en su inmueble. Si el caso requiere trabajo en taller, se acuerda recolección o entrega. No inventamos sucursal en cada alcaldía: operamos desde Cuajimalpa.",
+      },
+      {
+        q: "¿Qué pasa si el cilindro ya no sirve?",
+        a: "Se lo decimos con claridad. Si hay corrosión, deformación o toca una prueba que no conviene, cotizamos reposición en lugar de recargar por recargar.",
+      },
     ],
     related: ["mantenimiento-extintores", "venta-extintores", "instalacion-extintores"],
   },
   {
     slug: "mantenimiento-extintores",
     path: "/mantenimiento-extintores",
-    title: "Mantenimiento de Extintores en CDMX y Estado de México | CRM",
+    title: "Mantenimiento de Extintores en CDMX y Estado de México | Grupo CRM Extintores",
     h1: "Mantenimiento de Extintores",
     description:
-      "Mantenimiento y recarga de extintores en CDMX y Estado de México. Revise sus equipos antes de una inspección de Protección Civil. Cotice con Grupo CRM.",
+      "Mantenimiento y recarga de extintores en CDMX y Estado de México bajo NOM-154-SCFI-2005. Diagnóstico en sitio y primera visita sin costo. Cotice con Grupo CRM Extintores.",
     kicker: "Servicio",
     lead:
       "El mantenimiento de extintores forma parte de nuestro servicio de recarga y revisión en sitio: dejamos sus equipos en condiciones adecuadas y disponibles cuando se necesiten.",
     body: [
       "Incluye revisión de presión, sello, etiqueta, estado físico y, cuando aplica, recarga bajo NOM-154-SCFI-2005. El objetivo es que su inmueble cumpla y que el equipo sirva en un conato real.",
-      "Atendemos CDMX y Estado de México. No operamos como sucursal en cada alcaldía: el servicio se coordina desde Cuajimalpa y se realiza en su ubicación.",
+      "Mantenimiento no es “pasar el trapo al cilindro”. Es verificar que el extintor esté operable, que la evidencia coincida con lo hecho y que le avisen a tiempo si un equipo ya no debe seguir en el muro.",
+      "Atendemos CDMX y Estado de México. No operamos como sucursal en cada alcaldía: el servicio se coordina desde Chamixto 131, Col. Loma del Padre, Cuajimalpa, y se realiza en su ubicación.",
     ],
+    includes: [
+      "Revisión en sitio: manómetro, sello, etiqueta, manguera y cilindro.",
+      "Diagnóstico de qué se recarga, qué se sustituye y qué ya no conviene reparar.",
+      "Recarga alineada a NOM-154-SCFI-2005 cuando aplica, con verificación de MCD si corresponde al proceso.",
+      "Evidencia del trabajo para su bitácora o inspección.",
+      "Primera visita de revisión sin costo.",
+    ],
+    logistics: [
+      "La primera visita sirve para ver el inventario real. A partir de ahí cotizamos mantenimiento, recarga o reposición.",
+      "El plazo se confirma según número de equipos y si hay que recoger cilindros. Queda por escrito antes de ejecutar.",
+      "Horario de atención: lunes a viernes, 9:00 a 18:00. WhatsApp 56 6748 1489.",
+    ],
+    clients:
+      "Responsables de seguridad, administradores de condominio y dueños de local que deben presentar equipos vigentes. Útil también si se acerca una visita de Protección Civil y nadie ha revisado los puntos de incendio.",
     process: [
       "Solicite una visita de revisión (sin costo la primera).",
       "Reciba un diagnóstico claro de lo que requiere atención.",
       "Programamos mantenimiento o recarga y dejamos evidencia para inspección.",
+    ],
+    faqs: [
+      {
+        q: "¿El mantenimiento es lo mismo que la recarga?",
+        a: "Van juntos en la práctica. El mantenimiento revisa el equipo; la recarga restablece el agente y la presión cuando toca. Ambos se alinean a la NOM-154-SCFI-2005.",
+      },
+      {
+        q: "¿Qué documentan?",
+        a: "Etiqueta legible y constancia del trabajo realizado, útil para inspección. El detalle del proceso está en la política de servicio y en la guía de la NOM-154.",
+      },
+      {
+        q: "¿La primera visita tiene costo?",
+        a: "No. La primera visita o levantamiento de revisión no tiene costo. El servicio de recarga, venta o instalación se cotiza aparte según lo encontrado.",
+      },
     ],
     related: ["recarga-extintores", "venta-extintores", "instalacion-extintores"],
   },
   {
     slug: "instalacion-extintores",
     path: "/instalacion-extintores",
-    title: "Instalación de Extintores en CDMX y Estado de México | CRM",
+    title: "Instalación de Extintores en CDMX y Estado de México | Grupo CRM Extintores",
     h1: "Instalación de Extintores",
     description:
-      "Instalación de extintores y señalamientos en CDMX y Estado de México. Colocamos equipos en los puntos adecuados de su inmueble. Cotice con Grupo CRM Extintores.",
+      "Instalación de extintores y señalamientos en CDMX y Estado de México. Altura, visibilidad y acceso listos para inspección. Cotice con Grupo CRM Extintores.",
     kicker: "Servicio",
     lead:
       "Instalamos extintores en los puntos correctos de su empresa, comercio o condominio, con la altura, visibilidad y acceso que suelen pedirse en revisiones de Protección Civil.",
     body: [
+      "Un extintor en el piso del almacén o detrás de cajas no cumple. La instalación correcta es visible, a altura útil (como guía, no más de 1.50 m a la parte más alta del equipo) y con el paso libre.",
       "Podemos incluir soporte, señalamiento de equipo y orientación sobre rutas de evacuación cuando corresponda al alcance de su cotización.",
-      "Trabajamos en Ciudad de México y Estado de México. La primera visita de revisión o levantamiento no tiene costo.",
+      "Trabajamos en Ciudad de México y Estado de México desde Cuajimalpa. La primera visita de revisión o levantamiento no tiene costo.",
     ],
+    includes: [
+      "Levantamiento de puntos de incendio en su inmueble.",
+      "Colocación a altura y visibilidad adecuadas, con acceso libre.",
+      "Soporte, gabinete o señalamiento de extintor si van en la cotización.",
+      "Coordinación con venta o recarga cuando el equipo es nuevo o se reubica.",
+    ],
+    logistics: [
+      "Si ya tiene plano o fotos de los pasillos, adelantamos la propuesta. Si no, vamos a sitio.",
+      "La fecha de instalación se acuerda después de confirmar equipos y señalamientos. No dejamos el cilindro “tirado” sin punto.",
+    ],
+    clients:
+      "Locales nuevos, oficinas en remodelación, condominios que reponen puntos y empresas que recibieron observación por ubicación o falta de señalamiento.",
     process: [
       "Levantamos o revisamos los puntos de instalación en su inmueble.",
       "Cotizamos equipos, instalación y señalamientos necesarios.",
       "Instalamos en la fecha acordada y dejamos el sitio listo para inspección.",
+    ],
+    faqs: [
+      {
+        q: "¿A qué altura se instala un extintor?",
+        a: "Como guía práctica, la parte más alta del extintor no debe quedar por encima de 1.50 m del piso. Debe verse y tomarse sin mover muebles. El detalle está en la guía de instalación del blog.",
+      },
+      {
+        q: "¿Instalan solo el equipo que ustedes venden?",
+        a: "Instalamos el equipo de la cotización. Si ya tiene extintores en buen estado, podemos reubicarlos y completar señalamientos. Lo revisamos en la visita.",
+      },
+      {
+        q: "¿También ponen señalamientos?",
+        a: "Sí, cuando van en el alcance. Señal de extintor, rutas y complementos del catálogo se cotizan con la instalación.",
+      },
     ],
     related: ["venta-extintores", "senalizacion", "recarga-extintores"],
   },
   {
     slug: "senalizacion",
     path: "/senalizacion",
-    title: "Señalización y Señalamientos en CDMX y Estado de México | CRM",
+    title: "Señalización y Señalamientos en CDMX y Estado de México | Grupo CRM Extintores",
     h1: "Señalización contra incendios y vial",
     description:
       "Señalamientos de emergencia y vialidad en CDMX y Estado de México. Identifique equipos, rutas y áreas de riesgo. Cotice con Grupo CRM Extintores.",
@@ -381,6 +505,35 @@ export function seoServiceBySlug(slug) {
 }
 
 export const blogPosts = [
+  {
+    slug: "precio-recarga-extintores-cdmx",
+    path: "/blog/precio-recarga-extintores-cdmx",
+    title: "Precio de recarga de extintores en CDMX 2026 | Grupo CRM Extintores",
+    heading: "¿Cuánto cuesta recargar un extintor en CDMX?",
+    description:
+      "Rangos de referencia 2026 para recarga de extintores en CDMX: PQS, CO₂ y tipo K. Qué mueve el costo y cuándo conviene recargar o comprar. Cotice con Grupo CRM Extintores.",
+    kicker: "Precios",
+    excerpt:
+      "Rangos de mercado, qué incluye un servicio serio y cuándo ya no conviene recargar. La cotización de Grupo CRM Extintores se confirma en sitio.",
+    datePublished: "2026-09-23",
+    dateModified: "2026-09-23",
+    image: "/assets/img/opt/full/blog-recarga-1400.webp",
+    imageAlt: "Técnico Grupo CRM Extintores revisando un extintor en taller de recarga",
+    faqs: [
+      {
+        q: "¿Cuánto cuesta recargar un extintor PQS de 4.5 kg en CDMX?",
+        a: "En el mercado de CDMX 2026 el rango de referencia ronda entre 220 y 340 pesos, según agente, estado del cilindro y si hay refacciones. Grupo CRM Extintores cotiza después de revisar el equipo.",
+      },
+      {
+        q: "¿Estos precios son la lista de Grupo CRM Extintores?",
+        a: "No. Son rangos de referencia de mercado para orientarse. El precio de Grupo CRM Extintores se confirma por escrito después de la revisión. La primera visita no tiene costo.",
+      },
+      {
+        q: "¿Cuándo conviene comprar uno nuevo en lugar de recargar?",
+        a: "Cuando el cilindro está oxidado, deformado, falló la prueba hidrostática o las refacciones superan lo razonable frente a un equipo nuevo. Se lo decimos en la visita.",
+      },
+    ],
+  },
   {
     slug: "como-instalar-mi-extintor",
     path: "/blog/como-instalar-mi-extintor",
@@ -426,12 +579,12 @@ export const blogPosts = [
   {
     slug: "extintores-cdmx",
     path: "/blog/extintores-cdmx",
-    title: "Extintores en CDMX y Estado de México | Grupo CRM Extintores",
-    heading: "Extintores en CDMX y Estado de México",
+    title: "Guía de extintores en CDMX para empresas | Grupo CRM",
+    heading: "Guía de extintores en CDMX para empresas",
     description:
-      "Venta, recarga e instalación de extintores y equipo contra incendios en la Ciudad de México y el Estado de México. Cotice con Grupo CRM.",
+      "Guía para elegir, instalar y mantener extintores en empresas de CDMX y Estado de México. Conozca clases, recarga, señalamientos y cumplimiento.",
     kicker: "Cobertura",
-    excerpt: "Empresa mexicana para condominios, restaurantes y oficinas en CDMX y Estado de México.",
+    excerpt: "Qué revisar antes de comprar, instalar o recargar extintores en una empresa de CDMX o Estado de México.",
     datePublished: "2026-08-24",
     dateModified: "2026-09-22",
     image: "/assets/img/opt/full/blog-extintores-cdmx-1400.webp",
@@ -793,6 +946,10 @@ export const faqs = [
     q: "¿Qué incluye el mantenimiento de extintores?",
     a: 'Forma parte de la revisión y recarga: presión, sello, etiqueta y estado físico del equipo. Cuando aplica, la recarga se hace bajo la NOM-154-SCFI-2005, con verificación de MCD cuando corresponde al proceso. Detalle en <a href="/mantenimiento-extintores">mantenimiento de extintores</a>.',
   },
+  {
+    q: "¿Cuánto cuesta recargar un extintor en CDMX?",
+    a: 'El precio depende del agente, la capacidad y el estado del cilindro. Publicamos rangos de referencia en <a href="/blog/precio-recarga-extintores-cdmx">precio de recarga de extintores en CDMX</a>. Grupo CRM Extintores confirma la cifra por escrito después de revisar sus equipos. La primera visita es sin costo.',
+  },
 ];
 
 /** Short selection aid — facts already published in catálogo / blog tipos-de-fuego. */
@@ -963,9 +1120,10 @@ export function productAlt(p, { detail = false } = {}) {
     ? `${p.title} certificado de Grupo CRM Extintores`
     : `${p.title} Grupo CRM Extintores`;
   if (p.cat === "extintores") {
+    const label = /^extintor/i.test(p.title) ? p.title : `Extintor ${p.title}`;
     return detail
-      ? `Extintor ${p.title} certificado Grupo CRM para CDMX y Estado de México`
-      : `Extintor ${p.title} Grupo CRM`;
+      ? `${label} certificado Grupo CRM para CDMX y Estado de México`
+      : `${label} Grupo CRM`;
   }
   return base;
 }

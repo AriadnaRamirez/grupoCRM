@@ -1,57 +1,133 @@
 # Grupo CRM Extintores
 
-Sitio institucional estático de [www.crmextintores.com.mx](https://www.crmextintores.com.mx): venta, recarga e instalación de extintores en CDMX y Estado de México. Sin carrito ni checkout; las cotizaciones van por WhatsApp.
+Sitio corporativo de [Grupo CRM Extintores](https://www.crmextintores.com.mx), desarrollado como presencia digital comercial para venta, recarga, mantenimiento e instalación de extintores en Ciudad de México y Estado de México.
 
-## Local
+El proyecto está diseñado como un sitio estático de alto control editorial: no usa carrito, checkout ni backend propio. La conversión principal es contacto directo por WhatsApp y teléfono.
+
+## Objetivo Del Proyecto
+
+Presentar a Grupo CRM Extintores como proveedor confiable de equipo contra incendio, reforzando:
+
+- Oferta de productos y servicios.
+- Cobertura por alcaldías y municipios.
+- Catálogo consultable por categoría.
+- Contenido editorial orientado a búsquedas orgánicas.
+- Casos, fotografías y señales de confianza.
+- Rutas limpias listas para indexación.
+
+## Alcance
+
+El sitio incluye:
+
+- Home institucional.
+- Catálogo de productos.
+- Fichas dinámicas por SKU.
+- Páginas de servicios.
+- Página de empresa.
+- Galería.
+- Blog.
+- Landing pages locales.
+- Sitemap, robots y metadatos SEO.
+- Configuración de despliegue en Vercel.
+
+## Estructura Principal
+
+- `index.html`: página principal.
+- `nosotros.html`: información de empresa, servicios y confianza.
+- `productos.html`: catálogo general.
+- `producto.html`: ficha de producto por `sku`.
+- `blog/`: artículos y guías.
+- `extintores-*.html`: páginas locales.
+- `zonas/`: rutas auxiliares de cobertura.
+- `assets/`: imágenes, logos, galería, catálogo y fuentes.
+- `css/tokens.css`: variables visuales del sistema de diseño.
+- `css/main.css`: estilos fuente.
+- `css/main.min.css`: CSS de producción.
+- `js/data.js`: contenido estructurado del negocio.
+- `js/ui.js`: componentes, navegación e interacción.
+- `js/app.min.js`: bundle de producción.
+- `vercel.json`: configuración única de despliegue.
+
+## Identidad Y Experiencia
+
+El diseño conserva la identidad visual de la marca: encabezado comercial, accesos a llamada y WhatsApp, catálogo visual, secciones de confianza, galería y formularios de contacto por WhatsApp.
+
+Las fotografías de instalaciones y espacios reales deben conservar encuadre inferior cuando se recortan en tarjetas o banners, para mantener contexto visual del sitio.
+
+## Desarrollo Local
 
 ```bash
 npm start
 ```
 
-Abre **http://localhost:5500** (`serve` resuelve URLs limpias: `/nosotros` → `nosotros.html`).
+Abrir:
 
-| Página | Archivo |
-| --- | --- |
-| Inicio | `index.html` |
-| Nosotros | `nosotros.html` |
-| Productos | `productos.html` |
-| Ficha | `producto.html?sku=CRM-0001` |
-| Servicios | `servicios.html` → redirige a `nosotros.html#servicios` |
-| Galería | `galeria.html` |
-| Contacto | `contacto.html` |
-| Aviso de privacidad | `aviso-privacidad.html` |
-| Mapa de sitio | `mapa-sitio.html` |
-| 404 | `404.html` |
-| Blog | `blog/index.html` |
+```text
+http://localhost:5500
+```
 
-## Contenido
-
-- Textos, teléfonos y catálogo: `js/data.js`
-- Paleta, tipografía y espaciado: `css/tokens.css`
-- Componentes: `css/main.css`
-
-WhatsApp de cotización: 56 6748 1489.
-
-## Antes de publicar
+## Scripts De Operación
 
 ```bash
+npm run minify
 npm run check:assets
+npm run seo:links
+npm run seo:images
+npm run audit:images
 npm run seo:sitemap
 ```
 
-`robots.txt` apunta a `sitemap.xml` (fichas, categorías y aviso de privacidad).
+Antes de publicar una versión:
 
-## Publicación
+```bash
+npm run minify
+npm run check:assets
+npm run seo:links
+```
 
-El menú y el sitemap usan URLs limpias (`/nosotros`, `/productos`, `/blog/...`). El host debe resolverlas a los `.html`.
+## Despliegue En Vercel
 
-Para el dominio **www.crmextintores.com.mx** publique la raíz del repo:
+El proyecto se despliega exclusivamente en Vercel.
 
-- **Netlify** — `netlify.toml` (sin instalar dependencias en el build), `_headers`, `_redirects`
-- **Cloudflare Pages** — `_headers` y `_redirects`; build vacío, publicar la raíz
-- **Vercel** — `vercel.json` con `cleanUrls`
-- **Apache / cPanel** — `.htaccess` reescribe `/nosotros` → `nosotros.html`
+Configuración principal:
 
-**GitHub Pages** queda como preview en `https://AriadnaRamirez.github.io/grupoCRM/` (base `/grupoCRM`). En el repo: Settings → Pages → Source: **GitHub Actions**.
+- Archivo: `vercel.json`.
+- Salida publicada: raíz del repositorio.
+- Build command: vacío o no requerido.
+- Output directory: raíz del proyecto.
+- Clean URLs: gestionadas por rewrites y redirects en `vercel.json`.
+- Headers de seguridad y cache: configurados en `vercel.json`.
 
-Tras el DNS: HTTPS, HTTP→HTTPS, Search Console y Analytics. Las cabeceras (nosniff, Referrer-Policy, SAMEORIGIN) ya van en `_headers` / `netlify.toml`.
+Después de desplegar:
+
+1. Confirmar dominio `www.crmextintores.com.mx`.
+2. Confirmar HTTPS activo.
+3. Validar redirecciones de `.html` hacia rutas limpias.
+4. Revalidar `sitemap.xml` y `robots.txt`.
+5. Ejecutar PageSpeed Insights sobre la URL final desplegada.
+6. Revisar Search Console después de la publicación.
+
+## Calidad Y Producción
+
+Checklist operativo:
+
+- Catálogo sin imágenes faltantes.
+- Enlaces internos sin roturas.
+- Logo de marca con texto alternativo.
+- CSS y JS minificados.
+- Cache bust actualizado cuando cambian assets productivos.
+- Sitemap actualizado cuando cambian páginas indexables.
+- Configuración de despliegue limitada a Vercel.
+
+## Mantenimiento
+
+Para actualizar catálogo, textos o teléfonos:
+
+1. Editar `js/data.js`.
+2. Verificar assets relacionados en `assets/`.
+3. Ejecutar `npm run minify`.
+4. Ejecutar `npm run check:assets`.
+5. Ejecutar `npm run seo:links`.
+6. Actualizar `sitemap.xml` cuando se agreguen o retiren páginas.
+
+El sitio debe mantenerse como una presencia institucional profesional: claro, rápido, rastreable y enfocado en conversión por contacto directo.

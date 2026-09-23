@@ -40,7 +40,6 @@ const extras = [
   "js/data.js",
   "js/seo.js",
   "js/base.js",
-  "js/pages-base.js",
   "index.html",
   "nosotros.html",
   "productos.html",
@@ -51,10 +50,7 @@ const extras = [
   "mapa-sitio.html",
   "blog/index.html",
   "404.html",
-  "netlify.toml",
-  "_headers",
-  "_redirects",
-  ".htaccess",
+  "vercel.json",
 ];
 for (const p of extras) check(p);
 

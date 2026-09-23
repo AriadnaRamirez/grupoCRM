@@ -8,7 +8,7 @@
     "seo:sitemap": "node scripts/seo-sitemap.mjs",
     "seo:zonas": "node scripts/generate-zonas.mjs",
     "seo:local": "node scripts/generate-seo-local.mjs",
-    "seo:all": "node scripts/generate-seo-local.mjs && node scripts/inject-pages-base.mjs && node scripts/inject-bot-chrome.mjs && node scripts/inject-content-dates.mjs && node scripts/seo-sitemap.mjs",
+    "seo:all": "node scripts/generate-seo-local.mjs && node scripts/inject-bot-chrome.mjs && node scripts/inject-content-dates.mjs && node scripts/seo-sitemap.mjs",
     "seo:dates": "node scripts/inject-content-dates.mjs",
     "seo:bot": "node scripts/inject-bot-chrome.mjs",
     "minify:css": "node scripts/minify-css.mjs",

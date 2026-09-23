@@ -50,7 +50,6 @@ function contentDatesHtml() {
           <span>Actualizado el <time datetime="${SITE.contentModified}">${formatDateEs(SITE.contentModified)}</time></span>
         </p>`;
 }
-const pagesBaseSnippet = `  <script>!function(){if(!/\\.github\\.io$/i.test(location.hostname))return;var s=document.createElement("script");s.src="/js/pages-base.js";document.head.appendChild(s)}();</script>\n`;
 const cssBoot = `  <style id="css-boot">
   /* Critical first paint: reserve chrome + hero before async main.css (CLS) */
   :root { --chrome-h: 108px; }
@@ -111,7 +110,7 @@ function pageShell({ title, description, canonical, bodyAttrs, main, jsonLd = ""
 <html lang="es-MX" prefix="og: https://ogp.me/ns#">
 <head>
   <meta charset="UTF-8">
-${pagesBaseSnippet}${cssBoot}
+${cssBoot}
   <link rel="preload" as="style" href="/css/main.min.css?v=${CACHE}" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="/css/main.min.css?v=${CACHE}"></noscript>
   <script>!function(){var l=document.querySelector('link[rel="preload"][as="style"]');if(l&&!l.sheet){l.addEventListener("load",function(){this.onload=null;this.rel="stylesheet"});if(l.relList&&!l.relList.supports("preload"))l.rel="stylesheet"}}();</script>
@@ -189,7 +188,7 @@ ${jsonLd}
       <div class="site-topbar"><div class="wrap topbar__inner"></div></div>
       <header class="site-header">
         <div class="wrap header__inner">
-          <a class="brand" href="/"><picture><source type="image/webp" srcset="/assets/img/logo-crm.webp"><img src="/assets/img/logo-crm.png" alt="" width="243" height="52" decoding="async"></picture></a>
+          <a class="brand" href="/"><picture><source type="image/webp" srcset="/assets/img/logo-crm.webp"><img src="/assets/img/logo-crm.png" alt="Grupo CRM Extintores" width="243" height="52" decoding="async"></picture></a>
           <span class="header-skel__nav" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span>
           <span class="header-skel__cta" aria-hidden="true"></span>
         </div>

@@ -1,4 +1,4 @@
-import { company, categories, products, services, courses, sectors, faqs, reviews, clients, waUrl, safeDecode, catName, catCount, productBySku, productImg, productAlt, brandAlt, productUrl, readSku, relatedProducts, lookbook, lookAlt, lookFull, venues, carePoints, readyChecks, condo, seoServicePages, extintoresPath, extintoresHubPath, extinguisherCompare } from "./data.js";
+import { company, categories, products, services, courses, sectors, faqs, reviews, clients, waUrl, safeDecode, catName, catCount, catPath, catUrl, productBySku, productImg, productAlt, brandAlt, productUrl, productPath, readSku, readCat, relatedProducts, lookbook, lookAlt, lookFull, venues, carePoints, readyChecks, condo, seoServicePages, extintoresPath, extintoresHubPath, extinguisherCompare } from "./data.js";
 import { lookSize } from "./look-dims.js";
 import { applySeo } from "./seo.js";
 import { rebaseDocument, rebaseSrcset, withBase } from "./base.js";
@@ -311,7 +311,7 @@ function catalogExtendInner(defer = false) {
           : `<picture><source type="image/webp" srcset="${webp}" sizes="(min-width: 1024px) 72px, 40px"><img src="${fallback}" alt="${escapeAttr(cover.alt)}" width="72" height="72" loading="lazy" decoding="async"></picture>`
         : "";
       return `<li>
-        <a class="shop-dept" data-cat="${c.id}" href="${withBase(`/productos?cat=${c.id}#${c.id}`)}">
+        <a class="shop-dept" data-cat="${c.id}" href="${catUrl(c.id)}">
           <span class="shop-dept__media${cover?.photo ? " shop-dept__media--photo" : " shop-dept__media--sku"}">
             ${img}
           </span>
@@ -328,10 +328,8 @@ function catalogExtendInner(defer = false) {
 }
 
 function catalogCatFromUrl() {
-  const params = new URLSearchParams(location.search);
-  const fromHash = safeDecode((location.hash || "").replace(/^#/, ""));
-  let cat = params.get("cat") || fromHash || "all";
-  if (cat !== "all" && !categories.some((c) => c.id === cat)) cat = "all";
+  const cat = readCat() || "all";
+  if (cat !== "all" && !categories.some((c) => c.id === cat)) return "all";
   return cat;
 }
 
@@ -367,7 +365,7 @@ function catalogPickerInner(current = "all") {
         ? `<picture><source type="image/webp" srcset="${webp}" sizes="(min-width: 900px) 160px, 30vw"><img src="${fallback}" alt="${escapeAttr(cover.alt)}" width="160" height="160" loading="lazy" decoding="async"></picture>`
         : "";
       return `<li>
-        <a class="shop-dept${active ? " is-active" : ""}" data-cat="${c.id}" href="${withBase(`/productos?cat=${c.id}#${c.id}`)}" aria-current="${active ? "page" : "false"}">
+        <a class="shop-dept${active ? " is-active" : ""}" data-cat="${c.id}" href="${catUrl(c.id)}" aria-current="${active ? "page" : "false"}">
           <span class="shop-dept__media${cover?.photo ? " shop-dept__media--photo" : " shop-dept__media--sku"}">
             ${img}
           </span>
@@ -513,7 +511,7 @@ function headerHTML(page) {
 }
 
 function footerHTML() {
-  const catLinks = categories.map((c) => `<li><a href="${withBase(`/productos?cat=${c.id}#${c.id}`)}">${c.name}</a></li>`).join("");
+  const catLinks = categories.map((c) => `<li><a href="${catUrl(c.id)}">${c.name}</a></li>`).join("");
   const serviceShort = {
     "venta-extintores": "Venta",
     "recarga-extintores": "Recarga",
@@ -1131,8 +1129,12 @@ export function renderCategoryCards(root, current = "all") {
 
 export function bindCatalog(defaultCat = "all") {
   const params = new URLSearchParams(location.search);
-  const fromHash = safeDecode((location.hash || "").replace(/^#/, ""));
-  let cat = params.get("cat") || fromHash || defaultCat;
+  const queryCat = params.get("cat");
+  if (queryCat && categories.some((c) => c.id === queryCat) && !/\/productos\/[a-z0-9-]+/i.test(location.pathname)) {
+    location.replace(catUrl(queryCat));
+    return;
+  }
+  let cat = readCat() || defaultCat;
   if (cat !== "all" && !categories.some((c) => c.id === cat)) cat = "all";
   let fireClass = "all";
   let query = params.get("q") || "";
@@ -1179,17 +1181,15 @@ export function bindCatalog(defaultCat = "all") {
       .join("");
   }
   const setCat = (next) => {
-    cat = next;
-    const url = new URL(location.href);
-    if (cat === "all") {
-      url.searchParams.delete("cat");
-      url.hash = "";
-    } else {
-      url.searchParams.set("cat", cat);
-      url.hash = cat;
+    const dest = next === "all" ? withBase("/productos") : catUrl(next);
+    const here = `${location.pathname.replace(/\/$/, "")}${location.search}`;
+    const destPath = dest.split("#")[0];
+    if (here === destPath || location.pathname.replace(/\/$/, "") === destPath.replace(/\/$/, "")) {
+      cat = next;
+      paint();
+      return;
     }
-    history.replaceState({}, "", `${url.pathname}${url.search}${url.hash}`);
-    paint();
+    location.assign(dest);
   };
   const paint = () => {
     const showClasses = cat === "all" || cat === "extintores";
@@ -1282,7 +1282,7 @@ export function renderHomeCats() {
         : "";
       const go = `Ver catálogo de ${String(c.name || "").toLowerCase()}`;
       return `<li>
-        <a class="cat-tile" data-cat="${c.id}" href="${withBase(`/productos?cat=${c.id}#${c.id}`)}" aria-label="${escapeAttr(go)}">
+        <a class="cat-tile" data-cat="${c.id}" href="${catUrl(c.id)}" aria-label="${escapeAttr(go)}">
           ${media}
           <span class="cat-tile__go">${go}</span>
           <span class="cat-tile__body">
@@ -1329,7 +1329,7 @@ export function renderHomeCatalog() {
         <section class="shop-block" data-cat="${c.id}">
           <header class="shop-block__head">
             <h3>${c.name}</h3>
-            <a class="shop-more" href="${withBase(`/productos?cat=${c.id}#${c.id}`)}"><i class="fa-solid fa-table-cells" aria-hidden="true"></i> ${c.seeAll}</a>
+            <a class="shop-more" href="${catUrl(c.id)}"><i class="fa-solid fa-table-cells" aria-hidden="true"></i> ${c.seeAll}</a>
           </header>
           <div class="shop-grid shop-grid--4">${items.map((p, i) => productCard(p, { quote: true, eager: false })).join("")}</div>
         </section>`;
@@ -2037,7 +2037,7 @@ export function renderExtinguisherCompare() {
         <tbody>${rows}</tbody>
       </table>
     </div>
-    <p class="compare-table__more muted">Ver <a href="${withBase("/productos?cat=extintores#extintores")}">catálogo de extintores</a>.</p>`;
+    <p class="compare-table__more muted">Ver <a href="${catUrl("extintores")}">catálogo de extintores</a>.</p>`;
   roots.forEach((root) => {
     root.innerHTML = table;
     root.setAttribute("aria-busy", "false");
@@ -2077,6 +2077,11 @@ export function renderProductos() {
 }
 
 export function renderProducto() {
+  const querySku = new URLSearchParams(location.search).get("sku");
+  if (querySku && /^CRM-\d{4}$/i.test(querySku) && !/\/producto\/CRM-\d{4}/i.test(location.pathname)) {
+    location.replace(withBase(productPath(querySku)));
+    return;
+  }
   const sku = readSku();
   const p = productBySku(sku);
   const root = document.querySelector("[data-product]");
@@ -2127,7 +2132,7 @@ export function renderProducto() {
     .join("");
   root.innerHTML = `
     <div class="wrap ficha-wrap">
-      <p class="ficha-crumb"><a href="${withBase("/productos")}">Catálogo</a> · <a href="${withBase(`/productos?cat=${p.cat}`)}">${catName(p.cat)}</a></p>
+      <p class="ficha-crumb"><a href="${withBase("/productos")}">Catálogo</a> · <a href="${catUrl(p.cat)}">${catName(p.cat)}</a></p>
       <article class="ficha" data-cat="${p.cat}">
         <div class="ficha__grid">
           <figure class="ficha__photo">

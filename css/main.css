@@ -7949,6 +7949,7 @@ body[data-page="blog"] .blog-hub { padding-top: 36px; }
 }
 .article-crumb a { font-weight: 650; color: var(--navy); }
 .article-crumb a:hover { color: var(--red); }
+.article-crumb span { color: inherit; }
 .article-page .article-measure { max-width: 62ch; margin-inline: auto; }
 .article-page header.article-measure { margin-bottom: 8px; }
 .article-page .article-measure .kicker,

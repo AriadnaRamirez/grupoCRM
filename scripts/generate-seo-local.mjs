@@ -24,7 +24,7 @@ import {
 } from "../js/data.js";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const CACHE = "rb-11";
+const CACHE = "rb-13";
 const MONTHS_ES = [
   "enero",
   "febrero",
@@ -104,6 +104,24 @@ function hashSlug(slug) {
   return h;
 }
 
+function crumbItem(position, name, url) {
+  return {
+    "@type": "ListItem",
+    position,
+    name,
+    item: { "@type": "WebPage", "@id": url, name },
+  };
+}
+
+function breadcrumbList(items) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    name: items.map((item) => item.name).join(" › "),
+    itemListElement: items.map((item, i) => crumbItem(i + 1, item.name, item.item)),
+  };
+}
+
 function pageShell({ title, description, canonical, bodyAttrs, main, jsonLd = "" }) {
   const origin = SITE.origin;
   return `<!DOCTYPE html>
@@ -111,10 +129,7 @@ function pageShell({ title, description, canonical, bodyAttrs, main, jsonLd = ""
 <head>
   <meta charset="UTF-8">
 ${cssBoot}
-  <link rel="preload" as="style" href="/css/main.min.css?v=${CACHE}" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="/css/main.min.css?v=${CACHE}"></noscript>
-  <script>!function(){var l=document.querySelector('link[rel="preload"][as="style"]');if(l&&!l.sheet){l.addEventListener("load",function(){this.onload=null;this.rel="stylesheet"});if(l.relList&&!l.relList.supports("preload"))l.rel="stylesheet"}}();</script>
-  <script>document.documentElement.classList.add("is-css");</script>
+  <link rel="stylesheet" href="/css/main.min.css?v=${CACHE}">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>${escapeHtml(title)}</title>
   <meta name="description" content="${escapeHtml(description)}">
@@ -123,19 +138,19 @@ ${cssBoot}
   <link rel="canonical" href="${canonical}">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_MX">
-  <meta property="og:site_name" content="${escapeHtml(company.name)}">
+  <meta property="og:site_name" content="${escapeHtml(company.shortName)}">
   <meta property="og:title" content="${escapeHtml(title)}">
   <meta property="og:description" content="${escapeHtml(description)}">
   <meta property="og:url" content="${canonical}">
-  <meta property="og:image" content="${origin}/assets/img/logo-crm.png">
-  <meta property="og:image:alt" content="Logotipo de ${escapeHtml(company.name)}">
-  <meta property="og:image:width" content="720">
-  <meta property="og:image:height" content="154">
-  <meta property="og:image:type" content="image/png">
+  <meta property="og:image" content="${origin}/assets/img/og-crm.jpg">
+  <meta property="og:image:alt" content="Grupo CRM Extintores en CDMX y Estado de México">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${escapeHtml(title)}">
   <meta name="twitter:description" content="${escapeHtml(description)}">
-  <meta name="twitter:image" content="${origin}/assets/img/logo-crm.png">
+  <meta name="twitter:image" content="${origin}/assets/img/og-crm.jpg">
   <link rel="icon" type="image/png" href="/assets/img/favicon.png" sizes="192x192">
   <link rel="apple-touch-icon" href="/assets/img/favicon.png">
   <script>
@@ -155,6 +170,8 @@ ${cssBoot}
   })();
   </script>
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
+  <script type="application/ld+json" id="seo-organization">{"@context":"https://schema.org","@type":"Organization","@id":"${origin}/#organization","name":"${escapeHtml(company.name)}","alternateName":["CRM Extintores","Grupo CRM","GRUPO CRM Extintores"],"url":"${origin}"}</script>
+  <script type="application/ld+json" id="seo-website">{"@context":"https://schema.org","@type":"WebSite","@id":"${origin}/#website","name":"CRM Extintores","url":"${origin}"}</script>
 ${jsonLd}
 </head>
 <body ${bodyAttrs}>
@@ -235,6 +252,175 @@ function serviceLinks() {
     .join("\n            ");
 }
 
+const LOCAL_EXTRAS = {
+  "alvaro-obregon": {
+    colonias: [
+      "San Ángel",
+      "San Ángel Inn",
+      "Florida",
+      "Guadalupe Inn",
+      "Las Águilas",
+      "Olivar de los Padres",
+      "Observatorio",
+      "Santa Fe (lado Álvaro Obregón)",
+      "Jalalpa",
+      "Progreso Tizapán",
+    ],
+    extra:
+      "Álvaro Obregón se atiende como zona de servicio desde Cuajimalpa, no como sucursal. El traslado a San Ángel, Observatorio y el lado AO de Santa Fe es corto: si agenda en la mañana, solemos visitar el mismo día hábil.",
+    venta:
+      "En torres y plazas de Santa Fe (lado AO) y San Ángel cotizamos PQS ABC de pasillo, CO₂ para cuartos eléctricos y tipo K si hay cocina o food court. La venta puede ir con instalación y señalamientos.",
+    clients:
+      "Corporativos y plazas de Santa Fe, oficinas en San Ángel, comercios de Insurgentes Sur, condominios de Las Águilas y restaurantes de la alcaldía.",
+    faqs: [
+      {
+        q: "¿Van a Santa Fe si mi torre está en Álvaro Obregón?",
+        a: "Sí. Santa Fe tiene predios en Álvaro Obregón y en Cuajimalpa. Visitamos ambos lados; el servicio se coordina desde Chamixto 131.",
+      },
+    ],
+  },
+  "benito-juarez": {
+    colonias: ["Del Valle", "Nápoles", "Narvarte", "Portales", "Mixcoac", "Nochebuena", "Insurgentes Mixcoac", "Actipan"],
+    extra:
+      "Benito Juárez es zona de oficinas, plazas y edificios corporativos. Coordinamos visita en sitio desde Cuajimalpa; no hay sucursal en Del Valle ni Nápoles.",
+    venta:
+      "En Del Valle y Nápoles el pedido habitual es PQS ABC de 6 kg en pasillos y sótanos, más CO₂ junto a tableros. En plazas con food court evaluamos tipo K en cocina.",
+    clients: "Oficinas, plazas, clínicas, restaurantes y condominios de Del Valle, Nápoles, Narvarte y Mixcoac.",
+    faqs: [
+      {
+        q: "¿Atienden edificios de oficinas en Del Valle y Nápoles?",
+        a: "Sí. Agendamos revisión o instalación en el inmueble. La oficina física está en Cuajimalpa.",
+      },
+    ],
+  },
+  "miguel-hidalgo": {
+    colonias: ["Polanco", "Anzures", "Tacubaya", "Lomas de Chapultepec", "Granada", "Ampliación Granada", "Escandón", "Verónica Anzures"],
+    extra:
+      "Miguel Hidalgo concentra corporativos de Polanco y Lomas. El servicio sale de Cuajimalpa: visita en su predio, sin pedirle que traiga los equipos salvo que el caso lo requiera.",
+    venta:
+      "En Polanco y Lomas cotizamos equipos discretos y certificados: PQS ABC en rutas de evacuación, CO₂ en cuartos de cómputo y tipo K si hay cocina o comedor ejecutivo.",
+    clients: "Corporativos de Polanco, residencias y oficinas de Lomas, comercios de Tacubaya y hoteles de la alcaldía.",
+    faqs: [
+      {
+        q: "¿Instalan extintores en Polanco?",
+        a: "Sí. Instalamos en el punto acordado y, si la cotización lo incluye, dejamos señalamientos. Coordinamos desde Cuajimalpa.",
+      },
+    ],
+  },
+  naucalpan: {
+    colonias: ["Naucalpan Centro", "Satélite", "Industrial Alce Blanco", "Lomas Verdes", "Echegaray", "San Bartolo", "Buenavista"],
+    extra:
+      "Naucalpan combina industria, oficinas y comercio del poniente. Es municipio de servicio: no hay sucursal local. El traslado desde Cuajimalpa cubre Satélite, Lomas Verdes y parques industriales en horario hábil.",
+    venta:
+      "En naves y talleres de Naucalpan suele pedirse PQS ABC de mayor capacidad o unidad móvil; en oficinas de Satélite, equipos de pasillo y CO₂ para tableros.",
+    clients: "Industria ligera, oficinas de Satélite, comercios de Lomas Verdes y naves de Alce Blanco.",
+    faqs: [
+      {
+        q: "¿Atienden parques industriales en Naucalpan?",
+        a: "Sí. Coordinamos visita en la nave o el patio. Recarga y venta se cotizan según agente, capacidad y estado de los cilindros.",
+      },
+    ],
+  },
+  huixquilucan: {
+    colonias: ["Interlomas", "La Herradura", "Jesús del Monte", "Bosque Real", "Huixquilucan Centro", "Zacamulpa"],
+    extra:
+      "Huixquilucan es colindante con Cuajimalpa: Interlomas y La Herradura son rutas habituales. El servicio es en su inmueble; la oficina sigue en Loma del Padre.",
+    venta:
+      "En Interlomas y residenciales cotizamos PQS ABC para amenidades y sótanos, CO₂ en cuartos de máquinas y tipo K si hay cocina de club o restaurante.",
+    clients: "Corporativos de Interlomas, condominios, residenciales, comercios de Jesús del Monte y oficinas de La Herradura.",
+    faqs: [
+      {
+        q: "¿Queda cerca Interlomas de su oficina?",
+        a: "Sí. Huixquilucan colinda con Cuajimalpa. Interlomas y La Herradura se atienden con visita en sitio desde Chamixto 131.",
+      },
+    ],
+  },
+  toluca: {
+    colonias: ["Toluca Centro", "Universidad", "corredor industrial", "zona comercial de Tollocan", "colindancia con Metepec"],
+    extra:
+      "Toluca se atiende como municipio de servicio desde Cuajimalpa. No hay sucursal en la capital mexiquense. Coordinamos visita en oficinas, industria ligera y comercios del valle; el plazo queda por escrito en la cotización.",
+    venta:
+      "Para oficinas y comercios de Toluca partimos de PQS ABC de 6 kg y CO₂ en tableros. En naves del corredor industrial evaluamos capacidad mayor o unidad móvil.",
+    clients: "Oficinas de gobierno y privadas, industria ligera, comercios de Tollocan y empresas que también operan en Metepec o Lerma.",
+    faqs: [
+      {
+        q: "¿Cuánto tardan en ir a Toluca?",
+        a: "Agendamos en horario hábil y confirmamos fecha al cotizar. No prometemos el mismo día salvo que la agenda y el traslado lo permitan.",
+      },
+    ],
+  },
+  "la-paz": {
+    colonias: ["Los Reyes Acaquilpan", "La Magdalena Atlicpac", "Tecamachalco", "Ayotla", "San Sebastián Chimalpa"],
+    extra:
+      "Los Reyes La Paz se atiende desde Cuajimalpa como municipio de servicio, no como sucursal. Coordinamos visita en locales, condominios y puntos comerciales del oriente mexiquense; el traslado se confirma al cotizar.",
+    venta:
+      "En Los Reyes y Ayotla el pedido habitual es PQS ABC para locales y pasillos de condominio, más CO₂ si hay cuarto de tableros. La venta puede ir con instalación y señalamientos.",
+    clients: "Locales, condominios, escuelas y puntos comerciales de Los Reyes Acaquilpan, Ayotla y colonias de La Paz.",
+    faqs: [
+      {
+        q: "¿Atienden Los Reyes La Paz?",
+        a: "Sí. La Paz (Los Reyes) es área de servicio. Visitamos el inmueble; la oficina física está en Cuajimalpa.",
+      },
+    ],
+  },
+  tlahuac: {
+    colonias: ["Tláhuac Centro", "San Pedro Tláhuac", "San Andrés Mixquic", "Santa Catarina Yecahuitzotl", "Zapotitlán"],
+    extra:
+      "Tláhuac es alcaldía de servicio del suroriente. No hay sucursal local: la visita se coordina desde Loma del Padre para locales, escuelas y empresas de la zona.",
+    venta:
+      "En Tláhuac Centro y Mixquic partimos de PQS ABC de 6 kg para locales y escuelas. Si hay cocina o taller, evaluamos tipo K o capacidad mayor.",
+    clients: "Locales, escuelas, comercios de Tláhuac Centro y empresas del suroriente capitalino.",
+    faqs: [
+      {
+        q: "¿Van a Tláhuac Centro y Mixquic?",
+        a: "Sí. Agendamos revisión o instalación en el inmueble. El servicio sale de Cuajimalpa.",
+      },
+    ],
+  },
+  iztacalco: {
+    colonias: ["Agrícola Oriental", "Granjas México", "Viaducto Piedad", "Pantitlán", "Santa Anita", "Gabriel Ramos Millán"],
+    extra:
+      "Iztacalco concentra talleres, bodegas y condominios con requisitos de Protección Civil. Es alcaldía de servicio: visitamos Agrícola Oriental, Granjas México y Pantitlán desde Cuajimalpa.",
+    venta:
+      "En bodegas y talleres de Iztacalco suele pedirse PQS ABC de mayor capacidad; en condominios, equipos de pasillo y señalamientos. Cotizamos según el giro, no un paquete fijo.",
+    clients: "Talleres, bodegas, condominios y comercios de Agrícola Oriental, Granjas México y Pantitlán.",
+    faqs: [
+      {
+        q: "¿Atienden bodegas en Agrícola Oriental?",
+        a: "Sí. Coordinamos visita en la bodega o el condominio. Recarga y venta se cotizan según agente y estado de los cilindros.",
+      },
+    ],
+  },
+  "gustavo-a-madero": {
+    colonias: ["Lindavista", "Industrial Vallejo", "Aragón", "Cuautepec", "Tepeyac", "Martín Carrera"],
+    extra:
+      "Gustavo A. Madero cubre industria, escuelas y comercio del norte. No hay sucursal en Lindavista ni Vallejo: el servicio se agenda desde Cuajimalpa y se realiza en su predio.",
+    venta:
+      "En naves de Vallejo evaluamos PQS ABC de mayor capacidad o unidad móvil. En escuelas y comercios de Lindavista partimos de equipos de pasillo y CO₂ para tableros.",
+    clients: "Industria ligera de Vallejo, escuelas, comercios de Lindavista y empresas de Aragón.",
+    faqs: [
+      {
+        q: "¿Van a Lindavista o Vallejo?",
+        a: "Sí. GAM es área de servicio. Confirmamos fecha al cotizar; la oficina física está en Cuajimalpa.",
+      },
+    ],
+  },
+  azcapotzalco: {
+    colonias: ["Azcapotzalco Centro", "Clavería", "San Álvaro", "Nueva El Rosario", "Pro-Hogar", "Ferrería"],
+    extra:
+      "Azcapotzalco mezcla industria, bodegas y colonias comerciales del norte-poniente. Es alcaldía de servicio: Clavería, Ferrería y el centro se visitan desde Loma del Padre.",
+    venta:
+      "En bodegas y naves de Azcapotzalco cotizamos PQS ABC de mayor capacidad. En comercios de Clavería, equipos de pasillo y CO₂ si hay cuarto eléctrico.",
+    clients: "Industrias, bodegas, comercios de Clavería y oficinas de Azcapotzalco Centro.",
+    faqs: [
+      {
+        q: "¿Atienden naves en Azcapotzalco?",
+        a: "Sí. Coordinamos visita en la nave o el local. No hay sucursal en la alcaldía; el servicio sale de Cuajimalpa.",
+      },
+    ],
+  },
+};
+
 function locationCopy(zona) {
   const region = zonaRegionLabel(zona);
   const type = zonaTypeLabel(zona);
@@ -242,7 +428,7 @@ function locationCopy(zona) {
   const isBase = zona.slug === "cuajimalpa";
   const intros = isBase
     ? [
-        `Grupo CRM Extintores tiene su única oficina en Cuajimalpa, Ciudad de México. Desde Chamixto 131, Col. Loma del Padre, cotizamos, visitamos e instalamos extintores en la alcaldía —Santa Fe, Contadero, San José de los Cedros y Cuajimalpa Centro— y en el resto de CDMX y Estado de México.`,
+        `CRM Extintores (Grupo CRM Extintores) tiene su única oficina en Loma del Padre, Cuajimalpa. Desde Chamixto 131 cotizamos, visitamos e instalamos extintores en la colonia y en el resto de la alcaldía —Santa Fe, Contadero, San José de los Cedros y Cuajimalpa Centro— y en CDMX y Estado de México.`,
       ]
     : [
         `Grupo CRM Extintores ofrece venta, recarga, mantenimiento e instalación de extintores en ${zona.name}, ${region}. Atendemos ${zona.focus}.`,
@@ -251,7 +437,7 @@ function locationCopy(zona) {
       ];
   const office = isBase
     ? `Nuestra sede está en Chamixto 131, Col. Loma del Padre, Cuajimalpa, C.P. ${company.postalCode}. Horario: ${company.hours}. Teléfono y WhatsApp: ${company.phone}.`
-    : `${zona.name} es una zona de servicio: no tenemos sucursal física en esta ${type.toLowerCase()}. El servicio se coordina desde nuestra oficina en Cuajimalpa y se realiza en su inmueble.`;
+    : `${zona.name} es una zona de servicio: no tenemos sucursal física en ${zona.region === "edomex" ? "este" : "esta"} ${type.toLowerCase()}. El servicio se coordina desde nuestra oficina en Cuajimalpa y se realiza en su inmueble.`;
   const venta = isBase
     ? [
         `Vendemos extintores certificados en Cuajimalpa según el riesgo del inmueble: PQS ABC para pasillos y locales, CO₂ para tableros y cómputo, tipo K para cocinas. En corporativos de Santa Fe y en comercios de Contadero o Cuajimalpa Centro partimos de lo que suele pedir Protección Civil, no de un paquete genérico.`,
@@ -309,6 +495,10 @@ function locationCopy(zona) {
     },
   ];
   if (isBase) {
+    faqs.unshift({
+      q: "¿Hay extintores en Loma del Padre?",
+      a: "Sí. CRM Extintores (Grupo CRM Extintores) tiene su oficina en Chamixto 131, Col. Loma del Padre, Cuajimalpa. Desde ahí vendemos, recargamos e instalamos extintores en la colonia y en toda la alcaldía.",
+    });
     faqs.push(
       {
         q: "¿Atienden Santa Fe y Contadero?",
@@ -324,15 +514,18 @@ function locationCopy(zona) {
       }
     );
   }
+  const extra = LOCAL_EXTRAS[zona.slug];
+  if (extra?.faqs) faqs.push(...extra.faqs);
   return {
-    intro: intros[n % intros.length],
+    intro: extra?.extra ? `${intros[n % intros.length]} ${extra.extra}` : intros[n % intros.length],
     office,
-    venta: venta[n % venta.length],
+    venta: extra?.venta || venta[n % venta.length],
     recarga: recarga[(n + 1) % recarga.length],
     mant: mant[(n + 2) % mant.length],
     inst: inst[(n + 3) % inst.length],
-    clients,
+    clients: extra?.clients || clients,
     areasNote,
+    colonias: extra?.colonias || [],
     faqs,
     region,
     type,
@@ -343,25 +536,16 @@ function locationCopy(zona) {
 function locationJsonLd(zona, canonical) {
   const copy = locationCopy(zona);
   const regionLabel = zona.region === "edomex" ? "Estado de México" : "Ciudad de México";
-  const crumbs = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Inicio", item: `${SITE.origin}/` },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: regionLabel,
-        item: `${SITE.origin}${extintoresHubPath(zona.region)}`,
-      },
-      { "@type": "ListItem", position: 3, name: zona.name, item: canonical },
-    ],
-  };
+  const crumbs = breadcrumbList([
+    { name: "Inicio", item: `${SITE.origin}/` },
+    { name: regionLabel, item: `${SITE.origin}${extintoresHubPath(zona.region)}` },
+    { name: zona.name, item: canonical },
+  ]);
   const service = {
     "@context": "https://schema.org",
     "@type": "Service",
     name: copy.isBase
-      ? `Venta y recarga de extintores en Cuajimalpa`
+      ? `Extintores en Loma del Padre, Cuajimalpa`
       : `Extintores en ${zona.name}`,
     serviceType: "Venta, recarga, mantenimiento e instalación de extintores",
     provider: { "@id": `${SITE.origin}/#business` },
@@ -386,7 +570,7 @@ function locationJsonLd(zona, canonical) {
     "@id": `${SITE.origin}/#business`,
     name: company.name,
     legalName: company.legalName || company.name,
-    alternateName: ["Grupo CRM", "GRUPO CRM Extintores", "CRM Extintores"],
+    alternateName: ["CRM Extintores", "Grupo CRM", "GRUPO CRM Extintores"],
     image: `${SITE.origin}/assets/img/logo-crm.png`,
     url: SITE.origin,
     telephone: `+52${company.phoneTel}`,
@@ -416,15 +600,19 @@ function locationJsonLd(zona, canonical) {
     hasMap: company.mapsUrl,
     areaServed: copy.isBase
       ? [
+          { "@type": "Place", name: "Loma del Padre, Cuajimalpa, Ciudad de México" },
           { "@type": "AdministrativeArea", name: "Cuajimalpa de Morelos, Ciudad de México" },
           { "@type": "Place", name: "Santa Fe, Ciudad de México" },
           { "@type": "Place", name: "Contadero, Cuajimalpa" },
         ]
-      : [{ "@type": "AdministrativeArea", name: zona.name }],
+      : [
+          { "@type": "AdministrativeArea", name: `${zona.name}, ${zonaRegionLabel(zona)}` },
+          ...(copy.colonias || []).map((name) => ({ "@type": "Place", name: `${name}, ${zona.name}` })),
+        ],
     sameAs: [company.facebookUrl, company.instagramUrl, company.mapsUrl].filter(Boolean),
   };
   return [
-    `  <script type="application/ld+json">${JSON.stringify(crumbs)}</script>`,
+    `  <script type="application/ld+json" id="seo-crumbs">${JSON.stringify(crumbs)}</script>`,
     `  <script type="application/ld+json" id="seo-business">${JSON.stringify(professional)}</script>`,
     `  <script type="application/ld+json">${JSON.stringify(service)}</script>`,
     `  <script type="application/ld+json">${JSON.stringify(faq)}</script>`,
@@ -437,19 +625,19 @@ function locationHtml(zona) {
   const hub = extintoresHubPath(zona.region);
   const hubLabel = zona.region === "edomex" ? "Estado de México" : "Ciudad de México";
   const title = copy.isBase
-    ? `Venta y recarga de extintores en Cuajimalpa | ${company.name}`
+    ? "Extintores en Loma del Padre | CRM Extintores"
     : zona.region === "edomex"
-      ? `Venta y recarga de extintores en ${zona.name}, Edo. Méx. | ${company.name}`
-      : `Venta y recarga de extintores en ${zona.name}, CDMX | ${company.name}`;
+      ? `Extintores en ${zona.name} | Venta y recarga`
+      : `Extintores en ${zona.name} | Grupo CRM`;
   const description = copy.isBase
-    ? `Venta y recarga de extintores en Cuajimalpa: oficina en Chamixto 131, Loma del Padre. Santa Fe, Contadero y toda la alcaldía. Primera visita sin costo. WhatsApp ${company.phone}.`
+    ? `CRM Extintores en Loma del Padre, Cuajimalpa: oficina en Chamixto 131. Venta y recarga de extintores en Santa Fe, Contadero y toda la alcaldía. WhatsApp ${company.phone}.`
     : `Venta, recarga, mantenimiento e instalación de extintores en ${zona.name}, ${region}. Primera visita sin costo. Cotice con Grupo CRM Extintores.`;
   const canonical = `${SITE.origin}${extintoresPath(zona)}`;
   const h1 = copy.isBase
-    ? "Venta y recarga de extintores en Cuajimalpa"
+    ? "Extintores en Loma del Padre, Cuajimalpa"
     : `Venta y recarga de extintores en ${zona.name}`;
   const kicker = copy.isBase
-    ? "Oficina · Alcaldía Cuajimalpa · Ciudad de México"
+    ? "CRM Extintores · oficina en Loma del Padre"
     : `${copy.type} · área de servicio · ${region}`;
   const nearbyTitle = zona.region === "edomex" ? "Municipios y zonas cercanas" : "Alcaldías y zonas cercanas";
   const nearby = (zona.nearby || [])
@@ -471,8 +659,8 @@ function locationHtml(zona) {
 
   const officeBlock = copy.isBase
     ? `
-        <h2>Oficina en Cuajimalpa</h2>
-        <p>Grupo CRM Extintores opera desde <strong>Chamixto 131, Col. Loma del Padre, Cuajimalpa, C.P. 05020</strong>. Es la única sede física: aquí cotizamos, coordinamos visitas y documentamos el servicio para inmuebles de la alcaldía y del resto de la zona metropolitana.</p>
+        <h2>Oficina de CRM Extintores en Loma del Padre</h2>
+        <p>CRM Extintores (Grupo CRM Extintores) opera desde <strong>Chamixto 131, Col. Loma del Padre, Cuajimalpa, C.P. 05020</strong>. Es la única sede física: aquí cotizamos, coordinamos visitas y documentamos el servicio para inmuebles de la colonia, de la alcaldía y del resto de la zona metropolitana.</p>
         <ul class="zona-page__points">
           <li>Dirección: ${escapeHtml(company.address)}</li>
           <li>Horario: ${escapeHtml(company.hours)}</li>
@@ -518,13 +706,20 @@ function locationHtml(zona) {
         </ul>`
     : `
         <h2>Zonas de ${escapeHtml(zona.name)} donde ofrecemos servicio</h2>
-        <p>${escapeHtml(copy.areasNote)}</p>`;
+        <p>${escapeHtml(copy.areasNote)}</p>${
+          copy.colonias?.length
+            ? `
+        <ul class="zona-nearby zona-nearby--wrap">
+            ${copy.colonias.map((c) => `<li>${escapeHtml(c)}</li>`).join("\n            ")}
+        </ul>`
+            : ""
+        }`;
 
   const main = `  <section class="section zona-page">
     <div class="wrap zona-page__layout">
       <header class="zona-page__head">
         <nav class="article-crumb" aria-label="Miga de pan">
-          <a href="/">Inicio</a> · <a href="${hub}">${escapeHtml(hubLabel)}</a> · ${escapeHtml(zona.name)}
+          <a href="/">Inicio</a> · <a href="${hub}">${escapeHtml(hubLabel)}</a> · <span>${escapeHtml(zona.name)}</span>
         </nav>
         <p class="kicker">${escapeHtml(kicker)}</p>
         <h1>${escapeHtml(h1)}</h1>
@@ -599,14 +794,10 @@ function hubCdmx() {
   const description =
     "Extintores en Ciudad de México: venta, recarga, mantenimiento e instalación. Cobertura en las 16 alcaldías desde Cuajimalpa. Cotice con Grupo CRM Extintores.";
   const canonical = `${SITE.origin}/extintores-cdmx`;
-  const crumbs = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Inicio", item: `${SITE.origin}/` },
-      { "@type": "ListItem", position: 2, name: "Extintores en CDMX", item: canonical },
-    ],
-  };
+  const crumbs = breadcrumbList([
+    { name: "Inicio", item: `${SITE.origin}/` },
+    { name: "Extintores en CDMX", item: canonical },
+  ]);
   const hubFaqs = [
     {
       q: "¿Tienen sucursal en todas las alcaldías?",
@@ -645,7 +836,7 @@ function hubCdmx() {
   const main = `  <section class="section zona-page zona-page--hub">
     <div class="wrap">
       <header class="zona-hub__head">
-        <nav class="article-crumb" aria-label="Miga de pan"><a href="/">Inicio</a> · Ciudad de México</nav>
+        <nav class="article-crumb" aria-label="Miga de pan"><a href="/">Inicio</a> · <span>Ciudad de México</span></nav>
         <p class="kicker">Cobertura CDMX</p>
         <h1>Extintores en Ciudad de México</h1>
         <hr class="rule rule-left" aria-hidden="true">
@@ -708,7 +899,7 @@ function hubCdmx() {
     canonical,
     bodyAttrs: 'data-page="zonas" data-hub="cdmx"',
     main,
-    jsonLd: `  <script type="application/ld+json">${JSON.stringify(crumbs)}</script>
+    jsonLd: `  <script type="application/ld+json" id="seo-crumbs">${JSON.stringify(crumbs)}</script>
   <script type="application/ld+json">${JSON.stringify(faqLd)}</script>`,
   });
 }
@@ -718,18 +909,14 @@ function hubEdomex() {
   const description =
     "Extintores en Estado de México: venta, recarga, mantenimiento e instalación en municipios del Valle de México y zona Toluca. Cotice con Grupo CRM Extintores.";
   const canonical = `${SITE.origin}/extintores-estado-de-mexico`;
-  const crumbs = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Inicio", item: `${SITE.origin}/` },
-      { "@type": "ListItem", position: 2, name: "Estado de México", item: canonical },
-    ],
-  };
+  const crumbs = breadcrumbList([
+    { name: "Inicio", item: `${SITE.origin}/` },
+    { name: "Estado de México", item: canonical },
+  ]);
   const main = `  <section class="section zona-page zona-page--hub">
     <div class="wrap">
       <header class="zona-hub__head">
-        <nav class="article-crumb" aria-label="Miga de pan"><a href="/">Inicio</a> · Estado de México</nav>
+        <nav class="article-crumb" aria-label="Miga de pan"><a href="/">Inicio</a> · <span>Estado de México</span></nav>
         <p class="kicker">Cobertura Estado de México</p>
         <h1>Extintores en Estado de México</h1>
         <hr class="rule rule-left" aria-hidden="true">
@@ -766,7 +953,7 @@ function hubEdomex() {
     canonical,
     bodyAttrs: 'data-page="zonas" data-hub="edomex"',
     main,
-    jsonLd: `  <script type="application/ld+json">${JSON.stringify(crumbs)}</script>`,
+    jsonLd: `  <script type="application/ld+json" id="seo-crumbs">${JSON.stringify(crumbs)}</script>`,
   });
 }
 
@@ -783,15 +970,11 @@ function serviceHtml(svc) {
     ...zonasCdmx.filter((z) => z.slug !== "cuajimalpa").slice(0, 7),
     ...zonasEdomex.slice(0, 6),
   ].filter(Boolean);
-  const crumbs = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Inicio", item: `${SITE.origin}/` },
-      { "@type": "ListItem", position: 2, name: "Servicios", item: `${SITE.origin}/venta-extintores` },
-      { "@type": "ListItem", position: 3, name: svc.h1, item: canonical },
-    ],
-  };
+  const crumbs = breadcrumbList([
+    { name: "Inicio", item: `${SITE.origin}/` },
+    { name: "Servicios", item: `${SITE.origin}/venta-extintores` },
+    { name: svc.h1, item: canonical },
+  ]);
   const serviceLd = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -859,7 +1042,7 @@ function serviceHtml(svc) {
     <div class="wrap zona-page__layout">
       <header class="zona-page__head">
         <nav class="article-crumb" aria-label="Miga de pan">
-          <a href="/">Inicio</a> · <a href="/venta-extintores">Servicios</a> · ${escapeHtml(svc.h1)}
+          <a href="/">Inicio</a> · <a href="/venta-extintores">Servicios</a> · <span>${escapeHtml(svc.h1)}</span>
         </nav>
         <p class="kicker">${escapeHtml(svc.kicker)}</p>
         <h1>${escapeHtml(svc.h1)}</h1>
@@ -903,7 +1086,7 @@ function serviceHtml(svc) {
     canonical,
     bodyAttrs: `data-page="servicio" data-servicio="${svc.slug}"`,
     main,
-    jsonLd: `  <script type="application/ld+json">${JSON.stringify(crumbs)}</script>
+    jsonLd: `  <script type="application/ld+json" id="seo-crumbs">${JSON.stringify(crumbs)}</script>
   <script type="application/ld+json">${JSON.stringify(serviceLd)}</script>${
     faqLd ? `\n  <script type="application/ld+json">${JSON.stringify(faqLd)}</script>` : ""
   }`,

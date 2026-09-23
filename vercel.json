@@ -1,6 +1,12 @@
 {
   "trailingSlash": false,
   "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "crmextintores.com.mx" }],
+      "destination": "https://www.crmextintores.com.mx/:path*",
+      "statusCode": 301
+    },
     { "source": "/index.html", "destination": "/", "statusCode": 301 },
     { "source": "/index.php", "destination": "/", "statusCode": 301 },
     { "source": "/index", "destination": "/", "statusCode": 301 },
@@ -18,6 +24,18 @@
     { "source": "/zonas", "destination": "/extintores-cdmx", "statusCode": 301 },
     { "source": "/zonas/", "destination": "/extintores-cdmx", "statusCode": 301 },
     { "source": "/zonas/:slug", "destination": "/extintores-:slug", "statusCode": 301 },
+    {
+      "source": "/producto",
+      "has": [{ "type": "query", "key": "sku", "value": "(?<sku>[Cc][Rr][Mm]-\\d{4})" }],
+      "destination": "/producto/:sku",
+      "statusCode": 301
+    },
+    {
+      "source": "/productos",
+      "has": [{ "type": "query", "key": "cat", "value": "(?<cat>[a-z0-9-]+)" }],
+      "destination": "/productos/:cat",
+      "statusCode": 301
+    },
     { "source": "/:path*.html", "destination": "/:path*", "statusCode": 301 }
   ],
   "rewrites": [

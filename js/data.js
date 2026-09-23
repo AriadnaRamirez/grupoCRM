@@ -2,12 +2,12 @@ import { withBase } from "./base.js";
 
 export const company = {
   name: "Grupo CRM Extintores",
-  shortName: "Grupo CRM",
+  shortName: "CRM Extintores",
   legalName: "Grupo CRM Extintores",
   tagline: "Extintores y equipos de seguridad",
   slogan: "Protección, prevención y respuesta.",
   about:
-    "Lo acompañamos con venta, recarga e instalación en CDMX y Estado de México. MCD (Mexicana de Conformidad y Dictaminación), cumplimiento de la norma NOM-154-SCFI-2005.",
+    "CRM Extintores es el sitio oficial de Grupo CRM Extintores. Oficina en Chamixto 131, Col. Loma del Padre, Cuajimalpa. Venta, recarga e instalación en CDMX y Estado de México. MCD (Mexicana de Conformidad y Dictaminación), NOM-154-SCFI-2005.",
   mcd: "Mexicana de Conformidad y Dictaminación",
   mcdUrl: "http://www.mcdmx.com/site/Casa.html",
   nom: "NOM-154-SCFI-2005",
@@ -92,7 +92,7 @@ export const SITE = {
   origin: "https://www.crmextintores.com.mx",
   locale: "es_MX",
   themeColor: "#D51A32",
-  ogImage: "/assets/img/logo-crm.png",
+  ogImage: "/assets/img/og-crm.jpg",
   /** Visible freshness for main marketing pages (not legal boilerplate alone). */
   contentPublished: "2026-08-24",
   contentModified: "2026-09-23",
@@ -101,73 +101,74 @@ export const SITE = {
 export const pageSeo = {
   inicio: {
     path: "/",
-    title: "Grupo CRM Extintores | Extintores en CDMX y Estado de México",
+    title: "CRM Extintores | Loma del Padre, Cuajimalpa",
     description:
-      "Grupo CRM Extintores: venta, recarga e instalación de extintores en CDMX y Estado de México. Primera visita sin costo. WhatsApp 56 6748 1489.",
+      "CRM Extintores (Grupo CRM Extintores): oficina en Chamixto 131, Col. Loma del Padre, Cuajimalpa. Venta, recarga e instalación en CDMX y Estado de México. WhatsApp 56 6748 1489.",
   },
   nosotros: {
     path: "/nosotros",
-    title: "Nosotros | Grupo CRM Extintores",
+    title: "CRM Extintores | Quiénes somos",
     description:
-      "Empresa 100% mexicana. Lo acompañamos para cumplir con Protección Civil: venta, recarga e instalación en CDMX y Estado de México. Con gusto lo atendemos.",
+      "CRM Extintores es el sitio oficial de Grupo CRM Extintores. Oficina en Loma del Padre, Cuajimalpa. Venta, recarga e instalación en CDMX y Estado de México.",
   },
   productos: {
     path: "/productos",
-    title: "Catálogo de extintores y equipo contra incendio | Grupo CRM Extintores",
+    title: "Catálogo de extintores | Grupo CRM",
     description:
       "Más de 50 equipos: extintores, chalecos, señalamientos, gabinetes, botiquines y equipo de protección. Cotice con Grupo CRM en CDMX y Estado de México.",
   },
   producto: {
     path: "/producto",
-    title: "Producto | Grupo CRM Extintores",
+    title: "Producto | Grupo CRM",
     description:
       "Vea este equipo y cotícelo por WhatsApp con Grupo CRM Extintores en CDMX y Estado de México.",
+    robots: "noindex, follow",
   },
   galeria: {
     path: "/galeria",
-    title: "Galería de instalaciones | Grupo CRM Extintores",
+    title: "Galería de instalaciones | Grupo CRM",
     description:
       "Vea cómo quedan extintores e instalaciones en empresas de CDMX y Estado de México. ¿Quiere el mismo resultado? Cotice con Grupo CRM.",
   },
   contacto: {
     path: "/contacto",
-    title: "Contacto y cotización por WhatsApp | Grupo CRM Extintores",
+    title: "CRM Extintores | Chamixto 131, Loma del Padre",
     description:
-      "Pida su cotización por WhatsApp 56 6748 1489. Con gusto lo atendemos y la primera visita de revisión es sin costo. Chamixto 131, Cuajimalpa, CDMX.",
+      "Oficina de CRM Extintores en Chamixto 131, Col. Loma del Padre, Cuajimalpa. Cotice por WhatsApp 56 6748 1489. Primera visita sin costo.",
   },
   servicios: {
     path: "/servicios",
-    title: "Venta, recarga e instalación de extintores | Grupo CRM Extintores",
+    title: "Venta, recarga e instalación | Grupo CRM",
     description:
       "Venta, recarga e instalación de extintores para que su empresa cumpla. Primera visita sin costo. WhatsApp 56 6748 1489.",
   },
   mapa: {
     path: "/mapa-sitio",
-    title: "Mapa de sitio | Grupo CRM Extintores",
+    title: "Mapa de sitio | Grupo CRM",
     description:
       "Encuentre equipos, servicios y contacto para cotizar extintores con Grupo CRM en CDMX y Estado de México.",
   },
   privacidad: {
     path: "/aviso-privacidad",
-    title: "Aviso de privacidad | Grupo CRM Extintores",
+    title: "Aviso de privacidad | Grupo CRM",
     description:
       "Aviso de privacidad de Grupo CRM Extintores. Cómo tratamos sus datos de contacto para cotizar extintores en CDMX y Estado de México.",
   },
   "politica-servicio": {
     path: "/politica-de-servicio",
-    title: "Política de servicio y cotización | Grupo CRM Extintores",
+    title: "Política de servicio | Grupo CRM",
     description:
       "Cómo cotizamos, visitamos y documentamos el servicio de extintores en CDMX y Estado de México. Horario, pagos y alcance claros.",
   },
   "fuentes-normatividad": {
     path: "/fuentes-y-normatividad",
-    title: "Fuentes y normatividad | Grupo CRM Extintores",
+    title: "Fuentes y normatividad | Grupo CRM",
     description:
       "Enlaces oficiales a la NOM-154-SCFI-2005, NOM-002-STPS-2010 y MCD. Fuentes técnicas que respaldan nuestro servicio de extintores.",
   },
   blog: {
     path: "/blog",
-    title: "Blog de extintores y equipo contra incendios | Grupo CRM Extintores",
+    title: "Blog de extintores | Grupo CRM",
     description:
       "Guías de extintores en CDMX y Estado de México: instalación, tipos de fuego, recarga NOM-154-SCFI-2005 y equipo de protección. Cotice con Grupo CRM.",
   },
@@ -186,13 +187,13 @@ export const pageSeo = {
   },
   zonas: {
     path: "/zonas",
-    title: "Extintores en CDMX y Estado de México | Grupo CRM Extintores",
+    title: "Extintores en CDMX y Edo. Méx. | CRM",
     description:
       "Venta, recarga e instalación de extintores en alcaldías de CDMX y municipios del Estado de México. Cotice con Grupo CRM Extintores.",
   },
   inspector: {
     path: "/inspector-crm",
-    title: "Inspector CRM | Mascota de Grupo CRM Extintores",
+    title: "Inspector CRM | Mascota de Grupo CRM",
     description:
       "Inspector CRM es la mascota oficial de Grupo CRM Extintores: el inspector de extintores de la empresa en Cuajimalpa, CDMX. Vea las ilustraciones oficiales.",
     image: "/assets/img/opt/inspector-crm.webp",
@@ -292,7 +293,7 @@ export const seoServicePages = [
   {
     slug: "venta-extintores",
     path: "/venta-extintores",
-    title: "Venta de Extintores en CDMX y Estado de México | Grupo CRM Extintores",
+    title: "Venta de extintores en CDMX | Grupo CRM",
     h1: "Venta de Extintores",
     description:
       "Venta de extintores certificados en CDMX y Estado de México. Asesoría para elegir el equipo, entrega o instalación y primera visita sin costo. Cotice con Grupo CRM Extintores.",
@@ -347,7 +348,7 @@ export const seoServicePages = [
   {
     slug: "recarga-extintores",
     path: "/recarga-extintores",
-    title: "Recarga de Extintores en CDMX | NOM-154 | Grupo CRM Extintores",
+    title: "Recarga de extintores CDMX | NOM-154",
     h1: "Recarga de Extintores",
     description:
       "Recarga de extintores en CDMX y Estado de México bajo NOM-154-SCFI-2005, con evidencia para inspección. Primera visita sin costo. Cotice con Grupo CRM Extintores.",
@@ -402,7 +403,7 @@ export const seoServicePages = [
   {
     slug: "mantenimiento-extintores",
     path: "/mantenimiento-extintores",
-    title: "Mantenimiento de Extintores en CDMX y Estado de México | Grupo CRM Extintores",
+    title: "Mantenimiento de extintores | Grupo CRM",
     h1: "Mantenimiento de Extintores",
     description:
       "Mantenimiento y recarga de extintores en CDMX y Estado de México bajo NOM-154-SCFI-2005. Diagnóstico en sitio y primera visita sin costo. Cotice con Grupo CRM Extintores.",
@@ -452,7 +453,7 @@ export const seoServicePages = [
   {
     slug: "instalacion-extintores",
     path: "/instalacion-extintores",
-    title: "Instalación de Extintores en CDMX y Estado de México | Grupo CRM Extintores",
+    title: "Instalación de extintores | Grupo CRM",
     h1: "Instalación de Extintores",
     description:
       "Instalación de extintores y señalamientos en CDMX y Estado de México. Altura, visibilidad y acceso listos para inspección. Cotice con Grupo CRM Extintores.",
@@ -500,7 +501,7 @@ export const seoServicePages = [
   {
     slug: "senalizacion",
     path: "/senalizacion",
-    title: "Señalización y Señalamientos en CDMX y Estado de México | Grupo CRM Extintores",
+    title: "Señalización en CDMX | Grupo CRM",
     h1: "Señalización contra incendios y vial",
     description:
       "Señalamientos de emergencia y vialidad en CDMX y Estado de México. Identifique equipos, rutas y áreas de riesgo. Cotice con Grupo CRM Extintores.",
@@ -528,13 +529,13 @@ export const blogPosts = [
   {
     slug: "recarga-extintores-cuajimalpa",
     path: "/blog/recarga-extintores-cuajimalpa",
-    title: "Recarga de extintores en Cuajimalpa | Grupo CRM Extintores",
-    heading: "Recarga de extintores en Cuajimalpa: cómo pedimos el servicio",
+    title: "Recarga en Loma del Padre | CRM Extintores",
+    heading: "Recarga de extintores en Loma del Padre, Cuajimalpa",
     description:
       "Recarga de extintores en Cuajimalpa desde Chamixto 131, Loma del Padre. Visita sin costo, NOM-154-SCFI-2005 y cobertura en Santa Fe, Contadero y toda la alcaldía.",
     kicker: "Cuajimalpa",
     excerpt:
-      "Cómo recargamos desde Loma del Padre, qué pedimos en la visita y a qué colonias de Cuajimalpa llegamos. La primera revisión no tiene costo.",
+      "CRM Extintores recarga desde Chamixto 131, Loma del Padre. Qué pedimos en la visita y a qué colonias de Cuajimalpa llegamos. La primera revisión no tiene costo.",
     datePublished: "2026-09-23",
     dateModified: "2026-09-23",
     image: "/assets/img/opt/full/blog-recarga-1400.webp",
@@ -557,7 +558,7 @@ export const blogPosts = [
   {
     slug: "precio-recarga-extintores-cdmx",
     path: "/blog/precio-recarga-extintores-cdmx",
-    title: "Precio de recarga de extintores en CDMX 2026 | Grupo CRM Extintores",
+    title: "Precio de recarga de extintores CDMX | CRM",
     heading: "¿Cuánto cuesta recargar un extintor en CDMX?",
     description:
       "Rangos de referencia 2026 para recarga de extintores en CDMX: PQS, CO₂ y tipo K. Qué mueve el costo y cuándo conviene recargar o comprar. Cotice con Grupo CRM Extintores.",
@@ -586,7 +587,7 @@ export const blogPosts = [
   {
     slug: "como-instalar-mi-extintor",
     path: "/blog/como-instalar-mi-extintor",
-    title: "¿Cómo instalar mi extintor en una empresa? | Grupo CRM Extintores",
+    title: "Cómo instalar un extintor en empresa | CRM",
     heading: "¿Cómo instalar mi extintor para que sí sea útil?",
     description:
       "Guía práctica para colocar un extintor: altura, visibilidad, acceso libre, señalamiento, soporte y cuándo pedir instalación profesional en CDMX y Estado de México.",
@@ -600,7 +601,7 @@ export const blogPosts = [
   {
     slug: "tipos-de-fuego",
     path: "/blog/tipos-de-fuego",
-    title: "Tipos de fuego y cómo elegir el extintor correcto | Grupo CRM Extintores",
+    title: "Tipos de fuego y qué extintor usar | CRM",
     heading: "Tipos de fuego y cómo elegir el mejor extintor",
     description:
       "Clases de fuego A, B, C y K, y qué extintor le conviene: PQS ABC, CO₂, agua o tipo K. Guía para empresas en CDMX y Estado de México.",
@@ -614,7 +615,7 @@ export const blogPosts = [
   {
     slug: "como-usar-un-extintor",
     path: "/blog/como-usar-un-extintor",
-    title: "¿Cómo usar un extintor ante un conato de incendio? | Grupo CRM Extintores",
+    title: "Cómo usar un extintor ante un conato | CRM",
     heading: "¿Cómo usar un extintor ante un conato de incendio?",
     description:
       "Aprenda a usar un extintor, sus partes y qué contiene. Qué es un fuego incipiente y cuándo evacuar. Atención en CDMX y Estado de México.",
@@ -628,7 +629,7 @@ export const blogPosts = [
   {
     slug: "extintores-cdmx",
     path: "/blog/extintores-cdmx",
-    title: "Guía de extintores en CDMX para empresas | Grupo CRM Extintores",
+    title: "Guía de extintores en CDMX | CRM",
     heading: "Guía de extintores en CDMX para empresas",
     description:
       "Guía para elegir, instalar y mantener extintores en empresas de CDMX y Estado de México. Conozca clases, recarga, señalamientos y cumplimiento.",
@@ -642,7 +643,7 @@ export const blogPosts = [
   {
     slug: "extintor-6-kg",
     path: "/blog/extintor-6-kg",
-    title: "Extintor de 6 kg: tipos, usos y cómo cotizar | Grupo CRM Extintores",
+    title: "Extintor de 6 kg: tipos y cotización | CRM",
     heading: "Extintor de 6 kg: tipos, usos y cómo cotizar",
     description:
       "Guía del extintor de 6 kg: PQS ABC, CO₂, tipo K y agente limpio. Cotice con Grupo CRM en CDMX y Estado de México.",
@@ -656,7 +657,7 @@ export const blogPosts = [
   {
     slug: "nom-154-scfi-2005",
     path: "/blog/nom-154-scfi-2005",
-    title: "NOM-154-SCFI-2005: recarga y mantenimiento de extintores | Grupo CRM Extintores",
+    title: "NOM-154-SCFI-2005 y recarga de extintores | CRM",
     heading: "NOM-154-SCFI-2005: recarga y mantenimiento de extintores",
     description:
       "Qué implica la NOM-154-SCFI-2005 para recargar y dar mantenimiento a extintores. Qué pedirle a quien le da servicio en CDMX y Estado de México.",
@@ -670,7 +671,7 @@ export const blogPosts = [
   {
     slug: "casco-seguridad-colores",
     path: "/blog/casco-seguridad-colores",
-    title: "¿Qué casco de seguridad necesito: colores y características? | Grupo CRM Extintores",
+    title: "Casco de seguridad: colores y uso | CRM",
     heading: "¿Qué casco de seguridad necesito: colores y características?",
     description:
       "Guía para elegir casco de seguridad por color, uso y características: tipo cachucha, ala ancha, ajuste de matraca y protección para obra, industria y brigadas.",
@@ -960,8 +961,20 @@ export const reviews = [
 
 export const faqs = [
   {
+    q: "¿Qué es CRM Extintores?",
+    a: "CRM Extintores es el sitio oficial de Grupo CRM Extintores. En Facebook aparece como GRUPO CRM Extintores. La oficina está en Chamixto 131, Col. Loma del Padre, Cuajimalpa. Venta, recarga e instalación en CDMX y Estado de México.",
+  },
+  {
+    q: "¿Dónde está CRM Extintores en Loma del Padre?",
+    a: 'La oficina de CRM Extintores está en Chamixto 131, Col. Loma del Padre, Alcaldía Cuajimalpa, CDMX. El detalle de la sede está en <a href="/extintores-cuajimalpa">extintores en Loma del Padre</a>.',
+  },
+  {
+    q: "¿Qué es Grupo CRM?",
+    a: "Grupo CRM es el nombre corto de Grupo CRM Extintores. El sitio oficial es CRM Extintores (crmextintores.com.mx). En Facebook: GRUPO CRM Extintores. Oficina en Chamixto 131, Col. Loma del Padre, Cuajimalpa.",
+  },
+  {
     q: "¿Cuál es el nombre de la empresa?",
-    a: "Grupo CRM Extintores. Así aparece en Facebook (GRUPO CRM Extintores). También nos encuentran como Grupo CRM. Oficina en Chamixto 131, Col. Loma del Padre, Cuajimalpa.",
+    a: "El nombre oficial es Grupo CRM Extintores. Nos buscan como CRM Extintores y Grupo CRM. En Facebook: GRUPO CRM Extintores. Oficina en Chamixto 131, Col. Loma del Padre, Cuajimalpa.",
   },
   {
     q: "¿Quién es el Inspector CRM?",
@@ -973,7 +986,7 @@ export const faqs = [
   },
   {
     q: "¿En qué zonas atienden?",
-    a: 'Atendemos toda la Ciudad de México y el Estado de México. La oficina de <a href="/extintores-cuajimalpa">Grupo CRM en Cuajimalpa</a> está en Chamixto 131, Col. Loma del Padre.',
+    a: 'Atendemos toda la Ciudad de México y el Estado de México. La oficina de <a href="/extintores-cuajimalpa">CRM Extintores en Loma del Padre</a> está en Chamixto 131, Cuajimalpa.',
   },
   {
     q: "¿Cómo pido una cotización?",
@@ -1017,7 +1030,7 @@ export const extinguisherCompare = [
     use: "Pasillos, comercios, estacionamientos, oficinas y locales",
     residue: "Deja residuo (polvo)",
     note: "El más pedido; 6 kg es el que más se instala",
-    href: "/productos?cat=extintores#extintores",
+    href: "/productos/extintores",
   },
   {
     name: "CO₂",
@@ -1025,7 +1038,7 @@ export const extinguisherCompare = [
     use: "Cómputo, laboratorios, tableros y equipo eléctrico",
     residue: "Sin residuo",
     note: "No cubre sólidos (A) ni freidoras (K)",
-    href: "/producto?sku=CRM-0007",
+    href: "/producto/CRM-0007",
   },
   {
     name: "Tipo K",
@@ -1033,7 +1046,7 @@ export const extinguisherCompare = [
     use: "Freidoras, parrillas, marmitas y cocinas",
     residue: "Agente para grasas de cocina",
     note: "No sustituye al PQS ABC en el resto del local",
-    href: "/producto?sku=CRM-0012",
+    href: "/producto/CRM-0012",
   },
 ];
 
@@ -1197,20 +1210,110 @@ export function lookAlt(item) {
   return brandAlt("Técnico instalando extintor certificado");
 }
 
+export function productPath(sku) {
+  return `/producto/${String(sku || "").toUpperCase()}`;
+}
+
 export function productUrl(sku) {
-  return withBase(`/producto?sku=${encodeURIComponent(sku)}#${encodeURIComponent(sku)}`);
+  return withBase(productPath(sku));
+}
+
+export function catPath(id) {
+  return `/productos/${id}`;
+}
+
+export function catUrl(id) {
+  return withBase(catPath(id));
+}
+
+export function catSeoTitle(id) {
+  return `${catName(id)} | Catálogo Grupo CRM`;
+}
+
+function clipSeo(text, max) {
+  const clean = String(text || "").replace(/\s+/g, " ").trim();
+  if (clean.length <= max) return clean;
+  const cut = clean.slice(0, max - 1);
+  const sentence = cut.lastIndexOf(".");
+  if (sentence >= Math.floor(max * 0.55)) return cut.slice(0, sentence + 1).trim();
+  const space = cut.lastIndexOf(" ");
+  return `${(space > 40 ? cut.slice(0, space) : cut).trim()}…`;
+}
+
+export function productSeoTitle(p) {
+  const compact = String(p?.title || "")
+    .replace(" para uso comercial e industrial", "")
+    .replace(" de alta visibilidad", "")
+    .replace(/\s+-\s+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  const full = `${compact} | ${company.shortName}`;
+  if (full.length <= 60) return full;
+  return clipSeo(full, 60).replace(/[.…]$/, "");
+}
+
+export function productMetaDescription(p) {
+  const bits = [];
+  if (p?.title) bits.push(p.title);
+  if (p?.cap) bits.push(`Capacidad ${p.cap}`);
+  if (p?.agent) bits.push(p.agent);
+  if (p?.classes) bits.push(`Clases ${p.classes}`);
+  const use = String(p?.use || p?.desc || "").replace(/\s+/g, " ").trim();
+  const first = use.match(/^[^.!?]+[.!?]/);
+  if (first) bits.push(first[0].trim());
+  else if (use) bits.push(use);
+  bits.push("Cotice en CDMX y Estado de México.");
+  return clipSeo(bits.join(". ").replace(/\.\s*\./g, "."), 158);
 }
 
 export function readSku() {
-  const query = new URLSearchParams(location.search).get("sku");
-  if (query) return query;
-  const hash = safeDecode((location.hash || "").replace(/^#/, ""));
-  if (hash && /^CRM-\d{4}$/i.test(hash)) return hash;
+  try {
+    const query = new URLSearchParams(location.search).get("sku");
+    if (query && /^CRM-\d{4}$/i.test(query)) return query.toUpperCase();
+  } catch {
+    /* ignore */
+  }
+  try {
+    const path = String(location.pathname || "");
+    const match = path.match(/\/producto\/(CRM-\d{4})\/?$/i);
+    if (match) return match[1].toUpperCase();
+  } catch {
+    /* ignore */
+  }
+  try {
+    const hash = safeDecode((location.hash || "").replace(/^#/, ""));
+    if (hash && /^CRM-\d{4}$/i.test(hash)) return hash.toUpperCase();
+  } catch {
+    /* ignore */
+  }
   try {
     return sessionStorage.getItem("crm-sku") || "";
   } catch {
     return "";
   }
+}
+
+export function readCat() {
+  try {
+    const query = new URLSearchParams(location.search).get("cat");
+    if (query && categories.some((c) => c.id === query)) return query;
+  } catch {
+    /* ignore */
+  }
+  try {
+    const path = String(location.pathname || "").replace(/\/$/, "");
+    const match = path.match(/\/productos\/([a-z0-9-]+)$/i);
+    if (match && categories.some((c) => c.id === match[1])) return match[1];
+  } catch {
+    /* ignore */
+  }
+  try {
+    const hash = safeDecode((location.hash || "").replace(/^#/, ""));
+    if (hash && categories.some((c) => c.id === hash)) return hash;
+  } catch {
+    /* ignore */
+  }
+  return "";
 }
 
 export function relatedProducts(sku, limit = 4) {

@@ -9,9 +9,15 @@ import {
   productBySku,
   productImg,
   productAlt,
+  productPath,
+  productSeoTitle,
+  productMetaDescription,
+  catPath,
+  catSeoTitle,
   lookbook,
   lookAlt,
   readSku,
+  readCat,
   blogPosts,
   blogPostBySlug,
   zonasCdmx,
@@ -90,14 +96,6 @@ function firstSentence(text) {
   return match ? match[0].trim() : clean;
 }
 
-function productMetaDescription(p) {
-  const lead = firstSentence(p.desc) || p.title;
-  const parts = [lead];
-  if (p.cap && lead.length < 110) parts.push(`Capacidad ${p.cap}.`);
-  if (lead.length < 130) parts.push("Cotice en CDMX y Estado de México.");
-  return clipDesc(parts.join(" "));
-}
-
 function stripHtml(html) {
   return String(html || "")
     .replace(/<[^>]+>/g, " ")
@@ -107,6 +105,7 @@ function stripHtml(html) {
 
 function defaultAreaServed() {
   return [
+    { "@type": "Place", name: "Loma del Padre, Cuajimalpa, Ciudad de México" },
     { "@type": "AdministrativeArea", name: "Ciudad de México" },
     { "@type": "AdministrativeArea", name: "Estado de México" },
     ...zonasCdmx.map((z) => ({
@@ -129,9 +128,9 @@ function professionalService({ areaServed } = {}) {
     "@type": "ProfessionalService",
     "@id": `${SITE.origin}/#business`,
     name: company.name,
-    alternateName: ["Grupo CRM", "GRUPO CRM Extintores", "CRM Extintores"],
+    alternateName: ["CRM Extintores", "Grupo CRM", "GRUPO CRM Extintores"],
     legalName: company.legalName || company.name,
-    brand: { "@type": "Brand", name: company.name },
+    brand: { "@type": "Brand", name: "CRM Extintores", alternateName: [company.name, "Grupo CRM", "GRUPO CRM Extintores"] },
     description: company.about,
     url: SITE.origin,
     image: [
@@ -199,6 +198,8 @@ function professionalService({ areaServed } = {}) {
       company.mapsUrl,
     ].filter(Boolean),
     knowsAbout: [
+      "CRM Extintores",
+      "Extintores en Loma del Padre",
       "Extintores",
       "Recarga de extintores",
       "Instalación de extintores",
@@ -215,7 +216,7 @@ function professionalService({ areaServed } = {}) {
         "@type": "OfferCatalog",
         position: i + 1,
         name: cat.name,
-        url: abs(`/productos?cat=${cat.id}`),
+        url: abs(catPath(cat.id)),
       })),
     },
   };
@@ -244,7 +245,7 @@ function organizationNode() {
     "@id": `${SITE.origin}/#organization`,
     name: company.name,
     legalName: company.legalName || company.name,
-    alternateName: ["Grupo CRM", "GRUPO CRM Extintores", "CRM Extintores"],
+    alternateName: ["CRM Extintores", "Grupo CRM", "GRUPO CRM Extintores"],
     url: SITE.origin,
     logo: {
       "@type": "ImageObject",
@@ -269,8 +270,8 @@ function websiteNode() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": `${SITE.origin}/#website`,
-    name: company.name,
-    alternateName: ["Grupo CRM", "GRUPO CRM Extintores", "CRM Extintores"],
+    name: "CRM Extintores",
+    alternateName: [company.name, "Grupo CRM", "GRUPO CRM Extintores"],
     url: SITE.origin,
     inLanguage: "es-MX",
     publisher: { "@id": `${SITE.origin}/#organization` },
@@ -322,21 +323,27 @@ function productNode(p, url) {
       name: productAlt(p, { detail: true }),
       caption: productAlt(p, { detail: true }),
     },
-    brand: { "@type": "Brand", name: company.name },
+    brand: { "@type": "Brand", name: "CRM Extintores", alternateName: [company.name, "Grupo CRM", "GRUPO CRM Extintores"] },
     category: catName(p.cat),
     url,
   };
 }
 
 function breadcrumbs(items) {
+  const named = items.filter((item) => item?.name && item.path);
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: items.map((item, i) => ({
+    name: named.map((item) => item.name).join(" › "),
+    itemListElement: named.map((item, i) => ({
       "@type": "ListItem",
       position: i + 1,
       name: item.name,
-      item: abs(item.path),
+      item: {
+        "@type": "WebPage",
+        "@id": abs(item.path),
+        name: item.name,
+      },
     })),
   };
 }
@@ -356,13 +363,15 @@ function resolvePage(page) {
         robots: "noindex, follow",
       };
     }
-    if (cat && categories.some((c) => c.id === cat)) {
-      const name = catName(cat);
+    const fromPath = readCat();
+    if ((cat && categories.some((c) => c.id === cat)) || fromPath) {
+      const id = categories.some((c) => c.id === cat) ? cat : fromPath;
+      const name = catName(id);
       return {
         ...base,
-        title: `${name} | Catálogo ${company.name}`,
-        description: catSeo[cat] || `Línea de ${name.toLowerCase()} de ${company.name}. Cotice en CDMX y Estado de México.`,
-        path: `/productos?cat=${cat}`,
+        title: catSeoTitle(id),
+        description: catSeo[id] || `Línea de ${name.toLowerCase()} de ${company.name}. Cotice en CDMX y Estado de México.`,
+        path: catPath(id),
       };
     }
   }
@@ -373,11 +382,12 @@ function resolvePage(page) {
         ...pageSeo.error,
         title: `Artículo no encontrado | ${company.name}`,
         path: "/producto",
+        robots: "noindex, follow",
       };
     }
     return {
-      path: `/producto?sku=${p.sku}`,
-      title: `${p.title} · ${p.sku} | ${company.name}`,
+      path: productPath(p.sku),
+      title: productSeoTitle(p),
       description: productMetaDescription(p),
       type: "product",
       product: p,
@@ -406,8 +416,8 @@ function resolvePage(page) {
       path: hub,
       title:
         document.body.dataset.hub === "edomex"
-          ? `Extintores en Estado de México | ${company.name}`
-          : `Extintores en CDMX | ${company.name}`,
+          ? "Extintores en Estado de México | Venta y recarga"
+          : "Extintores en CDMX | Venta y recarga",
       description:
         document.body.dataset.hub === "edomex"
           ? "Extintores en Estado de México: venta, recarga, mantenimiento e instalación. Cotice con Grupo CRM Extintores."
@@ -450,10 +460,10 @@ function resolvePage(page) {
     return {
       path: extintoresPath(zona),
       title: isBase
-        ? `Venta y recarga de extintores en Cuajimalpa | ${company.name}`
+        ? "Extintores en Loma del Padre | CRM Extintores"
         : zona.region === "edomex"
-          ? `Venta y recarga de extintores en ${zona.name}, Edo. Méx. | ${company.name}`
-          : `Venta y recarga de extintores en ${zona.name}, CDMX | ${company.name}`,
+          ? `Extintores en ${zona.name} | Venta y recarga`
+          : `Extintores en ${zona.name} | Grupo CRM`,
       description: isBase
         ? `Venta y recarga de extintores en Cuajimalpa: oficina en Chamixto 131, Loma del Padre. Santa Fe, Contadero y toda la alcaldía. Primera visita sin costo. WhatsApp ${company.phone}.`
         : clipDesc(
@@ -488,7 +498,7 @@ export function applySeo(page) {
   setLink("canonical", url);
   setMeta("og:type", seo.type === "product" ? "product" : seo.type === "article" ? "article" : "website", "property");
   setMeta("og:locale", SITE.locale, "property");
-  setMeta("og:site_name", company.name, "property");
+  setMeta("og:site_name", company.shortName, "property");
   setMeta("og:title", seo.title, "property");
   setMeta("og:description", seo.description, "property");
   setMeta("og:url", url, "property");
@@ -497,7 +507,7 @@ export function applySeo(page) {
     "og:image:alt",
     seo.product
       ? productAlt(seo.product, { detail: true })
-      : seo.article?.imageAlt || seo.imageAlt || `Logotipo de ${company.name}`,
+      : seo.article?.imageAlt || seo.imageAlt || `Grupo CRM Extintores en CDMX y Estado de México`,
     "property"
   );
   if (seo.product || seo.article) {
@@ -507,9 +517,9 @@ export function applySeo(page) {
     setMeta("og:image:height", String(seo.imageHeight), "property");
     setMeta("og:image:type", "image/webp", "property");
   } else {
-    setMeta("og:image:width", "720", "property");
-    setMeta("og:image:height", "154", "property");
-    setMeta("og:image:type", "image/png", "property");
+    setMeta("og:image:width", "1200", "property");
+    setMeta("og:image:height", "630", "property");
+    setMeta("og:image:type", "image/jpeg", "property");
   }
   setMeta("twitter:card", "summary_large_image");
   setMeta("twitter:title", seo.title);
@@ -536,7 +546,7 @@ export function applySeo(page) {
     name: seo.title,
     description: seo.description,
     inLanguage: "es-MX",
-    isPartOf: { "@type": "WebSite", "@id": `${SITE.origin}/#website`, name: company.name, url: SITE.origin },
+    isPartOf: { "@type": "WebSite", "@id": `${SITE.origin}/#website`, name: company.shortName, url: SITE.origin },
     datePublished: seo.article?.datePublished || SITE.contentPublished,
     dateModified:
       seo.article?.dateModified ||
@@ -560,7 +570,23 @@ export function applySeo(page) {
     setJsonLd("seo-faq", faqPage(seo.article.faqs));
   }
 
-  if (page === "blog") {
+  if (page === "nosotros") {
+    setJsonLd(
+      "seo-crumbs",
+      breadcrumbs([
+        { name: "Inicio", path: "/" },
+        { name: "Nosotros", path: "/nosotros" },
+      ])
+    );
+  } else if (page === "contacto") {
+    setJsonLd(
+      "seo-crumbs",
+      breadcrumbs([
+        { name: "Inicio", path: "/" },
+        { name: "Contacto", path: "/contacto" },
+      ])
+    );
+  } else if (page === "blog") {
     setJsonLd(
       "seo-crumbs",
       breadcrumbs([
@@ -581,7 +607,8 @@ export function applySeo(page) {
   } else if (page === "productos") {
     const cat = new URLSearchParams(location.search).get("cat");
     const crumbs = [{ name: "Inicio", path: "/" }, { name: "Catálogo", path: "/productos" }];
-    if (cat && categories.some((c) => c.id === cat)) crumbs.push({ name: catName(cat), path: `/productos?cat=${cat}` });
+    if (cat && categories.some((c) => c.id === cat)) crumbs.push({ name: catName(cat), path: catPath(cat) });
+    else if (readCat()) crumbs.push({ name: catName(readCat()), path: catPath(readCat()) });
     setJsonLd("seo-crumbs", breadcrumbs(crumbs));
   } else if (seo.product) {
     setJsonLd("seo-product", productNode(seo.product, url));
@@ -590,7 +617,7 @@ export function applySeo(page) {
       breadcrumbs([
         { name: "Inicio", path: "/" },
         { name: "Catálogo", path: "/productos" },
-        { name: catName(seo.product.cat), path: `/productos?cat=${seo.product.cat}` },
+        { name: catName(seo.product.cat), path: catPath(seo.product.cat) },
         { name: seo.product.sku, path: seo.path },
       ])
     );
@@ -734,7 +761,7 @@ export function sitemapUrls() {
     ...seoServicePages.map((s) => s.path),
     ...zonas.map((z) => extintoresPath(z)),
     ...blogPosts.map((post) => post.path),
-    ...categories.map((c) => `/productos?cat=${c.id}`),
-    ...products.map((p) => `/producto?sku=${p.sku}`),
+    ...categories.map((c) => catPath(c.id)),
+    ...products.map((p) => productPath(p.sku)),
   ];
 }

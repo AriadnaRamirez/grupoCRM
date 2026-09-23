@@ -1996,6 +1996,10 @@ body.is-nav-open { overflow: hidden; }
   width: min(100%, 200px);
   justify-self: center;
 }
+.about-teaser__mascot a {
+  display: block;
+  line-height: 0;
+}
 .about-teaser__mascot img {
   display: block;
   width: 100%;
@@ -5847,6 +5851,10 @@ body.is-lightbox { overflow: hidden; }
   display: grid;
   place-items: center;
   margin: 0;
+}
+.about-mv-band__figure a {
+  display: block;
+  line-height: 0;
 }
 .about-mv-band__figure picture {
   display: block;
@@ -10988,5 +10996,36 @@ html.is-boot-error body::before {
 @media (max-width: 760px) {
   .faqs {
     content-visibility: visible;
+  }
+}
+
+.inspector-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  margin: 32px 0 40px;
+}
+.inspector-shot {
+  margin: 0;
+  padding: 24px 24px 16px;
+  background: #f4f5f7;
+}
+.inspector-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center bottom;
+}
+.inspector-shot figcaption {
+  margin: 12px 0 0;
+  color: #6a7080;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  text-align: center;
+}
+@media (max-width: 700px) {
+  .inspector-gallery {
+    grid-template-columns: 1fr;
   }
 }

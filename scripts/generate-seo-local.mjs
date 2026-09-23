@@ -24,7 +24,7 @@ import {
 } from "../js/data.js";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const CACHE = "rb-5";
+const CACHE = "rb-11";
 const MONTHS_ES = [
   "enero",
   "febrero",
@@ -123,12 +123,12 @@ ${cssBoot}
   <link rel="canonical" href="${canonical}">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_MX">
-  <meta property="og:site_name" content="Grupo CRM Extintores">
+  <meta property="og:site_name" content="${escapeHtml(company.name)}">
   <meta property="og:title" content="${escapeHtml(title)}">
   <meta property="og:description" content="${escapeHtml(description)}">
   <meta property="og:url" content="${canonical}">
   <meta property="og:image" content="${origin}/assets/img/logo-crm.png">
-  <meta property="og:image:alt" content="Logotipo de Grupo CRM Extintores">
+  <meta property="og:image:alt" content="Logotipo de ${escapeHtml(company.name)}">
   <meta property="og:image:width" content="720">
   <meta property="og:image:height" content="154">
   <meta property="og:image:type" content="image/png">
@@ -180,7 +180,6 @@ ${jsonLd}
     <a href="/aviso-privacidad">Aviso de privacidad</a>
     <a href="/politica-de-servicio">Política de servicio</a>
     <a href="/fuentes-y-normatividad">Fuentes y normatividad</a>
-    <a href="/caso-agencia-automotriz">Caso agencia automotriz</a>
     <a href="tel:5667481489">56 6748 1489</a>
     <a href="mailto:crm.extintores@gmail.com">crm.extintores@gmail.com</a>
   </nav>
@@ -189,7 +188,7 @@ ${jsonLd}
       <div class="site-topbar"><div class="wrap topbar__inner"></div></div>
       <header class="site-header">
         <div class="wrap header__inner">
-          <a class="brand" href="/"><picture><source type="image/webp" srcset="/assets/img/logo-crm.webp"><img src="/assets/img/logo-crm.png" alt="Grupo CRM Extintores" width="720" height="154" decoding="async"></picture></a>
+          <a class="brand" href="/"><picture><source type="image/webp" srcset="/assets/img/logo-crm.webp"><img src="/assets/img/logo-crm.png" alt="${escapeHtml(company.name)}" width="720" height="154" decoding="async"></picture></a>
           <span class="header-skel__nav" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span>
           <span class="header-skel__cta" aria-hidden="true"></span>
         </div>
@@ -243,7 +242,7 @@ function locationCopy(zona) {
   const isBase = zona.slug === "cuajimalpa";
   const intros = isBase
     ? [
-        `Grupo CRM Extintores tiene su oficina en Cuajimalpa, Ciudad de México. Desde Chamixto 131, Col. Loma del Padre, ofrecemos venta, recarga, mantenimiento e instalación de extintores para empresas e inmuebles de la alcaldía y el resto de CDMX y Estado de México.`,
+        `Grupo CRM Extintores tiene su única oficina en Cuajimalpa, Ciudad de México. Desde Chamixto 131, Col. Loma del Padre, cotizamos, visitamos e instalamos extintores en la alcaldía —Santa Fe, Contadero, San José de los Cedros y Cuajimalpa Centro— y en el resto de CDMX y Estado de México.`,
       ]
     : [
         `Grupo CRM Extintores ofrece venta, recarga, mantenimiento e instalación de extintores en ${zona.name}, ${region}. Atendemos ${zona.focus}.`,
@@ -255,7 +254,7 @@ function locationCopy(zona) {
     : `${zona.name} es una zona de servicio: no tenemos sucursal física en esta ${type.toLowerCase()}. El servicio se coordina desde nuestra oficina en Cuajimalpa y se realiza en su inmueble.`;
   const venta = isBase
     ? [
-        `Vendemos extintores certificados en Cuajimalpa con asesoría según el riesgo del inmueble y lo que suele pedir Protección Civil. Puede cotizar PQS, CO₂, tipo K y el resto del catálogo, con opción de entrega o instalación en sitio.`,
+        `Vendemos extintores certificados en Cuajimalpa según el riesgo del inmueble: PQS ABC para pasillos y locales, CO₂ para tableros y cómputo, tipo K para cocinas. En corporativos de Santa Fe y en comercios de Contadero o Cuajimalpa Centro partimos de lo que suele pedir Protección Civil, no de un paquete genérico.`,
       ]
     : [
         `Vendemos extintores certificados adecuados al riesgo de su inmueble en ${zona.name}. Le orientamos sobre capacidad y tipo de agente antes de cotizar.`,
@@ -263,7 +262,7 @@ function locationCopy(zona) {
       ];
   const recarga = isBase
     ? [
-        `Recargamos extintores en Cuajimalpa con proceso alineado a la NOM-154-SCFI-2005. Si sus equipos están vencidos, descargados o con sello roto, evaluamos recarga o sustitución y le dejamos evidencia útil para inspección.`,
+        `Recargamos extintores en Cuajimalpa con proceso alineado a la NOM-154-SCFI-2005. Coordinamos la visita desde Loma del Padre: revisamos presión, sello y etiqueta en su inmueble; si el cilindro requiere taller, acordamos recolección. Si está vencido, descargado o con sello roto, le decimos si conviene recargar o sustituir, con evidencia para inspección.`,
       ]
     : [
         `Recargamos extintores en ${zona.name} con proceso alineado a la NOM-154-SCFI-2005, para que el equipo quede operativo y con evidencia útil en inspección.`,
@@ -278,10 +277,10 @@ function locationCopy(zona) {
     `La instalación en ${zona.name} puede incluir soporte y señal de equipo para dejar el punto listo ante una visita de Protección Civil.`,
   ];
   const clients = isBase
-    ? "En Cuajimalpa atendemos corporativos de Santa Fe y Contadero, condominios, oficinas, restaurantes, comercios, escuelas y clínicas. También visitamos el resto de CDMX y Estado de México desde esta base."
+    ? "En Cuajimalpa atendemos corporativos y plazas de Santa Fe, comercios y residencias de Contadero, oficinas de Cuajimalpa Centro, condominios, restaurantes, escuelas y clínicas. Desde esta misma base visitamos el resto de CDMX y Estado de México."
     : "Empresas, oficinas, restaurantes, comercios, condominios, escuelas y clínicas. También atendemos otros giros cuando el inmueble requiere equipo contra incendios.";
   const areasNote = isBase
-    ? "En Cuajimalpa damos servicio de forma habitual en Loma del Padre (sede), Contadero, Santa Fe, José María Castorena, Memetla, San Mateo Tlaltenango, El Yaqui y demás colonias de la alcaldía. Si su colonia no aparece en la lista, escríbanos: la cobertura es toda Cuajimalpa."
+    ? "La cobertura es toda la alcaldía Cuajimalpa, no un listado cerrado. Atendemos de forma habitual Loma del Padre, Contadero, Santa Fe (lado Cuajimalpa), San José de los Cedros, Cuajimalpa Centro, José María Castorena, Memetla, San Mateo Tlaltenango, El Yaqui, La Venta, Palo Alto y colonias vecinas. Si su colonia no aparece, escríbanos."
     : `En ${zona.name} priorizamos inmuebles vinculados a: ${zona.focus}. Si su colonia no aparece en esa descripción, escríbanos: la cobertura es por ${type.toLowerCase()} de servicio, no por listado exhaustivo de colonias.`;
   const faqs = [
     {
@@ -310,10 +309,20 @@ function locationCopy(zona) {
     },
   ];
   if (isBase) {
-    faqs.push({
-      q: "¿Atienden Santa Fe y Contadero?",
-      a: "Sí. Santa Fe, Contadero y el resto de Cuajimalpa forman parte de nuestra cobertura habitual desde la sede en Loma del Padre.",
-    });
+    faqs.push(
+      {
+        q: "¿Atienden Santa Fe y Contadero?",
+        a: "Sí. Santa Fe (lado Cuajimalpa), Contadero y el resto de la alcaldía son cobertura habitual desde Loma del Padre. Si su inmueble está del lado de Álvaro Obregón, también lo visitamos.",
+      },
+      {
+        q: "¿La primera visita tiene costo en Cuajimalpa?",
+        a: "No. La primera visita de revisión o levantamiento en Cuajimalpa no tiene costo. Recarga, venta o instalación se cotizan por escrito según lo encontrado.",
+      },
+      {
+        q: "¿Atienden San José de los Cedros y Cuajimalpa Centro?",
+        a: "Sí. San José de los Cedros, Cuajimalpa Centro, La Venta, Palo Alto y el resto de colonias de la alcaldía se atienden desde Chamixto 131.",
+      }
+    );
   }
   return {
     intro: intros[n % intros.length],
@@ -376,6 +385,8 @@ function locationJsonLd(zona, canonical) {
     "@type": "ProfessionalService",
     "@id": `${SITE.origin}/#business`,
     name: company.name,
+    legalName: company.legalName || company.name,
+    alternateName: ["Grupo CRM", "GRUPO CRM Extintores", "CRM Extintores"],
     image: `${SITE.origin}/assets/img/logo-crm.png`,
     url: SITE.origin,
     telephone: `+52${company.phoneTel}`,
@@ -389,8 +400,28 @@ function locationJsonLd(zona, canonical) {
       addressCountry: company.addressCountry,
     },
     openingHours: "Mo-Fr 09:00-18:00",
-    areaServed: [{ "@type": "AdministrativeArea", name: zona.name }],
-    sameAs: [company.facebookUrl, company.instagramUrl].filter(Boolean),
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "18:00",
+    },
+    geo: company.geo
+      ? {
+          "@type": "GeoCoordinates",
+          latitude: company.geo.latitude,
+          longitude: company.geo.longitude,
+        }
+      : undefined,
+    hasMap: company.mapsUrl,
+    areaServed: copy.isBase
+      ? [
+          { "@type": "AdministrativeArea", name: "Cuajimalpa de Morelos, Ciudad de México" },
+          { "@type": "Place", name: "Santa Fe, Ciudad de México" },
+          { "@type": "Place", name: "Contadero, Cuajimalpa" },
+        ]
+      : [{ "@type": "AdministrativeArea", name: zona.name }],
+    sameAs: [company.facebookUrl, company.instagramUrl, company.mapsUrl].filter(Boolean),
   };
   return [
     `  <script type="application/ld+json">${JSON.stringify(crumbs)}</script>`,
@@ -406,12 +437,12 @@ function locationHtml(zona) {
   const hub = extintoresHubPath(zona.region);
   const hubLabel = zona.region === "edomex" ? "Estado de México" : "Ciudad de México";
   const title = copy.isBase
-    ? "Venta y recarga de extintores en Cuajimalpa | Grupo CRM"
+    ? `Venta y recarga de extintores en Cuajimalpa | ${company.name}`
     : zona.region === "edomex"
-      ? `Venta y recarga de extintores en ${zona.name}, Edo. Méx. | Grupo CRM`
-      : `Venta y recarga de extintores en ${zona.name}, CDMX | Grupo CRM`;
+      ? `Venta y recarga de extintores en ${zona.name}, Edo. Méx. | ${company.name}`
+      : `Venta y recarga de extintores en ${zona.name}, CDMX | ${company.name}`;
   const description = copy.isBase
-    ? `Venta y recarga de extintores en Cuajimalpa desde nuestra oficina en Chamixto 131, Loma del Padre. Mantenimiento e instalación. Primera visita sin costo. WhatsApp ${company.phone}.`
+    ? `Venta y recarga de extintores en Cuajimalpa: oficina en Chamixto 131, Loma del Padre. Santa Fe, Contadero y toda la alcaldía. Primera visita sin costo. WhatsApp ${company.phone}.`
     : `Venta, recarga, mantenimiento e instalación de extintores en ${zona.name}, ${region}. Primera visita sin costo. Cotice con Grupo CRM Extintores.`;
   const canonical = `${SITE.origin}${extintoresPath(zona)}`;
   const h1 = copy.isBase
@@ -441,13 +472,26 @@ function locationHtml(zona) {
   const officeBlock = copy.isBase
     ? `
         <h2>Oficina en Cuajimalpa</h2>
-        <p>Grupo CRM Extintores opera desde <strong>Chamixto 131, Col. Loma del Padre, Cuajimalpa</strong>. Aquí cotizamos, coordinamos visitas y atendemos a empresas de la alcaldía y del resto de la zona metropolitana.</p>
+        <p>Grupo CRM Extintores opera desde <strong>Chamixto 131, Col. Loma del Padre, Cuajimalpa, C.P. 05020</strong>. Es la única sede física: aquí cotizamos, coordinamos visitas y documentamos el servicio para inmuebles de la alcaldía y del resto de la zona metropolitana.</p>
         <ul class="zona-page__points">
           <li>Dirección: ${escapeHtml(company.address)}</li>
           <li>Horario: ${escapeHtml(company.hours)}</li>
           <li>Teléfono / WhatsApp: <a href="tel:${company.phoneTel}">${escapeHtml(company.phone)}</a></li>
           <li><a href="${escapeHtml(company.mapsUrl)}" target="_blank" rel="noopener noreferrer">Ver ubicación en Google Maps</a></li>
-        </ul>`
+        </ul>
+        <h2>Cómo trabajamos desde Loma del Padre</h2>
+        <p>No pedimos que traiga los extintores a la oficina salvo que el caso lo requiera. El flujo habitual en Cuajimalpa es visita en su inmueble, revisión de presión, sello y etiqueta, cotización por escrito y recarga, venta o instalación según lo encontrado. Si el cilindro necesita taller, acordamos recolección y regreso.</p>
+        <ul class="zona-page__points">
+          <li>Primera visita de revisión o levantamiento sin costo</li>
+          <li>Recarga y mantenimiento alineados a la NOM-154-SCFI-2005</li>
+          <li>Verificación de MCD cuando corresponde al proceso</li>
+          <li>Entrega o instalación en corporativos, locales y condominios de la alcaldía</li>
+        </ul>
+        <h2>Santa Fe, Contadero y Cuajimalpa Centro</h2>
+        <p>Santa Fe tiene predios en Cuajimalpa y en <a href="/extintores-alvaro-obregon">Álvaro Obregón</a>. Si su torre, plaza o restaurante está del lado Cuajimalpa, lo atendemos como cobertura de sede. Contadero, San José de los Cedros y Cuajimalpa Centro son rutas habituales desde Chamixto 131: el traslado es corto y la visita se agenda en horario hábil.</p>
+        <p>Guía de recarga local: <a href="/blog/recarga-extintores-cuajimalpa">recarga de extintores en Cuajimalpa</a>.</p>
+        <h2>Protección Civil en la alcaldía Cuajimalpa</h2>
+        <p>En inspección suelen pedir equipos visibles, manómetro en rango, sello, etiqueta con fecha y quién hizo el servicio, y a menudo señalamientos. Revisamos eso en sitio y le decimos qué falta. No somos autoridad: le dejamos el inmueble listo para que usted cumpla.</p>`
     : "";
 
   const coloniasBlock = copy.isBase
@@ -457,13 +501,19 @@ function locationHtml(zona) {
         <ul class="zona-nearby zona-nearby--wrap">
             <li>Loma del Padre (sede)</li>
             <li>Contadero</li>
-            <li>Santa Fe</li>
+            <li>Santa Fe (lado Cuajimalpa)</li>
+            <li>San José de los Cedros</li>
+            <li>Cuajimalpa Centro</li>
             <li>José María Castorena</li>
             <li>Memetla</li>
             <li>San Mateo Tlaltenango</li>
             <li>El Yaqui</li>
+            <li>La Venta</li>
+            <li>Palo Alto</li>
             <li>Cruz Blanca</li>
             <li>Zarca</li>
+            <li>San Lorenzo Acopilco</li>
+            <li>San Pablo Chimalpa</li>
             <li>Resto de la alcaldía Cuajimalpa</li>
         </ul>`
     : `
@@ -496,7 +546,11 @@ function locationHtml(zona) {
 
         <h2>Recarga de extintores en ${escapeHtml(zona.name)}</h2>
         <p>${escapeHtml(copy.recarga)}</p>
-        <p>Detalle del servicio: <a href="/recarga-extintores">recarga de extintores</a>. Rangos de referencia: <a href="/blog/precio-recarga-extintores-cdmx">precio de recarga en CDMX</a>.</p>
+        <p>Detalle del servicio: <a href="/recarga-extintores">recarga de extintores</a>.${
+          copy.isBase
+            ? ` Cómo pedimos el servicio en la alcaldía: <a href="/blog/recarga-extintores-cuajimalpa">recarga de extintores en Cuajimalpa</a>.`
+            : ""
+        } Rangos de referencia: <a href="/blog/precio-recarga-extintores-cdmx">precio de recarga en CDMX</a>.</p>
 
         <h2>Mantenimiento de extintores en ${escapeHtml(zona.name)}</h2>
         <p>${escapeHtml(copy.mant)}</p>
@@ -622,7 +676,7 @@ function hubCdmx() {
 
       <h2>Datos de Grupo CRM Extintores</h2>
       <ul class="zona-page__points">
-        <li>Nombre: Grupo CRM Extintores</li>
+        <li>Nombre: Grupo CRM Extintores (en Facebook: GRUPO CRM Extintores)</li>
         <li>Oficina: Chamixto 131, Col. Loma del Padre, Alcaldía Cuajimalpa, CDMX, C.P. 05020</li>
         <li>Horario: lunes a viernes, 9:00 a 18:00</li>
         <li>Teléfono / WhatsApp: <a href="tel:${company.phoneTel}">${escapeHtml(company.phone)}</a> y <a href="tel:${company.phoneAltTel}">${escapeHtml(company.phoneAlt)}</a></li>
@@ -645,7 +699,7 @@ function hubCdmx() {
           ${gridItems([zonasCdmx.find((z) => z.slug === "cuajimalpa"), ...zonasCdmx.filter((z) => z.slug !== "cuajimalpa")].filter(Boolean))}
       </ul>
 
-      <p class="zona-page__more muted">También atendemos el <a href="/extintores-estado-de-mexico">Estado de México</a>. Catálogo: <a href="/productos">productos</a>. Guía: <a href="/blog/extintores-cdmx">extintores en CDMX</a>. Caso: <a href="/caso-agencia-automotriz">agencia automotriz</a>.</p>
+      <p class="zona-page__more muted">También atendemos el <a href="/extintores-estado-de-mexico">Estado de México</a>. Catálogo: <a href="/productos">productos</a>. Guía: <a href="/blog/extintores-cdmx">extintores en CDMX</a>.</p>
     </div>
   </section>`;
   return pageShell({
@@ -822,6 +876,11 @@ function serviceHtml(svc) {
           ${process}
         </ol>
         ${logistics}
+        ${
+          svc.slug === "recarga-extintores"
+            ? `<p>Guía local: <a href="/blog/recarga-extintores-cuajimalpa">recarga de extintores en Cuajimalpa</a>.</p>`
+            : ""
+        }
         ${clients}
         ${faqsHtml}
         <h2>¿Dónde ofrecemos este servicio?</h2>

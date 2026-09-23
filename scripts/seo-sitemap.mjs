@@ -55,6 +55,7 @@ const inspectorImages = [
   img(company.inspector.imageExtintor, "Inspector CRM con extintor", company.inspector.altExtintor),
   img(company.inspector.imagePng, "Inspector CRM", `${company.inspector.alt}, archivo PNG`),
   img(company.inspector.imageExtintorPng, "Inspector CRM con extintor", `${company.inspector.altExtintor}, archivo PNG`),
+  img(company.inspector.image404, "Llama del 404 de Grupo CRM", company.inspector.alt404),
 ];
 
 const productImages = products.map((p) =>

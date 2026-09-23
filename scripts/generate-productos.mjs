@@ -24,7 +24,7 @@ import {
 } from "../js/data.js";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const CACHE = "rb-19";
+const CACHE = "rb-22";
 
 const MONTHS_ES = [
   "enero",
@@ -478,7 +478,6 @@ function categoryHtml(cat) {
       <hr class="rule rule-left" aria-hidden="true">
       <p class="lead">${escapeHtml(CAT_LEAD[cat.id] || description)}</p>
       ${contentDatesHtml()}
-      <p>Cotice venta e instalación en CDMX y Estado de México. WhatsApp <a href="tel:${company.phoneTel}">${escapeHtml(company.phone)}</a>.</p>
     </div>
   </section>
   <section class="shop">

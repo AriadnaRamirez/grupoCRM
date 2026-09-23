@@ -24,7 +24,32 @@ import {
 } from "../js/data.js";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const CACHE = "cls-m1";
+const CACHE = "rb-1";
+const MONTHS_ES = [
+  "enero",
+  "febrero",
+  "marzo",
+  "abril",
+  "mayo",
+  "junio",
+  "julio",
+  "agosto",
+  "septiembre",
+  "octubre",
+  "noviembre",
+  "diciembre",
+];
+function formatDateEs(iso) {
+  const [y, m, d] = String(iso).split("-").map(Number);
+  return `${d} de ${MONTHS_ES[m - 1]} de ${y}`;
+}
+function contentDatesHtml() {
+  return `<p class="content-dates content-dates--page">
+          <span>Publicado el <time datetime="${SITE.contentPublished}">${formatDateEs(SITE.contentPublished)}</time></span>
+          <span class="content-dates__sep" aria-hidden="true">·</span>
+          <span>Actualizado el <time datetime="${SITE.contentModified}">${formatDateEs(SITE.contentModified)}</time></span>
+        </p>`;
+}
 const pagesBaseSnippet = `  <script>!function(){if(!/\\.github\\.io$/i.test(location.hostname))return;var s=document.createElement("script");s.src="/js/pages-base.js";document.head.appendChild(s)}();</script>\n`;
 const cssBoot = `  <style id="css-boot">
   /* Critical first paint: reserve chrome + hero before async main.css (CLS) */
@@ -47,7 +72,7 @@ const cssBoot = `  <style id="css-boot">
   body:has([data-header] .site-chrome) {
     padding-top: calc(var(--chrome-h) + env(safe-area-inset-top, 0px));
   }
-  .brand img { display: block; width: auto; height: auto; max-height: 47px; aspect-ratio: 243 / 52; object-fit: contain; }
+  .brand img { display: block; width: auto; height: auto; max-height: 47px; aspect-ratio: 720 / 154; object-fit: contain; }
   .hero-slider { position: relative; isolation: isolate; min-height: min(72vh, 646px); overflow: hidden; background: #1a2031; }
   @media (max-width: 760px) {
     .hero-slider:not(.home-gallery) { min-height: min(78dvh, 660px); }
@@ -87,8 +112,6 @@ function pageShell({ title, description, canonical, bodyAttrs, main, jsonLd = ""
 <head>
   <meta charset="UTF-8">
 ${pagesBaseSnippet}${cssBoot}
-  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2" media="(min-width: 761px)" crossorigin>
-  <link rel="stylesheet" href="/css/tokens.css?v=${CACHE}">
   <link rel="preload" as="style" href="/css/main.min.css?v=${CACHE}" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="/css/main.min.css?v=${CACHE}"></noscript>
   <script>!function(){var l=document.querySelector('link[rel="preload"][as="style"]');if(l&&!l.sheet){l.addEventListener("load",function(){this.onload=null;this.rel="stylesheet"});if(l.relList&&!l.relList.supports("preload"))l.rel="stylesheet"}}();</script>
@@ -116,8 +139,22 @@ ${pagesBaseSnippet}${cssBoot}
   <meta name="twitter:image" content="${origin}/assets/img/logo-crm.png">
   <link rel="icon" type="image/png" href="/assets/img/favicon.png" sizes="192x192">
   <link rel="apple-touch-icon" href="/assets/img/favicon.png">
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <script>
+  (function () {
+    function loadFa() {
+      if (document.getElementById("fa-css")) return;
+      var link = document.createElement("link");
+      link.id = "fa-css";
+      link.rel = "stylesheet";
+      link.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css";
+      link.crossOrigin = "anonymous";
+      link.referrerPolicy = "no-referrer";
+      document.head.appendChild(link);
+    }
+    if ("requestIdleCallback" in window) window.requestIdleCallback(loadFa, { timeout: 6000 });
+    else window.addEventListener("load", function () { setTimeout(loadFa, 2500); }, { once: true });
+  })();
+  </script>
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
 ${jsonLd}
 </head>
@@ -142,6 +179,8 @@ ${jsonLd}
     <a href="/extintores-huixquilucan">Huixquilucan</a>
     <a href="/mapa-sitio">Mapa de sitio</a>
     <a href="/aviso-privacidad">Aviso de privacidad</a>
+    <a href="/politica-de-servicio">Política de servicio</a>
+    <a href="/fuentes-y-normatividad">Fuentes y normatividad</a>
     <a href="tel:5667481489">56 6748 1489</a>
     <a href="mailto:crm.extintores@gmail.com">crm.extintores@gmail.com</a>
   </nav>
@@ -441,6 +480,7 @@ function locationHtml(zona) {
         <h1>${escapeHtml(h1)}</h1>
         <hr class="rule rule-left" aria-hidden="true">
         <p class="lead">${escapeHtml(copy.intro)}</p>
+        ${contentDatesHtml()}
         <p class="muted">${escapeHtml(copy.office)}</p>
         <p class="zona-page__cta zona-page__cta--head">
           <a class="btn btn-wa" href="${waHref(`Hola, quiero cotizar extintores en ${zona.name}, ${region}.`)}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp</a>
@@ -521,6 +561,7 @@ function hubCdmx() {
         <h1>Extintores en Ciudad de México</h1>
         <hr class="rule rule-left" aria-hidden="true">
         <p class="lead">Grupo CRM Extintores ofrece venta, recarga, mantenimiento e instalación de extintores y equipo contra incendios en la Ciudad de México. Atendemos empresas, oficinas, restaurantes, comercios, condominios, escuelas y clínicas.</p>
+        ${contentDatesHtml()}
       </header>
 
       <h2>Servicios en CDMX</h2>
@@ -578,6 +619,7 @@ function hubEdomex() {
         <h1>Extintores en Estado de México</h1>
         <hr class="rule rule-left" aria-hidden="true">
         <p class="lead">Grupo CRM Extintores atiende municipios del Estado de México con venta, recarga, mantenimiento e instalación de extintores. El servicio se coordina desde Cuajimalpa, CDMX.</p>
+        ${contentDatesHtml()}
       </header>
 
       <h2>Servicios</h2>
@@ -659,6 +701,7 @@ function serviceHtml(svc) {
         <h1>${escapeHtml(svc.h1)}</h1>
         <hr class="rule rule-left" aria-hidden="true">
         <p class="lead">${escapeHtml(svc.lead)}</p>
+        ${contentDatesHtml()}
       </header>
       <div class="zona-page__body">
         ${body}

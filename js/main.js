@@ -1,6 +1,7 @@
 import { rebaseDocument } from "./base.js";
 import { mountShell, renderHome, renderProductos, renderProducto, renderServicios, renderNosotros, renderGaleria, renderHook, bindContact, bindMotion, bindErrorReturn } from "./ui.js";
 import { applySeo } from "./seo.js";
+import { loadAnalytics } from "./analytics.js";
 
 rebaseDocument();
 
@@ -51,3 +52,7 @@ document.querySelectorAll("[aria-busy='true']").forEach((el) => {
 requestAnimationFrame(() => {
   document.documentElement.classList.add("is-booted");
 });
+
+const bootAnalytics = () => safe(loadAnalytics);
+if ("requestIdleCallback" in window) window.requestIdleCallback(bootAnalytics, { timeout: 4000 });
+else window.addEventListener("load", () => setTimeout(bootAnalytics, 1200), { once: true });

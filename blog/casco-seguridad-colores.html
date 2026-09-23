@@ -15,6 +15,7 @@
   
   
   
+  
   <script>!function(){if(!/\.github\.io$/i.test(location.hostname))return;var s=document.createElement("script");s.src="/js/pages-base.js";document.head.appendChild(s)}();</script>
   <style id="css-boot">
   /* Critical first paint: reserve chrome + hero before async main.css (CLS) */
@@ -37,7 +38,7 @@
   body:has([data-header] .site-chrome) {
     padding-top: calc(var(--chrome-h) + env(safe-area-inset-top, 0px));
   }
-  .brand img { display: block; width: auto; height: auto; max-height: 47px; aspect-ratio: 243 / 52; object-fit: contain; }
+  .brand img { display: block; width: auto; height: auto; max-height: 47px; aspect-ratio: 720 / 154; object-fit: contain; }
   .hero-slider { position: relative; isolation: isolate; min-height: min(72vh, 646px); overflow: hidden; background: #1a2031; }
   @media (max-width: 760px) {
     .hero-slider:not(.home-gallery) { min-height: min(78dvh, 660px); }
@@ -50,10 +51,8 @@
   .slide__photo { position: absolute; inset: 0 0 0 auto; width: min(50%, 720px); }
   .slide__photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center bottom; }
   </style>
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2" media="(min-width: 761px)" crossorigin>
-<link rel="stylesheet" href="/css/tokens.css?v=cls-m1">
-      <link rel="preload" as="style" href="/css/main.min.css?v=cls-m1" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="/css/main.min.css?v=cls-m1"></noscript>
+<link rel="preload" as="style" href="/css/main.min.css?v=rb-1" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/css/main.min.css?v=rb-1"></noscript>
   <script>!function(){var l=document.querySelector('link[rel="preload"][as="style"]');if(l&&!l.sheet){l.addEventListener("load",function(){this.onload=null;this.rel="stylesheet"});if(l.relList&&!l.relList.supports("preload"))l.rel="stylesheet"}}();</script>
   <script>document.documentElement.classList.add("is-css");</script>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -79,11 +78,25 @@
   <meta name="twitter:title" content="Qué casco de seguridad necesito: colores y características | Grupo CRM">
   <meta name="twitter:description" content="Guía para elegir casco de seguridad por color, uso y características: tipo cachucha, ala ancha, ajuste de matraca y protección para obra, industria y brigadas.">
   <meta name="twitter:image" content="https://www.crmextintores.com.mx/assets/img/opt/full/blog-cascos-1400.webp">
-<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="preload" as="image" type="image/webp" href="/assets/img/opt/full/blog-cascos-800.webp" fetchpriority="high">
+<link rel="preload" as="image" type="image/webp" href="/assets/img/opt/full/blog-cascos-800.webp" fetchpriority="high">
   <link rel="icon" type="image/png" href="/assets/img/favicon.png">
   <link rel="apple-touch-icon" href="/assets/img/favicon.png">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'" crossorigin="anonymous" referrerpolicy="no-referrer">
+<script>
+  (function () {
+    function loadFa() {
+      if (document.getElementById("fa-css")) return;
+      var link = document.createElement("link");
+      link.id = "fa-css";
+      link.rel = "stylesheet";
+      link.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css";
+      link.crossOrigin = "anonymous";
+      link.referrerPolicy = "no-referrer";
+      document.head.appendChild(link);
+    }
+    if ("requestIdleCallback" in window) window.requestIdleCallback(loadFa, { timeout: 6000 });
+    else window.addEventListener("load", function () { setTimeout(loadFa, 2500); }, { once: true });
+  })();
+  </script>
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
 </head>
 <body data-page="articulo" data-article="casco-seguridad-colores">
@@ -107,6 +120,9 @@
     <a href="/extintores-huixquilucan">Huixquilucan</a>
     <a href="/mapa-sitio">Mapa de sitio</a>
     <a href="/aviso-privacidad">Aviso de privacidad</a>
+    <a href="/politica-de-servicio">Política de servicio</a>
+    <a href="/fuentes-y-normatividad">Fuentes y normatividad</a>
+    <a href="/caso-agencia-automotriz">Caso agencia automotriz</a>
     <a href="tel:5667481489">56 6748 1489</a>
     <a href="mailto:crm.extintores@gmail.com">crm.extintores@gmail.com</a>
   </nav>
@@ -115,7 +131,7 @@
       <div class="site-topbar"><div class="wrap topbar__inner"></div></div>
       <header class="site-header">
         <div class="wrap header__inner">
-          <a class="brand" href="/"><picture><source type="image/webp" srcset="/assets/img/logo-crm.webp"><img src="/assets/img/logo-crm.png" alt="" width="243" height="52" decoding="async"></picture></a>
+          <a class="brand" href="/"><picture><source type="image/webp" srcset="/assets/img/logo-crm.webp"><img src="/assets/img/logo-crm.png" alt="" width="720" height="154" decoding="async"></picture></a>
           <span class="header-skel__nav" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span>
           <span class="header-skel__cta" aria-hidden="true"></span>
         </div>
@@ -131,6 +147,9 @@
         <h1>Qué casco de seguridad necesito: colores y características</h1>
         <hr class="rule rule-left">
         <p class="article-dek">El color ayuda a identificar roles en obra o industria. La protección real depende del tipo de casco, el material, el ajuste y el uso correcto.</p>
+        <p class="content-dates">
+          <span>Publicado el <time datetime="2026-09-01">1 de septiembre de 2026</time></span>
+        </p>
       </header>
       <figure class="article-hero article-hero--sku">
         <picture>
@@ -263,6 +282,6 @@
   <section class="hook" data-hook></section>
   </main>
   <div data-footer></div>
-  <script type="module" src="/js/app.min.js?v=cls-m1" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
+  <script type="module" src="/js/app.min.js?v=rb-1" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
 </body>
 </html>

@@ -572,7 +572,7 @@ function footerHTML() {
           <ul>
             <li><a href="${withBase("/")}">Inicio</a></li>
             <li><a href="${withBase("/nosotros")}">Nosotros</a></li>
-            <li><a href="${withBase("/grupo-crm-extintores")}">Grupo CRM Extintores</a></li>
+            <li><a href="${withBase("/grupo-crm-extintores")}">Grupo CRM</a></li>
             <li><a href="${withBase("/extintores-cuajimalpa")}">Extintores en Cuajimalpa</a></li>
             <li><a href="${withBase("/extintores-chamixto")}">Extintores Chamixto</a></li>
             <li><a href="${withBase("/inspector-crm")}">Inspector CRM</a></li>

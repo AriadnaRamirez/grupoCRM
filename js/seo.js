@@ -509,7 +509,7 @@ export function applySeo(page) {
     "og:image:alt",
     seo.product
       ? productAlt(seo.product, { detail: true })
-      : seo.article?.imageAlt || seo.imageAlt || `Grupo CRM Extintores en CDMX y Estado de México`,
+      : seo.article?.imageAlt || seo.imageAlt || `Grupo CRM, extintores en CDMX y Estado de México`,
     "property"
   );
   if (seo.product || seo.article) {

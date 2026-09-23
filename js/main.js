@@ -1,5 +1,5 @@
 import { rebaseDocument } from "./base.js";
-import { mountShell, renderHome, renderProductos, renderProducto, renderServicios, renderNosotros, renderGaleria, renderHook, bindContact, bindMotion, bindErrorReturn } from "./ui.js";
+import { mountShell, renderHome, renderProductos, renderProducto, renderServicios, renderNosotros, renderGaleria, renderHook, bindContact, bindMotion, bindErrorReturn, renderExtinguisherCompare } from "./ui.js";
 import { applySeo } from "./seo.js";
 import { loadAnalytics } from "./analytics.js";
 
@@ -31,6 +31,7 @@ else if (page === "contacto") {
   safe(renderHook);
 } else if (page === "blog" || page === "articulo") {
   safe(renderHook);
+  safe(renderExtinguisherCompare);
 } else if (page === "zonas" || page === "zona") {
   safe(renderHook);
 } else if (page === "error") safe(bindErrorReturn);

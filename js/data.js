@@ -779,7 +779,7 @@ export const faqs = [
   },
   {
     q: "¿Qué extintor necesito?",
-    a: 'Depende de lo que quiera proteger: clase A para sólidos, B para líquidos, C para equipo eléctrico y K para cocinas. En el blog explicamos <a href="/blog/tipos-de-fuego">cómo elegir el extintor</a> y en el inicio hay una <a href="/#comparar-extintores">tabla comparativa</a> de PQS ABC, CO₂ y tipo K. En cada ficha viene la clase y, si tiene dudas, con gusto lo orientamos.',
+    a: 'Depende de lo que quiera proteger: clase A para sólidos, B para líquidos, C para equipo eléctrico y K para cocinas. En el blog está la <a href="/blog/tipos-de-fuego#comparar-extintores">tabla PQS ABC, CO₂ y tipo K</a> y la guía de <a href="/blog/tipos-de-fuego">tipos de fuego</a>. En cada ficha viene la clase y, si tiene dudas, con gusto lo orientamos.',
   },
   {
     q: "¿Cada cuánto hay que recargar un extintor?",

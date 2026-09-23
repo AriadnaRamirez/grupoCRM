@@ -1,37 +1,58 @@
 # Grupo CRM Extintores
 
-Sitio institucional estático para [www.crmextintores.com.mx](https://www.crmextintores.com.mx). Presenta servicios, cobertura local, catálogo y contenido editorial para venta, recarga, mantenimiento e instalación de extintores en CDMX y Estado de México. No incluye carrito ni checkout: la conversión principal es contacto por WhatsApp y teléfono.
+Sitio corporativo de [Grupo CRM Extintores](https://www.crmextintores.com.mx), desarrollado como presencia digital comercial para venta, recarga, mantenimiento e instalación de extintores en Ciudad de México y Estado de México.
 
-## Estado De Producción
+El proyecto está diseñado como un sitio estático de alto control editorial: no usa carrito, checkout ni backend propio. La conversión principal es contacto directo por WhatsApp y teléfono.
 
-La rama de trabajo publicada para revisión es `fix/home-catalog-four-cards-rb2`.
+## Objetivo Del Proyecto
 
-Cambios relevantes incluidos:
+Presentar a Grupo CRM Extintores como proveedor confiable de equipo contra incendio, reforzando:
 
-- Corrección del primer render para evitar destellos visuales antes de cargar los estilos principales.
-- Catálogo del home con 4 artículos por sección en las categorías publicadas en “Más vendidos”.
-- Regeneración de `css/main.min.css` y `js/app.min.js`.
-- Cache bust de CSS/JS a `rb-2` para evitar que producción sirva assets antiguos.
-- Corrección de `alt` del logo de marca en headers estáticos y scripts generadores.
-- Validación de assets de catálogo, links internos e imágenes sin `alt`.
+- Oferta de productos y servicios.
+- Cobertura por alcaldías y municipios.
+- Catálogo consultable por categoría.
+- Contenido editorial orientado a búsquedas orgánicas.
+- Casos, fotografías y señales de confianza.
+- Rutas limpias listas para indexación.
 
-## Arquitectura
+## Alcance
 
-El sitio está construido con HTML estático, CSS propio y JavaScript modular empaquetado para producción.
+El sitio incluye:
 
-- `index.html`: home.
-- `nosotros.html`: empresa, servicios y contenido institucional.
-- `productos.html`: catálogo completo con filtros.
-- `producto.html`: ficha dinámica por `sku`.
-- `blog/`: artículos editoriales.
-- `extintores-*.html`: landing pages locales.
-- `zonas/`: páginas limpias de cobertura.
-- `js/data.js`: fuente principal de catálogo, servicios, empresa, FAQs y datos comerciales.
-- `js/ui.js`: render de componentes, navegación, home, catálogo, sliders y formularios.
-- `css/tokens.css`: sistema visual base.
-- `css/main.css`: componentes y responsive.
-- `css/main.min.css`: CSS de producción, con tokens incluidos.
+- Home institucional.
+- Catálogo de productos.
+- Fichas dinámicas por SKU.
+- Páginas de servicios.
+- Página de empresa.
+- Galería.
+- Blog.
+- Landing pages locales.
+- Sitemap, robots y metadatos SEO.
+- Configuración de despliegue en Vercel.
+
+## Estructura Principal
+
+- `index.html`: página principal.
+- `nosotros.html`: información de empresa, servicios y confianza.
+- `productos.html`: catálogo general.
+- `producto.html`: ficha de producto por `sku`.
+- `blog/`: artículos y guías.
+- `extintores-*.html`: páginas locales.
+- `zonas/`: rutas auxiliares de cobertura.
+- `assets/`: imágenes, logos, galería, catálogo y fuentes.
+- `css/tokens.css`: variables visuales del sistema de diseño.
+- `css/main.css`: estilos fuente.
+- `css/main.min.css`: CSS de producción.
+- `js/data.js`: contenido estructurado del negocio.
+- `js/ui.js`: componentes, navegación e interacción.
 - `js/app.min.js`: bundle de producción.
+- `vercel.json`: configuración única de despliegue.
+
+## Identidad Y Experiencia
+
+El diseño conserva la identidad visual de la marca: encabezado comercial, accesos a llamada y WhatsApp, catálogo visual, secciones de confianza, galería y formularios de contacto por WhatsApp.
+
+Las fotografías de instalaciones y espacios reales deben conservar encuadre inferior cuando se recortan en tarjetas o banners, para mantener contexto visual del sitio.
 
 ## Desarrollo Local
 
@@ -39,9 +60,13 @@ El sitio está construido con HTML estático, CSS propio y JavaScript modular em
 npm start
 ```
 
-Abrir `http://localhost:5500`. El servidor usado por `serve` resuelve rutas limpias como `/nosotros` hacia `nosotros.html`.
+Abrir:
 
-## Scripts Operativos
+```text
+http://localhost:5500
+```
+
+## Scripts De Operación
 
 ```bash
 npm run minify
@@ -52,7 +77,7 @@ npm run audit:images
 npm run seo:sitemap
 ```
 
-Uso recomendado antes de publicar:
+Antes de publicar una versión:
 
 ```bash
 npm run minify
@@ -60,54 +85,49 @@ npm run check:assets
 npm run seo:links
 ```
 
-## Auditoría Ejecutada
+## Despliegue En Vercel
 
-Última auditoría local en esta rama:
+El proyecto se despliega exclusivamente en Vercel.
 
-- `npm run minify`: genera `main.min.css` y `app.min.js` sin errores.
-- `npm run check:assets`: 55 productos, 55 PNG de catálogo, sin faltantes.
-- `npm run seo:links`: 111 HTML revisados, sin enlaces internos rotos.
-- Revisión de `<img>`: 0 imágenes renderizadas sin atributo `alt`.
-- Revisión del logo de header: 0 instancias `.brand` con `alt=""`.
+Configuración principal:
 
-Notas:
-
-- `seo:images` reporta algunos `EMPTY_ALT` en plantillas JS decorativas, por ejemplo imágenes con `aria-hidden`, wordmark decorativo de footer o lightbox dinámico. No corresponden al logo principal del header.
-- `audit:images` lista archivos pesados de galería y catálogo para seguimiento de performance. La mayoría son imágenes lazy o assets de galería, no todos forman parte del LCP.
-
-## Catálogo En Home
-
-El home muestra 3 secciones de catálogo en “Más vendidos”; cada sección entrega 4 productos:
-
-- Extintores: `CRM-0003`, `CRM-0006`, `CRM-0012`, `CRM-0004`.
-- Señalamiento vial: `CRM-0023`, `CRM-0030`, `CRM-0033`, `CRM-0024`.
-- Equipo de protección: `CRM-0049`, `CRM-0050`, `CRM-0051`, `CRM-0052`.
-
-La regla responsive de producción mantiene 4 columnas desde `768px` en el home y conserva 2 columnas en móvil.
-
-## Publicación
-
-Publicar la raíz del repositorio. El proyecto incluye configuración para:
-
-- Netlify: `netlify.toml`, `_headers`, `_redirects`.
-- Vercel: `vercel.json` con URLs limpias.
-- Cloudflare Pages: `_headers` y `_redirects`.
-- Apache / cPanel: `.htaccess`.
-- GitHub Pages: preview con base `/grupoCRM`.
+- Archivo: `vercel.json`.
+- Salida publicada: raíz del repositorio.
+- Build command: vacío o no requerido.
+- Output directory: raíz del proyecto.
+- Clean URLs: gestionadas por rewrites y redirects en `vercel.json`.
+- Headers de seguridad y cache: configurados en `vercel.json`.
 
 Después de desplegar:
 
-- Confirmar HTTPS y redirección HTTP -> HTTPS.
-- Revalidar Search Console.
-- Ejecutar PageSpeed Insights contra la URL ya desplegada, no contra una versión cacheada.
-- Verificar que CSS/JS se estén sirviendo con `?v=rb-2`.
+1. Confirmar dominio `www.crmextintores.com.mx`.
+2. Confirmar HTTPS activo.
+3. Validar redirecciones de `.html` hacia rutas limpias.
+4. Revalidar `sitemap.xml` y `robots.txt`.
+5. Ejecutar PageSpeed Insights sobre la URL final desplegada.
+6. Revisar Search Console después de la publicación.
+
+## Calidad Y Producción
+
+Checklist operativo:
+
+- Catálogo sin imágenes faltantes.
+- Enlaces internos sin roturas.
+- Logo de marca con texto alternativo.
+- CSS y JS minificados.
+- Cache bust actualizado cuando cambian assets productivos.
+- Sitemap actualizado cuando cambian páginas indexables.
+- Configuración de despliegue limitada a Vercel.
 
 ## Mantenimiento
 
-Cuando se modifique catálogo, textos o imágenes:
+Para actualizar catálogo, textos o teléfonos:
 
-1. Actualizar `js/data.js` y los assets correspondientes.
-2. Ejecutar `npm run minify`.
-3. Ejecutar `npm run check:assets` y `npm run seo:links`.
-4. Si cambia CSS/JS de producción, actualizar el cache bust con `scripts/bump-css-v.mjs`.
-5. Confirmar que `sitemap.xml` y rutas limpias siguen consistentes.
+1. Editar `js/data.js`.
+2. Verificar assets relacionados en `assets/`.
+3. Ejecutar `npm run minify`.
+4. Ejecutar `npm run check:assets`.
+5. Ejecutar `npm run seo:links`.
+6. Actualizar `sitemap.xml` cuando se agreguen o retiren páginas.
+
+El sitio debe mantenerse como una presencia institucional profesional: claro, rápido, rastreable y enfocado en conversión por contacto directo.

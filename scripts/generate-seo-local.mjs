@@ -50,7 +50,6 @@ function contentDatesHtml() {
           <span>Actualizado el <time datetime="${SITE.contentModified}">${formatDateEs(SITE.contentModified)}</time></span>
         </p>`;
 }
-const pagesBaseSnippet = `  <script>!function(){if(!/\\.github\\.io$/i.test(location.hostname))return;var s=document.createElement("script");s.src="/js/pages-base.js";document.head.appendChild(s)}();</script>\n`;
 const cssBoot = `  <style id="css-boot">
   /* Critical first paint: reserve chrome + hero before async main.css (CLS) */
   :root { --chrome-h: 108px; }
@@ -111,7 +110,7 @@ function pageShell({ title, description, canonical, bodyAttrs, main, jsonLd = ""
 <html lang="es-MX" prefix="og: https://ogp.me/ns#">
 <head>
   <meta charset="UTF-8">
-${pagesBaseSnippet}${cssBoot}
+${cssBoot}
   <link rel="preload" as="style" href="/css/main.min.css?v=${CACHE}" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="/css/main.min.css?v=${CACHE}"></noscript>
   <script>!function(){var l=document.querySelector('link[rel="preload"][as="style"]');if(l&&!l.sheet){l.addEventListener("load",function(){this.onload=null;this.rel="stylesheet"});if(l.relList&&!l.relList.supports("preload"))l.rel="stylesheet"}}();</script>

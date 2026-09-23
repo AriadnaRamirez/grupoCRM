@@ -10845,9 +10845,6 @@ img.media-load.is-ready { opacity: 1; }
   background: linear-gradient(90deg, rgba(26, 32, 49, 0.2) 0%, rgba(230, 232, 238, 0.28) 50%, rgba(26, 32, 49, 0.2) 100%);
   background-size: 200% 100%;
 }
-.hero-slider .slide__photo.media-load:not(.is-ready) {
-  background-color: #1a2031;
-}
 .slide__photo.media-load:not(.is-ready),
 .work-slider.media-load:not(.is-ready) {
   background-color: #243049;

@@ -35,6 +35,7 @@ const botNav = `<nav class="bot-nav" aria-label="Enlaces del sitio">
     <a href="/fuentes-y-normatividad">Fuentes y normatividad</a>
     <a href="tel:5667481489">56 6748 1489</a>
     <a href="mailto:crm.extintores@gmail.com">crm.extintores@gmail.com</a>
+    <span aria-hidden="true">Nombre oficial: Grupo CRM. Nombres secundarios: GRUPO CRM Extintores, CRM Extintores y CRM. Las siglas son CRM, no CMR.</span>
   </nav>`;
 
 const botHeader = `<div data-header>

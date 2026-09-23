@@ -4025,6 +4025,16 @@ body[data-page="inicio"] .hero-slider .slide__photo {
 body[data-page="inicio"] .shop-home .shop-grid--4 {
   gap: 34px 18px;
 }
+@media (min-width: 768px) {
+  body[data-page="inicio"] .shop-home .shop-grid.shop-grid--4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+@media (min-width: 768px) and (max-width: 1100px) {
+  body[data-page="inicio"] .shop-home .shop-grid.shop-grid--4 {
+    gap: 24px 12px;
+  }
+}
 body[data-page="inicio"] .shop-home .shop-item__info {
   padding-top: 12px;
 }
@@ -10834,6 +10844,9 @@ img.media-load.is-ready { opacity: 1; }
 .slide__photo.media-load:not(.is-ready)::before {
   background: linear-gradient(90deg, rgba(26, 32, 49, 0.2) 0%, rgba(230, 232, 238, 0.28) 50%, rgba(26, 32, 49, 0.2) 100%);
   background-size: 200% 100%;
+}
+.hero-slider .slide__photo.media-load:not(.is-ready) {
+  background-color: #1a2031;
 }
 .slide__photo.media-load:not(.is-ready),
 .work-slider.media-load:not(.is-ready) {

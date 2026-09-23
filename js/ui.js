@@ -1,4 +1,4 @@
-import { company, categories, products, services, courses, sectors, faqs, reviews, clients, waUrl, safeDecode, catName, catCount, productBySku, productImg, productAlt, productUrl, readSku, relatedProducts, lookbook, lookAlt, lookFull, venues, carePoints, readyChecks, condo, seoServicePages, extintoresPath, extintoresHubPath, extinguisherCompare } from "./data.js";
+import { company, categories, products, services, courses, sectors, faqs, reviews, clients, waUrl, safeDecode, catName, catCount, productBySku, productImg, productAlt, brandAlt, productUrl, readSku, relatedProducts, lookbook, lookAlt, lookFull, venues, carePoints, readyChecks, condo, seoServicePages, extintoresPath, extintoresHubPath, extinguisherCompare } from "./data.js";
 import { lookSize } from "./look-dims.js";
 import { applySeo } from "./seo.js";
 import { rebaseDocument, rebaseSrcset, withBase } from "./base.js";
@@ -76,12 +76,12 @@ const HOME_VALUE_ICONS = [
 ];
 
 const CAT_COVER = {
-  extintores: { src: "/assets/img/categoria-extintores.png", alt: "Extintor Grupo CRM de polvo químico seco ABC", photo: true },
-  chalecos: { src: "/assets/img/categoria-chalecos.png", alt: "Chaleco de malla para brigadas Grupo CRM", photo: true },
-  "senalamiento-vial": { src: "/assets/img/categoria-senalamiento-vial.png", alt: "Cono vial flexible Grupo CRM", photo: true },
-  "gabinetes-herrajes": { src: "/assets/img/categoria-gabinetes-herrajes.png", alt: "Gabinete para extintor Grupo CRM", photo: true },
-  botiquines: { src: "/assets/img/categoria-botiquines.png", alt: "Botiquín metálico de pared Grupo CRM", photo: true },
-  "equipo-proteccion": { src: "/assets/img/categoria-equipo-proteccion.png", alt: "Casco de seguridad Grupo CRM", photo: true },
+  extintores: { src: "/assets/img/categoria-extintores.png", alt: brandAlt("Extintor de polvo químico seco ABC"), photo: true },
+  chalecos: { src: "/assets/img/categoria-chalecos.png", alt: brandAlt("Chaleco de malla para brigadas"), photo: true },
+  "senalamiento-vial": { src: "/assets/img/categoria-senalamiento-vial.png", alt: brandAlt("Cono vial flexible"), photo: true },
+  "gabinetes-herrajes": { src: "/assets/img/categoria-gabinetes-herrajes.png", alt: brandAlt("Gabinete para extintor"), photo: true },
+  botiquines: { src: "/assets/img/categoria-botiquines.png", alt: brandAlt("Botiquín metálico de pared"), photo: true },
+  "equipo-proteccion": { src: "/assets/img/categoria-equipo-proteccion.png", alt: brandAlt("Casco de seguridad"), photo: true },
 };
 
 function absAsset(src) {
@@ -470,7 +470,7 @@ function headerHTML(page) {
       </div>
       <header class="site-header">
         <div class="wrap header__inner">
-          <a class="brand" href="${withBase("/")}"><picture><source type="image/webp" srcset="${withBase("/assets/img/logo-crm.webp")}"><img src="${withBase("/assets/img/logo-crm.png")}" alt="Grupo CRM Extintores" title="Grupo CRM Extintores" width="720" height="154" decoding="async" fetchpriority="low"></picture></a>
+          <a class="brand" href="${withBase("/")}"><picture><source type="image/webp" srcset="${withBase("/assets/img/logo-crm.webp")}"><img src="${withBase("/assets/img/logo-crm.png")}" alt="${company.name}" title="${company.name}" width="720" height="154" decoding="async" fetchpriority="low"></picture></a>
           <nav class="nav" id="menu">
             ${item("/", "inicio", "Inicio")}
             ${item("/nosotros", "nosotros", "Nosotros")}
@@ -553,8 +553,8 @@ function footerHTML() {
       <div class="wrap footer-grid">
         <div class="footer-brand">
           <a class="footer-mark" href="${withBase("/")}">
-            <img class="footer-mark__flame" src="${withBase("/assets/img/logo-crm-flame.png")}" alt="Grupo CRM Extintores" title="Grupo CRM Extintores" width="112" height="154" loading="lazy" decoding="async">
-            <img class="footer-mark__crm" src="${withBase("/assets/img/logo-crm-wordmark.png")}" alt="Logotipo tipográfico Grupo CRM Extintores" title="Grupo CRM Extintores" width="286" height="87" loading="lazy" decoding="async">
+            <img class="footer-mark__flame" src="${withBase("/assets/img/logo-crm-flame.png")}" alt="${company.name}" title="${company.name}" width="112" height="154" loading="lazy" decoding="async">
+            <img class="footer-mark__crm" src="${withBase("/assets/img/logo-crm-wordmark.png")}" alt="Logotipo tipográfico ${company.name}" title="${company.name}" width="286" height="87" loading="lazy" decoding="async">
           </a>
           <p class="footer-brand__about">${company.about} ${company.slogan}</p>
           <p class="footer-social">
@@ -574,6 +574,7 @@ function footerHTML() {
           <ul>
             <li><a href="${withBase("/")}">Inicio</a></li>
             <li><a href="${withBase("/nosotros")}">Nosotros</a></li>
+            <li><a href="${withBase("/inspector-crm")}">Inspector CRM</a></li>
             <li><a href="${withBase("/nosotros#servicios")}">Servicios</a></li>
             <li><a href="${withBase("/nosotros#cursos")}">Cursos</a></li>
             <li><a href="${withBase("/#resenas")}">Reseñas</a></li>
@@ -583,7 +584,6 @@ function footerHTML() {
             <li><a href="${withBase("/blog")}">Blog</a></li>
             <li><a href="${withBase("/blog/precio-recarga-extintores-cdmx")}">Precio de recarga</a></li>
             <li><a href="${withBase("/contacto")}">Contacto</a></li>
-            <li><a href="${withBase("/caso-agencia-automotriz")}">Caso: agencia automotriz</a></li>
             <li><a href="${withBase("/aviso-privacidad")}">Aviso de privacidad</a></li>
             <li><a href="${withBase("/politica-de-servicio")}">Política de servicio</a></li>
             <li><a href="${withBase("/fuentes-y-normatividad")}">Fuentes y normatividad</a></li>
@@ -629,7 +629,7 @@ function footerHTML() {
         </div>
       </div>
       <div class="wrap footer-legal">
-        <p class="copy">© ${new Date().getFullYear()} Grupo CRM Extintores. Todos los derechos reservados.</p>
+        <p class="copy">© ${new Date().getFullYear()} ${company.name}. Todos los derechos reservados.</p>
         <p class="copy"><a href="${withBase("/aviso-privacidad")}">Aviso de privacidad</a> · <a href="${withBase("/politica-de-servicio")}">Política de servicio</a> · <a href="${withBase("/fuentes-y-normatividad")}">Fuentes</a> · ${company.coverage}</p>
       </div>
     </footer>
@@ -2037,7 +2037,7 @@ export function renderExtinguisherCompare() {
         <tbody>${rows}</tbody>
       </table>
     </div>
-    <p class="compare-table__more muted">Caso real de instalación: <a href="${withBase("/caso-agencia-automotriz")}">agencia automotriz</a>. Ver <a href="${withBase("/productos?cat=extintores#extintores")}">catálogo de extintores</a>.</p>`;
+    <p class="compare-table__more muted">Ver <a href="${withBase("/productos?cat=extintores#extintores")}">catálogo de extintores</a>.</p>`;
   roots.forEach((root) => {
     root.innerHTML = table;
     root.setAttribute("aria-busy", "false");
@@ -2082,7 +2082,7 @@ export function renderProducto() {
   const root = document.querySelector("[data-product]");
   if (!root) return;
   if (!p) {
-    document.title = "Artículo no encontrado | Grupo CRM Extintores";
+    document.title = `Artículo no encontrado | ${company.name}`;
     document.body.dataset.page = "error";
     root.innerHTML = `
       <section class="error-page">
@@ -2090,7 +2090,7 @@ export function renderProducto() {
           <figure class="error-page__figure">
             <picture>
               <source type="image/webp" srcset="${withBase("/assets/img/opt/mascot-404-llama.webp?v=cutout")}">
-              <img src="${withBase("/assets/img/opt/mascot-404-llama.webp?v=cutout")}" width="568" height="682" alt="Llama de Grupo CRM apagándose a sí misma con un extintor" loading="lazy" decoding="async">
+              <img src="${withBase("/assets/img/opt/mascot-404-llama.webp?v=cutout")}" width="568" height="682" alt="Llama de Grupo CRM Extintores apagándose a sí misma con un extintor" loading="lazy" decoding="async">
             </picture>
           </figure>
           <div class="error-page__copy">
@@ -2109,7 +2109,7 @@ export function renderProducto() {
     root.setAttribute("aria-busy", "false");
     return;
   }
-  document.title = `${p.title} · Grupo CRM Extintores`;
+  document.title = `${p.title} · ${company.name}`;
   const classLine = (p.classes || "")
     .split(",")
     .map((c) => c.trim())

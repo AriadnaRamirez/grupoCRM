@@ -110,7 +110,6 @@ const pages = [
   "blog/index.html",
   "politica-de-servicio.html",
   "fuentes-y-normatividad.html",
-  "caso-agencia-automotriz.html",
   "aviso-privacidad.html",
   "mapa-sitio.html",
 ];

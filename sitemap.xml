@@ -1,28 +1,584 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.crmextintores.com.mx/</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/inspector-crm.webp</image:loc>
+      <image:title>Inspector CRM</image:title>
+      <image:caption>Inspector CRM, mascota de Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/inspector-crm-extintor.webp</image:loc>
+      <image:title>Inspector CRM con extintor</image:title>
+      <image:caption>Inspector CRM con extintor, mascota de Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/logo-crm.png</image:loc>
+      <image:title>Grupo CRM Extintores</image:title>
+      <image:caption>Logotipo de Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/hero/hero-desktop-640.webp</image:loc>
+      <image:title>Extintores y equipo contra incendios listos para Protección Civil en CDMX — Grupo CRM Extintores</image:title>
+      <image:caption>Extintores listos para Protección Civil en CDMX — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/hero/hero-linea-800.webp</image:loc>
+      <image:title>Línea de extintores certificados para empresas — Grupo CRM Extintores</image:title>
+      <image:caption>Línea de extintores certificados para empresas — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/hero/hero-fuego-800.webp</image:loc>
+      <image:title>Equipo contra incendios para prevenir conatos en empresas — Grupo CRM Extintores</image:title>
+      <image:caption>Equipo contra incendios para prevenir conatos — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/hero/hero-producto-800.webp</image:loc>
+      <image:title>Técnico en visita de revisión de extintores sin costo — Grupo CRM Extintores</image:title>
+      <image:caption>Técnico en visita de revisión de extintores — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/nosotros</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/inspector-crm.webp</image:loc>
+      <image:title>Inspector CRM</image:title>
+      <image:caption>Inspector CRM, mascota de Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/inspector-crm-extintor.webp</image:loc>
+      <image:title>Inspector CRM con extintor</image:title>
+      <image:caption>Inspector CRM con extintor, mascota de Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/hero-nosotros-800.webp</image:loc>
+      <image:title>Equipo en servicio de instalación en CDMX — Grupo CRM Extintores</image:title>
+      <image:caption>Equipo en servicio de instalación en CDMX — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/productos</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/categoria-extintores-960.webp</image:loc>
+      <image:title>Extintores Grupo CRM Extintores</image:title>
+      <image:caption>Extintores — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/categoria-chalecos-960.webp</image:loc>
+      <image:title>Chalecos Grupo CRM Extintores</image:title>
+      <image:caption>Chalecos — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/categoria-senalamiento-vial-960.webp</image:loc>
+      <image:title>Señalamiento vial Grupo CRM Extintores</image:title>
+      <image:caption>Señalamiento vial — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/categoria-gabinetes-herrajes-960.webp</image:loc>
+      <image:title>Gabinetes y herrajes Grupo CRM Extintores</image:title>
+      <image:caption>Gabinetes y herrajes — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/categoria-botiquines-960.webp</image:loc>
+      <image:title>Botiquines Grupo CRM Extintores</image:title>
+      <image:caption>Botiquines — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/categoria-equipo-proteccion-960.webp</image:loc>
+      <image:title>Equipo de protección Grupo CRM Extintores</image:title>
+      <image:caption>Equipo de protección — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0001-800.webp</image:loc>
+      <image:title>Extintor automotriz de PQS ABC - 1.0 kg</image:title>
+      <image:caption>Extintor automotriz de PQS ABC - 1.0 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0002-800.webp</image:loc>
+      <image:title>Extintor automotriz de PQS ABC - 2.0 kg</image:title>
+      <image:caption>Extintor automotriz de PQS ABC - 2.0 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0003-800.webp</image:loc>
+      <image:title>Extintor de PQS ABC para uso comercial e industrial - 4.5 kg</image:title>
+      <image:caption>Extintor de PQS ABC para uso comercial e industrial - 4.5 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0004-800.webp</image:loc>
+      <image:title>Extintor de PQS ABC para uso comercial e industrial - 6.0 kg</image:title>
+      <image:caption>Extintor de PQS ABC para uso comercial e industrial - 6.0 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0005-800.webp</image:loc>
+      <image:title>Extintor de PQS ABC para uso comercial e industrial - 9.0 kg</image:title>
+      <image:caption>Extintor de PQS ABC para uso comercial e industrial - 9.0 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0006-800.webp</image:loc>
+      <image:title>Extintor de CO₂ - 2.3 kg</image:title>
+      <image:caption>Extintor de CO₂ - 2.3 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0007-800.webp</image:loc>
+      <image:title>Extintor de CO₂ - 4.5 kg</image:title>
+      <image:caption>Extintor de CO₂ - 4.5 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0008-800.webp</image:loc>
+      <image:title>Extintor de CO₂ - 6.8 kg</image:title>
+      <image:caption>Extintor de CO₂ - 6.8 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0009-800.webp</image:loc>
+      <image:title>Extintor de agente limpio HFC-236fa - 2.0 kg</image:title>
+      <image:caption>Extintor de agente limpio HFC-236fa - 2.0 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0010-800.webp</image:loc>
+      <image:title>Extintor de agente limpio HFC-236fa - 4.5 kg</image:title>
+      <image:caption>Extintor de agente limpio HFC-236fa - 4.5 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0011-800.webp</image:loc>
+      <image:title>Extintor de agente limpio HFC-236fa - 6.0 kg</image:title>
+      <image:caption>Extintor de agente limpio HFC-236fa - 6.0 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0012-800.webp</image:loc>
+      <image:title>Extintor tipo K para cocinas - 2.4 L</image:title>
+      <image:caption>Extintor tipo K para cocinas - 2.4 L certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0013-800.webp</image:loc>
+      <image:title>Extintor tipo K para cocinas - 4.0 L</image:title>
+      <image:caption>Extintor tipo K para cocinas - 4.0 L certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0014-800.webp</image:loc>
+      <image:title>Extintor tipo K para cocinas - 6.0 L</image:title>
+      <image:caption>Extintor tipo K para cocinas - 6.0 L certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0015-800.webp</image:loc>
+      <image:title>Extintor de agua a presión - 10 L</image:title>
+      <image:caption>Extintor de agua a presión - 10 L certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0016-800.webp</image:loc>
+      <image:title>Unidad móvil de PQS ABC - 35 kg</image:title>
+      <image:caption>Extintor Unidad móvil de PQS ABC - 35 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0017-800.webp</image:loc>
+      <image:title>Unidad móvil de PQS ABC - 50 kg</image:title>
+      <image:caption>Extintor Unidad móvil de PQS ABC - 50 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0018-800.webp</image:loc>
+      <image:title>Unidad móvil de PQS ABC - 70 kg</image:title>
+      <image:caption>Extintor Unidad móvil de PQS ABC - 70 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0019-800.webp</image:loc>
+      <image:title>Unidad móvil de agua a presión - 50 L</image:title>
+      <image:caption>Extintor Unidad móvil de agua a presión - 50 L certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0020-800.webp</image:loc>
+      <image:title>Chaleco de malla para brigadas</image:title>
+      <image:caption>Chaleco de malla para brigadas certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0021-800.webp</image:loc>
+      <image:title>Chaleco reflejante de alta visibilidad</image:title>
+      <image:caption>Chaleco reflejante de alta visibilidad certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0022-800.webp</image:loc>
+      <image:title>Chaleco de gabardina para brigadista</image:title>
+      <image:caption>Chaleco de gabardina para brigadista certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0023-800.webp</image:loc>
+      <image:title>Cono vial flexible - 45 cm</image:title>
+      <image:caption>Cono vial flexible - 45 cm certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0024-800.webp</image:loc>
+      <image:title>Cono vial flexible - 71 cm</image:title>
+      <image:caption>Cono vial flexible - 71 cm certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0025-800.webp</image:loc>
+      <image:title>Poste de seguridad para barricada - 117 cm</image:title>
+      <image:caption>Poste de seguridad para barricada - 117 cm certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0026-800.webp</image:loc>
+      <image:title>Malla de seguridad para delimitación - 30 m</image:title>
+      <image:caption>Malla de seguridad para delimitación - 30 m certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0027-800.webp</image:loc>
+      <image:title>Lámpara solar de destello para señalización</image:title>
+      <image:caption>Lámpara solar de destello para señalización certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0028-800.webp</image:loc>
+      <image:title>Banderín reflejante para señalización</image:title>
+      <image:caption>Banderín reflejante para señalización certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0029-800.webp</image:loc>
+      <image:title>Banderín de alta visibilidad para camión</image:title>
+      <image:caption>Banderín de alta visibilidad para camión certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0030-800.webp</image:loc>
+      <image:title>Cinta roja de delimitación «Peligro»</image:title>
+      <image:caption>Cinta roja de delimitación «Peligro» certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0031-800.webp</image:loc>
+      <image:title>Cinta amarilla de delimitación «Precaución»</image:title>
+      <image:caption>Cinta amarilla de delimitación «Precaución» certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0032-800.webp</image:loc>
+      <image:title>Cinta amarilla de delimitación «Prohibido el paso»</image:title>
+      <image:caption>Cinta amarilla de delimitación «Prohibido el paso» certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0033-800.webp</image:loc>
+      <image:title>Señal preventiva de piso mojado</image:title>
+      <image:caption>Señal preventiva de piso mojado certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0034-800.webp</image:loc>
+      <image:title>Brazalete de identificación para brigadistas</image:title>
+      <image:caption>Brazalete de identificación para brigadistas certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0035-800.webp</image:loc>
+      <image:title>Portaextintor de piso tipo cenicero - 4.5 a 6.0 kg</image:title>
+      <image:caption>Portaextintor de piso tipo cenicero - 4.5 a 6.0 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0036-800.webp</image:loc>
+      <image:title>Portaextintor de piso tipo cenicero - 9.0 kg y 10 lb</image:title>
+      <image:caption>Portaextintor de piso tipo cenicero - 9.0 kg y 10 lb certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0037-800.webp</image:loc>
+      <image:title>Gabinete metálico para manguera de hidrante</image:title>
+      <image:caption>Gabinete metálico para manguera de hidrante certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0038-800.webp</image:loc>
+      <image:title>Gabinete para un equipo de bombero</image:title>
+      <image:caption>Gabinete para un equipo de bombero certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0039-800.webp</image:loc>
+      <image:title>Gabinete para dos equipos de bombero</image:title>
+      <image:caption>Gabinete para dos equipos de bombero certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0040-800.webp</image:loc>
+      <image:title>Gabinete para extintor - 4.5 a 6.0 kg</image:title>
+      <image:caption>Gabinete para extintor - 4.5 a 6.0 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0041-800.webp</image:loc>
+      <image:title>Toma siamesa para red contra incendio</image:title>
+      <image:caption>Toma siamesa para red contra incendio certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0042-800.webp</image:loc>
+      <image:title>Llave universal de bronce para coples</image:title>
+      <image:caption>Llave universal de bronce para coples certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0043-800.webp</image:loc>
+      <image:title>Chiflón de neblina de tres pasos - 1½ pulgadas</image:title>
+      <image:caption>Chiflón de neblina de tres pasos - 1½ pulgadas certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0044-800.webp</image:loc>
+      <image:title>Manguera industrial contra incendio</image:title>
+      <image:caption>Manguera industrial contra incendio certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0045-800.webp</image:loc>
+      <image:title>Válvula globo angular de bronce</image:title>
+      <image:caption>Válvula globo angular de bronce certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0046-800.webp</image:loc>
+      <image:title>Botiquín metálico de pared - chico</image:title>
+      <image:caption>Botiquín metálico de pared - chico certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0047-800.webp</image:loc>
+      <image:title>Botiquín metálico de pared - mediano</image:title>
+      <image:caption>Botiquín metálico de pared - mediano certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0048-800.webp</image:loc>
+      <image:title>Botiquín metálico de pared - grande</image:title>
+      <image:caption>Botiquín metálico de pared - grande certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0049-800.webp</image:loc>
+      <image:title>Detector de humo con batería de 9 V</image:title>
+      <image:caption>Detector de humo con batería de 9 V certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0050-800.webp</image:loc>
+      <image:title>Lámpara de emergencia recargable</image:title>
+      <image:caption>Lámpara de emergencia recargable certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0051-800.webp</image:loc>
+      <image:title>Camilla rígida para rescate e inmovilización</image:title>
+      <image:caption>Camilla rígida para rescate e inmovilización certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0052-800.webp</image:loc>
+      <image:title>Kit integral de inmovilización</image:title>
+      <image:caption>Kit integral de inmovilización certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0053-800.webp</image:loc>
+      <image:title>Guantes anticorte de alta resistencia</image:title>
+      <image:caption>Guantes anticorte de alta resistencia certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0054-800.webp</image:loc>
+      <image:title>Casco de seguridad con ajuste de matraca</image:title>
+      <image:caption>Casco de seguridad con ajuste de matraca certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0055-800.webp</image:loc>
+      <image:title>Casco de seguridad de ala ancha</image:title>
+      <image:caption>Casco de seguridad de ala ancha certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/galeria</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-extintores-sitio-1400.webp</image:loc>
+      <image:title>Listos en su comercio — Grupo CRM Extintores</image:title>
+      <image:caption>Extintores instalados en una empresa. — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-salon-eventos-1400.webp</image:loc>
+      <image:title>Salón de eventos — Grupo CRM Extintores</image:title>
+      <image:caption>Protección en salón, restaurante y bar. — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-bar-1400.webp</image:loc>
+      <image:title>Bar y terraza — Grupo CRM Extintores</image:title>
+      <image:caption>Extintores a la mano en la barra y la terraza. — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-comercio-1400.webp</image:loc>
+      <image:title>Comercio e industria — Grupo CRM Extintores</image:title>
+      <image:caption>Suministro e instalación en almacén y punto de venta. — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-deportivo-1400.webp</image:loc>
+      <image:title>Instalación deportiva — Grupo CRM Extintores</image:title>
+      <image:caption>Extintores y gabinetes en un campo y academia de fútbol. — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-gabinetes-sitio-1400.webp</image:loc>
+      <image:title>Punto de incendio — Grupo CRM Extintores</image:title>
+      <image:caption>Gabinetes y portaextintores listos para instalar en su sitio. — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-automotriz-1400.webp</image:loc>
+      <image:title>Agencia automotriz — Grupo CRM Extintores</image:title>
+      <image:caption>Extintores PQS y CO₂ en agencia y taller. — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-parrilla-1400.webp</image:loc>
+      <image:title>Terraza y parrilla — Grupo CRM Extintores</image:title>
+      <image:caption>Extintores en cocina al aire libre y espacios de eventos. — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-obra-1400.webp</image:loc>
+      <image:title>Obra en construcción — Grupo CRM Extintores</image:title>
+      <image:caption>Equipo en sitio para proteger a su cuadrilla. — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-local-1400.webp</image:loc>
+      <image:title>Local comercial — Grupo CRM Extintores</image:title>
+      <image:caption>Extintor en el acceso de un establecimiento de alimentos. — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-escuela-1400.webp</image:loc>
+      <image:title>Escuela — Grupo CRM Extintores</image:title>
+      <image:caption>Extintores en el patio de un colegio. — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-escuela-patio-1400.webp</image:loc>
+      <image:title>Revisión en colegio — Grupo CRM Extintores</image:title>
+      <image:caption>Revisamos todos los equipos del plantel en una sola visita. — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-showroom-1400.webp</image:loc>
+      <image:title>Sala de exhibición — Grupo CRM Extintores</image:title>
+      <image:caption>Extintores en una agencia, listos para instalar. — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-showroom-muro-1400.webp</image:loc>
+      <image:title>Agencia automotriz — Grupo CRM Extintores</image:title>
+      <image:caption>Punto de incendio junto al acceso de la sala de exhibición. — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-restaurante-1400.webp</image:loc>
+      <image:title>Restaurante — Grupo CRM Extintores</image:title>
+      <image:caption>Extintores discretos y bien colocados en el comedor y la barra. — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-panaderia-1400.webp</image:loc>
+      <image:title>Panadería — Grupo CRM Extintores</image:title>
+      <image:caption>Extintores en un local de insumos y repostería. — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-cafeteria-1400.webp</image:loc>
+      <image:title>Cafetería — Grupo CRM Extintores</image:title>
+      <image:caption>Un café pequeño también puede estar en regla. — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-clinica-1400.webp</image:loc>
+      <image:title>Clínica — Grupo CRM Extintores</image:title>
+      <image:caption>Extintor en el acceso de un consultorio. — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-transporte-1400.webp</image:loc>
+      <image:title>Flota de transporte — Grupo CRM Extintores</image:title>
+      <image:caption>Extintores en el patio de una empresa de transporte. — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-vapiano-1400.webp</image:loc>
+      <image:title>Restaurante en plaza — Grupo CRM Extintores</image:title>
+      <image:caption>Extintores PQS y CO₂ en un restaurante de plaza comercial. — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-almacen-1400.webp</image:loc>
+      <image:title>Almacén — Grupo CRM Extintores</image:title>
+      <image:caption>Extintores portátiles y unidad móvil en un almacén industrial. — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-campus-1400.webp</image:loc>
+      <image:title>Campus — Grupo CRM Extintores</image:title>
+      <image:caption>Extintores en los accesos de un instituto, para cuidar a sus alumnos. — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-cocina-1400.webp</image:loc>
+      <image:title>Cocina comercial — Grupo CRM Extintores</image:title>
+      <image:caption>Extintor tipo K para aceites y grasas en una cocina. — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-bodega-1400.webp</image:loc>
+      <image:title>Bodega — Grupo CRM Extintores</image:title>
+      <image:caption>Cobertura completa en una bodega industrial. — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-entrega-1400.webp</image:loc>
+      <image:title>Entrega a su sitio — Grupo CRM Extintores</image:title>
+      <image:caption>Cargamos su equipo y se lo llevamos hasta la puerta. — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-lavanderia-1400.webp</image:loc>
+      <image:title>Lavandería — Grupo CRM Extintores</image:title>
+      <image:caption>Extintor y señalamiento instalados en un local de lavado. — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-estacionamiento-1400.webp</image:loc>
+      <image:title>Estacionamiento — Grupo CRM Extintores</image:title>
+      <image:caption>Extintores en un estacionamiento cubierto. — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-trailer-1400.webp</image:loc>
+      <image:title>Unidad de carga — Grupo CRM Extintores</image:title>
+      <image:caption>Extintores en patio de una empresa de transporte a granel. — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-camioneta-1400.webp</image:loc>
+      <image:title>Servicio a domicilio — Grupo CRM Extintores</image:title>
+      <image:caption>Llevamos el equipo hasta su unidad o su empresa. — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-comedor-1400.webp</image:loc>
+      <image:title>Terraza de restaurante — Grupo CRM Extintores</image:title>
+      <image:caption>Extintores en el comedor de un restaurante y salón. — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-alberca-1400.webp</image:loc>
+      <image:title>Alberca — Grupo CRM Extintores</image:title>
+      <image:caption>Extintores junto a una alberca cubierta. — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-madereria-1400.webp</image:loc>
+      <image:title>Maderería — Grupo CRM Extintores</image:title>
+      <image:caption>Extintores en un almacén de tableros. — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-evento-1400.webp</image:loc>
+      <image:title>Jornada en sitio — Grupo CRM Extintores</image:title>
+      <image:caption>Revisión y demostración con el mismo equipo que usted va a usar. — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-inventario-1400.webp</image:loc>
+      <image:title>Listos para recargar — Grupo CRM Extintores</image:title>
+      <image:caption>Extintores preparados para suministro y recarga en su empresa. — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-curso-brigada-1400.webp</image:loc>
+      <image:title>Conformación de brigadas — Grupo CRM Extintores</image:title>
+      <image:caption>Participantes y equipo al cierre de una capacitación de Grupo CRM Extintores.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-curso-primeros-auxilios-1400.webp</image:loc>
+      <image:title>Primeros auxilios — Grupo CRM Extintores</image:title>
+      <image:caption>Práctica de vendaje y atención inicial en un curso de brigada. — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-curso-rescate-1400.webp</image:loc>
+      <image:title>Búsqueda y rescate — Grupo CRM Extintores</image:title>
+      <image:caption>Inmovilización en tabla durante el curso de brigada. — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-curso-instructivo-1400.webp</image:loc>
+      <image:title>Capacitación en sitio — Grupo CRM Extintores</image:title>
+      <image:caption>Revisión del procedimiento junto al extintor. — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-curso-campo-1400.webp</image:loc>
+      <image:title>Entrenamiento en campo — Grupo CRM Extintores</image:title>
+      <image:caption>Ejercicio de brigada en condiciones reales. — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/galeria-curso-comunidad-1400.webp</image:loc>
+      <image:title>Jornada de prevención — Grupo CRM Extintores</image:title>
+      <image:caption>Demostración de equipo de emergencia con la comunidad. — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/contacto</loc>
@@ -49,10 +605,30 @@
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.crmextintores.com.mx/caso-agencia-automotriz</loc>
+    <loc>https://www.crmextintores.com.mx/inspector-crm</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/inspector-crm.webp</image:loc>
+      <image:title>Inspector CRM</image:title>
+      <image:caption>Inspector CRM, mascota de Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/inspector-crm-extintor.webp</image:loc>
+      <image:title>Inspector CRM con extintor</image:title>
+      <image:caption>Inspector CRM con extintor, mascota de Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/inspector-crm.png</image:loc>
+      <image:title>Inspector CRM</image:title>
+      <image:caption>Inspector CRM, mascota de Grupo CRM Extintores, archivo PNG</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/inspector-crm-extintor.png</image:loc>
+      <image:title>Inspector CRM con extintor</image:title>
+      <image:caption>Inspector CRM con extintor, mascota de Grupo CRM Extintores, archivo PNG</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/mapa-sitio</loc>
@@ -65,6 +641,46 @@
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/blog-portada-800.webp</image:loc>
+      <image:title>Extintores y gabinete contra incendio en un pasillo — Grupo CRM Extintores</image:title>
+      <image:caption>Extintores y gabinete contra incendio en un pasillo — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/blog-recarga-1400.webp</image:loc>
+      <image:title>Recarga de extintores en Cuajimalpa: cómo pedimos el servicio</image:title>
+      <image:caption>Técnico Grupo CRM Extintores revisando un extintor en taller de recarga</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/blog-instalar-1400.webp</image:loc>
+      <image:title>¿Cómo instalar mi extintor para que sí sea útil?</image:title>
+      <image:caption>Extintor Grupo CRM Extintores instalado con señalamiento EXTINTOR</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/blog-tipos-fuego-1400.webp</image:loc>
+      <image:title>Tipos de fuego y cómo elegir el mejor extintor</image:title>
+      <image:caption>Guía de uso de extintores Grupo CRM Extintores según tipo de fuego</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/blog-extintor-uso-1400.webp</image:loc>
+      <image:title>¿Cómo usar un extintor ante un conato de incendio?</image:title>
+      <image:caption>Uso de extintor de agente limpio Grupo CRM Extintores ante un conato eléctrico</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/blog-extintores-cdmx-1400.webp</image:loc>
+      <image:title>Guía de extintores en CDMX para empresas</image:title>
+      <image:caption>Punto de extintor, salida de emergencia y botiquín de Grupo CRM Extintores en un inmueble de CDMX</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/blog-extintor-6kg-1400.webp</image:loc>
+      <image:title>Extintor de 6 kg: tipos, usos y cómo cotizar</image:title>
+      <image:caption>Extintores Grupo CRM Extintores de 6 kg: PQS, tipo K y agente limpio</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/blog-cascos-1400.webp</image:loc>
+      <image:title>¿Qué casco de seguridad necesito: colores y características?</image:title>
+      <image:caption>Cascos de seguridad por color y rol de Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/extintores-cdmx</loc>
@@ -83,30 +699,55 @@
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/categoria-extintores-960.webp</image:loc>
+      <image:title>Extintores Grupo CRM Extintores</image:title>
+      <image:caption>Extintores — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/recarga-extintores</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/blog-recarga-1400.webp</image:loc>
+      <image:title>Recarga de extintores — Grupo CRM Extintores</image:title>
+      <image:caption>Técnico revisando un extintor en taller de recarga — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/mantenimiento-extintores</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/blog-recarga-1400.webp</image:loc>
+      <image:title>Mantenimiento de extintores — Grupo CRM Extintores</image:title>
+      <image:caption>Técnico revisando un extintor en taller de recarga — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/instalacion-extintores</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/blog-instalar-1400.webp</image:loc>
+      <image:title>Instalación de extintores — Grupo CRM Extintores</image:title>
+      <image:caption>Extintor instalado con señalamiento EXTINTOR — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/senalizacion</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/categoria-senalamiento-vial-960.webp</image:loc>
+      <image:title>Señalamiento vial Grupo CRM Extintores</image:title>
+      <image:caption>Señalamiento vial — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/extintores-alvaro-obregon</loc>
@@ -136,7 +777,7 @@
     <loc>https://www.crmextintores.com.mx/extintores-cuajimalpa</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/extintores-cuauhtemoc</loc>
@@ -355,417 +996,1048 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.crmextintores.com.mx/blog/recarga-extintores-cuajimalpa</loc>
+    <lastmod>2026-09-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/blog-recarga-1400.webp</image:loc>
+      <image:title>Recarga de extintores en Cuajimalpa: cómo pedimos el servicio</image:title>
+      <image:caption>Técnico Grupo CRM Extintores revisando un extintor en taller de recarga</image:caption>
+    </image:image>
+  </url>
+  <url>
     <loc>https://www.crmextintores.com.mx/blog/precio-recarga-extintores-cdmx</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/blog-recarga-1400.webp</image:loc>
+      <image:title>¿Cuánto cuesta recargar un extintor en CDMX?</image:title>
+      <image:caption>Técnico Grupo CRM Extintores revisando un extintor en taller de recarga</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/blog/como-instalar-mi-extintor</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/blog-instalar-1400.webp</image:loc>
+      <image:title>¿Cómo instalar mi extintor para que sí sea útil?</image:title>
+      <image:caption>Extintor Grupo CRM Extintores instalado con señalamiento EXTINTOR</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/blog/tipos-de-fuego</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/blog-tipos-fuego-1400.webp</image:loc>
+      <image:title>Tipos de fuego y cómo elegir el mejor extintor</image:title>
+      <image:caption>Guía de uso de extintores Grupo CRM Extintores según tipo de fuego</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/blog/como-usar-un-extintor</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/blog-extintor-uso-1400.webp</image:loc>
+      <image:title>¿Cómo usar un extintor ante un conato de incendio?</image:title>
+      <image:caption>Uso de extintor de agente limpio Grupo CRM Extintores ante un conato eléctrico</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/blog/extintores-cdmx</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/blog-extintores-cdmx-1400.webp</image:loc>
+      <image:title>Guía de extintores en CDMX para empresas</image:title>
+      <image:caption>Punto de extintor, salida de emergencia y botiquín de Grupo CRM Extintores en un inmueble de CDMX</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/blog/extintor-6-kg</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/blog-extintor-6kg-1400.webp</image:loc>
+      <image:title>Extintor de 6 kg: tipos, usos y cómo cotizar</image:title>
+      <image:caption>Extintores Grupo CRM Extintores de 6 kg: PQS, tipo K y agente limpio</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/blog/nom-154-scfi-2005</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/blog-recarga-1400.webp</image:loc>
+      <image:title>NOM-154-SCFI-2005: recarga y mantenimiento de extintores</image:title>
+      <image:caption>Técnico Grupo CRM Extintores revisando un extintor en taller de recarga</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/blog/casco-seguridad-colores</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/full/blog-cascos-1400.webp</image:loc>
+      <image:title>¿Qué casco de seguridad necesito: colores y características?</image:title>
+      <image:caption>Cascos de seguridad por color y rol de Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/productos?cat=extintores</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/categoria-extintores-960.webp</image:loc>
+      <image:title>Extintores Grupo CRM Extintores</image:title>
+      <image:caption>Extintores — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0001-800.webp</image:loc>
+      <image:title>Extintor automotriz de PQS ABC - 1.0 kg</image:title>
+      <image:caption>Extintor automotriz de PQS ABC - 1.0 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0002-800.webp</image:loc>
+      <image:title>Extintor automotriz de PQS ABC - 2.0 kg</image:title>
+      <image:caption>Extintor automotriz de PQS ABC - 2.0 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0003-800.webp</image:loc>
+      <image:title>Extintor de PQS ABC para uso comercial e industrial - 4.5 kg</image:title>
+      <image:caption>Extintor de PQS ABC para uso comercial e industrial - 4.5 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0004-800.webp</image:loc>
+      <image:title>Extintor de PQS ABC para uso comercial e industrial - 6.0 kg</image:title>
+      <image:caption>Extintor de PQS ABC para uso comercial e industrial - 6.0 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0005-800.webp</image:loc>
+      <image:title>Extintor de PQS ABC para uso comercial e industrial - 9.0 kg</image:title>
+      <image:caption>Extintor de PQS ABC para uso comercial e industrial - 9.0 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0006-800.webp</image:loc>
+      <image:title>Extintor de CO₂ - 2.3 kg</image:title>
+      <image:caption>Extintor de CO₂ - 2.3 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0007-800.webp</image:loc>
+      <image:title>Extintor de CO₂ - 4.5 kg</image:title>
+      <image:caption>Extintor de CO₂ - 4.5 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0008-800.webp</image:loc>
+      <image:title>Extintor de CO₂ - 6.8 kg</image:title>
+      <image:caption>Extintor de CO₂ - 6.8 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0009-800.webp</image:loc>
+      <image:title>Extintor de agente limpio HFC-236fa - 2.0 kg</image:title>
+      <image:caption>Extintor de agente limpio HFC-236fa - 2.0 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0010-800.webp</image:loc>
+      <image:title>Extintor de agente limpio HFC-236fa - 4.5 kg</image:title>
+      <image:caption>Extintor de agente limpio HFC-236fa - 4.5 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0011-800.webp</image:loc>
+      <image:title>Extintor de agente limpio HFC-236fa - 6.0 kg</image:title>
+      <image:caption>Extintor de agente limpio HFC-236fa - 6.0 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0012-800.webp</image:loc>
+      <image:title>Extintor tipo K para cocinas - 2.4 L</image:title>
+      <image:caption>Extintor tipo K para cocinas - 2.4 L certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0013-800.webp</image:loc>
+      <image:title>Extintor tipo K para cocinas - 4.0 L</image:title>
+      <image:caption>Extintor tipo K para cocinas - 4.0 L certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0014-800.webp</image:loc>
+      <image:title>Extintor tipo K para cocinas - 6.0 L</image:title>
+      <image:caption>Extintor tipo K para cocinas - 6.0 L certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0015-800.webp</image:loc>
+      <image:title>Extintor de agua a presión - 10 L</image:title>
+      <image:caption>Extintor de agua a presión - 10 L certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0016-800.webp</image:loc>
+      <image:title>Unidad móvil de PQS ABC - 35 kg</image:title>
+      <image:caption>Extintor Unidad móvil de PQS ABC - 35 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0017-800.webp</image:loc>
+      <image:title>Unidad móvil de PQS ABC - 50 kg</image:title>
+      <image:caption>Extintor Unidad móvil de PQS ABC - 50 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0018-800.webp</image:loc>
+      <image:title>Unidad móvil de PQS ABC - 70 kg</image:title>
+      <image:caption>Extintor Unidad móvil de PQS ABC - 70 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0019-800.webp</image:loc>
+      <image:title>Unidad móvil de agua a presión - 50 L</image:title>
+      <image:caption>Extintor Unidad móvil de agua a presión - 50 L certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/productos?cat=chalecos</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/categoria-chalecos-960.webp</image:loc>
+      <image:title>Chalecos Grupo CRM Extintores</image:title>
+      <image:caption>Chalecos — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0020-800.webp</image:loc>
+      <image:title>Chaleco de malla para brigadas</image:title>
+      <image:caption>Chaleco de malla para brigadas certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0021-800.webp</image:loc>
+      <image:title>Chaleco reflejante de alta visibilidad</image:title>
+      <image:caption>Chaleco reflejante de alta visibilidad certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0022-800.webp</image:loc>
+      <image:title>Chaleco de gabardina para brigadista</image:title>
+      <image:caption>Chaleco de gabardina para brigadista certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/productos?cat=senalamiento-vial</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/categoria-senalamiento-vial-960.webp</image:loc>
+      <image:title>Señalamiento vial Grupo CRM Extintores</image:title>
+      <image:caption>Señalamiento vial — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0023-800.webp</image:loc>
+      <image:title>Cono vial flexible - 45 cm</image:title>
+      <image:caption>Cono vial flexible - 45 cm certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0024-800.webp</image:loc>
+      <image:title>Cono vial flexible - 71 cm</image:title>
+      <image:caption>Cono vial flexible - 71 cm certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0025-800.webp</image:loc>
+      <image:title>Poste de seguridad para barricada - 117 cm</image:title>
+      <image:caption>Poste de seguridad para barricada - 117 cm certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0026-800.webp</image:loc>
+      <image:title>Malla de seguridad para delimitación - 30 m</image:title>
+      <image:caption>Malla de seguridad para delimitación - 30 m certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0027-800.webp</image:loc>
+      <image:title>Lámpara solar de destello para señalización</image:title>
+      <image:caption>Lámpara solar de destello para señalización certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0028-800.webp</image:loc>
+      <image:title>Banderín reflejante para señalización</image:title>
+      <image:caption>Banderín reflejante para señalización certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0029-800.webp</image:loc>
+      <image:title>Banderín de alta visibilidad para camión</image:title>
+      <image:caption>Banderín de alta visibilidad para camión certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0030-800.webp</image:loc>
+      <image:title>Cinta roja de delimitación «Peligro»</image:title>
+      <image:caption>Cinta roja de delimitación «Peligro» certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0031-800.webp</image:loc>
+      <image:title>Cinta amarilla de delimitación «Precaución»</image:title>
+      <image:caption>Cinta amarilla de delimitación «Precaución» certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0032-800.webp</image:loc>
+      <image:title>Cinta amarilla de delimitación «Prohibido el paso»</image:title>
+      <image:caption>Cinta amarilla de delimitación «Prohibido el paso» certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0033-800.webp</image:loc>
+      <image:title>Señal preventiva de piso mojado</image:title>
+      <image:caption>Señal preventiva de piso mojado certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0034-800.webp</image:loc>
+      <image:title>Brazalete de identificación para brigadistas</image:title>
+      <image:caption>Brazalete de identificación para brigadistas certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/productos?cat=gabinetes-herrajes</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/categoria-gabinetes-herrajes-960.webp</image:loc>
+      <image:title>Gabinetes y herrajes Grupo CRM Extintores</image:title>
+      <image:caption>Gabinetes y herrajes — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0035-800.webp</image:loc>
+      <image:title>Portaextintor de piso tipo cenicero - 4.5 a 6.0 kg</image:title>
+      <image:caption>Portaextintor de piso tipo cenicero - 4.5 a 6.0 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0036-800.webp</image:loc>
+      <image:title>Portaextintor de piso tipo cenicero - 9.0 kg y 10 lb</image:title>
+      <image:caption>Portaextintor de piso tipo cenicero - 9.0 kg y 10 lb certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0037-800.webp</image:loc>
+      <image:title>Gabinete metálico para manguera de hidrante</image:title>
+      <image:caption>Gabinete metálico para manguera de hidrante certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0038-800.webp</image:loc>
+      <image:title>Gabinete para un equipo de bombero</image:title>
+      <image:caption>Gabinete para un equipo de bombero certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0039-800.webp</image:loc>
+      <image:title>Gabinete para dos equipos de bombero</image:title>
+      <image:caption>Gabinete para dos equipos de bombero certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0040-800.webp</image:loc>
+      <image:title>Gabinete para extintor - 4.5 a 6.0 kg</image:title>
+      <image:caption>Gabinete para extintor - 4.5 a 6.0 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0041-800.webp</image:loc>
+      <image:title>Toma siamesa para red contra incendio</image:title>
+      <image:caption>Toma siamesa para red contra incendio certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0042-800.webp</image:loc>
+      <image:title>Llave universal de bronce para coples</image:title>
+      <image:caption>Llave universal de bronce para coples certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0043-800.webp</image:loc>
+      <image:title>Chiflón de neblina de tres pasos - 1½ pulgadas</image:title>
+      <image:caption>Chiflón de neblina de tres pasos - 1½ pulgadas certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0044-800.webp</image:loc>
+      <image:title>Manguera industrial contra incendio</image:title>
+      <image:caption>Manguera industrial contra incendio certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0045-800.webp</image:loc>
+      <image:title>Válvula globo angular de bronce</image:title>
+      <image:caption>Válvula globo angular de bronce certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/productos?cat=botiquines</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/categoria-botiquines-960.webp</image:loc>
+      <image:title>Botiquines Grupo CRM Extintores</image:title>
+      <image:caption>Botiquines — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0046-800.webp</image:loc>
+      <image:title>Botiquín metálico de pared - chico</image:title>
+      <image:caption>Botiquín metálico de pared - chico certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0047-800.webp</image:loc>
+      <image:title>Botiquín metálico de pared - mediano</image:title>
+      <image:caption>Botiquín metálico de pared - mediano certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0048-800.webp</image:loc>
+      <image:title>Botiquín metálico de pared - grande</image:title>
+      <image:caption>Botiquín metálico de pared - grande certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/productos?cat=equipo-proteccion</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/categoria-equipo-proteccion-960.webp</image:loc>
+      <image:title>Equipo de protección Grupo CRM Extintores</image:title>
+      <image:caption>Equipo de protección — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0049-800.webp</image:loc>
+      <image:title>Detector de humo con batería de 9 V</image:title>
+      <image:caption>Detector de humo con batería de 9 V certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0050-800.webp</image:loc>
+      <image:title>Lámpara de emergencia recargable</image:title>
+      <image:caption>Lámpara de emergencia recargable certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0051-800.webp</image:loc>
+      <image:title>Camilla rígida para rescate e inmovilización</image:title>
+      <image:caption>Camilla rígida para rescate e inmovilización certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0052-800.webp</image:loc>
+      <image:title>Kit integral de inmovilización</image:title>
+      <image:caption>Kit integral de inmovilización certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0053-800.webp</image:loc>
+      <image:title>Guantes anticorte de alta resistencia</image:title>
+      <image:caption>Guantes anticorte de alta resistencia certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0054-800.webp</image:loc>
+      <image:title>Casco de seguridad con ajuste de matraca</image:title>
+      <image:caption>Casco de seguridad con ajuste de matraca certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0055-800.webp</image:loc>
+      <image:title>Casco de seguridad de ala ancha</image:title>
+      <image:caption>Casco de seguridad de ala ancha certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0001</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0001-800.webp</image:loc>
+      <image:title>Extintor automotriz de PQS ABC - 1.0 kg</image:title>
+      <image:caption>Extintor automotriz de PQS ABC - 1.0 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0002</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0002-800.webp</image:loc>
+      <image:title>Extintor automotriz de PQS ABC - 2.0 kg</image:title>
+      <image:caption>Extintor automotriz de PQS ABC - 2.0 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0003</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0003-800.webp</image:loc>
+      <image:title>Extintor de PQS ABC para uso comercial e industrial - 4.5 kg</image:title>
+      <image:caption>Extintor de PQS ABC para uso comercial e industrial - 4.5 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0004</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0004-800.webp</image:loc>
+      <image:title>Extintor de PQS ABC para uso comercial e industrial - 6.0 kg</image:title>
+      <image:caption>Extintor de PQS ABC para uso comercial e industrial - 6.0 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0005</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0005-800.webp</image:loc>
+      <image:title>Extintor de PQS ABC para uso comercial e industrial - 9.0 kg</image:title>
+      <image:caption>Extintor de PQS ABC para uso comercial e industrial - 9.0 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0006</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0006-800.webp</image:loc>
+      <image:title>Extintor de CO₂ - 2.3 kg</image:title>
+      <image:caption>Extintor de CO₂ - 2.3 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0007</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0007-800.webp</image:loc>
+      <image:title>Extintor de CO₂ - 4.5 kg</image:title>
+      <image:caption>Extintor de CO₂ - 4.5 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0008</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0008-800.webp</image:loc>
+      <image:title>Extintor de CO₂ - 6.8 kg</image:title>
+      <image:caption>Extintor de CO₂ - 6.8 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0009</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0009-800.webp</image:loc>
+      <image:title>Extintor de agente limpio HFC-236fa - 2.0 kg</image:title>
+      <image:caption>Extintor de agente limpio HFC-236fa - 2.0 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0010</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0010-800.webp</image:loc>
+      <image:title>Extintor de agente limpio HFC-236fa - 4.5 kg</image:title>
+      <image:caption>Extintor de agente limpio HFC-236fa - 4.5 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0011</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0011-800.webp</image:loc>
+      <image:title>Extintor de agente limpio HFC-236fa - 6.0 kg</image:title>
+      <image:caption>Extintor de agente limpio HFC-236fa - 6.0 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0012</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0012-800.webp</image:loc>
+      <image:title>Extintor tipo K para cocinas - 2.4 L</image:title>
+      <image:caption>Extintor tipo K para cocinas - 2.4 L certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0013</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0013-800.webp</image:loc>
+      <image:title>Extintor tipo K para cocinas - 4.0 L</image:title>
+      <image:caption>Extintor tipo K para cocinas - 4.0 L certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0014</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0014-800.webp</image:loc>
+      <image:title>Extintor tipo K para cocinas - 6.0 L</image:title>
+      <image:caption>Extintor tipo K para cocinas - 6.0 L certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0015</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0015-800.webp</image:loc>
+      <image:title>Extintor de agua a presión - 10 L</image:title>
+      <image:caption>Extintor de agua a presión - 10 L certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0016</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0016-800.webp</image:loc>
+      <image:title>Unidad móvil de PQS ABC - 35 kg</image:title>
+      <image:caption>Extintor Unidad móvil de PQS ABC - 35 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0017</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0017-800.webp</image:loc>
+      <image:title>Unidad móvil de PQS ABC - 50 kg</image:title>
+      <image:caption>Extintor Unidad móvil de PQS ABC - 50 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0018</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0018-800.webp</image:loc>
+      <image:title>Unidad móvil de PQS ABC - 70 kg</image:title>
+      <image:caption>Extintor Unidad móvil de PQS ABC - 70 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0019</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0019-800.webp</image:loc>
+      <image:title>Unidad móvil de agua a presión - 50 L</image:title>
+      <image:caption>Extintor Unidad móvil de agua a presión - 50 L certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0020</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0020-800.webp</image:loc>
+      <image:title>Chaleco de malla para brigadas</image:title>
+      <image:caption>Chaleco de malla para brigadas certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0021</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0021-800.webp</image:loc>
+      <image:title>Chaleco reflejante de alta visibilidad</image:title>
+      <image:caption>Chaleco reflejante de alta visibilidad certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0022</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0022-800.webp</image:loc>
+      <image:title>Chaleco de gabardina para brigadista</image:title>
+      <image:caption>Chaleco de gabardina para brigadista certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0023</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0023-800.webp</image:loc>
+      <image:title>Cono vial flexible - 45 cm</image:title>
+      <image:caption>Cono vial flexible - 45 cm certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0024</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0024-800.webp</image:loc>
+      <image:title>Cono vial flexible - 71 cm</image:title>
+      <image:caption>Cono vial flexible - 71 cm certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0025</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0025-800.webp</image:loc>
+      <image:title>Poste de seguridad para barricada - 117 cm</image:title>
+      <image:caption>Poste de seguridad para barricada - 117 cm certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0026</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0026-800.webp</image:loc>
+      <image:title>Malla de seguridad para delimitación - 30 m</image:title>
+      <image:caption>Malla de seguridad para delimitación - 30 m certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0027</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0027-800.webp</image:loc>
+      <image:title>Lámpara solar de destello para señalización</image:title>
+      <image:caption>Lámpara solar de destello para señalización certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0028</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0028-800.webp</image:loc>
+      <image:title>Banderín reflejante para señalización</image:title>
+      <image:caption>Banderín reflejante para señalización certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0029</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0029-800.webp</image:loc>
+      <image:title>Banderín de alta visibilidad para camión</image:title>
+      <image:caption>Banderín de alta visibilidad para camión certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0030</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0030-800.webp</image:loc>
+      <image:title>Cinta roja de delimitación «Peligro»</image:title>
+      <image:caption>Cinta roja de delimitación «Peligro» certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0031</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0031-800.webp</image:loc>
+      <image:title>Cinta amarilla de delimitación «Precaución»</image:title>
+      <image:caption>Cinta amarilla de delimitación «Precaución» certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0032</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0032-800.webp</image:loc>
+      <image:title>Cinta amarilla de delimitación «Prohibido el paso»</image:title>
+      <image:caption>Cinta amarilla de delimitación «Prohibido el paso» certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0033</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0033-800.webp</image:loc>
+      <image:title>Señal preventiva de piso mojado</image:title>
+      <image:caption>Señal preventiva de piso mojado certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0034</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0034-800.webp</image:loc>
+      <image:title>Brazalete de identificación para brigadistas</image:title>
+      <image:caption>Brazalete de identificación para brigadistas certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0035</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0035-800.webp</image:loc>
+      <image:title>Portaextintor de piso tipo cenicero - 4.5 a 6.0 kg</image:title>
+      <image:caption>Portaextintor de piso tipo cenicero - 4.5 a 6.0 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0036</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0036-800.webp</image:loc>
+      <image:title>Portaextintor de piso tipo cenicero - 9.0 kg y 10 lb</image:title>
+      <image:caption>Portaextintor de piso tipo cenicero - 9.0 kg y 10 lb certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0037</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0037-800.webp</image:loc>
+      <image:title>Gabinete metálico para manguera de hidrante</image:title>
+      <image:caption>Gabinete metálico para manguera de hidrante certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0038</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0038-800.webp</image:loc>
+      <image:title>Gabinete para un equipo de bombero</image:title>
+      <image:caption>Gabinete para un equipo de bombero certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0039</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0039-800.webp</image:loc>
+      <image:title>Gabinete para dos equipos de bombero</image:title>
+      <image:caption>Gabinete para dos equipos de bombero certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0040</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0040-800.webp</image:loc>
+      <image:title>Gabinete para extintor - 4.5 a 6.0 kg</image:title>
+      <image:caption>Gabinete para extintor - 4.5 a 6.0 kg certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0041</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0041-800.webp</image:loc>
+      <image:title>Toma siamesa para red contra incendio</image:title>
+      <image:caption>Toma siamesa para red contra incendio certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0042</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0042-800.webp</image:loc>
+      <image:title>Llave universal de bronce para coples</image:title>
+      <image:caption>Llave universal de bronce para coples certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0043</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0043-800.webp</image:loc>
+      <image:title>Chiflón de neblina de tres pasos - 1½ pulgadas</image:title>
+      <image:caption>Chiflón de neblina de tres pasos - 1½ pulgadas certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0044</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0044-800.webp</image:loc>
+      <image:title>Manguera industrial contra incendio</image:title>
+      <image:caption>Manguera industrial contra incendio certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0045</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0045-800.webp</image:loc>
+      <image:title>Válvula globo angular de bronce</image:title>
+      <image:caption>Válvula globo angular de bronce certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0046</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0046-800.webp</image:loc>
+      <image:title>Botiquín metálico de pared - chico</image:title>
+      <image:caption>Botiquín metálico de pared - chico certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0047</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0047-800.webp</image:loc>
+      <image:title>Botiquín metálico de pared - mediano</image:title>
+      <image:caption>Botiquín metálico de pared - mediano certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0048</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0048-800.webp</image:loc>
+      <image:title>Botiquín metálico de pared - grande</image:title>
+      <image:caption>Botiquín metálico de pared - grande certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0049</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0049-800.webp</image:loc>
+      <image:title>Detector de humo con batería de 9 V</image:title>
+      <image:caption>Detector de humo con batería de 9 V certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0050</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0050-800.webp</image:loc>
+      <image:title>Lámpara de emergencia recargable</image:title>
+      <image:caption>Lámpara de emergencia recargable certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0051</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0051-800.webp</image:loc>
+      <image:title>Camilla rígida para rescate e inmovilización</image:title>
+      <image:caption>Camilla rígida para rescate e inmovilización certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0052</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0052-800.webp</image:loc>
+      <image:title>Kit integral de inmovilización</image:title>
+      <image:caption>Kit integral de inmovilización certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0053</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0053-800.webp</image:loc>
+      <image:title>Guantes anticorte de alta resistencia</image:title>
+      <image:caption>Guantes anticorte de alta resistencia certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0054</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0054-800.webp</image:loc>
+      <image:title>Casco de seguridad con ajuste de matraca</image:title>
+      <image:caption>Casco de seguridad con ajuste de matraca certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.crmextintores.com.mx/producto?sku=CRM-0055</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.crmextintores.com.mx/assets/img/opt/catalog/CRM-0055-800.webp</image:loc>
+      <image:title>Casco de seguridad de ala ancha</image:title>
+      <image:caption>Casco de seguridad de ala ancha certificado para CDMX y Estado de México — Grupo CRM Extintores</image:caption>
+    </image:image>
   </url>
 </urlset>

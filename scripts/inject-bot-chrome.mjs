@@ -13,6 +13,7 @@ const botNav = `<nav class="bot-nav" aria-label="Enlaces del sitio">
     <a href="/">Inicio</a>
     <a href="/productos">Productos</a>
     <a href="/nosotros">Nosotros</a>
+    <a href="/inspector-crm">Inspector CRM</a>
     <a href="/venta-extintores">Venta de extintores</a>
     <a href="/recarga-extintores">Recarga</a>
     <a href="/mantenimiento-extintores">Mantenimiento</a>
@@ -30,7 +31,6 @@ const botNav = `<nav class="bot-nav" aria-label="Enlaces del sitio">
     <a href="/aviso-privacidad">Aviso de privacidad</a>
     <a href="/politica-de-servicio">Política de servicio</a>
     <a href="/fuentes-y-normatividad">Fuentes y normatividad</a>
-    <a href="/caso-agencia-automotriz">Caso agencia automotriz</a>
     <a href="tel:5667481489">56 6748 1489</a>
     <a href="mailto:crm.extintores@gmail.com">crm.extintores@gmail.com</a>
   </nav>`;

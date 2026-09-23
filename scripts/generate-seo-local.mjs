@@ -144,7 +144,7 @@ ${cssBoot}
   <meta property="og:description" content="${escapeHtml(description)}">
   <meta property="og:url" content="${canonical}">
   <meta property="og:image" content="${origin}/assets/img/og-crm.jpg">
-  <meta property="og:image:alt" content="Grupo CRM Extintores en CDMX y Estado de México">
+  <meta property="og:image:alt" content="Grupo CRM, extintores en CDMX y Estado de México">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:type" content="image/jpeg">
@@ -181,7 +181,7 @@ ${jsonLd}
     <a href="/">Inicio</a>
     <a href="/productos">Productos</a>
     <a href="/nosotros">Nosotros</a>
-    <a href="/grupo-crm-extintores">Grupo CRM Extintores</a>
+    <a href="/grupo-crm-extintores">Grupo CRM</a>
     <a href="/extintores-chamixto">Extintores Chamixto</a>
     <a href="/venta-extintores">Venta de extintores</a>
     <a href="/recarga-extintores">Recarga</a>

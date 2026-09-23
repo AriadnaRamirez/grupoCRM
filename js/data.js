@@ -103,15 +103,15 @@ export const SITE = {
 export const pageSeo = {
   inicio: {
     path: "/",
-    title: "Grupo CRM Extintores | Extintores en Cuajimalpa y CDMX",
+    title: "Grupo CRM, extintores en Cuajimalpa y CDMX",
     description:
-      "Grupo CRM (oficial; también GRUPO CRM Extintores, CRM Extintores y CRM): venta, recarga e instalación de extintores en Cuajimalpa y CDMX. WhatsApp 56 6748 1489.",
+      "Grupo CRM es la empresa de extintores en Cuajimalpa. También GRUPO CRM Extintores, CRM Extintores y CRM. Venta, recarga e instalación. WhatsApp 56 6748 1489.",
   },
   nosotros: {
     path: "/nosotros",
-    title: "Grupo CRM Extintores | Quiénes somos",
+    title: "Grupo CRM, extintores en Cuajimalpa",
     description:
-      "Grupo CRM es el nombre oficial. También GRUPO CRM Extintores, CRM Extintores y CRM. Empresa de extintores en Chamixto 131, Cuajimalpa. Siglas CRM, no CMR.",
+      "Grupo CRM es la empresa de extintores en Chamixto 131, Cuajimalpa. También GRUPO CRM Extintores, CRM Extintores y CRM. Siglas CRM, no CMR.",
   },
   productos: {
     path: "/productos",
@@ -195,9 +195,9 @@ export const pageSeo = {
   },
   "grupo-crm-extintores": {
     path: "/grupo-crm-extintores",
-    title: "Grupo CRM | Extintores en Cuajimalpa, CDMX",
+    title: "Grupo CRM, extintores en Cuajimalpa",
     description:
-      "Grupo CRM es el nombre oficial. Nombres secundarios: GRUPO CRM Extintores, CRM Extintores y CRM. Siglas CRM, no CMR. Oficina en Chamixto 131, Cuajimalpa.",
+      "Grupo CRM es la empresa de extintores en Chamixto 131, Cuajimalpa. Nombres secundarios: GRUPO CRM Extintores, CRM Extintores y CRM. Siglas CRM, no CMR.",
   },
   "extintores-chamixto": {
     path: "/extintores-chamixto",
@@ -987,8 +987,8 @@ export const faqs = [
     a: "CRM Extintores es un nombre secundario de Grupo CRM y el nombre del sitio oficial (crmextintores.com.mx). En Facebook: GRUPO CRM Extintores. Oficina en Chamixto 131, Cuajimalpa.",
   },
   {
-    q: "¿Dónde está Grupo CRM Extintores?",
-    a: 'Grupo CRM Extintores está en Chamixto 131, Col. Loma del Padre, Alcaldía Cuajimalpa, CDMX. El detalle de la sede está en <a href="/extintores-cuajimalpa">extintores en Cuajimalpa</a>.',
+    q: "¿Dónde está Grupo CRM?",
+    a: 'Grupo CRM está en Chamixto 131, Col. Loma del Padre, Alcaldía Cuajimalpa, CDMX. El detalle de la sede está en <a href="/extintores-cuajimalpa">extintores en Cuajimalpa</a>.',
   },
   {
     q: "¿Cuál es el nombre de la empresa?",

@@ -109,7 +109,7 @@ function pageShell({ title, description, canonical, bodyAttrs, main, jsonLd = ""
   <link rel="canonical" href="${canonical}">
   <meta property="og:type" content="${escapeHtml(ogType)}">
   <meta property="og:locale" content="es_MX">
-  <meta property="og:site_name" content="${escapeHtml(company.shortName)}">
+  <meta property="og:site_name" content="${escapeHtml(company.name)}">
   <meta property="og:title" content="${escapeHtml(title)}">
   <meta property="og:description" content="${escapeHtml(description)}">
   <meta property="og:url" content="${canonical}">
@@ -191,14 +191,15 @@ function globalLd() {
       "@type": "Organization",
       "@id": `${SITE.origin}/#organization`,
       name: company.name,
-      alternateName: ["Grupo CRM", "GRUPO CRM Extintores", "CRM Extintores"],
+      alternateName: company.alternateNames,
       url: SITE.origin,
     },
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
       "@id": `${SITE.origin}/#website`,
-      name: company.shortName,
+      name: company.name,
+      alternateName: company.alternateNames,
       url: SITE.origin,
       publisher: { "@id": `${SITE.origin}/#organization` },
     },
@@ -304,7 +305,7 @@ function productHtml(p) {
       name: alt,
       caption: alt,
     },
-    brand: { "@type": "Brand", name: company.shortName, alternateName: [company.name, "GRUPO CRM Extintores"] },
+    brand: { "@type": "Brand", name: company.name, alternateName: company.alternateNames },
     category: cat,
     url: canonical,
     offers: {

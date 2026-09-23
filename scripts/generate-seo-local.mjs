@@ -139,7 +139,7 @@ ${cssBoot}
   <link rel="canonical" href="${canonical}">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_MX">
-  <meta property="og:site_name" content="${escapeHtml(company.shortName)}">
+  <meta property="og:site_name" content="${escapeHtml(company.name)}">
   <meta property="og:title" content="${escapeHtml(title)}">
   <meta property="og:description" content="${escapeHtml(description)}">
   <meta property="og:url" content="${canonical}">
@@ -171,8 +171,8 @@ ${cssBoot}
   })();
   </script>
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
-  <script type="application/ld+json" id="seo-organization">{"@context":"https://schema.org","@type":"Organization","@id":"${origin}/#organization","name":"${escapeHtml(company.name)}","alternateName":["Grupo CRM","CRM Extintores","GRUPO CRM Extintores"],"url":"${origin}"}</script>
-  <script type="application/ld+json" id="seo-website">{"@context":"https://schema.org","@type":"WebSite","@id":"${origin}/#website","name":"Grupo CRM","alternateName":["Grupo CRM Extintores","CRM Extintores"],"url":"${origin}"}</script>
+  <script type="application/ld+json" id="seo-organization">{"@context":"https://schema.org","@type":"Organization","@id":"${origin}/#organization","name":"${escapeHtml(company.name)}","alternateName":["GRUPO CRM Extintores","CRM Extintores","CRM"],"url":"${origin}"}</script>
+  <script type="application/ld+json" id="seo-website">{"@context":"https://schema.org","@type":"WebSite","@id":"${origin}/#website","name":"${escapeHtml(company.name)}","alternateName":["GRUPO CRM Extintores","CRM Extintores","CRM"],"url":"${origin}"}</script>
 ${jsonLd}
 </head>
 <body ${bodyAttrs}>
@@ -583,7 +583,10 @@ function locationJsonLd(zona, canonical) {
     "@id": `${SITE.origin}/#business`,
     name: company.name,
     legalName: company.legalName || company.name,
-    alternateName: ["Grupo CRM", "CRM Extintores", "GRUPO CRM Extintores"],
+    alternateName: company.alternateNames,
+    disambiguatingDescription:
+      "Empresa de extintores en Cuajimalpa, Ciudad de México. Las siglas son CRM, no CMR. Sitio oficial: CRM Extintores.",
+    description: company.about,
     image: `${SITE.origin}/assets/img/logo-crm.png`,
     url: SITE.origin,
     telephone: `+52${company.phoneTel}`,
@@ -641,7 +644,7 @@ function locationHtml(zona) {
     ? "Extintores en Cuajimalpa, CDMX | Grupo CRM Extintores"
     : zona.region === "edomex"
       ? `Extintores en ${zona.name} | Venta y recarga`
-      : `Extintores en ${zona.name} | Grupo CRM`;
+      : `Extintores en ${zona.name} | Grupo CRM Extintores`;
   const description = copy.isBase
     ? `Venta y recarga de extintores en Cuajimalpa: oficina en Chamixto 131, Col. Loma del Padre. Santa Fe, Contadero y toda la alcaldía. WhatsApp ${company.phone}.`
     : `Venta, recarga, mantenimiento e instalación de extintores en ${zona.name}, ${region}. Primera visita sin costo. Cotice con Grupo CRM Extintores.`;
@@ -1132,16 +1135,20 @@ function entityOfficialHtml() {
   const description = pageSeo["grupo-crm-extintores"].description;
   const crumbs = breadcrumbList([
     { name: "Inicio", item: `${SITE.origin}/` },
-    { name: "Grupo CRM Extintores", item: canonical },
+    { name: "Grupo CRM", item: canonical },
   ]);
   const faqs = [
     {
       q: "¿Qué es Grupo CRM?",
-      a: "Grupo CRM es el nombre de Grupo CRM Extintores, empresa de venta, recarga e instalación de extintores en Cuajimalpa. El sitio oficial es www.crmextintores.com.mx.",
+      a: "Grupo CRM es el nombre oficial de la empresa de venta, recarga e instalación de extintores en Cuajimalpa. Nombres secundarios: GRUPO CRM Extintores, CRM Extintores y CRM. Las siglas son CRM, no CMR.",
     },
     {
-      q: "¿Quién es Grupo CRM Extintores?",
-      a: "Grupo CRM Extintores es una empresa de venta, recarga, mantenimiento e instalación de extintores y equipo contra incendios. CRM Extintores es el nombre del sitio oficial del mismo negocio. El sitio oficial es www.crmextintores.com.mx.",
+      q: "¿Grupo CRM es lo mismo que CMR?",
+      a: "No. Grupo CRM (siglas CRM) es la empresa de extintores en Chamixto 131, Col. Loma del Padre, Cuajimalpa. No somos CMR.",
+    },
+    {
+      q: "¿Cuáles son los nombres de la empresa?",
+      a: "Nombre oficial: Grupo CRM. Nombres secundarios: GRUPO CRM Extintores, CRM Extintores y CRM. El sitio oficial es www.crmextintores.com.mx.",
     },
     {
       q: "¿Dónde está Grupo CRM Extintores?",
@@ -1199,25 +1206,27 @@ function entityOfficialHtml() {
     <div class="wrap zona-page__layout">
       <header class="zona-page__head">
         <nav class="article-crumb" aria-label="Miga de pan">
-          <a href="/">Inicio</a> · <span>Grupo CRM Extintores</span>
+          <a href="/">Inicio</a> · <span>Grupo CRM</span>
         </nav>
         <p class="kicker">Información oficial</p>
         <h1>Grupo CRM</h1>
         <hr class="rule rule-left" aria-hidden="true">
-        <p class="lead">Grupo CRM es el nombre de Grupo CRM Extintores. La oficina está en ${escapeHtml(company.address)}. Sitio oficial: <a href="${company.websiteUrl}">${escapeHtml(company.website)}</a>.</p>
+        <p class="lead">Grupo CRM es el nombre oficial. Nombres secundarios: GRUPO CRM Extintores, CRM Extintores y CRM. Siglas CRM, no CMR. Oficina: ${escapeHtml(company.address)}. Sitio: <a href="${company.websiteUrl}">${escapeHtml(company.website)}</a>.</p>
         ${contentDatesHtml()}
       </header>
       <div class="zona-page__body">
         <h2>¿Qué es Grupo CRM?</h2>
-        <p>Grupo CRM es el nombre de <strong>Grupo CRM Extintores</strong>, empresa de venta, recarga, mantenimiento e instalación de extintores en Cuajimalpa, Ciudad de México.</p>
+        <p><strong>Grupo CRM</strong> es el nombre oficial de la empresa de venta, recarga, mantenimiento e instalación de extintores en Cuajimalpa, Ciudad de México. Las siglas son <strong>CRM</strong>, no CMR.</p>
         <p>${escapeHtml(company.about)}</p>
-        <p>En Facebook aparece como GRUPO CRM Extintores. La mascota de la empresa es <a href="/inspector-crm">Inspector CRM</a>. Más contexto: <a href="/nosotros">quiénes somos</a>.</p>
+        <p>En Facebook aparece el nombre secundario GRUPO CRM Extintores. La mascota de la empresa es <a href="/inspector-crm">Inspector CRM</a>. Más contexto: <a href="/nosotros">quiénes somos</a>.</p>
+
+        <h2>¿Grupo CRM es lo mismo que CMR?</h2>
+        <p>No. Grupo CRM (siglas CRM) es la empresa de extintores con oficina en Chamixto 131, Col. Loma del Padre, Alcaldía Cuajimalpa. No somos CMR.</p>
 
         <h2>Datos oficiales</h2>
         <ul class="zona-page__points">
-          <li>Nombre comercial: ${escapeHtml(company.name)}</li>
-          <li>Nombre de la empresa: ${escapeHtml(company.brandShort)}</li>
-          <li>Sitio (nombre utilizado): ${escapeHtml(company.shortName)}</li>
+          <li>Nombre oficial: ${escapeHtml(company.name)}</li>
+          <li>Nombres secundarios: ${company.alternateNames.map(escapeHtml).join(", ")}</li>
           <li>Sitio web oficial: <a href="${company.websiteUrl}">${escapeHtml(company.website)}</a></li>
           <li>Ubicación: ${escapeHtml(company.address)}</li>
           <li>Alcaldía: Cuajimalpa</li>
@@ -1410,7 +1419,7 @@ const hubEdoPath = join(root, "extintores-estado-de-mexico.html");
 writeFileSync(hubCdmxPath, hubCdmx());
 writeFileSync(hubEdoPath, hubEdomex());
 writeFileSync(join(root, "grupo-crm-extintores.html"), entityOfficialHtml());
-writeFileSync(join(root, "grupo-crm.html"), redirectHtml("/grupo-crm-extintores", "Grupo CRM"));
+writeFileSync(join(root, "grupo-crm.html"), redirectHtml("/grupo-crm-extintores", "Grupo CRM Extintores"));
 writeFileSync(join(root, "extintores-chamixto.html"), chamixtoHtml());
 
 for (const z of zonas) {

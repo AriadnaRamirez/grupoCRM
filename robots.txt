@@ -9,4 +9,10 @@ Allow: /
 User-agent: Googlebot-Image
 Allow: /
 
+User-agent: Bingbot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
 Sitemap: https://www.crmextintores.com.mx/sitemap.xml

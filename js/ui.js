@@ -572,6 +572,9 @@ function footerHTML() {
           <ul>
             <li><a href="${withBase("/")}">Inicio</a></li>
             <li><a href="${withBase("/nosotros")}">Nosotros</a></li>
+            <li><a href="${withBase("/grupo-crm-extintores")}">Grupo CRM Extintores</a></li>
+            <li><a href="${withBase("/extintores-cuajimalpa")}">Extintores en Cuajimalpa</a></li>
+            <li><a href="${withBase("/extintores-chamixto")}">Extintores Chamixto</a></li>
             <li><a href="${withBase("/inspector-crm")}">Inspector CRM</a></li>
             <li><a href="${withBase("/nosotros#servicios")}">Servicios</a></li>
             <li><a href="${withBase("/nosotros#cursos")}">Cursos</a></li>
@@ -612,7 +615,7 @@ function footerHTML() {
       </div>
       <div class="wrap footer-seo" id="cobertura" aria-labelledby="footer-cobertura-title">
         <p id="footer-cobertura-title" class="footer-seo__title">Extintores en CDMX y Estado de México</p>
-        <p class="footer-seo__text">Venta, recarga, mantenimiento e instalación. <a href="${withBase("/extintores-cuajimalpa")}">Oficina en Cuajimalpa</a>; el resto son áreas de servicio.</p>
+        <p class="footer-seo__text">Venta, recarga, mantenimiento e instalación. <a href="${withBase("/extintores-cuajimalpa")}">Extintores en Cuajimalpa</a>; el resto son áreas de servicio.</p>
         <div class="footer-seo__row">
           <span class="footer-seo__label">Servicios</span>
           <ul class="footer-seo__links">${serviceLinks}</ul>

@@ -583,7 +583,7 @@ function footerHTML() {
             <li><a href="${withBase("/extintores-cdmx")}">Cobertura CDMX</a></li>
             <li><a href="${withBase("/extintores-estado-de-mexico")}">Estado de México</a></li>
             <li><a href="${withBase("/blog")}">Blog</a></li>
-            <li><a href="${withBase("/blog/precio-recarga-extintores-cdmx")}">Precio de recarga</a></li>
+            <li><a href="${withBase("/recarga-extintores")}">Recarga de extintores</a></li>
             <li><a href="${withBase("/contacto")}">Contacto</a></li>
             <li><a href="${withBase("/aviso-privacidad")}">Aviso de privacidad</a></li>
             <li><a href="${withBase("/politica-de-servicio")}">Política de servicio</a></li>
@@ -2049,28 +2049,25 @@ export function renderExtinguisherCompare() {
 
 export function renderHome() {
   bindHeroSlider();
-  const hydrate = () => {
+  paintServices();
+  paintCursos();
+  renderCarePoints();
+  renderClientLogos();
+  renderReviews();
+  renderCompactSectors();
+  renderHook();
+  renderFaqs();
+  renderNosotros();
+  const deferHeavy = () => {
     renderHomeCats();
     renderHomeCatalog();
-    paintServices();
-    paintCursos();
-    renderCarePoints();
-    renderClientLogos();
-    renderReviews();
-    renderCompactSectors();
-    renderHook();
     renderHomeGallerySlider();
-    renderFaqs();
-    renderNosotros();
   };
-  // Mobile: keep first paint free of catalog/reviews/gallery work.
   const mobile = window.matchMedia("(max-width: 760px)").matches;
   if (mobile && "requestIdleCallback" in window) {
-    window.requestIdleCallback(hydrate, { timeout: 2200 });
-  } else if (mobile) {
-    window.setTimeout(hydrate, 120);
+    window.requestIdleCallback(deferHeavy, { timeout: 2200 });
   } else {
-    hydrate();
+    deferHeavy();
   }
 }
 
@@ -2089,6 +2086,15 @@ export function renderProducto() {
   const p = productBySku(sku);
   const root = document.querySelector("[data-product]");
   if (!root) return;
+  if (p && root.querySelector("article.ficha")) {
+    try {
+      sessionStorage.setItem("crm-sku", p.sku);
+    } catch {
+      /* ignore */
+    }
+    root.setAttribute("aria-busy", "false");
+    return;
+  }
   if (!p) {
     document.title = `Artículo no encontrado | ${company.name}`;
     document.body.dataset.page = "error";
@@ -2107,6 +2113,7 @@ export function renderProducto() {
             <h1>No encontramos ese equipo</h1>
             <hr class="rule rule-left">
             <p>Ese artículo ya no está en el catálogo, pero con gusto le mostramos el equipo equivalente.</p>
+            <p class="error-page__return" data-error-return>Regresa al inicio en <span data-error-seconds>10</span> segundos</p>
             <p class="error-page__actions">
               <a class="btn btn-red" href="${withBase("/productos")}">${fa("fa-solid fa-boxes-stacked")} Ver equipos</a>
               <a class="btn btn-wa" href="${waUrl("Hola, no encontré un producto y quiero cotizar.")}" target="_blank" rel="noopener noreferrer">${WA_ICON} Escríbanos por WhatsApp</a>
@@ -2115,6 +2122,7 @@ export function renderProducto() {
         </div>
       </section>`;
     root.setAttribute("aria-busy", "false");
+    bindErrorReturn();
     return;
   }
   document.title = `${p.title} · ${company.name}`;
@@ -2810,7 +2818,7 @@ export function bindContact() {
   if (!form) return;
   form.setAttribute("novalidate", "");
   const params = new URLSearchParams(location.search);
-  const sku = params.get("sku");
+  const sku = params.get("sku") || readSku();
   const p = productBySku(sku);
   const prodField = form.elements.namedItem("producto");
   const msgField = form.elements.namedItem("mensaje");

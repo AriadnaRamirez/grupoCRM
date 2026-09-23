@@ -60,7 +60,7 @@ makePage({
       <ul>
         <li>Puede pedir cotización por WhatsApp, teléfono o el <a href="/contacto">formulario de contacto</a>.</li>
         <li>Le pedimos datos del inmueble, tipo de equipo y, si aplica, fotos de etiquetas o puntos de incendio para cotizar con precisión.</li>
-        <li>La cotización no obliga a comprar. Los precios y plazos se confirman por escrito (WhatsApp o correo) antes de ejecutar el servicio.</li>
+        <li>La cotización no obliga a comprar. Los precios se envían por WhatsApp, no se publican en el sitio.</li>
       </ul>
 
       <h2>Primera visita sin costo</h2>

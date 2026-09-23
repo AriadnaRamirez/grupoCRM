@@ -79,6 +79,19 @@ function setJsonLd(id, data) {
   el.textContent = JSON.stringify(data);
 }
 
+function hasStaticFaqPage() {
+  return [...document.querySelectorAll('script[type="application/ld+json"]')].some((el) => {
+    if (el.id === "seo-faq") return false;
+    try {
+      const data = JSON.parse(el.textContent || "{}");
+      if (data["@type"] === "FAQPage") return true;
+      return Array.isArray(data["@graph"]) && data["@graph"].some((node) => node?.["@type"] === "FAQPage");
+    } catch {
+      return false;
+    }
+  });
+}
+
 function clipDesc(text, max = 160) {
   const clean = String(text || "").replace(/\s+/g, " ").trim();
   if (clean.length <= max) return clean;
@@ -566,10 +579,12 @@ export function applySeo(page) {
 
   if (page === "inicio") {
     setJsonLd("seo-faq", faqPage(faqs));
-  } else if (seo.servicio?.faqs?.length) {
-    setJsonLd("seo-faq", faqPage(seo.servicio.faqs));
-  } else if (seo.article?.faqs?.length) {
-    setJsonLd("seo-faq", faqPage(seo.article.faqs));
+  } else if (!hasStaticFaqPage()) {
+    if (seo.servicio?.faqs?.length) {
+      setJsonLd("seo-faq", faqPage(seo.servicio.faqs));
+    } else if (seo.article?.faqs?.length) {
+      setJsonLd("seo-faq", faqPage(seo.article.faqs));
+    }
   }
 
   if (page === "nosotros") {

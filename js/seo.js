@@ -128,9 +128,11 @@ function professionalService({ areaServed } = {}) {
     "@type": ["LocalBusiness", "ProfessionalService"],
     "@id": `${SITE.origin}/#business`,
     name: company.name,
-    alternateName: [company.brandShort, "CRM Extintores", "GRUPO CRM Extintores"],
+    alternateName: company.alternateNames,
     legalName: company.legalName || company.name,
-    brand: { "@type": "Brand", name: company.brandShort, alternateName: [company.name, "CRM Extintores", "GRUPO CRM Extintores"] },
+    disambiguatingDescription:
+      "Empresa de extintores en Cuajimalpa, Ciudad de México. Nombre oficial: Grupo CRM. También GRUPO CRM Extintores, CRM Extintores y CRM. Las siglas son CRM, no CMR.",
+    brand: { "@type": "Brand", name: company.name, alternateName: company.alternateNames },
     description: company.about,
     url: SITE.origin,
     image: [
@@ -193,9 +195,8 @@ function professionalService({ areaServed } = {}) {
     },
     sameAs: [company.facebookUrl, company.instagramUrl].filter(Boolean),
     knowsAbout: [
-      company.brandShort,
-      "CRM Extintores",
-      "Grupo CRM Extintores",
+      company.name,
+      ...company.alternateNames,
       "Extintores Chamixto",
       "Extintores en Loma del Padre",
       "Extintores en Cuajimalpa",
@@ -244,7 +245,9 @@ function organizationNode() {
     "@id": `${SITE.origin}/#organization`,
     name: company.name,
     legalName: company.legalName || company.name,
-    alternateName: [company.brandShort, "CRM Extintores", "GRUPO CRM Extintores"],
+    alternateName: company.alternateNames,
+    disambiguatingDescription:
+      "Empresa de extintores en Cuajimalpa, Ciudad de México. Nombre oficial: Grupo CRM. También GRUPO CRM Extintores, CRM Extintores y CRM. Las siglas son CRM, no CMR.",
     url: SITE.origin,
     logo: {
       "@type": "ImageObject",
@@ -269,8 +272,8 @@ function websiteNode() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": `${SITE.origin}/#website`,
-    name: company.brandShort,
-    alternateName: [company.name, "CRM Extintores", "GRUPO CRM Extintores"],
+    name: company.name,
+    alternateName: company.alternateNames,
     url: SITE.origin,
     inLanguage: "es-MX",
     publisher: { "@id": `${SITE.origin}/#organization` },
@@ -322,7 +325,7 @@ function productNode(p, url) {
       name: productAlt(p, { detail: true }),
       caption: productAlt(p, { detail: true }),
     },
-    brand: { "@type": "Brand", name: "CRM Extintores", alternateName: [company.name, "Grupo CRM", "GRUPO CRM Extintores"] },
+    brand: { "@type": "Brand", name: company.name, alternateName: company.alternateNames },
     category: catName(p.cat),
     url,
   };
@@ -497,7 +500,7 @@ export function applySeo(page) {
   setLink("canonical", url);
   setMeta("og:type", seo.type === "product" ? "product" : seo.type === "article" ? "article" : "website", "property");
   setMeta("og:locale", SITE.locale, "property");
-  setMeta("og:site_name", company.brandShort, "property");
+  setMeta("og:site_name", company.name, "property");
   setMeta("og:title", seo.title, "property");
   setMeta("og:description", seo.description, "property");
   setMeta("og:url", url, "property");
@@ -545,7 +548,7 @@ export function applySeo(page) {
     name: seo.title,
     description: seo.description,
     inLanguage: "es-MX",
-    isPartOf: { "@type": "WebSite", "@id": `${SITE.origin}/#website`, name: company.brandShort, url: SITE.origin },
+    isPartOf: { "@type": "WebSite", "@id": `${SITE.origin}/#website`, name: company.name, url: SITE.origin },
     datePublished: seo.article?.datePublished || SITE.contentPublished,
     dateModified:
       seo.article?.dateModified ||

@@ -101,9 +101,9 @@ export const SITE = {
 export const pageSeo = {
   inicio: {
     path: "/",
-    title: "CRM Extintores | Loma del Padre, Cuajimalpa",
+    title: "Extintores en Cuajimalpa y CDMX | Grupo CRM Extintores",
     description:
-      "CRM Extintores (Grupo CRM Extintores): oficina en Chamixto 131, Col. Loma del Padre, Cuajimalpa. Venta, recarga e instalación en CDMX y Estado de México. WhatsApp 56 6748 1489.",
+      "Grupo CRM Extintores: venta, recarga e instalación de extintores en Cuajimalpa y CDMX. Oficina en Chamixto 131, Col. Loma del Padre. WhatsApp 56 6748 1489.",
   },
   nosotros: {
     path: "/nosotros",
@@ -132,9 +132,9 @@ export const pageSeo = {
   },
   contacto: {
     path: "/contacto",
-    title: "CRM Extintores | Chamixto 131, Loma del Padre",
+    title: "Contacto | Grupo CRM Extintores en Cuajimalpa",
     description:
-      "Oficina de CRM Extintores en Chamixto 131, Col. Loma del Padre, Cuajimalpa. Cotice por WhatsApp 56 6748 1489. Primera visita sin costo.",
+      "Contacte a Grupo CRM Extintores en Cuajimalpa: Chamixto 131, Col. Loma del Padre. WhatsApp 56 6748 1489. Primera visita sin costo.",
   },
   servicios: {
     path: "/servicios",
@@ -190,6 +190,18 @@ export const pageSeo = {
     title: "Extintores en CDMX y Edo. Méx. | CRM",
     description:
       "Venta, recarga e instalación de extintores en alcaldías de CDMX y municipios del Estado de México. Cotice con Grupo CRM Extintores.",
+  },
+  "grupo-crm-extintores": {
+    path: "/grupo-crm-extintores",
+    title: "Grupo CRM Extintores | Extintores en Cuajimalpa, CDMX",
+    description:
+      "Grupo CRM Extintores (CRM Extintores): oficina en Chamixto 131, Col. Loma del Padre, Cuajimalpa. Venta, recarga e instalación en CDMX y Estado de México.",
+  },
+  "extintores-chamixto": {
+    path: "/extintores-chamixto",
+    title: "Extintores Chamixto en Cuajimalpa | Grupo CRM Extintores",
+    description:
+      "La oficina de Grupo CRM Extintores está en Chamixto 131, Col. Loma del Padre, Cuajimalpa. Venta y recarga de extintores. WhatsApp 56 6748 1489.",
   },
   inspector: {
     path: "/inspector-crm",
@@ -293,7 +305,7 @@ export const seoServicePages = [
   {
     slug: "venta-extintores",
     path: "/venta-extintores",
-    title: "Venta de extintores en CDMX | Grupo CRM",
+    title: "Venta de extintores en CDMX | Grupo CRM Extintores",
     h1: "Venta de Extintores",
     description:
       "Venta de extintores certificados en CDMX y Estado de México. Asesoría para elegir el equipo, entrega o instalación y primera visita sin costo. Cotice con Grupo CRM Extintores.",
@@ -348,7 +360,7 @@ export const seoServicePages = [
   {
     slug: "recarga-extintores",
     path: "/recarga-extintores",
-    title: "Recarga de extintores CDMX | NOM-154",
+    title: "Recarga de extintores en CDMX | Grupo CRM Extintores",
     h1: "Recarga de Extintores",
     description:
       "Recarga de extintores en CDMX y Estado de México bajo NOM-154-SCFI-2005, con evidencia para inspección. Primera visita sin costo. Cotice con Grupo CRM Extintores.",
@@ -403,7 +415,7 @@ export const seoServicePages = [
   {
     slug: "mantenimiento-extintores",
     path: "/mantenimiento-extintores",
-    title: "Mantenimiento de extintores | Grupo CRM",
+    title: "Mantenimiento de extintores en CDMX | Grupo CRM Extintores",
     h1: "Mantenimiento de Extintores",
     description:
       "Mantenimiento y recarga de extintores en CDMX y Estado de México bajo NOM-154-SCFI-2005. Diagnóstico en sitio y primera visita sin costo. Cotice con Grupo CRM Extintores.",
@@ -453,7 +465,7 @@ export const seoServicePages = [
   {
     slug: "instalacion-extintores",
     path: "/instalacion-extintores",
-    title: "Instalación de extintores | Grupo CRM",
+    title: "Instalación de extintores en CDMX | Grupo CRM Extintores",
     h1: "Instalación de Extintores",
     description:
       "Instalación de extintores y señalamientos en CDMX y Estado de México. Altura, visibilidad y acceso listos para inspección. Cotice con Grupo CRM Extintores.",
@@ -501,7 +513,7 @@ export const seoServicePages = [
   {
     slug: "senalizacion",
     path: "/senalizacion",
-    title: "Señalización en CDMX | Grupo CRM",
+    title: "Señalización contra incendios en CDMX | Grupo CRM Extintores",
     h1: "Señalización contra incendios y vial",
     description:
       "Señalamientos de emergencia y vialidad en CDMX y Estado de México. Identifique equipos, rutas y áreas de riesgo. Cotice con Grupo CRM Extintores.",
@@ -529,8 +541,8 @@ export const blogPosts = [
   {
     slug: "recarga-extintores-cuajimalpa",
     path: "/blog/recarga-extintores-cuajimalpa",
-    title: "Recarga en Loma del Padre | CRM Extintores",
-    heading: "Recarga de extintores en Loma del Padre, Cuajimalpa",
+    title: "Recarga de extintores en Cuajimalpa | Grupo CRM Extintores",
+    heading: "Recarga de extintores en Cuajimalpa",
     description:
       "Recarga de extintores en Cuajimalpa desde Chamixto 131, Loma del Padre. Visita sin costo, NOM-154-SCFI-2005 y cobertura en Santa Fe, Contadero y toda la alcaldía.",
     kicker: "Cuajimalpa",
@@ -965,8 +977,8 @@ export const faqs = [
     a: "CRM Extintores es el sitio oficial de Grupo CRM Extintores. En Facebook aparece como GRUPO CRM Extintores. La oficina está en Chamixto 131, Col. Loma del Padre, Cuajimalpa. Venta, recarga e instalación en CDMX y Estado de México.",
   },
   {
-    q: "¿Dónde está CRM Extintores en Loma del Padre?",
-    a: 'La oficina de CRM Extintores está en Chamixto 131, Col. Loma del Padre, Alcaldía Cuajimalpa, CDMX. El detalle de la sede está en <a href="/extintores-cuajimalpa">extintores en Loma del Padre</a>.',
+    q: "¿Dónde está Grupo CRM Extintores?",
+    a: 'Grupo CRM Extintores está en Chamixto 131, Col. Loma del Padre, Alcaldía Cuajimalpa, CDMX. El detalle de la sede está en <a href="/extintores-cuajimalpa">extintores en Cuajimalpa</a>.',
   },
   {
     q: "¿Qué es Grupo CRM?",
@@ -986,7 +998,7 @@ export const faqs = [
   },
   {
     q: "¿En qué zonas atienden?",
-    a: 'Atendemos toda la Ciudad de México y el Estado de México. La oficina de <a href="/extintores-cuajimalpa">CRM Extintores en Loma del Padre</a> está en Chamixto 131, Cuajimalpa.',
+    a: 'Atendemos toda la Ciudad de México y el Estado de México. La oficina de <a href="/extintores-cuajimalpa">extintores en Cuajimalpa</a> está en Chamixto 131, Col. Loma del Padre.',
   },
   {
     q: "¿Cómo pido una cotización?",

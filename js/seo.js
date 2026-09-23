@@ -125,7 +125,7 @@ function professionalService({ areaServed } = {}) {
   const phoneAlt = `+52${company.phoneAltTel}`;
   return {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
+    "@type": ["LocalBusiness", "ProfessionalService"],
     "@id": `${SITE.origin}/#business`,
     name: company.name,
     alternateName: ["CRM Extintores", "Grupo CRM", "GRUPO CRM Extintores"],
@@ -191,15 +191,13 @@ function professionalService({ areaServed } = {}) {
       opens: "09:00",
       closes: "18:00",
     },
-    sameAs: [
-      company.facebookUrl,
-      company.facebookReviewsUrl,
-      company.instagramUrl,
-      company.mapsUrl,
-    ].filter(Boolean),
+    sameAs: [company.facebookUrl, company.instagramUrl].filter(Boolean),
     knowsAbout: [
       "CRM Extintores",
+      "Grupo CRM Extintores",
+      "Extintores Chamixto",
       "Extintores en Loma del Padre",
+      "Extintores en Cuajimalpa",
       "Extintores",
       "Recarga de extintores",
       "Instalación de extintores",
@@ -460,12 +458,12 @@ function resolvePage(page) {
     return {
       path: extintoresPath(zona),
       title: isBase
-        ? "Extintores en Loma del Padre | CRM Extintores"
+        ? "Extintores en Cuajimalpa, CDMX | Grupo CRM Extintores"
         : zona.region === "edomex"
           ? `Extintores en ${zona.name} | Venta y recarga`
           : `Extintores en ${zona.name} | Grupo CRM`,
       description: isBase
-        ? `Venta y recarga de extintores en Cuajimalpa: oficina en Chamixto 131, Loma del Padre. Santa Fe, Contadero y toda la alcaldía. Primera visita sin costo. WhatsApp ${company.phone}.`
+        ? `Venta y recarga de extintores en Cuajimalpa: oficina en Chamixto 131, Col. Loma del Padre. Santa Fe, Contadero y toda la alcaldía. WhatsApp ${company.phone}.`
         : clipDesc(
             `Venta, recarga, mantenimiento e instalación de extintores en ${zona.name}, ${region}. Primera visita sin costo. Cotice con Grupo CRM Extintores.`
           ),
@@ -576,6 +574,23 @@ export function applySeo(page) {
       breadcrumbs([
         { name: "Inicio", path: "/" },
         { name: "Nosotros", path: "/nosotros" },
+      ])
+    );
+  } else if (page === "grupo-crm-extintores") {
+    setJsonLd(
+      "seo-crumbs",
+      breadcrumbs([
+        { name: "Inicio", path: "/" },
+        { name: "Grupo CRM Extintores", path: "/grupo-crm-extintores" },
+      ])
+    );
+  } else if (page === "extintores-chamixto") {
+    setJsonLd(
+      "seo-crumbs",
+      breadcrumbs([
+        { name: "Inicio", path: "/" },
+        { name: "Cuajimalpa", path: "/extintores-cuajimalpa" },
+        { name: "Extintores Chamixto", path: "/extintores-chamixto" },
       ])
     );
   } else if (page === "contacto") {
@@ -747,6 +762,8 @@ export function sitemapUrls() {
   return [
     "/",
     "/nosotros",
+    "/grupo-crm-extintores",
+    "/extintores-chamixto",
     "/productos",
     "/galeria",
     "/contacto",

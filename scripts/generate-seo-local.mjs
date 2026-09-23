@@ -21,6 +21,7 @@ import {
   seoServiceBySlug,
   company,
   SITE,
+  pageSeo,
 } from "../js/data.js";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -180,6 +181,8 @@ ${jsonLd}
     <a href="/">Inicio</a>
     <a href="/productos">Productos</a>
     <a href="/nosotros">Nosotros</a>
+    <a href="/grupo-crm-extintores">Grupo CRM Extintores</a>
+    <a href="/extintores-chamixto">Extintores Chamixto</a>
     <a href="/venta-extintores">Venta de extintores</a>
     <a href="/recarga-extintores">Recarga</a>
     <a href="/mantenimiento-extintores">Mantenimiento</a>
@@ -190,7 +193,7 @@ ${jsonLd}
     <a href="/contacto">Contacto</a>
     <a href="/extintores-cdmx">Extintores CDMX</a>
     <a href="/extintores-estado-de-mexico">Estado de México</a>
-    <a href="/extintores-cuajimalpa">Cuajimalpa</a>
+    <a href="/extintores-cuajimalpa">Extintores en Cuajimalpa</a>
     <a href="/extintores-naucalpan">Naucalpan</a>
     <a href="/extintores-huixquilucan">Huixquilucan</a>
     <a href="/mapa-sitio">Mapa de sitio</a>
@@ -428,7 +431,7 @@ function locationCopy(zona) {
   const isBase = zona.slug === "cuajimalpa";
   const intros = isBase
     ? [
-        `CRM Extintores (Grupo CRM Extintores) tiene su única oficina en Loma del Padre, Cuajimalpa. Desde Chamixto 131 cotizamos, visitamos e instalamos extintores en la colonia y en el resto de la alcaldía —Santa Fe, Contadero, San José de los Cedros y Cuajimalpa Centro— y en CDMX y Estado de México.`,
+        `Grupo CRM Extintores vende, recarga e instala extintores en Cuajimalpa, Ciudad de México. La oficina está en Chamixto 131, Col. Loma del Padre. Desde ahí visitamos Santa Fe, Contadero, San José de los Cedros, Cuajimalpa Centro y el resto de la alcaldía, además de CDMX y Estado de México.`,
       ]
     : [
         `Grupo CRM Extintores ofrece venta, recarga, mantenimiento e instalación de extintores en ${zona.name}, ${region}. Atendemos ${zona.focus}.`,
@@ -495,10 +498,20 @@ function locationCopy(zona) {
     },
   ];
   if (isBase) {
-    faqs.unshift({
-      q: "¿Hay extintores en Loma del Padre?",
-      a: "Sí. CRM Extintores (Grupo CRM Extintores) tiene su oficina en Chamixto 131, Col. Loma del Padre, Cuajimalpa. Desde ahí vendemos, recargamos e instalamos extintores en la colonia y en toda la alcaldía.",
-    });
+    faqs.unshift(
+      {
+        q: "¿Dónde recargar extintores en Cuajimalpa?",
+        a: "En Grupo CRM Extintores. La oficina está en Chamixto 131, Col. Loma del Padre. El servicio habitual es visita en su inmueble; la recarga se alinea a la NOM-154-SCFI-2005 y la primera revisión no tiene costo.",
+      },
+      {
+        q: "¿Quién vende extintores en Cuajimalpa?",
+        a: "Grupo CRM Extintores. Vendemos extintores certificados desde Chamixto 131 y los entregamos o instalamos en el inmueble.",
+      },
+      {
+        q: "¿Grupo CRM Extintores atiende Cuajimalpa?",
+        a: "Sí. La única oficina física está en Chamixto 131, Col. Loma del Padre, Alcaldía Cuajimalpa, C.P. 05020. Horario lunes a viernes 9:00–18:00.",
+      }
+    );
     faqs.push(
       {
         q: "¿Atienden Santa Fe y Contadero?",
@@ -545,7 +558,7 @@ function locationJsonLd(zona, canonical) {
     "@context": "https://schema.org",
     "@type": "Service",
     name: copy.isBase
-      ? `Extintores en Loma del Padre, Cuajimalpa`
+      ? `Extintores en Cuajimalpa`
       : `Extintores en ${zona.name}`,
     serviceType: "Venta, recarga, mantenimiento e instalación de extintores",
     provider: { "@id": `${SITE.origin}/#business` },
@@ -566,7 +579,7 @@ function locationJsonLd(zona, canonical) {
   };
   const professional = {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
+    "@type": ["LocalBusiness", "ProfessionalService"],
     "@id": `${SITE.origin}/#business`,
     name: company.name,
     legalName: company.legalName || company.name,
@@ -609,7 +622,7 @@ function locationJsonLd(zona, canonical) {
           { "@type": "AdministrativeArea", name: `${zona.name}, ${zonaRegionLabel(zona)}` },
           ...(copy.colonias || []).map((name) => ({ "@type": "Place", name: `${name}, ${zona.name}` })),
         ],
-    sameAs: [company.facebookUrl, company.instagramUrl, company.mapsUrl].filter(Boolean),
+    sameAs: [company.facebookUrl, company.instagramUrl].filter(Boolean),
   };
   return [
     `  <script type="application/ld+json" id="seo-crumbs">${JSON.stringify(crumbs)}</script>`,
@@ -625,19 +638,19 @@ function locationHtml(zona) {
   const hub = extintoresHubPath(zona.region);
   const hubLabel = zona.region === "edomex" ? "Estado de México" : "Ciudad de México";
   const title = copy.isBase
-    ? "Extintores en Loma del Padre | CRM Extintores"
+    ? "Extintores en Cuajimalpa, CDMX | Grupo CRM Extintores"
     : zona.region === "edomex"
       ? `Extintores en ${zona.name} | Venta y recarga`
       : `Extintores en ${zona.name} | Grupo CRM`;
   const description = copy.isBase
-    ? `CRM Extintores en Loma del Padre, Cuajimalpa: oficina en Chamixto 131. Venta y recarga de extintores en Santa Fe, Contadero y toda la alcaldía. WhatsApp ${company.phone}.`
+    ? `Venta y recarga de extintores en Cuajimalpa: oficina en Chamixto 131, Col. Loma del Padre. Santa Fe, Contadero y toda la alcaldía. WhatsApp ${company.phone}.`
     : `Venta, recarga, mantenimiento e instalación de extintores en ${zona.name}, ${region}. Primera visita sin costo. Cotice con Grupo CRM Extintores.`;
   const canonical = `${SITE.origin}${extintoresPath(zona)}`;
   const h1 = copy.isBase
-    ? "Extintores en Loma del Padre, Cuajimalpa"
+    ? "Extintores en Cuajimalpa"
     : `Venta y recarga de extintores en ${zona.name}`;
   const kicker = copy.isBase
-    ? "CRM Extintores · oficina en Loma del Padre"
+    ? "Grupo CRM Extintores · oficina en Cuajimalpa"
     : `${copy.type} · área de servicio · ${region}`;
   const nearbyTitle = zona.region === "edomex" ? "Municipios y zonas cercanas" : "Alcaldías y zonas cercanas";
   const nearby = (zona.nearby || [])
@@ -659,15 +672,15 @@ function locationHtml(zona) {
 
   const officeBlock = copy.isBase
     ? `
-        <h2>Oficina de CRM Extintores en Loma del Padre</h2>
-        <p>CRM Extintores (Grupo CRM Extintores) opera desde <strong>Chamixto 131, Col. Loma del Padre, Cuajimalpa, C.P. 05020</strong>. Es la única sede física: aquí cotizamos, coordinamos visitas y documentamos el servicio para inmuebles de la colonia, de la alcaldía y del resto de la zona metropolitana.</p>
+        <h2>Ubicación de Grupo CRM Extintores en Cuajimalpa</h2>
+        <p>Grupo CRM Extintores opera desde <strong>Chamixto 131, Col. Loma del Padre, Cuajimalpa, C.P. 05020</strong>. Es la única sede física: aquí cotizamos, coordinamos visitas y documentamos el servicio para inmuebles de la colonia, de la alcaldía y del resto de la zona metropolitana.</p>
         <ul class="zona-page__points">
           <li>Dirección: ${escapeHtml(company.address)}</li>
           <li>Horario: ${escapeHtml(company.hours)}</li>
           <li>Teléfono / WhatsApp: <a href="tel:${company.phoneTel}">${escapeHtml(company.phone)}</a></li>
           <li><a href="${escapeHtml(company.mapsUrl)}" target="_blank" rel="noopener noreferrer">Ver ubicación en Google Maps</a></li>
         </ul>
-        <h2>Cómo trabajamos desde Loma del Padre</h2>
+        <h2>Cómo trabajamos en Cuajimalpa</h2>
         <p>No pedimos que traiga los extintores a la oficina salvo que el caso lo requiera. El flujo habitual en Cuajimalpa es visita en su inmueble, revisión de presión, sello y etiqueta, cotización por escrito y recarga, venta o instalación según lo encontrado. Si el cilindro necesita taller, acordamos recolección y regreso.</p>
         <ul class="zona-page__points">
           <li>Primera visita de revisión o levantamiento sin costo</li>
@@ -677,7 +690,7 @@ function locationHtml(zona) {
         </ul>
         <h2>Santa Fe, Contadero y Cuajimalpa Centro</h2>
         <p>Santa Fe tiene predios en Cuajimalpa y en <a href="/extintores-alvaro-obregon">Álvaro Obregón</a>. Si su torre, plaza o restaurante está del lado Cuajimalpa, lo atendemos como cobertura de sede. Contadero, San José de los Cedros y Cuajimalpa Centro son rutas habituales desde Chamixto 131: el traslado es corto y la visita se agenda en horario hábil.</p>
-        <p>Guía de recarga local: <a href="/blog/recarga-extintores-cuajimalpa">recarga de extintores en Cuajimalpa</a>.</p>
+        <p>Guía de recarga local: <a href="/blog/recarga-extintores-cuajimalpa">recarga de extintores en Cuajimalpa</a>. Ficha de la empresa: <a href="/grupo-crm-extintores">Grupo CRM Extintores</a>. Referencia de la calle: <a href="/extintores-chamixto">extintores en Chamixto</a>.</p>
         <h2>Protección Civil en la alcaldía Cuajimalpa</h2>
         <p>En inspección suelen pedir equipos visibles, manómetro en rango, sello, etiqueta con fecha y quién hizo el servicio, y a menudo señalamientos. Revisamos eso en sitio y le decimos qué falta. No somos autoridad: le dejamos el inmueble listo para que usted cumpla.</p>`
     : "";
@@ -735,11 +748,11 @@ function locationHtml(zona) {
       <div class="zona-page__body">
         ${officeBlock}
 
-        <h2>Venta de extintores en ${escapeHtml(zona.name)}</h2>
+        <h2>${copy.isBase ? "¿Quién vende extintores en Cuajimalpa?" : `Venta de extintores en ${escapeHtml(zona.name)}`}</h2>
         <p>${escapeHtml(copy.venta)}</p>
         <p>Ver también: <a href="/venta-extintores">venta de extintores</a> y el <a href="/productos">catálogo</a>.</p>
 
-        <h2>Recarga de extintores en ${escapeHtml(zona.name)}</h2>
+        <h2>${copy.isBase ? "¿Dónde recargar extintores en Cuajimalpa?" : `Recarga de extintores en ${escapeHtml(zona.name)}`}</h2>
         <p>${escapeHtml(copy.recarga)}</p>
         <p>Detalle del servicio: <a href="/recarga-extintores">recarga de extintores</a>.${
           copy.isBase
@@ -1067,7 +1080,7 @@ function serviceHtml(svc) {
         ${clients}
         ${faqsHtml}
         <h2>¿Dónde ofrecemos este servicio?</h2>
-        <p>Oficina de Grupo CRM Extintores en <a href="/extintores-cuajimalpa">Cuajimalpa</a> (Chamixto 131, Col. Loma del Padre, C.P. 05020). También atendemos las zonas publicadas de <a href="/extintores-cdmx">Ciudad de México</a> y <a href="/extintores-estado-de-mexico">Estado de México</a>.</p>
+        <p>Oficina de Grupo CRM Extintores en <a href="/extintores-cuajimalpa">extintores en Cuajimalpa</a> (Chamixto 131, Col. Loma del Padre, C.P. 05020). También atendemos las zonas publicadas de <a href="/extintores-cdmx">Ciudad de México</a> y <a href="/extintores-estado-de-mexico">Estado de México</a>.</p>
         <ul class="zona-nearby">
             ${featured.map((z) => `<li><a href="${extintoresPath(z)}">${escapeHtml(svc.h1)} en ${escapeHtml(z.name)}</a></li>`).join("\n            ")}
         </ul>
@@ -1112,11 +1125,286 @@ function redirectHtml(toPath, label) {
 `;
 }
 
+function entityOfficialHtml() {
+  const path = "/grupo-crm-extintores";
+  const canonical = `${SITE.origin}${path}`;
+  const title = pageSeo["grupo-crm-extintores"].title;
+  const description = pageSeo["grupo-crm-extintores"].description;
+  const crumbs = breadcrumbList([
+    { name: "Inicio", item: `${SITE.origin}/` },
+    { name: "Grupo CRM Extintores", item: canonical },
+  ]);
+  const faqs = [
+    {
+      q: "¿Quién es Grupo CRM Extintores?",
+      a: "Grupo CRM Extintores es una empresa de venta, recarga, mantenimiento e instalación de extintores y equipo contra incendios. CRM Extintores es el nombre corto del mismo negocio. El sitio oficial es www.crmextintores.com.mx.",
+    },
+    {
+      q: "¿Dónde está Grupo CRM Extintores?",
+      a: `La oficina está en ${company.address}, C.P. ${company.postalCode}.`,
+    },
+    {
+      q: "¿Qué servicios ofrece Grupo CRM Extintores?",
+      a: "Venta de extintores, recarga, mantenimiento, instalación y señalización. También comercializa chalecos, gabinetes, botiquines y equipo de protección.",
+    },
+    {
+      q: "¿Grupo CRM Extintores atiende Cuajimalpa?",
+      a: "Sí. La oficina está en Chamixto 131, Col. Loma del Padre, Alcaldía Cuajimalpa. Es la sede física desde la que se coordina el servicio.",
+    },
+    {
+      q: "¿Dónde puedo solicitar una recarga de extintores en Cuajimalpa?",
+      a: "Con Grupo CRM Extintores, en Chamixto 131 o por WhatsApp. El servicio habitual es visita en su inmueble.",
+    },
+    {
+      q: "¿En qué zonas atienden?",
+      a: "La oficina física está en Cuajimalpa. Atendemos inmuebles en Ciudad de México y Estado de México como áreas de servicio.",
+    },
+    {
+      q: "¿Cómo los contacto?",
+      a: `WhatsApp y teléfono ${company.phone} o ${company.phoneAlt}. Correo ${company.email}. Horario ${company.hours}.`,
+    },
+  ];
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+  const aboutLd = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "@id": `${canonical}#webpage`,
+    url: canonical,
+    name: "Grupo CRM Extintores",
+    description,
+    about: { "@id": `${SITE.origin}/#business` },
+    isPartOf: { "@id": `${SITE.origin}/#website` },
+  };
+  const faqHtml = faqs
+    .map(
+      (f) => `<details class="svc">
+          <summary class="svc__sum">${escapeHtml(f.q)}</summary>
+          <div class="svc__text"><p>${escapeHtml(f.a)}</p></div>
+        </details>`
+    )
+    .join("\n        ");
+  const main = `  <section class="section zona-page">
+    <div class="wrap zona-page__layout">
+      <header class="zona-page__head">
+        <nav class="article-crumb" aria-label="Miga de pan">
+          <a href="/">Inicio</a> · <span>Grupo CRM Extintores</span>
+        </nav>
+        <p class="kicker">Información oficial</p>
+        <h1>Grupo CRM Extintores</h1>
+        <hr class="rule rule-left" aria-hidden="true">
+        <p class="lead">Grupo CRM Extintores se encuentra en ${escapeHtml(company.address)}. CRM Extintores es el nombre corto del mismo negocio. Sitio oficial: <a href="${company.websiteUrl}">${escapeHtml(company.website)}</a>.</p>
+        ${contentDatesHtml()}
+      </header>
+      <div class="zona-page__body">
+        <h2>¿Quién es Grupo CRM Extintores?</h2>
+        <p>${escapeHtml(company.about)}</p>
+        <p>También nos encuentran como Grupo CRM y, en Facebook, como GRUPO CRM Extintores. La mascota de la empresa es <a href="/inspector-crm">Inspector CRM</a>. Más contexto de la empresa: <a href="/nosotros">quiénes somos</a>.</p>
+
+        <h2>Datos oficiales</h2>
+        <ul class="zona-page__points">
+          <li>Nombre comercial: ${escapeHtml(company.name)}</li>
+          <li>Nombre utilizado: ${escapeHtml(company.shortName)}</li>
+          <li>Sitio web oficial: <a href="${company.websiteUrl}">${escapeHtml(company.website)}</a></li>
+          <li>Ubicación: ${escapeHtml(company.address)}</li>
+          <li>Alcaldía: Cuajimalpa</li>
+          <li>Ciudad: Ciudad de México</li>
+          <li>Código postal: ${escapeHtml(company.postalCode)}</li>
+          <li>Servicios: venta, recarga, mantenimiento e instalación de extintores; señalización</li>
+          <li>Cobertura: ${escapeHtml(company.coverage)}</li>
+          <li>Teléfono: <a href="tel:${company.phoneTel}">${escapeHtml(company.phone)}</a> y <a href="tel:${company.phoneAltTel}">${escapeHtml(company.phoneAlt)}</a></li>
+          <li>WhatsApp: <a href="${waHref("Hola, quiero información de Grupo CRM Extintores.")}">${escapeHtml(company.whatsappShow)}</a></li>
+          <li>Correo: <a href="mailto:${company.email}">${escapeHtml(company.email)}</a></li>
+          <li>Horario: ${escapeHtml(company.hours)}</li>
+          <li>Pagos: ${escapeHtml(company.payments)}</li>
+        </ul>
+
+        <h2>Qué servicios ofrece</h2>
+        <ul class="zona-page__points">
+          <li><a href="/venta-extintores">Venta de extintores</a></li>
+          <li><a href="/recarga-extintores">Recarga de extintores</a></li>
+          <li><a href="/mantenimiento-extintores">Mantenimiento de extintores</a></li>
+          <li><a href="/instalacion-extintores">Instalación de extintores</a></li>
+          <li><a href="/senalizacion">Señalización</a></li>
+          <li><a href="/productos">Catálogo</a>: extintores, chalecos, señalamientos, gabinetes, botiquines y equipo de protección</li>
+        </ul>
+        <p>La recarga se alinea a la <a href="/fuentes-y-normatividad">${escapeHtml(company.nom)}</a>, con verificación de <a href="${escapeHtml(company.mcdUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(company.mcd)}</a> cuando corresponde al proceso.</p>
+
+        <h2>¿Grupo CRM Extintores atiende Cuajimalpa?</h2>
+        <p>Sí. La oficina está en Chamixto 131, Col. Loma del Padre, Alcaldía Cuajimalpa. Es la sede física desde la que se coordina el servicio. Detalle local: <a href="/extintores-cuajimalpa">extintores en Cuajimalpa</a>.</p>
+
+        <h2>¿Dónde puedo solicitar una recarga de extintores en Cuajimalpa?</h2>
+        <p>Con Grupo CRM Extintores, en Chamixto 131 o por WhatsApp. El servicio habitual es visita en su inmueble. Guía: <a href="/blog/recarga-extintores-cuajimalpa">recarga de extintores en Cuajimalpa</a>.</p>
+
+        <h2>Ubicación</h2>
+        <p>Grupo CRM Extintores se encuentra en ${escapeHtml(company.address)}, C.P. ${escapeHtml(company.postalCode)}. La calle es Chamixto; la colonia es Loma del Padre. No hay sucursal en cada alcaldía: el resto de CDMX y el Estado de México son áreas de servicio.</p>
+        <p>Referencia de calle: <a href="/extintores-chamixto">extintores en Chamixto</a>. Sede de alcaldía: <a href="/extintores-cuajimalpa">extintores en Cuajimalpa</a>. <a href="${escapeHtml(company.mapsUrl)}" target="_blank" rel="noopener noreferrer">Ver ubicación en Google Maps</a>.</p>
+
+        <h2>Zonas de atención</h2>
+        <p>Prioridad de sede: Cuajimalpa, Chamixto, Santa Fe (lado Cuajimalpa), Contadero y colonias de la alcaldía. También visitamos inmuebles en <a href="/extintores-cdmx">Ciudad de México</a> y <a href="/extintores-estado-de-mexico">Estado de México</a>.</p>
+        <ul class="zona-nearby">
+          <li><a href="/extintores-cuajimalpa">Extintores en Cuajimalpa</a></li>
+          <li><a href="/extintores-chamixto">Chamixto 131</a></li>
+          <li><a href="/extintores-alvaro-obregon">Álvaro Obregón</a></li>
+          <li><a href="/extintores-miguel-hidalgo">Miguel Hidalgo</a></li>
+          <li><a href="/extintores-huixquilucan">Huixquilucan</a></li>
+          <li><a href="/extintores-naucalpan">Naucalpan</a></li>
+        </ul>
+
+        <h2>A quién atendemos</h2>
+        <p>Empresas, oficinas, restaurantes, comercios, condominios, escuelas y clínicas. El catálogo y las visitas cubren esos giros cuando el inmueble requiere equipo contra incendios.</p>
+
+        <h2>Redes oficiales</h2>
+        <ul class="zona-page__points">
+          <li><a href="${escapeHtml(company.facebookUrl)}" target="_blank" rel="noopener noreferrer">Facebook: ${escapeHtml(company.facebook)}</a></li>
+          <li><a href="${escapeHtml(company.instagramUrl)}" target="_blank" rel="noopener noreferrer">Instagram: ${escapeHtml(company.instagram)}</a></li>
+        </ul>
+
+        <h2>Preguntas frecuentes</h2>
+        <div class="svc-list">
+        ${faqHtml}
+        </div>
+
+        <h2>Contacto</h2>
+        <p>Pida cotización por WhatsApp, teléfono o el <a href="/contacto">formulario de contacto</a>. La primera visita de revisión o levantamiento no tiene costo.</p>
+        ${ctaBlock("Grupo CRM Extintores", "Hola, quiero información de Grupo CRM Extintores.")}
+      </div>
+    </div>
+  </section>`;
+  return pageShell({
+    title,
+    description,
+    canonical,
+    bodyAttrs: 'data-page="grupo-crm-extintores"',
+    main,
+    jsonLd: `  <script type="application/ld+json" id="seo-crumbs">${JSON.stringify(crumbs)}</script>
+  <script type="application/ld+json">${JSON.stringify(aboutLd)}</script>
+  <script type="application/ld+json">${JSON.stringify(faqLd)}</script>`,
+  });
+}
+
+function chamixtoHtml() {
+  const path = "/extintores-chamixto";
+  const canonical = `${SITE.origin}${path}`;
+  const title = pageSeo["extintores-chamixto"].title;
+  const description = pageSeo["extintores-chamixto"].description;
+  const crumbs = breadcrumbList([
+    { name: "Inicio", item: `${SITE.origin}/` },
+    { name: "Cuajimalpa", item: `${SITE.origin}/extintores-cuajimalpa` },
+    { name: "Extintores Chamixto", item: canonical },
+  ]);
+  const faqs = [
+    {
+      q: "¿Qué empresa de extintores está en Chamixto?",
+      a: `Grupo CRM Extintores. La oficina está en Chamixto 131, Col. Loma del Padre, Alcaldía Cuajimalpa, CDMX.`,
+    },
+    {
+      q: "¿Dónde está Extintores Chamixto?",
+      a: `"Extintores Chamixto" es una referencia a la calle de la oficina, no un nombre comercial distinto. El negocio es Grupo CRM Extintores (CRM Extintores), en Chamixto 131, Col. Loma del Padre, Cuajimalpa.`,
+    },
+    {
+      q: "¿Dónde recargar extintores en Cuajimalpa?",
+      a: "En la oficina de Grupo CRM Extintores en Chamixto 131 o, de forma habitual, con visita en su inmueble. La recarga se alinea a la NOM-154-SCFI-2005.",
+    },
+    {
+      q: "¿Quién vende extintores en Cuajimalpa?",
+      a: "Grupo CRM Extintores vende extintores certificados desde Chamixto 131 y los entrega o instala en el inmueble.",
+    },
+  ];
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+  const faqHtml = faqs
+    .map(
+      (f) => `<details class="svc">
+          <summary class="svc__sum">${escapeHtml(f.q)}</summary>
+          <div class="svc__text"><p>${escapeHtml(f.a)}</p></div>
+        </details>`
+    )
+    .join("\n        ");
+  const main = `  <section class="section zona-page">
+    <div class="wrap zona-page__layout">
+      <header class="zona-page__head">
+        <nav class="article-crumb" aria-label="Miga de pan">
+          <a href="/">Inicio</a> · <a href="/extintores-cuajimalpa">Cuajimalpa</a> · <span>Extintores Chamixto</span>
+        </nav>
+        <p class="kicker">Oficina en Calle Chamixto</p>
+        <h1>Extintores Chamixto en Cuajimalpa</h1>
+        <hr class="rule rule-left" aria-hidden="true">
+        <p class="lead">Grupo CRM Extintores se encuentra en Chamixto 131, Col. Loma del Padre, Alcaldía Cuajimalpa, Ciudad de México. “Extintores Chamixto” describe esa calle; el nombre comercial es Grupo CRM Extintores (CRM Extintores).</p>
+        ${contentDatesHtml()}
+      </header>
+      <div class="zona-page__body">
+        <h2>¿Qué empresa de extintores está en Chamixto?</h2>
+        <p>Grupo CRM Extintores. La oficina está en <strong>Chamixto 131</strong>, Colonia Loma del Padre, Alcaldía Cuajimalpa, CDMX, C.P. ${escapeHtml(company.postalCode)}.</p>
+
+        <h2>¿Dónde está Extintores Chamixto?</h2>
+        <p>En Chamixto 131, Col. Loma del Padre. No es un nombre comercial aparte: es la referencia geográfica de la sede de Grupo CRM Extintores. Ficha de la empresa: <a href="/grupo-crm-extintores">Grupo CRM Extintores</a>.</p>
+
+        <h2>Servicios en esta oficina</h2>
+        <ul class="zona-page__points">
+          <li><a href="/venta-extintores">Venta de extintores</a></li>
+          <li><a href="/recarga-extintores">Recarga de extintores</a> (NOM-154-SCFI-2005)</li>
+          <li><a href="/mantenimiento-extintores">Mantenimiento</a></li>
+          <li><a href="/instalacion-extintores">Instalación</a> y <a href="/senalizacion">señalización</a></li>
+        </ul>
+        <p>Guía local: <a href="/blog/recarga-extintores-cuajimalpa">recarga de extintores en Cuajimalpa</a>.</p>
+
+        <h2>Cómo llegar</h2>
+        <p>Calle Chamixto, Colonia Loma del Padre, Alcaldía Cuajimalpa de Morelos, Ciudad de México. Horario: ${escapeHtml(company.hours)}. <a href="${escapeHtml(company.mapsUrl)}" target="_blank" rel="noopener noreferrer">Abrir en Google Maps</a>.</p>
+        <p>Desde Santa Fe, Contadero o Cuajimalpa Centro el traslado es corto. El servicio habitual es visita en su inmueble; no pedimos que traiga los extintores a la oficina salvo que el caso lo requiera.</p>
+
+        <h2>Zonas cercanas</h2>
+        <ul class="zona-nearby">
+          <li><a href="/extintores-cuajimalpa">Extintores en Cuajimalpa</a></li>
+          <li><a href="/extintores-alvaro-obregon">Santa Fe / Álvaro Obregón</a></li>
+          <li><a href="/extintores-huixquilucan">Huixquilucan e Interlomas</a></li>
+          <li><a href="/extintores-miguel-hidalgo">Miguel Hidalgo</a></li>
+          <li><a href="/contacto">Contacto y cotización</a></li>
+        </ul>
+
+        <h2>Preguntas frecuentes</h2>
+        <div class="svc-list">
+        ${faqHtml}
+        </div>
+
+        <h2>Contacto</h2>
+        <p>WhatsApp ${escapeHtml(company.whatsappShow)}, teléfono ${escapeHtml(company.phone)} o ${escapeHtml(company.phoneAlt)}, correo ${escapeHtml(company.email)}.</p>
+        ${ctaBlock("Chamixto", "Hola, busco la oficina de Grupo CRM Extintores en Chamixto 131, Cuajimalpa.")}
+      </div>
+    </div>
+  </section>`;
+  return pageShell({
+    title,
+    description,
+    canonical,
+    bodyAttrs: 'data-page="extintores-chamixto"',
+    main,
+    jsonLd: `  <script type="application/ld+json" id="seo-crumbs">${JSON.stringify(crumbs)}</script>
+  <script type="application/ld+json">${JSON.stringify(faqLd)}</script>`,
+  });
+}
+
 // --- write outputs ---
 const hubCdmxPath = join(root, "extintores-cdmx.html");
 const hubEdoPath = join(root, "extintores-estado-de-mexico.html");
 writeFileSync(hubCdmxPath, hubCdmx());
 writeFileSync(hubEdoPath, hubEdomex());
+writeFileSync(join(root, "grupo-crm-extintores.html"), entityOfficialHtml());
+writeFileSync(join(root, "extintores-chamixto.html"), chamixtoHtml());
 
 for (const z of zonas) {
   writeFileSync(join(root, `extintores-${z.slug}.html`), locationHtml(z));
@@ -1138,5 +1426,5 @@ for (const z of zonas) {
 }
 
 console.log(
-  `seo-local: hubs 2 + locations ${zonas.length} + services ${seoServicePages.length} (+ /zonas redirects)`
+  `seo-local: hubs 2 + locations ${zonas.length} + services ${seoServicePages.length} + entity 2 (+ /zonas redirects)`
 );

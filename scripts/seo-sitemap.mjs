@@ -184,6 +184,12 @@ const localOg = img(
 );
 add(pageImages, "/extintores-cdmx", [localOg]);
 add(pageImages, "/extintores-estado-de-mexico", [localOg]);
+add(pageImages, "/grupo-crm-extintores", [
+  img("/assets/img/og-crm.jpg", `Grupo CRM Extintores`, `Oficina de Grupo CRM Extintores en Chamixto 131, Cuajimalpa`),
+]);
+add(pageImages, "/extintores-chamixto", [
+  img("/assets/img/og-crm.jpg", `Extintores Chamixto`, `Grupo CRM Extintores en Chamixto 131, Col. Loma del Padre, Cuajimalpa`),
+]);
 for (const z of zonas) {
   add(pageImages, extintoresPath(z), [
     img(

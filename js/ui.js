@@ -52,6 +52,7 @@ export function mountShell(page) {
   if (header) header.innerHTML = headerHTML(page);
   if (footer) footer.innerHTML = footerHTML();
   rebaseDocument();
+  if (header) hydrateLazy(header);
   bindChrome();
   bindBackTop();
 }
@@ -1319,7 +1320,7 @@ export function renderHomeCatalog() {
             <h3>${c.name}</h3>
             <a class="shop-more" href="${withBase(`/productos?cat=${c.id}#${c.id}`)}"><i class="fa-solid fa-table-cells" aria-hidden="true"></i> ${c.seeAll}</a>
           </header>
-          <div class="shop-grid shop-grid--4">${items.map((p, i) => productCard(p, { quote: true, eager: false })).join("")}</div>
+          <div class="shop-grid shop-grid--4">${items.map((p) => productCard(p, { quote: true, eager: true })).join("")}</div>
         </section>`;
     })
     .join("");

@@ -1,14 +1,35 @@
 <!DOCTYPE html>
-<html lang="es-MX">
+<html lang="es-MX" prefix="og: https://ogp.me/ns#">
 <head>
   <meta charset="UTF-8">
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <script>!function(){if(!/\.github\.io$/i.test(location.hostname))return;var s=document.createElement("script");s.src="/js/pages-base.js";document.head.appendChild(s)}();</script>
-    <style id="css-boot">
-  /* Critical first paint: chrome + hero before main.css (FOUC / CLS) */
+  <style id="css-boot">
+  /* Critical first paint: chrome + hero before async main.css (FOUC / CLS) */
   :root { --chrome-h: 108px; --photo-w: min(50%, 720px); }
   @media (min-width: 1024px) { :root { --chrome-h: 113px; } }
   html { background: #fff; }
   body { margin: 0; color: #202020; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+  .bot-nav {
+    position: absolute !important; width: 1px !important; height: 1px !important;
+    padding: 0 !important; margin: -1px !important; overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important; clip-path: inset(50%) !important;
+    white-space: nowrap !important; border: 0 !important;
+  }
   .site-chrome { position: fixed; top: 0; left: 0; right: 0; z-index: 60; background: #fff; }
   .header-skel { height: var(--chrome-h); max-height: var(--chrome-h); overflow: hidden; pointer-events: none; }
   .header-skel .brand { pointer-events: auto; }
@@ -26,8 +47,9 @@
     position: absolute; inset: 0 0 0 auto; width: var(--photo-w);
     background-color: #1a2031; background-repeat: no-repeat; background-size: cover; background-position: center bottom;
   }
-  .slide__photo.media-load:not(.is-ready) { background-image: none !important; }
   .slide__photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center bottom; }
+  .hero-slider .media-load:not(.is-ready) img { opacity: 0; }
+  .hero-slider .slide__photo.media-load:not(.is-ready) { background-color: #1a2031; }
   .shop-grid { display: grid; }
   body[data-page="inicio"] .shop-home .shop-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   @media (max-width: 760px) {
@@ -41,40 +63,115 @@
     body[data-page="inicio"] .shop-home .shop-grid--4 { grid-template-columns: 1fr 1fr; }
   }
   </style>
+<link rel="preload" as="style" href="css/main.min.css?v=rb-1" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/main.min.css?v=rb-1"></noscript>
+  <script>!function(){var l=document.querySelector('link[rel="preload"][as="style"]');if(l&&!l.sheet){l.addEventListener("load",function(){this.onload=null;this.rel="stylesheet"});if(l.relList&&!l.relList.supports("preload"))l.rel="stylesheet"}}();</script>
+  <script>document.documentElement.classList.add("is-css");</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Catálogo de extintores y equipo contra incendio | Grupo CRM</title>
-  <meta name="description" content="Más de 50 equipos: extintores, chalecos, señalamientos, gabinetes y botiquines. Cotice con Grupo CRM en CDMX y Estado de México.">
+  <meta name="description" content="Más de 50 equipos: extintores, chalecos, señalamientos, gabinetes, botiquines y equipo de protección. Cotice con Grupo CRM en CDMX y Estado de México.">
   <meta name="author" content="Grupo CRM Extintores">
-  <meta name="theme-color" content="#A91430">
+  <meta name="theme-color" content="#D51A32">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.crmextintores.com/productos">
-  <link rel="alternate" hreflang="es-MX" href="https://www.crmextintores.com/productos">
-  <link rel="alternate" hreflang="x-default" href="https://www.crmextintores.com/productos">
+  <link rel="canonical" href="https://www.crmextintores.com.mx/productos">
+  
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_MX">
   <meta property="og:site_name" content="Grupo CRM Extintores">
   <meta property="og:title" content="Catálogo de extintores y equipo contra incendio | Grupo CRM">
-  <meta property="og:description" content="Más de 50 equipos: extintores, chalecos, señalamientos, gabinetes y botiquines. Cotice con Grupo CRM en CDMX y Estado de México.">
-  <meta property="og:url" content="https://www.crmextintores.com/productos">
-  <meta property="og:image" content="https://www.crmextintores.com/assets/img/logo-crm.png">
+  <meta property="og:description" content="Más de 50 equipos: extintores, chalecos, señalamientos, gabinetes, botiquines y equipo de protección. Cotice con Grupo CRM en CDMX y Estado de México.">
+  <meta property="og:url" content="https://www.crmextintores.com.mx/productos">
+  <meta property="og:image" content="https://www.crmextintores.com.mx/assets/img/logo-crm.png">
   <meta property="og:image:alt" content="Logotipo de Grupo CRM Extintores">
+  <meta property="og:image:width" content="720">
+  <meta property="og:image:height" content="154">
+  <meta property="og:image:type" content="image/png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Catálogo de extintores y equipo contra incendio | Grupo CRM">
-  <meta name="twitter:description" content="Más de 50 equipos: extintores, chalecos, señalamientos, gabinetes y botiquines. Cotice con Grupo CRM en CDMX y Estado de México.">
-  <meta name="twitter:image" content="https://www.crmextintores.com/assets/img/logo-crm.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="twitter:description" content="Más de 50 equipos: extintores, chalecos, señalamientos, gabinetes, botiquines y equipo de protección. Cotice con Grupo CRM en CDMX y Estado de México.">
+  <meta name="twitter:image" content="https://www.crmextintores.com.mx/assets/img/logo-crm.png">
+<link rel="preload" as="image" type="image/webp" href="assets/img/hero/hero-catalogo-800.webp" media="(max-width: 760px)" fetchpriority="high">
+  <link rel="preload" as="image" type="image/webp" href="assets/img/hero/hero-catalogo-1280.webp" media="(min-width: 761px)" fetchpriority="high" imagesizes="46vw">
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <link rel="apple-touch-icon" href="assets/img/favicon.png">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<script>
+  (function () {
+    function loadFa() {
+      if (document.getElementById("fa-css")) return;
+      var link = document.createElement("link");
+      link.id = "fa-css";
+      link.rel = "stylesheet";
+      link.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css";
+      link.crossOrigin = "anonymous";
+      link.referrerPolicy = "no-referrer";
+      document.head.appendChild(link);
+    }
+    if ("requestIdleCallback" in window) window.requestIdleCallback(loadFa, { timeout: 6000 });
+    else window.addEventListener("load", function () { setTimeout(loadFa, 2500); }, { once: true });
+  })();
+  </script>
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
 </head>
 <body data-page="productos">
   <a class="skip-link" href="#contenido">Ir al contenido</a>
-  <div data-header></div>
+  <nav class="bot-nav" aria-label="Enlaces del sitio">
+    <a href="/">Inicio</a>
+    <a href="/productos">Productos</a>
+    <a href="/nosotros">Nosotros</a>
+    <a href="/venta-extintores">Venta de extintores</a>
+    <a href="/recarga-extintores">Recarga</a>
+    <a href="/mantenimiento-extintores">Mantenimiento</a>
+    <a href="/instalacion-extintores">Instalación</a>
+    <a href="/senalizacion">Señalización</a>
+    <a href="/galeria">Galería</a>
+    <a href="/blog">Blog</a>
+    <a href="/contacto">Contacto</a>
+    <a href="/extintores-cdmx">Extintores CDMX</a>
+    <a href="/extintores-estado-de-mexico">Estado de México</a>
+    <a href="/extintores-cuajimalpa">Cuajimalpa</a>
+    <a href="/extintores-naucalpan">Naucalpan</a>
+    <a href="/extintores-huixquilucan">Huixquilucan</a>
+    <a href="/mapa-sitio">Mapa de sitio</a>
+    <a href="/aviso-privacidad">Aviso de privacidad</a>
+    <a href="/politica-de-servicio">Política de servicio</a>
+    <a href="/fuentes-y-normatividad">Fuentes y normatividad</a>
+    <a href="/caso-agencia-automotriz">Caso agencia automotriz</a>
+    <a href="tel:5667481489">56 6748 1489</a>
+    <a href="mailto:crm.extintores@gmail.com">crm.extintores@gmail.com</a>
+  </nav>
+  <div data-header>
+    <div class="site-chrome header-skel" aria-hidden="true">
+      <div class="site-topbar"><div class="wrap topbar__inner"></div></div>
+      <header class="site-header">
+        <div class="wrap header__inner">
+          <a class="brand" href="/"><picture><source type="image/webp" srcset="/assets/img/logo-crm.webp"><img src="/assets/img/logo-crm.png" alt="" width="720" height="154" decoding="async"></picture></a>
+          <span class="header-skel__nav" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span>
+          <span class="header-skel__cta" aria-hidden="true"></span>
+        </div>
+      </header>
+    </div>
+  </div>
   <main id="contenido">
+  <section class="shop-hero shop-hero--venue shop-hero--split shop-hero--page shop-hero--catalog" aria-label="Catálogo de Grupo CRM Extintores">
+    <span class="shop-hero__photo media-load" aria-hidden="true">
+      <picture>
+        <source type="image/webp" srcset="assets/img/hero/hero-catalogo-800.webp 800w, assets/img/hero/hero-catalogo-1280.webp 1024w" sizes="(min-width: 761px) 46vw, 100vw">
+        <img src="assets/img/hero/hero-catalogo-800.webp" alt="Catálogo de extintores y equipo contra incendios Grupo CRM Extintores" width="1024" height="571" fetchpriority="high" decoding="async">
+      </picture>
+    </span>
+    <div class="wrap">
+      <div class="shop-hero__copy">
+        <p class="kicker">Equipo contra incendio</p>
+        <h1>Catálogo</h1>
+        <hr class="rule rule-left">
+        <p class="lead">Extintores, señalamientos, gabinetes y protección para su empresa. Si no está seguro de qué necesita, le orientamos.</p>
+        <div class="hero-actions" role="group" aria-label="Cotizar o llamarnos">
+          <a class="btn btn-red" href="https://wa.me/525667481489?text=Hola%2C%20quiero%20una%20cotizaci%C3%B3n%20del%20cat%C3%A1logo%20de%20Grupo%20CRM." target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp wa-icon" aria-hidden="true"></i> Cotizar</a>
+          <a class="btn btn-ghost" href="tel:5667481489" aria-label="Llámenos al 56 6748 1489"><i class="fa-solid fa-phone phone-icon" aria-hidden="true"></i> Llámenos</a>
+        </div>
+      </div>
+    </div>
+  </section>
   <section class="shop">
     <div class="catalog-extend catalog-picker" data-catalog-extend aria-busy="true">
       <div class="wrap">
@@ -85,21 +182,25 @@
         </div>
       </div>
     </div>
-    <div class="shop-catalog-bar shop-catalog-bar--full">
-      <div class="shop-catalog-bar__inner">
-        <label class="shop-search shop-search--catalog">
-          <i class="fa-solid fa-magnifying-glass shop-search__icon" aria-hidden="true"></i>
-          <input type="search" data-search placeholder="Buscar extintor, señal o tipo…" aria-label="Buscar equipo para cotizar">
-        </label>
-        <p class="shop-count" data-count></p>
-      </div>
-    </div>
     <div class="wrap wrap-shop">
+      <p class="shop-choose-hint">¿Cómo elegir entre PQS ABC, CO₂ o tipo K? <a href="/blog/tipos-de-fuego#comparar-extintores">Ver tabla en la guía</a>.</p>
       <div class="shop-catalog-layout" data-catalog-layout>
-        <aside class="shop-filters" data-class-panel hidden>
-          <p class="shop-filters__title">Clase de fuego</p>
-          <p class="shop-filters__hint">Solo extintores</p>
-          <div class="shop-chips shop-chips--stack" data-class-filters hidden></div>
+        <aside class="shop-filters">
+          <label class="shop-search shop-search--catalog">
+            <i class="fa-solid fa-magnifying-glass shop-search__icon" aria-hidden="true"></i>
+            <input type="search" data-search placeholder="Buscar extintor, señal o tipo…" aria-label="Buscar equipo para cotizar">
+          </label>
+          <p class="shop-count" data-count></p>
+          <div class="shop-filters__fire" data-class-panel hidden>
+            <p class="shop-filters__title">Tipo de fuego</p>
+            <p class="shop-filters__hint">Qué tipo de conato cubre cada clase. Solo extintores.</p>
+            <label class="shop-class-select-wrap">
+              <span class="sr-only">Tipo de fuego</span>
+              <select data-class-select></select>
+            </label>
+            <p class="shop-class-detail" data-class-detail hidden></p>
+            <div class="shop-chips shop-chips--stack" data-class-filters hidden></div>
+          </div>
         </aside>
         <div class="shop-catalog-main">
           <noscript><p class="js-needed">Active JavaScript para ver el catálogo.</p></noscript>
@@ -117,8 +218,14 @@
       </div>
     </div>
   </section>
+    <div class="wrap content-dates-wrap"><p class="content-dates content-dates--foot">
+          <span>Publicado el <time datetime="2026-08-24">24 de agosto de 2026</time></span>
+          <span class="content-dates__sep" aria-hidden="true">·</span>
+          <span>Actualizado el <time datetime="2026-09-22">22 de septiembre de 2026</time></span>
+        </p>
+  </div>
   </main>
   <div data-footer></div>
-  <script type="module" src="js/main.js" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
+  <script type="module" src="js/app.min.js?v=rb-1" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
 </body>
 </html>

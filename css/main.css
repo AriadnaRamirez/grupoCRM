@@ -1284,8 +1284,14 @@ html.is-booted .site-chrome {
 .svc-home__intro h2 {
   margin: 0 0 var(--stack-title);
 }
-.svc-home__lead {
+.svc-home__copy {
+  display: grid;
+  gap: 10px;
   margin: var(--stack-rule) 0 0;
+  max-width: 44rem;
+}
+.svc-home__lead {
+  margin: 0;
   color: var(--muted);
   font-size: 1rem;
   line-height: 1.5;
@@ -1547,7 +1553,7 @@ html.is-booted .site-chrome {
   padding: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0 28px;
+  gap: 0 34px;
   border-top: 1px solid var(--line);
 }
 .svc-showcase__item {
@@ -1557,7 +1563,7 @@ html.is-booted .site-chrome {
   gap: 10px;
   width: 100%;
   min-height: 0;
-  padding: 14px 0;
+  padding: 16px 0;
   border: 0;
   border-bottom: 1px solid var(--line);
   background: transparent;

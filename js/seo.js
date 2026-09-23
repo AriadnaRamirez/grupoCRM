@@ -330,14 +330,20 @@ function productNode(p, url) {
 }
 
 function breadcrumbs(items) {
+  const named = items.filter((item) => item?.name && item.path);
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: items.map((item, i) => ({
+    name: named.map((item) => item.name).join(" › "),
+    itemListElement: named.map((item, i) => ({
       "@type": "ListItem",
       position: i + 1,
       name: item.name,
-      item: abs(item.path),
+      item: {
+        "@type": "WebPage",
+        "@id": abs(item.path),
+        name: item.name,
+      },
     })),
   };
 }

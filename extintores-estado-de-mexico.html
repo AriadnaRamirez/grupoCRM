@@ -78,9 +78,9 @@
   })();
   </script>
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://www.crmextintores.com.mx/#organization","name":"Grupo CRM Extintores","alternateName":["CRM Extintores","Grupo CRM","GRUPO CRM Extintores"],"url":"https://www.crmextintores.com.mx"}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://www.crmextintores.com.mx/#website","name":"CRM Extintores","url":"https://www.crmextintores.com.mx"}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://www.crmextintores.com.mx/"},{"@type":"ListItem","position":2,"name":"Estado de México","item":"https://www.crmextintores.com.mx/extintores-estado-de-mexico"}]}</script>
+  <script type="application/ld+json" id="seo-organization">{"@context":"https://schema.org","@type":"Organization","@id":"https://www.crmextintores.com.mx/#organization","name":"Grupo CRM Extintores","alternateName":["CRM Extintores","Grupo CRM","GRUPO CRM Extintores"],"url":"https://www.crmextintores.com.mx"}</script>
+  <script type="application/ld+json" id="seo-website">{"@context":"https://schema.org","@type":"WebSite","@id":"https://www.crmextintores.com.mx/#website","name":"CRM Extintores","url":"https://www.crmextintores.com.mx"}</script>
+  <script type="application/ld+json" id="seo-crumbs">{"@context":"https://schema.org","@type":"BreadcrumbList","name":"Inicio › Estado de México","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":{"@type":"WebPage","@id":"https://www.crmextintores.com.mx/","name":"Inicio"}},{"@type":"ListItem","position":2,"name":"Estado de México","item":{"@type":"WebPage","@id":"https://www.crmextintores.com.mx/extintores-estado-de-mexico","name":"Estado de México"}}]}</script>
 </head>
 <body data-page="zonas" data-hub="edomex">
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -88,7 +88,6 @@
     <a href="/">Inicio</a>
     <a href="/productos">Productos</a>
     <a href="/nosotros">Nosotros</a>
-    <a href="/inspector-crm">Inspector CRM</a>
     <a href="/venta-extintores">Venta de extintores</a>
     <a href="/recarga-extintores">Recarga</a>
     <a href="/mantenimiento-extintores">Mantenimiento</a>
@@ -114,7 +113,7 @@
       <div class="site-topbar"><div class="wrap topbar__inner"></div></div>
       <header class="site-header">
         <div class="wrap header__inner">
-          <a class="brand" href="/"><picture><source type="image/webp" srcset="/assets/img/logo-crm.webp"><img src="/assets/img/logo-crm.png" alt="Grupo CRM Extintores" width="243" height="52" decoding="async"></picture></a>
+          <a class="brand" href="/"><picture><source type="image/webp" srcset="/assets/img/logo-crm.webp"><img src="/assets/img/logo-crm.png" alt="Grupo CRM Extintores" width="720" height="154" decoding="async"></picture></a>
           <span class="header-skel__nav" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span>
           <span class="header-skel__cta" aria-hidden="true"></span>
         </div>
@@ -125,12 +124,17 @@
   <section class="section zona-page zona-page--hub">
     <div class="wrap">
       <header class="zona-hub__head">
-        <nav class="article-crumb" aria-label="Miga de pan"><a href="/">Inicio</a> · Estado de México</nav>
+        <nav class="article-crumb" aria-label="Miga de pan"><a href="/">Inicio</a> · <span>Estado de México</span></nav>
         <p class="kicker">Cobertura Estado de México</p>
         <h1>Extintores en Estado de México</h1>
         <hr class="rule rule-left" aria-hidden="true">
         <p class="lead">Grupo CRM Extintores atiende municipios del Estado de México con venta, recarga, mantenimiento e instalación de extintores. El servicio se coordina desde Cuajimalpa, CDMX.</p>
-        </header>
+        <p class="content-dates content-dates--page">
+          <span>Publicado el <time datetime="2026-08-24">24 de agosto de 2026</time></span>
+          <span class="content-dates__sep" aria-hidden="true">·</span>
+          <span>Actualizado el <time datetime="2026-09-23">23 de septiembre de 2026</time></span>
+        </p>
+      </header>
 
       <h2>Servicios</h2>
       <ul class="zona-page__points">
@@ -334,12 +338,6 @@
       <p class="zona-page__more muted">Ver también <a href="/extintores-cdmx">extintores en Ciudad de México</a>, el <a href="/productos">catálogo</a> y <a href="/blog/precio-recarga-extintores-cdmx">precio de recarga</a>.</p>
     </div>
   </section>
-    <div class="wrap content-dates-wrap"><p class="content-dates content-dates--foot">
-          <span>Publicado el <time datetime="2026-08-24">24 de agosto de 2026</time></span>
-          <span class="content-dates__sep" aria-hidden="true">·</span>
-          <span>Actualizado el <time datetime="2026-09-23">23 de septiembre de 2026</time></span>
-        </p>
-  </div>
   </main>
   <div data-footer></div>
   <script type="module" src="/js/app.min.js?v=rb-13" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>

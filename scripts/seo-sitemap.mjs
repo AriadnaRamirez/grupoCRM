@@ -9,6 +9,8 @@ import {
   productAlt,
   lookAlt,
   brandAlt,
+  zonas,
+  extintoresPath,
 } from "../js/data.js";
 import { sitemapUrls } from "../js/seo.js";
 import { writeFileSync } from "node:fs";
@@ -173,6 +175,23 @@ const serviceImage = {
 
 for (const s of seoServicePages) {
   if (serviceImage[s.path]) add(pageImages, s.path, [serviceImage[s.path]]);
+}
+
+const localOg = img(
+  "/assets/img/og-crm.jpg",
+  `Extintores Grupo CRM Extintores`,
+  `Venta y recarga de extintores en CDMX y Estado de México — ${brand}`
+);
+add(pageImages, "/extintores-cdmx", [localOg]);
+add(pageImages, "/extintores-estado-de-mexico", [localOg]);
+for (const z of zonas) {
+  add(pageImages, extintoresPath(z), [
+    img(
+      "/assets/img/og-crm.jpg",
+      `Extintores en ${z.name} — ${brand}`,
+      `Grupo CRM Extintores: venta y recarga de extintores en ${z.name}`
+    ),
+  ]);
 }
 
 function imageXml(images) {

@@ -205,8 +205,41 @@ function globalLd() {
   ];
 }
 
+function crumbItem(position, name, url) {
+  return {
+    "@type": "ListItem",
+    position,
+    name,
+    item: { "@type": "WebPage", "@id": url, name },
+  };
+}
+
+function breadcrumbList(items) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    name: items.map((item) => item.name).join(" › "),
+    itemListElement: items.map((item, i) => crumbItem(i + 1, item.name, item.item)),
+  };
+}
+
 function ldScripts(nodes) {
-  return nodes.map((n) => `  <script type="application/ld+json">${JSON.stringify(n)}</script>`).join("\n");
+  return nodes
+    .map((n) => {
+      const id =
+        n["@type"] === "Organization"
+          ? "seo-organization"
+          : n["@type"] === "WebSite"
+            ? "seo-website"
+            : n["@type"] === "BreadcrumbList"
+              ? "seo-crumbs"
+              : n["@type"] === "Product"
+                ? "seo-product"
+                : "";
+      const idAttr = id ? ` id="${id}"` : "";
+      return `  <script type="application/ld+json"${idAttr}>${JSON.stringify(n)}</script>`;
+    })
+    .join("\n");
 }
 
 function productFaqs(p) {
@@ -252,16 +285,12 @@ function productHtml(p) {
   const imgWebp = `/assets/img/opt/catalog/${p.sku}-800.webp`;
   const imgPng = productImg(p);
   const alt = productAlt(p, { detail: true });
-  const crumbs = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Inicio", item: `${SITE.origin}/` },
-      { "@type": "ListItem", position: 2, name: "Catálogo", item: abs("/productos") },
-      { "@type": "ListItem", position: 3, name: cat, item: abs(catPath(p.cat)) },
-      { "@type": "ListItem", position: 4, name: p.title, item: canonical },
-    ],
-  };
+  const crumbs = breadcrumbList([
+    { name: "Inicio", item: `${SITE.origin}/` },
+    { name: "Catálogo", item: abs("/productos") },
+    { name: cat, item: abs(catPath(p.cat)) },
+    { name: p.title, item: canonical },
+  ]);
   const productLd = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -321,7 +350,7 @@ function productHtml(p) {
 
   const main = `  <div data-product aria-busy="false">
     <div class="wrap ficha-wrap">
-      <p class="ficha-crumb"><a href="/productos">Catálogo</a> · <a href="${catPath(p.cat)}">${escapeHtml(cat)}</a></p>
+      <p class="ficha-crumb"><a href="/productos">Catálogo</a> · <a href="${catPath(p.cat)}">${escapeHtml(cat)}</a> · <span>${escapeHtml(p.title)}</span></p>
       <article class="ficha" data-cat="${p.cat}" data-sku="${p.sku}">
         <div class="ficha__grid">
           <figure class="ficha__photo">
@@ -420,15 +449,11 @@ function categoryHtml(cat) {
             </article>`
     )
     .join("\n            ");
-  const crumbs = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Inicio", item: `${SITE.origin}/` },
-      { "@type": "ListItem", position: 2, name: "Catálogo", item: abs("/productos") },
-      { "@type": "ListItem", position: 3, name: cat.name, item: canonical },
-    ],
-  };
+  const crumbs = breadcrumbList([
+    { name: "Inicio", item: `${SITE.origin}/` },
+    { name: "Catálogo", item: abs("/productos") },
+    { name: cat.name, item: canonical },
+  ]);
   const itemList = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -445,7 +470,7 @@ function categoryHtml(cat) {
   const main = `  <section class="section zona-page">
     <div class="wrap">
       <nav class="article-crumb" aria-label="Miga de pan">
-        <a href="/">Inicio</a> · <a href="/productos">Catálogo</a> · ${escapeHtml(cat.name)}
+        <a href="/">Inicio</a> · <a href="/productos">Catálogo</a> · <span>${escapeHtml(cat.name)}</span>
       </nav>
       <p class="kicker">Catálogo</p>
       <h1>${escapeHtml(cat.name)}</h1>

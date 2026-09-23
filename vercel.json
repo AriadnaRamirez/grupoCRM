@@ -1,6 +1,12 @@
 {
   "trailingSlash": false,
   "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "crmextintores.com.mx" }],
+      "destination": "https://www.crmextintores.com.mx/:path*",
+      "statusCode": 301
+    },
     { "source": "/index.html", "destination": "/", "statusCode": 301 },
     { "source": "/index.php", "destination": "/", "statusCode": 301 },
     { "source": "/index", "destination": "/", "statusCode": 301 },

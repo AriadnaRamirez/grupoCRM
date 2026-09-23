@@ -60,7 +60,8 @@
   <meta name="twitter:title" content="Catálogo de extintores | Grupo CRM">
   <meta name="twitter:description" content="Más de 50 equipos: extintores, chalecos, señalamientos, gabinetes, botiquines y equipo de protección. Cotice con Grupo CRM en CDMX y Estado de México.">
   <meta name="twitter:image" content="https://www.crmextintores.com.mx/assets/img/og-crm.jpg">
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://www.crmextintores.com.mx/"},{"@type":"ListItem","position":2,"name":"Catálogo","item":"https://www.crmextintores.com.mx/productos"}]},{"@type":"ItemList","name":"Catálogo de extintores y equipo contra incendio","url":"https://www.crmextintores.com.mx/productos","itemListElement":[{"@type":"ListItem","position":1,"name":"Extintores","url":"https://www.crmextintores.com.mx/productos/extintores"},{"@type":"ListItem","position":2,"name":"Señalamientos","url":"https://www.crmextintores.com.mx/productos/senalamiento-vial"},{"@type":"ListItem","position":3,"name":"Gabinetes y herrajes","url":"https://www.crmextintores.com.mx/productos/gabinetes-herrajes"},{"@type":"ListItem","position":4,"name":"Botiquines","url":"https://www.crmextintores.com.mx/productos/botiquines"},{"@type":"ListItem","position":5,"name":"Equipo de protección","url":"https://www.crmextintores.com.mx/productos/equipo-proteccion"}]}]}</script>
+  <script type="application/ld+json" id="seo-crumbs">{"@context":"https://schema.org","@type":"BreadcrumbList","name":"Inicio › Catálogo","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":{"@type":"WebPage","@id":"https://www.crmextintores.com.mx/","name":"Inicio"}},{"@type":"ListItem","position":2,"name":"Catálogo","item":{"@type":"WebPage","@id":"https://www.crmextintores.com.mx/productos","name":"Catálogo"}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Catálogo de extintores y equipo contra incendio","url":"https://www.crmextintores.com.mx/productos","numberOfItems":6,"itemListElement":[{"@type":"ListItem","position":1,"name":"Extintores","url":"https://www.crmextintores.com.mx/productos/extintores"},{"@type":"ListItem","position":2,"name":"Chalecos","url":"https://www.crmextintores.com.mx/productos/chalecos"},{"@type":"ListItem","position":3,"name":"Señalamiento vial","url":"https://www.crmextintores.com.mx/productos/senalamiento-vial"},{"@type":"ListItem","position":4,"name":"Gabinetes y herrajes","url":"https://www.crmextintores.com.mx/productos/gabinetes-herrajes"},{"@type":"ListItem","position":5,"name":"Botiquines","url":"https://www.crmextintores.com.mx/productos/botiquines"},{"@type":"ListItem","position":6,"name":"Equipo de protección","url":"https://www.crmextintores.com.mx/productos/equipo-proteccion"}]}</script>
 <link rel="preload" as="image" type="image/webp" href="assets/img/hero/hero-catalogo-800.webp" media="(max-width: 760px)" fetchpriority="high">
   <link rel="preload" as="image" type="image/webp" href="assets/img/hero/hero-catalogo-1280.webp" media="(min-width: 761px)" fetchpriority="high" imagesizes="46vw">
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
@@ -135,7 +136,7 @@
         <p class="kicker">Equipo contra incendio</p>
         <h1>Catálogo</h1>
         <hr class="rule rule-left">
-        <p class="lead">Extintores, señalamientos, gabinetes y protección para su empresa. Si no está seguro de qué necesita, le orientamos.</p>
+        <p class="lead">55 equipos: <a href="/productos/extintores">extintores</a>, <a href="/productos/chalecos">chalecos</a>, <a href="/productos/senalamiento-vial">señalamientos</a>, <a href="/productos/gabinetes-herrajes">gabinetes</a>, <a href="/productos/botiquines">botiquines</a> y <a href="/productos/equipo-proteccion">protección</a>. Si no está seguro de qué necesita, le orientamos.</p>
         <div class="hero-actions" role="group" aria-label="Cotizar o llamarnos">
           <a class="btn btn-red" href="https://wa.me/525667481489?text=Hola%2C%20quiero%20una%20cotizaci%C3%B3n%20del%20cat%C3%A1logo%20de%20Grupo%20CRM." target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp wa-icon" aria-hidden="true"></i> Cotizar</a>
           <a class="btn btn-ghost" href="tel:5667481489" aria-label="Llámenos al 56 6748 1489"><i class="fa-solid fa-phone phone-icon" aria-hidden="true"></i> Llámenos</a>
@@ -144,13 +145,18 @@
     </div>
   </section>
   <section class="shop">
-    <div class="catalog-extend catalog-picker" data-catalog-extend aria-busy="true">
-      <div class="wrap">
-        <div class="skel-depts" aria-hidden="true">
-          <span class="skel-dept"></span><span class="skel-dept"></span><span class="skel-dept"></span>
-          <span class="skel-dept"></span><span class="skel-dept"></span><span class="skel-dept"></span>
-          <span class="skel-dept"></span>
-        </div>
+    <div class="catalog-extend catalog-picker is-all-active" data-catalog-extend>
+      <div class="wrap mega__inner">
+        <p class="catalog-picker__label" id="catalog-filter">Filtrar por categoría</p>
+        <ul class="shop-depts catalog-picker__grid" aria-labelledby="catalog-filter">
+          <li><a class="shop-dept shop-dept--all is-active" href="/productos" aria-current="page"><span class="shop-dept__body"><strong>Todos (55)</strong><span class="shop-dept__n">55 productos</span></span></a></li>
+          <li><a class="shop-dept" href="/productos/extintores"><span class="shop-dept__body"><strong>Extintores (19)</strong><span class="shop-dept__n">19 productos</span></span></a></li>
+          <li><a class="shop-dept" href="/productos/chalecos"><span class="shop-dept__body"><strong>Chalecos (3)</strong><span class="shop-dept__n">3 productos</span></span></a></li>
+          <li><a class="shop-dept" href="/productos/senalamiento-vial"><span class="shop-dept__body"><strong>Señalamiento vial (12)</strong><span class="shop-dept__n">12 productos</span></span></a></li>
+          <li><a class="shop-dept" href="/productos/gabinetes-herrajes"><span class="shop-dept__body"><strong>Gabinetes y herrajes (11)</strong><span class="shop-dept__n">11 productos</span></span></a></li>
+          <li><a class="shop-dept" href="/productos/botiquines"><span class="shop-dept__body"><strong>Botiquines (3)</strong><span class="shop-dept__n">3 productos</span></span></a></li>
+          <li><a class="shop-dept" href="/productos/equipo-proteccion"><span class="shop-dept__body"><strong>Equipo de protección (7)</strong><span class="shop-dept__n">7 productos</span></span></a></li>
+        </ul>
       </div>
     </div>
     <div class="wrap wrap-shop">
@@ -174,7 +180,17 @@
           </div>
         </aside>
         <div class="shop-catalog-main">
-          <noscript><p class="js-needed">Active JavaScript para ver el catálogo.</p></noscript>
+          <noscript>
+            <p>Catálogo de Grupo CRM Extintores: 55 equipos en 6 líneas.</p>
+            <ul>
+              <li><a href="/productos/extintores">Extintores (19)</a></li>
+              <li><a href="/productos/chalecos">Chalecos (3)</a></li>
+              <li><a href="/productos/senalamiento-vial">Señalamiento vial (12)</a></li>
+              <li><a href="/productos/gabinetes-herrajes">Gabinetes y herrajes (11)</a></li>
+              <li><a href="/productos/botiquines">Botiquines (3)</a></li>
+              <li><a href="/productos/equipo-proteccion">Equipo de protección (7)</a></li>
+            </ul>
+          </noscript>
           <div class="shop-grid shop-grid--4" data-products aria-busy="true">
             <span class="skel-card" aria-hidden="true"></span>
             <span class="skel-card" aria-hidden="true"></span>

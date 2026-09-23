@@ -1,4 +1,4 @@
-import { company, categories, products, services, sectors, faqs, clients, waUrl, safeDecode, catName, catCount, productBySku, productImg, productAlt, productUrl, readSku, relatedProducts, lookbook, lookAlt, lookFull, venues, carePoints, readyChecks, condo } from "./data.js";
+import { company, categories, products, services, sectors, faqs, clients, waUrl, safeDecode, catName, catCount, productBySku, productImg, productAlt, productUrl, readSku, relatedProducts, lookbook, lookAlt, lookFull, venues, carePoints, readyChecks, condo, extinguisherCompare } from "./data.js";
 import { applySeo } from "./seo.js";
 
 const fa = (cls) => `<i class="${cls}" aria-hidden="true"></i>`;
@@ -877,7 +877,7 @@ export function renderHomeCats() {
 const HOME_BEST = {
   extintores: ["CRM-0003", "CRM-0006", "CRM-0012", "CRM-0004"],
   "senalamiento-vial": ["CRM-0023", "CRM-0030", "CRM-0033", "CRM-0024"],
-  "equipo-proteccion": ["CRM-0049", "CRM-0050", "CRM-0054", "CRM-0053"],
+  "equipo-proteccion": ["CRM-0049", "CRM-0050", "CRM-0051", "CRM-0052"],
 };
 
 function homeCategoryItems(catId, limit = 4) {
@@ -1480,6 +1480,41 @@ export function renderFaqs() {
       </details>`
     )
     .join("");
+}
+
+export function renderExtinguisherCompare() {
+  const roots = document.querySelectorAll("[data-compare-ext]");
+  if (!roots.length || !extinguisherCompare.length) return;
+  const rows = extinguisherCompare
+    .map(
+      (item) => `<tr>
+        <th scope="row"><a href="${item.href}">${item.name}</a></th>
+        <td>${item.classes}</td>
+        <td>${item.use}</td>
+        <td>${item.residue}</td>
+        <td>${item.note}</td>
+      </tr>`
+    )
+    .join("");
+  const html = `<div class="compare-table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Agente</th>
+            <th>Clases</th>
+            <th>Uso recomendado</th>
+            <th>Residuo</th>
+            <th>Nota</th>
+          </tr>
+        </thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
+    <p class="compare-table__more muted">Caso real de instalación: <a href="/caso-agencia-automotriz">agencia automotriz</a>. Ver <a href="/productos?cat=extintores#extintores">catálogo de extintores</a>.</p>`;
+  roots.forEach((root) => {
+    root.innerHTML = html;
+    root.setAttribute("aria-busy", "false");
+  });
 }
 
 export function renderHome() {

@@ -10,6 +10,8 @@ export const company = {
   slogan: "Protección, prevención y respuesta.",
   about:
     "Grupo CRM es el nombre oficial. Nombres secundarios: GRUPO CRM Extintores, CRM Extintores y CRM. Las siglas son CRM, no CMR. Sitio crmextintores.com.mx. Oficina en Chamixto 131, Col. Loma del Padre, Cuajimalpa. Venta, recarga e instalación en CDMX y Estado de México. MCD (Mexicana de Conformidad y Dictaminación), NOM-154-SCFI-2005.",
+  aboutPublic:
+    "Venta, recarga e instalación de extintores en Cuajimalpa, CDMX y Estado de México.",
   mcd: "Mexicana de Conformidad y Dictaminación",
   mcdUrl: "http://www.mcdmx.com/site/Casa.html",
   nom: "NOM-154-SCFI-2005",

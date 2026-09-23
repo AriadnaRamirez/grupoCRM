@@ -554,7 +554,7 @@ function footerHTML() {
             <img class="footer-mark__flame" src="${withBase("/assets/img/logo-crm-flame.png")}" alt="${company.name}" title="${company.name}" width="112" height="154" loading="lazy" decoding="async">
             <img class="footer-mark__crm" src="${withBase("/assets/img/logo-crm-wordmark.png")}" alt="Logotipo tipográfico ${company.name}" title="${company.name}" width="286" height="87" loading="lazy" decoding="async">
           </a>
-          <p class="footer-brand__about">${company.about} ${company.slogan}</p>
+          <p class="footer-brand__about">${company.aboutPublic} ${company.slogan}</p>
           <p class="footer-social">
             <a href="${company.facebookUrl}" target="_blank" rel="noopener noreferrer" aria-label="Facebook ${company.facebook}, se abre en una ventana nueva">${FB_ICON}</a>
             <a href="${company.instagramUrl}" target="_blank" rel="noopener noreferrer" aria-label="Instagram ${company.instagram}, se abre en una ventana nueva">${IG_ICON}</a>

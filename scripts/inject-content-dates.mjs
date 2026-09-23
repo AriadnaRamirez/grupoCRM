@@ -57,10 +57,20 @@ function pageMeta(published, modified) {
 
 const metaBlockRe =
   /<p class="content-dates(?:\s+content-dates--(?:page|foot))?">[\s\S]*?<\/p>\s*/g;
+const datesWrapRe =
+  /<div class="(?:wrap\s+)?content-dates-wrap">\s*<\/div>\s*/gi;
 
 function injectFoot(html, block) {
-  const cleaned = html.replace(metaBlockRe, "");
+  let cleaned = html.replace(metaBlockRe, "").replace(datesWrapRe, "");
   if (!/<\/main>/i.test(cleaned)) return null;
+  const slot = `<div class="content-dates-wrap">${block}\n    </div>`;
+  if (/class="wrap about-foot"/.test(cleaned)) {
+    const next = cleaned.replace(
+      /(<\/aside>\s*)<\/div>\s*<\/main>/i,
+      `$1${slot}\n  </div>\n  </main>`
+    );
+    if (next !== cleaned) return next;
+  }
   return cleaned.replace(
     /<\/main>/i,
     `  <div class="wrap content-dates-wrap">${block}\n  </div>\n  </main>`

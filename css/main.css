@@ -8590,7 +8590,11 @@ body[data-page="error"] [data-footer] { flex: 0 0 auto; margin-top: auto; }
   pointer-events: auto;
   transform: none;
 }
-.back-top i { font-size: 1.05rem; }
+.back-top svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  display: block;
+}
 @media (hover: hover) {
   .back-top:hover { background: var(--red-dark); }
 }

@@ -9766,15 +9766,17 @@ body[data-page="error"] [data-footer] { flex: 0 0 auto; margin-top: auto; }
     right: 0;
     top: 0;
     width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
+    height: 56.25vw;
+    max-height: 100%;
+    aspect-ratio: auto;
     z-index: 1;
     pointer-events: none;
     background: linear-gradient(
       to top,
-      rgba(26, 32, 49, 0.55) 0%,
-      rgba(26, 32, 49, 0.18) 32%,
-      transparent 58%
+      var(--navy) 0%,
+      rgba(26, 32, 49, 0.78) 32%,
+      rgba(26, 32, 49, 0.32) 58%,
+      transparent 84%
     );
   }
   .hero-slider:not(.home-gallery) .slide__photo img {
@@ -9807,9 +9809,11 @@ body[data-page="error"] [data-footer] { flex: 0 0 auto; margin-top: auto; }
     background: linear-gradient(
       to top,
       var(--navy) 0%,
-      var(--navy) 40%,
-      rgba(26, 32, 49, 0.72) 52%,
-      transparent 64%
+      var(--navy) 34%,
+      rgba(26, 32, 49, 0.92) 46%,
+      rgba(26, 32, 49, 0.5) 56%,
+      rgba(26, 32, 49, 0.18) 66%,
+      transparent 78%
     );
   }
   .slide .wrap,

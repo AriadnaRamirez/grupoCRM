@@ -37,7 +37,7 @@
   .slide__photo { position: absolute; inset: 0 0 0 auto; width: min(50%, 720px); }
   .slide__photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center bottom; }
   </style>
-<link rel="stylesheet" href="/css/main.min.css?v=rb-29">
+<link rel="stylesheet" href="/css/main.min.css?v=rb-31">
 <title>Inspector CRM | Mascota de Grupo CRM Extintores</title>
   <meta name="description" content="Inspector CRM es la mascota oficial de Grupo CRM Extintores: el inspector de extintores de la empresa en Cuajimalpa, CDMX. Vea las ilustraciones oficiales.">
   <meta name="author" content="Grupo CRM Extintores">
@@ -74,15 +74,17 @@
       link.referrerPolicy = "no-referrer";
       document.head.appendChild(link);
     }
-    if ("requestIdleCallback" in window) window.requestIdleCallback(loadFa, { timeout: 6000 });
-    else window.addEventListener("load", function () { setTimeout(loadFa, 2500); }, { once: true });
+    var mobile = window.matchMedia && window.matchMedia("(max-width: 760px)").matches;
+    if (mobile) {
+      var kickFa = function () { setTimeout(loadFa, 400); };
+      if (document.readyState === "complete") kickFa();
+      else window.addEventListener("load", kickFa, { once: true });
+    } else if ("requestIdleCallback" in window) window.requestIdleCallback(loadFa, { timeout: 6000 });
+    else window.addEventListener("load", function(){ setTimeout(loadFa, 2500); }, { once: true });
   })();
   </script>
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Inspector CRM","alternateName":["El Inspector CRM","Inspector de Grupo CRM Extintores"],"description":"Mascota oficial de Grupo CRM Extintores: inspector de extintores de la empresa en Cuajimalpa, CDMX.","image":["https://www.crmextintores.com.mx/assets/img/opt/inspector-crm.webp","https://www.crmextintores.com.mx/assets/img/opt/inspector-crm-extintor.webp","https://www.crmextintores.com.mx/assets/img/inspector-crm.png","https://www.crmextintores.com.mx/assets/img/inspector-crm-extintor.png"],"jobTitle":"Mascota e inspector de extintores de Grupo CRM Extintores","worksFor":{"@id":"https://www.crmextintores.com.mx/#organization"},"url":"https://www.crmextintores.com.mx/inspector-crm"}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageGallery","name":"Ilustraciones oficiales del Inspector CRM","url":"https://www.crmextintores.com.mx/inspector-crm","associatedMedia":[{"@type":"ImageObject","name":"Inspector CRM","contentUrl":"https://www.crmextintores.com.mx/assets/img/opt/inspector-crm.webp","url":"https://www.crmextintores.com.mx/assets/img/inspector-crm.png","caption":"Inspector CRM, mascota de Grupo CRM Extintores","width":640,"height":858},{"@type":"ImageObject","name":"Inspector CRM con extintor","contentUrl":"https://www.crmextintores.com.mx/assets/img/opt/inspector-crm-extintor.webp","url":"https://www.crmextintores.com.mx/assets/img/inspector-crm-extintor.png","caption":"Inspector CRM con extintor, mascota de Grupo CRM Extintores","width":640,"height":858},{"@type":"ImageObject","name":"Llama del 404 de Grupo CRM","contentUrl":"https://www.crmextintores.com.mx/assets/img/opt/mascot-404-llama.webp","url":"https://www.crmextintores.com.mx/assets/img/opt/mascot-404-llama.webp","caption":"Llama de Grupo CRM Extintores apagándose a sí misma con un extintor, ilustración del 404","width":568,"height":682}]}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Quién es el Inspector CRM?","acceptedAnswer":{"@type":"Answer","text":"El Inspector CRM es la mascota de Grupo CRM: un inspector de extintores que representa a la empresa. Aquí están las ilustraciones oficiales."}},{"@type":"Question","name":"¿El Inspector CRM hace las visitas?","acceptedAnswer":{"@type":"Answer","text":"No. Es un personaje de la marca, no un técnico real ni un inspector de autoridad. Quien va a su inmueble es el equipo de Grupo CRM. La primera visita de revisión no tiene costo."}},{"@type":"Question","name":"¿Dónde veo al Inspector CRM?","acceptedAnswer":{"@type":"Answer","text":"En el inicio, en Nosotros, en el 404 y en esta página. Hay tres piezas: el Inspector, el Inspector con extintor y la llama del 404."}}]}</script>
-</head>
+  </head>
 <body data-page="inspector">
   <a class="skip-link" href="#contenido">Ir al contenido</a>
   <nav class="bot-nav" aria-label="Enlaces del sitio">
@@ -118,7 +120,7 @@
       <div class="site-topbar"><div class="wrap topbar__inner"></div></div>
       <header class="site-header">
         <div class="wrap header__inner">
-          <a class="brand" href="/"><picture><source type="image/webp" srcset="/assets/img/logo-crm.webp"><img src="/assets/img/logo-crm.png" alt="Grupo CRM" width="243" height="52" decoding="async"></picture></a>
+          <a class="brand" href="/"><picture><source type="image/webp" srcset="/assets/img/logo-crm.webp"><img src="/assets/img/logo-crm.png" alt="Grupo CRM" title="Grupo CRM" width="243" height="52" decoding="async" fetchpriority="low"></picture></a>
           <span class="header-skel__nav" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span>
           <span class="header-skel__cta" aria-hidden="true"></span>
         </div>
@@ -201,6 +203,9 @@
   </article>
   </main>
   <div data-footer></div>
-  <script type="module" src="/js/app.min.js?v=rb-29" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Inspector CRM","alternateName":["El Inspector CRM","Inspector de Grupo CRM Extintores"],"description":"Mascota oficial de Grupo CRM Extintores: inspector de extintores de la empresa en Cuajimalpa, CDMX.","image":["https://www.crmextintores.com.mx/assets/img/opt/inspector-crm.webp","https://www.crmextintores.com.mx/assets/img/opt/inspector-crm-extintor.webp","https://www.crmextintores.com.mx/assets/img/inspector-crm.png","https://www.crmextintores.com.mx/assets/img/inspector-crm-extintor.png"],"jobTitle":"Mascota e inspector de extintores de Grupo CRM Extintores","worksFor":{"@id":"https://www.crmextintores.com.mx/#organization"},"url":"https://www.crmextintores.com.mx/inspector-crm"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageGallery","name":"Ilustraciones oficiales del Inspector CRM","url":"https://www.crmextintores.com.mx/inspector-crm","associatedMedia":[{"@type":"ImageObject","name":"Inspector CRM","contentUrl":"https://www.crmextintores.com.mx/assets/img/opt/inspector-crm.webp","url":"https://www.crmextintores.com.mx/assets/img/inspector-crm.png","caption":"Inspector CRM, mascota de Grupo CRM Extintores","width":640,"height":858},{"@type":"ImageObject","name":"Inspector CRM con extintor","contentUrl":"https://www.crmextintores.com.mx/assets/img/opt/inspector-crm-extintor.webp","url":"https://www.crmextintores.com.mx/assets/img/inspector-crm-extintor.png","caption":"Inspector CRM con extintor, mascota de Grupo CRM Extintores","width":640,"height":858},{"@type":"ImageObject","name":"Llama del 404 de Grupo CRM","contentUrl":"https://www.crmextintores.com.mx/assets/img/opt/mascot-404-llama.webp","url":"https://www.crmextintores.com.mx/assets/img/opt/mascot-404-llama.webp","caption":"Llama de Grupo CRM Extintores apagándose a sí misma con un extintor, ilustración del 404","width":568,"height":682}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Quién es el Inspector CRM?","acceptedAnswer":{"@type":"Answer","text":"El Inspector CRM es la mascota de Grupo CRM: un inspector de extintores que representa a la empresa. Aquí están las ilustraciones oficiales."}},{"@type":"Question","name":"¿El Inspector CRM hace las visitas?","acceptedAnswer":{"@type":"Answer","text":"No. Es un personaje de la marca, no un técnico real ni un inspector de autoridad. Quien va a su inmueble es el equipo de Grupo CRM. La primera visita de revisión no tiene costo."}},{"@type":"Question","name":"¿Dónde veo al Inspector CRM?","acceptedAnswer":{"@type":"Answer","text":"En el inicio, en Nosotros, en el 404 y en esta página. Hay tres piezas: el Inspector, el Inspector con extintor y la llama del 404."}}]}</script>
+  <script type="module" src="/js/app.min.js?v=rb-31" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
 </body>
 </html>

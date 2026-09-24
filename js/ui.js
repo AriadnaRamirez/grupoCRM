@@ -1789,10 +1789,11 @@ function bindInfiniteRail(root, {
 function bindClientRail(root) {
   if (!root || !clients.length) return;
   if (typeof root._clientRailStop === "function") root._clientRailStop();
+  const isMobile = window.matchMedia("(max-width: 760px)").matches;
   const liveCards = clients.map((c) => clientRailCard(c)).join("");
   const ghostCards = clients.map((c) => clientRailCard(c, { inert: true })).join("");
-  const loop = `<div class="client-rail__loop" aria-hidden="true">${ghostCards}</div>`;
-  root.className = "client-rail";
+  const loop = isMobile ? "" : `<div class="client-rail__loop" aria-hidden="true">${ghostCards}</div>`;
+  root.className = "client-rail is-paused";
   root.setAttribute("aria-label", root.getAttribute("aria-label") || "Clientes");
   root.innerHTML = `<div class="client-rail__viewport">
       <div class="client-rail__track">
@@ -1812,7 +1813,13 @@ function bindClientRail(root) {
     groups.forEach((group) => {
       group.querySelectorAll(".client-rail__loop[data-fill]").forEach((el) => el.remove());
     });
-    if (isCollage()) return;
+    if (isCollage() || isMobile) {
+      const groupW = groups[0] ? groups[0].getBoundingClientRect().width : 0;
+      if (groupW > 1) {
+        root.style.setProperty("--client-marquee-duration", `${Math.max(28, groupW / pxPerSec).toFixed(1)}s`);
+      }
+      return;
+    }
     const viewW = viewport.getBoundingClientRect().width;
     let groupW = groups[0] ? groups[0].getBoundingClientRect().width : 0;
     let guard = 0;
@@ -1854,8 +1861,20 @@ function bindClientRail(root) {
     img.addEventListener("load", onResize, { once: true });
     img.addEventListener("error", onResize, { once: true });
   });
+  let visIo;
+  if ("IntersectionObserver" in window) {
+    visIo = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        root.classList.toggle("is-paused", !entry.isIntersecting);
+      });
+    }, { rootMargin: "120px 0px" });
+    visIo.observe(root);
+  } else {
+    root.classList.remove("is-paused");
+  }
   root._clientRailStop = () => {
     window.removeEventListener("resize", onResize);
+    visIo?.disconnect();
   };
   setMode();
 }
@@ -2001,6 +2020,7 @@ export function renderReviews() {
 export function renderFaqs() {
   const root = document.querySelector("[data-faqs]");
   if (!root || !faqs.length) return;
+  if (root.querySelector("details")) return;
   root.innerHTML = faqs
     .map(
       (item) => `<details class="faq">
@@ -2049,23 +2069,23 @@ export function renderExtinguisherCompare() {
 
 export function renderHome() {
   bindHeroSlider();
+  paintHomeValues();
   paintServices();
   paintCursos();
   renderCarePoints();
-  renderClientLogos();
-  renderReviews();
   renderCompactSectors();
   renderHook();
   renderFaqs();
-  renderNosotros();
   const deferHeavy = () => {
+    renderClientLogos();
+    renderReviews();
     renderHomeCats();
     renderHomeCatalog();
     renderHomeGallerySlider();
   };
   const mobile = window.matchMedia("(max-width: 760px)").matches;
   if (mobile && "requestIdleCallback" in window) {
-    window.requestIdleCallback(deferHeavy, { timeout: 2200 });
+    window.requestIdleCallback(deferHeavy, { timeout: 2400 });
   } else {
     deferHeavy();
   }
@@ -2374,8 +2394,8 @@ function servicePhoto(service) {
   return `<span class="svc-showcase__shot is-in">${lookPicture(shot, {
     sizes: "(min-width: 700px) 38vw, 100vw",
     alt: lookAlt(shot),
-    lazy: false,
-    srcWidths: [800, 1400],
+    lazy: true,
+    srcWidths: [800],
   })}</span>
   <figcaption>
     <span>${escapeHtml(service.title)}</span>
@@ -2473,22 +2493,25 @@ export function renderServicios() {
   renderHook();
 }
 
+function paintHomeValues() {
+  const val = document.querySelector("[data-values]");
+  if (!val) return;
+  val.innerHTML = company.valores
+    .map(
+      (x, i) => `<li class="value-card">
+        <i class="fa-solid ${HOME_VALUE_ICONS[i] || "fa-star"}" aria-hidden="true"></i>
+        <strong>${x}</strong>
+      </li>`
+    )
+    .join("");
+}
+
 export function renderNosotros() {
   const m = document.querySelector("[data-mision]");
   const v = document.querySelector("[data-vision]");
-  const val = document.querySelector("[data-values]");
   if (m) m.textContent = company.mision;
   if (v) v.textContent = company.vision;
-  if (val) {
-    val.innerHTML = company.valores
-      .map(
-        (x, i) => `<li class="value-card">
-          <i class="fa-solid ${HOME_VALUE_ICONS[i] || "fa-star"}" aria-hidden="true"></i>
-          <strong>${x}</strong>
-        </li>`
-      )
-      .join("");
-  }
+  paintHomeValues();
   const inspectorVals = document.querySelector("[data-inspector-valores]");
   if (inspectorVals) {
     inspectorVals.innerHTML = company.valores.map((x) => `<li>${x}</li>`).join("");

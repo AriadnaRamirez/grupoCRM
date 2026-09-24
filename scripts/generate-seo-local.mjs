@@ -8,6 +8,7 @@
 import { mkdirSync, writeFileSync, readdirSync, unlinkSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { faIcon } from "../js/fa-svg.js";
 import {
   zonas,
   zonasCdmx,
@@ -25,7 +26,7 @@ import {
 } from "../js/data.js";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const CACHE = "rb-33";
+const CACHE = "rb-34";
 const MONTHS_ES = [
   "enero",
   "febrero",
@@ -154,28 +155,6 @@ ${cssBoot}
   <meta name="twitter:image" content="${origin}/assets/img/og-crm.jpg">
   <link rel="icon" type="image/png" href="/assets/img/favicon.png" sizes="192x192">
   <link rel="apple-touch-icon" href="/assets/img/favicon.png">
-  <script>
-  (function () {
-    function loadFa() {
-      if (document.getElementById("fa-css")) return;
-      var link = document.createElement("link");
-      link.id = "fa-css";
-      link.rel = "stylesheet";
-      link.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css";
-      link.crossOrigin = "anonymous";
-      link.referrerPolicy = "no-referrer";
-      document.head.appendChild(link);
-    }
-    var mobile = window.matchMedia && window.matchMedia("(max-width: 760px)").matches;
-    if (mobile) {
-      var kickFa = function () { setTimeout(loadFa, 400); };
-      if (document.readyState === "complete") kickFa();
-      else window.addEventListener("load", kickFa, { once: true });
-    } else if ("requestIdleCallback" in window) window.requestIdleCallback(loadFa, { timeout: 6000 });
-    else window.addEventListener("load", function () { setTimeout(loadFa, 2500); }, { once: true });
-  })();
-  </script>
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
 </head>
 <body ${bodyAttrs}>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -232,8 +211,8 @@ ${jsonLd}
 
 function ctaBlock(label, waText) {
   return `<p class="zona-page__cta">
-          <a class="btn btn-wa" href="${waHref(waText)}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Contactar por WhatsApp</a>
-          <a class="btn btn-red" href="tel:${company.phoneTel}" aria-label="Llamar al ${company.phone}"><i class="fa-solid fa-phone" aria-hidden="true"></i> Llamar ahora</a>
+          <a class="btn btn-wa" href="${waHref(waText)}" target="_blank" rel="noopener noreferrer">${faIcon("fa-brands fa-whatsapp")} Contactar por WhatsApp</a>
+          <a class="btn btn-red" href="tel:${company.phoneTel}" aria-label="Llamar al ${company.phone}">${faIcon("fa-solid fa-phone")} Llamar ahora</a>
           <a class="btn btn-ink" href="/contacto">Solicita una cotización</a>
         </p>
         <p class="muted">También puede escribir a <a href="mailto:${company.email}">${company.email}</a>. Oficina: ${escapeHtml(company.address)}.</p>`;
@@ -749,8 +728,8 @@ function locationHtml(zona) {
         ${contentDatesHtml()}
         <p class="muted">${escapeHtml(copy.office)}</p>
         <p class="zona-page__cta zona-page__cta--head">
-          <a class="btn btn-wa" href="${waHref(`Hola, quiero cotizar extintores en ${zona.name}, ${region}.`)}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp</a>
-          <a class="btn btn-red" href="tel:${company.phoneTel}" aria-label="Llamar al ${company.phone}"><i class="fa-solid fa-phone" aria-hidden="true"></i> Llamar ${escapeHtml(company.phone)}</a>
+          <a class="btn btn-wa" href="${waHref(`Hola, quiero cotizar extintores en ${zona.name}, ${region}.`)}" target="_blank" rel="noopener noreferrer">${faIcon("fa-brands fa-whatsapp")} WhatsApp</a>
+          <a class="btn btn-red" href="tel:${company.phoneTel}" aria-label="Llamar al ${company.phone}">${faIcon("fa-solid fa-phone")} Llamar ${escapeHtml(company.phone)}</a>
         </p>
       </header>
       <div class="zona-page__body">

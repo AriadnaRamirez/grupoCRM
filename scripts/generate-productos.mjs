@@ -5,6 +5,7 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { faIcon } from "../js/fa-svg.js";
 import {
   products,
   categories,
@@ -24,7 +25,7 @@ import {
 } from "../js/data.js";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const CACHE = "rb-33";
+const CACHE = "rb-34";
 
 const MONTHS_ES = [
   "enero",
@@ -124,28 +125,6 @@ function pageShell({ title, description, canonical, bodyAttrs, main, jsonLd = ""
   <meta name="twitter:image" content="${ogImage}">
   <link rel="icon" type="image/png" href="/assets/img/favicon.png" sizes="192x192">
   <link rel="apple-touch-icon" href="/assets/img/favicon.png">
-  <script>
-  (function () {
-    function loadFa() {
-      if (document.getElementById("fa-css")) return;
-      var link = document.createElement("link");
-      link.id = "fa-css";
-      link.rel = "stylesheet";
-      link.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css";
-      link.crossOrigin = "anonymous";
-      link.referrerPolicy = "no-referrer";
-      document.head.appendChild(link);
-    }
-    var mobile = window.matchMedia && window.matchMedia("(max-width: 760px)").matches;
-    if (mobile) {
-      var kickFa = function () { setTimeout(loadFa, 400); };
-      if (document.readyState === "complete") kickFa();
-      else window.addEventListener("load", kickFa, { once: true });
-    } else if ("requestIdleCallback" in window) window.requestIdleCallback(loadFa, { timeout: 6000 });
-    else window.addEventListener("load", function () { setTimeout(loadFa, 2500); }, { once: true });
-  })();
-  </script>
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
 </head>
 <body ${bodyAttrs}>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -381,8 +360,8 @@ function productHtml(p) {
             <p>Servicio en CDMX y Estado de México, coordinado desde la oficina de Cuajimalpa. Le enviamos la cotización por WhatsApp según cantidad, instalación y señalamientos.</p>
             ${serviceLink}
             <div class="actions">
-              <a class="btn btn-wa" href="${waHref(`Hola, quiero cotizar ${p.sku} — ${p.title}`)}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i><span>Cotizar por WhatsApp</span></a>
-              <a class="btn btn-ink" href="tel:${company.phoneTel}" aria-label="Llámenos al ${company.phone}"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>Llámenos</span></a>
+              <a class="btn btn-wa" href="${waHref(`Hola, quiero cotizar ${p.sku} — ${p.title}`)}" target="_blank" rel="noopener noreferrer">${faIcon("fa-brands fa-whatsapp")}<span>Cotizar por WhatsApp</span></a>
+              <a class="btn btn-ink" href="tel:${company.phoneTel}" aria-label="Llámenos al ${company.phone}">${faIcon("fa-solid fa-phone")}<span>Llámenos</span></a>
             </div>
           </div>
         </div>

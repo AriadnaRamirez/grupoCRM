@@ -2,8 +2,9 @@ import { company, categories, products, services, courses, sectors, faqs, review
 import { lookSize } from "./look-dims.js";
 import { applySeo } from "./seo.js";
 import { rebaseDocument, rebaseSrcset, withBase } from "./base.js";
+import { faIcon } from "./fa-svg.js";
 
-const fa = (cls) => `<i class="${cls}" aria-hidden="true"></i>`;
+const fa = (cls) => faIcon(cls);
 const svg = (cls, viewBox, path) => `<svg class="${cls}" aria-hidden="true" focusable="false" width="1em" height="1em" viewBox="${viewBox}"><path fill="currentColor" d="${path}"></path></svg>`;
 const ICONS = {
   phone: ["0 0 512 512", "M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64c0 247.4 200.6 448 448 448c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"],
@@ -1033,7 +1034,7 @@ export function productCard(p, { quote = false, eager = false } = {}) {
     .filter(Boolean);
   const classLine = classes.length ? `Clase ${classes.join(" · ")}` : "";
   const quoteBtn = `<a class="shop-item__quote${quote ? "" : " shop-item__quote--wa"}" href="${quoteUrl(p)}" target="_blank" rel="noopener noreferrer">${WA_ICON} Cotizar</a>`;
-  const detail = `<a class="shop-item__more" href="${href}" onclick="${remember}"><i class="fa-solid fa-eye" aria-hidden="true"></i> Ver detalle</a>`;
+  const detail = `<a class="shop-item__more" href="${href}" onclick="${remember}">${fa("fa-solid fa-eye")} Ver detalle</a>`;
   return `
     <article class="shop-item shop-item--quote" data-cat="${p.cat}">
       <a class="shop-item__link" href="${href}" onclick="${remember}">
@@ -1334,7 +1335,7 @@ export function renderHomeCatalog() {
         <section class="shop-block" data-cat="${c.id}">
           <header class="shop-block__head">
             <h3>${c.name}</h3>
-            <a class="shop-more" href="${catUrl(c.id)}"><i class="fa-solid fa-table-cells" aria-hidden="true"></i> ${c.seeAll}</a>
+            <a class="shop-more" href="${catUrl(c.id)}">${fa("fa-solid fa-table-cells")} ${c.seeAll}</a>
           </header>
           <div class="shop-grid shop-grid--4">${items.map((p, i) => productCard(p, { quote: true, eager: false })).join("")}</div>
         </section>`;
@@ -1981,7 +1982,7 @@ export function renderHomeGallerySlider() {
 function reviewStars(count = 5) {
   const stars = Math.max(1, Math.min(5, Number(count) || 5));
   const icons = Array.from({ length: 5 }, (_, i) =>
-    `<i class="fa-solid fa-star${i < stars ? "" : " review__star--off"}" aria-hidden="true"></i>`
+    fa(`fa-solid fa-star${i < stars ? "" : " review__star--off"}`)
   ).join("");
   return `<p class="review__stars" aria-label="${stars} de 5 estrellas">${icons}</p>`;
 }
@@ -2009,7 +2010,7 @@ export function renderReviews() {
           <div class="review__meta">
             <p class="review__who"><strong>${name}</strong></p>
             ${reviewStars(item.stars)}
-            <p class="review__date"><time datetime="${iso}">${date}</time> · <i class="fa-brands fa-facebook-f" aria-hidden="true"></i> Facebook</p>
+            <p class="review__date"><time datetime="${iso}">${date}</time> · ${fa("fa-brands fa-facebook-f")} Facebook</p>
           </div>
         </header>
         <blockquote class="review__text">${text}</blockquote>
@@ -2501,7 +2502,7 @@ function paintHomeValues() {
   val.innerHTML = company.valores
     .map(
       (x, i) => `<li class="value-card">
-        <i class="fa-solid ${HOME_VALUE_ICONS[i] || "fa-star"}" aria-hidden="true"></i>
+        ${fa(`fa-solid ${HOME_VALUE_ICONS[i] || "fa-star"}`)}
         <strong>${x}</strong>
       </li>`
     )

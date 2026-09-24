@@ -5910,6 +5910,18 @@ body.is-lightbox { overflow: hidden; }
     width: min(100%, 220px);
   }
 }
+@media (max-width: 699px) {
+  .about-mv-band__figure {
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    width: 100%;
+  }
+  .about-mv-band__figure a,
+  .about-mv-band__figure picture {
+    margin-inline: auto;
+  }
+}
 .about-values {
   margin: 28px 0 40px;
   padding-top: 22px;
@@ -9585,20 +9597,17 @@ body[data-page="error"] [data-footer] { flex: 0 0 auto; margin-top: auto; }
   }
   .shop-hero--page.shop-hero--catalog .shop-hero__photo img {
     object-fit: cover;
-    object-position: center 30%;
-    transform: scale(1.1);
-    transform-origin: center 70%;
+    object-position: center 64%;
+    transform: scale(1.72);
+    transform-origin: center 60%;
   }
   .shop-hero--venue.shop-hero--split.shop-hero--page.shop-hero--catalog .shop-hero__photo::after,
   .shop-hero--page.shop-hero--catalog .shop-hero__photo::after {
     background: linear-gradient(
       to top,
       #fff 0%,
-      #fff 36%,
-      rgba(255, 255, 255, 0.96) 50%,
-      rgba(255, 255, 255, 0.7) 64%,
-      rgba(255, 255, 255, 0.28) 78%,
-      transparent 92%
+      rgba(255, 255, 255, 0.55) 10%,
+      transparent 22%
     );
   }
   .shop-hero--page .shop-hero__copy {
@@ -9734,48 +9743,59 @@ body[data-page="error"] [data-footer] { flex: 0 0 auto; margin-top: auto; }
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-size: cover;
+    background-color: var(--navy);
+    background-size: 100% auto;
     background-repeat: no-repeat;
-    background-position: center bottom;
+    background-position: center top;
   }
   .hero-slider:not(.home-gallery) .slide__photo picture {
     position: absolute;
-    inset: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: auto;
     display: block;
     width: 100%;
-    height: 100%;
+    height: auto;
   }
   .hero-slider:not(.home-gallery) .slide__photo::after {
-    display: none;
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+      to top,
+      rgba(26, 32, 49, 0.55) 0%,
+      rgba(26, 32, 49, 0.18) 32%,
+      transparent 58%
+    );
   }
   .hero-slider:not(.home-gallery) .slide__photo img {
-    position: absolute;
-    inset: 0;
+    position: relative;
+    inset: auto;
     width: 100%;
-    height: 100%;
-    aspect-ratio: auto;
-    object-fit: cover;
-    object-position: center bottom;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    object-position: center center;
   }
   .hero-slider:not(.home-gallery) .slide--hero-desktop .slide__photo,
-  .hero-slider:not(.home-gallery) .slide--hero-desktop .slide__photo img {
-    background-position: center 36%;
-    object-position: center 36%;
-  }
+  .hero-slider:not(.home-gallery) .slide--hero-desktop .slide__photo img,
   .hero-slider:not(.home-gallery) .slide--hero-linea .slide__photo,
-  .hero-slider:not(.home-gallery) .slide--hero-linea .slide__photo img {
-    background-position: center 52%;
-    object-position: center 52%;
-  }
+  .hero-slider:not(.home-gallery) .slide--hero-linea .slide__photo img,
   .hero-slider:not(.home-gallery) .slide--hero-fuego .slide__photo,
-  .hero-slider:not(.home-gallery) .slide--hero-fuego .slide__photo img {
-    background-position: 58% 42%;
-    object-position: 58% 42%;
-  }
+  .hero-slider:not(.home-gallery) .slide--hero-fuego .slide__photo img,
   .hero-slider:not(.home-gallery) .slide--hero-producto .slide__photo,
   .hero-slider:not(.home-gallery) .slide--hero-producto .slide__photo img {
-    background-position: 58% 48%;
-    object-position: 58% 48%;
+    background-position: center top;
+    object-position: center center;
   }
   .hero-slider:not(.home-gallery) .slide::before {
     content: "";
@@ -9786,11 +9806,10 @@ body[data-page="error"] [data-footer] { flex: 0 0 auto; margin-top: auto; }
     pointer-events: none;
     background: linear-gradient(
       to top,
-      rgba(26, 32, 49, 0.96) 0%,
-      rgba(26, 32, 49, 0.78) 22%,
-      rgba(26, 32, 49, 0.38) 42%,
-      rgba(26, 32, 49, 0.12) 58%,
-      transparent 74%
+      var(--navy) 0%,
+      var(--navy) 40%,
+      rgba(26, 32, 49, 0.72) 52%,
+      transparent 64%
     );
   }
   .slide .wrap,

@@ -24,7 +24,7 @@ import {
 } from "../js/data.js";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const CACHE = "rb-25";
+const CACHE = "rb-29";
 
 const MONTHS_ES = [
   "enero",
@@ -78,6 +78,7 @@ function pageShell({ title, description, canonical, bodyAttrs, main, jsonLd = ""
 <html lang="es-MX" prefix="og: https://ogp.me/ns#">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <style id="css-boot">
   :root { --chrome-h: 108px; }
   @media (min-width: 1024px) { :root { --chrome-h: 113px; } }
@@ -101,7 +102,6 @@ function pageShell({ title, description, canonical, bodyAttrs, main, jsonLd = ""
   .brand img { display: block; width: auto; height: auto; max-height: 47px; aspect-ratio: 720 / 154; object-fit: contain; }
   </style>
   <link rel="stylesheet" href="/css/main.min.css?v=${CACHE}">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>${escapeHtml(title)}</title>
   <meta name="description" content="${escapeHtml(description)}">
   <meta name="robots" content="${escapeHtml(robots)}">

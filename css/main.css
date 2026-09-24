@@ -9589,7 +9589,12 @@ body[data-page="error"] [data-footer] { flex: 0 0 auto; margin-top: auto; }
     background: var(--navy);
   }
   .shop-hero--page.shop-hero--catalog {
-    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: #fff;
+    min-height: 0;
+    height: auto;
   }
   .shop-hero--page.shop-hero--nosotros .shop-hero__photo img {
     object-position: 22% bottom;
@@ -9599,20 +9604,44 @@ body[data-page="error"] [data-footer] { flex: 0 0 auto; margin-top: auto; }
     object-position: center bottom;
     transform: none;
   }
+  .shop-hero--page.shop-hero--catalog .shop-hero__photo,
+  .shop-hero--page.shop-hero--catalog .shop-hero__photo.media-load,
+  .shop-hero.shop-hero--page.shop-hero--catalog .shop-hero__photo,
+  .shop-hero.shop-hero--page.shop-hero--catalog .shop-hero__photo.media-load,
+  .shop-hero--venue.shop-hero--page.shop-hero--catalog .shop-hero__photo,
+  .shop-hero--venue.shop-hero--page.shop-hero--catalog .shop-hero__photo.media-load,
+  .shop-hero--venue.shop-hero--split.shop-hero--page.shop-hero--catalog .shop-hero__photo,
+  .shop-hero--venue.shop-hero--split.shop-hero--page.shop-hero--catalog .shop-hero__photo.media-load {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: min(58vw, 280px);
+    min-height: 200px;
+    flex: 0 0 auto;
+    background: #fff;
+  }
+  .shop-hero--page.shop-hero--catalog .shop-hero__photo picture,
   .shop-hero--page.shop-hero--catalog .shop-hero__photo img {
-    object-fit: cover;
-    object-position: center 64%;
-    transform: scale(1.72);
-    transform-origin: center 60%;
+    object-fit: contain;
+    object-position: center 42%;
+    transform: none;
   }
   .shop-hero--venue.shop-hero--split.shop-hero--page.shop-hero--catalog .shop-hero__photo::after,
   .shop-hero--page.shop-hero--catalog .shop-hero__photo::after {
     background: linear-gradient(
       to top,
       #fff 0%,
-      rgba(255, 255, 255, 0.55) 10%,
-      transparent 22%
+      rgba(255, 255, 255, 0.92) 22%,
+      rgba(255, 255, 255, 0.55) 48%,
+      rgba(255, 255, 255, 0.18) 72%,
+      transparent 90%
     );
+  }
+  .shop-hero--page.shop-hero--catalog .wrap,
+  .shop-hero--venue.shop-hero--split.shop-hero--page.shop-hero--catalog .wrap {
+    background: #fff;
+    margin-top: -36px;
+    padding: 8px max(24px, var(--gutter)) 28px;
   }
   .shop-hero--page .shop-hero__copy {
     max-width: 28rem;

@@ -37,7 +37,7 @@
   .slide__photo { position: absolute; inset: 0 0 0 auto; width: min(50%, 720px); }
   .slide__photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center bottom; }
   </style>
-<link rel="stylesheet" href="css/main.min.css?v=rb-30">
+<link rel="stylesheet" href="css/main.min.css?v=rb-31">
 <title>Grupo CRM, extintores en Cuajimalpa</title>
   <meta name="description" content="Grupo CRM es el nombre oficial. También GRUPO CRM Extintores, CRM Extintores y CRM. Empresa de extintores en Chamixto 131, Cuajimalpa. Siglas CRM, no CMR.">
   <meta name="author" content="Grupo CRM Extintores">
@@ -75,8 +75,13 @@
       link.referrerPolicy = "no-referrer";
       document.head.appendChild(link);
     }
-    if ("requestIdleCallback" in window) window.requestIdleCallback(loadFa, { timeout: 6000 });
-    else window.addEventListener("load", function () { setTimeout(loadFa, 2500); }, { once: true });
+    var mobile = window.matchMedia && window.matchMedia("(max-width: 760px)").matches;
+    if (mobile) {
+      var kickFa = function () { setTimeout(loadFa, 400); };
+      if (document.readyState === "complete") kickFa();
+      else window.addEventListener("load", kickFa, { once: true });
+    } else if ("requestIdleCallback" in window) window.requestIdleCallback(loadFa, { timeout: 6000 });
+    else window.addEventListener("load", function(){ setTimeout(loadFa, 2500); }, { once: true });
   })();
   </script>
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
@@ -116,7 +121,7 @@
       <div class="site-topbar"><div class="wrap topbar__inner"></div></div>
       <header class="site-header">
         <div class="wrap header__inner">
-          <a class="brand" href="/"><picture><source type="image/webp" srcset="/assets/img/logo-crm.webp"><img src="/assets/img/logo-crm.png" alt="Grupo CRM" width="243" height="52" decoding="async"></picture></a>
+          <a class="brand" href="/"><picture><source type="image/webp" srcset="/assets/img/logo-crm.webp"><img src="/assets/img/logo-crm.png" alt="Grupo CRM" title="Grupo CRM" width="243" height="52" decoding="async" fetchpriority="low"></picture></a>
           <span class="header-skel__nav" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span>
           <span class="header-skel__cta" aria-hidden="true"></span>
         </div>
@@ -339,6 +344,6 @@
   </div>
   </main>
   <div data-footer></div>
-  <script type="module" src="js/app.min.js?v=rb-30" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
+  <script type="module" src="js/app.min.js?v=rb-31" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
 </body>
 </html>

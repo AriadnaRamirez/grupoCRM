@@ -17,7 +17,12 @@ const FA_IDLE = `<script>
       link.referrerPolicy = "no-referrer";
       document.head.appendChild(link);
     }
-    if ("requestIdleCallback" in window) window.requestIdleCallback(loadFa, { timeout: 6000 });
+    var mobile = window.matchMedia && window.matchMedia("(max-width: 760px)").matches;
+    if (mobile) {
+      var kickFa = function () { setTimeout(loadFa, 400); };
+      if (document.readyState === "complete") kickFa();
+      else window.addEventListener("load", kickFa, { once: true });
+    } else if ("requestIdleCallback" in window) window.requestIdleCallback(loadFa, { timeout: 6000 });
     else window.addEventListener("load", function () { setTimeout(loadFa, 2500); }, { once: true });
   })();
   </script>

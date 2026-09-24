@@ -37,7 +37,7 @@
   .slide__photo { position: absolute; inset: 0 0 0 auto; width: min(50%, 720px); }
   .slide__photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center bottom; }
   </style>
-<link rel="stylesheet" href="/css/main.min.css?v=rb-30">
+<link rel="stylesheet" href="/css/main.min.css?v=rb-31">
 <title>Recarga de extintores en Cuajimalpa | Grupo CRM Extintores</title>
   <meta name="description" content="Recarga de extintores en Cuajimalpa desde Chamixto 131, Loma del Padre. Visita sin costo, NOM-154-SCFI-2005 y cobertura en Santa Fe, Contadero y toda la alcaldía.">
   <meta name="author" content="Grupo CRM Extintores">
@@ -75,14 +75,17 @@
       link.referrerPolicy = "no-referrer";
       document.head.appendChild(link);
     }
-    if ("requestIdleCallback" in window) window.requestIdleCallback(loadFa, { timeout: 6000 });
-    else window.addEventListener("load", function () { setTimeout(loadFa, 2500); }, { once: true });
+    var mobile = window.matchMedia && window.matchMedia("(max-width: 760px)").matches;
+    if (mobile) {
+      var kickFa = function () { setTimeout(loadFa, 400); };
+      if (document.readyState === "complete") kickFa();
+      else window.addEventListener("load", kickFa, { once: true });
+    } else if ("requestIdleCallback" in window) window.requestIdleCallback(loadFa, { timeout: 6000 });
+    else window.addEventListener("load", function(){ setTimeout(loadFa, 2500); }, { once: true });
   })();
   </script>
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Hacen recarga de extintores en Cuajimalpa?","acceptedAnswer":{"@type":"Answer","text":"Sí. La oficina de Grupo CRM está en Chamixto 131, Col. Loma del Padre. Coordinamos visita en su inmueble de la alcaldía; la primera revisión no tiene costo."}},{"@type":"Question","name":"¿Atienden Santa Fe y Contadero?","acceptedAnswer":{"@type":"Answer","text":"Sí. Santa Fe (lado Cuajimalpa), Contadero y el resto de la alcaldía son cobertura habitual. Si su torre está del lado de Álvaro Obregón, también la visitamos."}},{"@type":"Question","name":"¿La recarga sigue la NOM-154?","acceptedAnswer":{"@type":"Answer","text":"Sí. Recarga y mantenimiento se alinean a la NOM-154-SCFI-2005, con verificación de MCD cuando corresponde al proceso."}}]}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://www.crmextintores.com.mx/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.crmextintores.com.mx/blog"},{"@type":"ListItem","position":3,"name":"Recarga en Cuajimalpa","item":"https://www.crmextintores.com.mx/blog/recarga-extintores-cuajimalpa"}]}</script>
-</head>
+  </head>
 <body data-page="articulo" data-article="recarga-extintores-cuajimalpa">
   <a class="skip-link" href="#contenido">Ir al contenido</a>
   <nav class="bot-nav" aria-label="Enlaces del sitio">
@@ -118,7 +121,7 @@
       <div class="site-topbar"><div class="wrap topbar__inner"></div></div>
       <header class="site-header">
         <div class="wrap header__inner">
-          <a class="brand" href="/"><picture><source type="image/webp" srcset="/assets/img/logo-crm.webp"><img src="/assets/img/logo-crm.png" alt="Grupo CRM" width="243" height="52" decoding="async"></picture></a>
+          <a class="brand" href="/"><picture><source type="image/webp" srcset="/assets/img/logo-crm.webp"><img src="/assets/img/logo-crm.png" alt="Grupo CRM" title="Grupo CRM" width="243" height="52" decoding="async" fetchpriority="low"></picture></a>
           <span class="header-skel__nav" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span>
           <span class="header-skel__cta" aria-hidden="true"></span>
         </div>
@@ -231,6 +234,8 @@
   <section class="hook" data-hook></section>
   </main>
   <div data-footer></div>
-  <script type="module" src="/js/app.min.js?v=rb-30" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Hacen recarga de extintores en Cuajimalpa?","acceptedAnswer":{"@type":"Answer","text":"Sí. La oficina de Grupo CRM está en Chamixto 131, Col. Loma del Padre. Coordinamos visita en su inmueble de la alcaldía; la primera revisión no tiene costo."}},{"@type":"Question","name":"¿Atienden Santa Fe y Contadero?","acceptedAnswer":{"@type":"Answer","text":"Sí. Santa Fe (lado Cuajimalpa), Contadero y el resto de la alcaldía son cobertura habitual. Si su torre está del lado de Álvaro Obregón, también la visitamos."}},{"@type":"Question","name":"¿La recarga sigue la NOM-154?","acceptedAnswer":{"@type":"Answer","text":"Sí. Recarga y mantenimiento se alinean a la NOM-154-SCFI-2005, con verificación de MCD cuando corresponde al proceso."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://www.crmextintores.com.mx/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.crmextintores.com.mx/blog"},{"@type":"ListItem","position":3,"name":"Recarga en Cuajimalpa","item":"https://www.crmextintores.com.mx/blog/recarga-extintores-cuajimalpa"}]}</script>
+  <script type="module" src="/js/app.min.js?v=rb-31" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
 </body>
 </html>

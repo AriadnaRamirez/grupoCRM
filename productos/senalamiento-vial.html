@@ -25,7 +25,7 @@
   }
   .brand img { display: block; width: auto; height: auto; max-height: 47px; aspect-ratio: 720 / 154; object-fit: contain; }
   </style>
-  <link rel="stylesheet" href="/css/main.min.css?v=rb-30">
+  <link rel="stylesheet" href="/css/main.min.css?v=rb-31">
 <title>Señalamiento vial | Catálogo Grupo CRM</title>
   <meta name="description" content="Conos, cintas, postes y señales para obra y vialidad. Equipe su sitio y cotice con Grupo CRM en CDMX y Estado de México.">
   <meta name="robots" content="index, follow">
@@ -60,16 +60,17 @@
       link.referrerPolicy = "no-referrer";
       document.head.appendChild(link);
     }
-    if ("requestIdleCallback" in window) window.requestIdleCallback(loadFa, { timeout: 6000 });
-    else window.addEventListener("load", function () { setTimeout(loadFa, 2500); }, { once: true });
+    var mobile = window.matchMedia && window.matchMedia("(max-width: 760px)").matches;
+    if (mobile) {
+      var kickFa = function () { setTimeout(loadFa, 400); };
+      if (document.readyState === "complete") kickFa();
+      else window.addEventListener("load", kickFa, { once: true });
+    } else if ("requestIdleCallback" in window) window.requestIdleCallback(loadFa, { timeout: 6000 });
+    else window.addEventListener("load", function(){ setTimeout(loadFa, 2500); }, { once: true });
   })();
   </script>
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
-  <script type="application/ld+json" id="seo-organization">{"@context":"https://schema.org","@type":"Organization","@id":"https://www.crmextintores.com.mx/#organization","name":"Grupo CRM","alternateName":["GRUPO CRM Extintores","CRM Extintores","CRM"],"url":"https://www.crmextintores.com.mx"}</script>
-  <script type="application/ld+json" id="seo-website">{"@context":"https://schema.org","@type":"WebSite","@id":"https://www.crmextintores.com.mx/#website","name":"Grupo CRM","alternateName":["GRUPO CRM Extintores","CRM Extintores","CRM"],"url":"https://www.crmextintores.com.mx","publisher":{"@id":"https://www.crmextintores.com.mx/#organization"}}</script>
-  <script type="application/ld+json" id="seo-crumbs">{"@context":"https://schema.org","@type":"BreadcrumbList","name":"Inicio › Catálogo › Señalamiento vial","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":{"@type":"WebPage","@id":"https://www.crmextintores.com.mx/","name":"Inicio"}},{"@type":"ListItem","position":2,"name":"Catálogo","item":{"@type":"WebPage","@id":"https://www.crmextintores.com.mx/productos","name":"Catálogo"}},{"@type":"ListItem","position":3,"name":"Señalamiento vial","item":{"@type":"WebPage","@id":"https://www.crmextintores.com.mx/productos/senalamiento-vial","name":"Señalamiento vial"}}]}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Señalamiento vial","url":"https://www.crmextintores.com.mx/productos/senalamiento-vial","numberOfItems":12,"itemListElement":[{"@type":"ListItem","position":1,"name":"Cono vial flexible - 45 cm","url":"https://www.crmextintores.com.mx/producto/CRM-0023"},{"@type":"ListItem","position":2,"name":"Cono vial flexible - 71 cm","url":"https://www.crmextintores.com.mx/producto/CRM-0024"},{"@type":"ListItem","position":3,"name":"Poste de seguridad para barricada - 117 cm","url":"https://www.crmextintores.com.mx/producto/CRM-0025"},{"@type":"ListItem","position":4,"name":"Malla de seguridad para delimitación - 30 m","url":"https://www.crmextintores.com.mx/producto/CRM-0026"},{"@type":"ListItem","position":5,"name":"Lámpara solar de destello para señalización","url":"https://www.crmextintores.com.mx/producto/CRM-0027"},{"@type":"ListItem","position":6,"name":"Banderín reflejante para señalización","url":"https://www.crmextintores.com.mx/producto/CRM-0028"},{"@type":"ListItem","position":7,"name":"Banderín de alta visibilidad para camión","url":"https://www.crmextintores.com.mx/producto/CRM-0029"},{"@type":"ListItem","position":8,"name":"Cinta roja de delimitación «Peligro»","url":"https://www.crmextintores.com.mx/producto/CRM-0030"},{"@type":"ListItem","position":9,"name":"Cinta amarilla de delimitación «Precaución»","url":"https://www.crmextintores.com.mx/producto/CRM-0031"},{"@type":"ListItem","position":10,"name":"Cinta amarilla de delimitación «Prohibido el paso»","url":"https://www.crmextintores.com.mx/producto/CRM-0032"},{"@type":"ListItem","position":11,"name":"Señal preventiva de piso mojado","url":"https://www.crmextintores.com.mx/producto/CRM-0033"},{"@type":"ListItem","position":12,"name":"Brazalete de identificación para brigadistas","url":"https://www.crmextintores.com.mx/producto/CRM-0034"}]}</script>
-</head>
+  </head>
 <body data-page="productos" data-cat="senalamiento-vial">
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
   <nav class="bot-nav" aria-label="Enlaces del sitio">
@@ -105,7 +106,7 @@
       <div class="site-topbar"><div class="wrap topbar__inner"></div></div>
       <header class="site-header">
         <div class="wrap header__inner">
-          <a class="brand" href="/"><picture><source type="image/webp" srcset="/assets/img/logo-crm.webp"><img src="/assets/img/logo-crm.png" alt="Grupo CRM" width="243" height="52" decoding="async"></picture></a>
+          <a class="brand" href="/"><picture><source type="image/webp" srcset="/assets/img/logo-crm.webp"><img src="/assets/img/logo-crm.png" alt="Grupo CRM" title="Grupo CRM" width="243" height="52" decoding="async" fetchpriority="low"></picture></a>
           <span class="header-skel__nav" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span>
           <span class="header-skel__cta" aria-hidden="true"></span>
         </div>
@@ -317,6 +318,10 @@
   </section>
   </main>
   <div data-footer></div>
-  <script type="module" src="/js/app.min.js?v=rb-30" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
+  <script type="application/ld+json" id="seo-organization">{"@context":"https://schema.org","@type":"Organization","@id":"https://www.crmextintores.com.mx/#organization","name":"Grupo CRM","alternateName":["GRUPO CRM Extintores","CRM Extintores","CRM"],"url":"https://www.crmextintores.com.mx"}</script>
+  <script type="application/ld+json" id="seo-website">{"@context":"https://schema.org","@type":"WebSite","@id":"https://www.crmextintores.com.mx/#website","name":"Grupo CRM","alternateName":["GRUPO CRM Extintores","CRM Extintores","CRM"],"url":"https://www.crmextintores.com.mx","publisher":{"@id":"https://www.crmextintores.com.mx/#organization"}}</script>
+  <script type="application/ld+json" id="seo-crumbs">{"@context":"https://schema.org","@type":"BreadcrumbList","name":"Inicio › Catálogo › Señalamiento vial","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":{"@type":"WebPage","@id":"https://www.crmextintores.com.mx/","name":"Inicio"}},{"@type":"ListItem","position":2,"name":"Catálogo","item":{"@type":"WebPage","@id":"https://www.crmextintores.com.mx/productos","name":"Catálogo"}},{"@type":"ListItem","position":3,"name":"Señalamiento vial","item":{"@type":"WebPage","@id":"https://www.crmextintores.com.mx/productos/senalamiento-vial","name":"Señalamiento vial"}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Señalamiento vial","url":"https://www.crmextintores.com.mx/productos/senalamiento-vial","numberOfItems":12,"itemListElement":[{"@type":"ListItem","position":1,"name":"Cono vial flexible - 45 cm","url":"https://www.crmextintores.com.mx/producto/CRM-0023"},{"@type":"ListItem","position":2,"name":"Cono vial flexible - 71 cm","url":"https://www.crmextintores.com.mx/producto/CRM-0024"},{"@type":"ListItem","position":3,"name":"Poste de seguridad para barricada - 117 cm","url":"https://www.crmextintores.com.mx/producto/CRM-0025"},{"@type":"ListItem","position":4,"name":"Malla de seguridad para delimitación - 30 m","url":"https://www.crmextintores.com.mx/producto/CRM-0026"},{"@type":"ListItem","position":5,"name":"Lámpara solar de destello para señalización","url":"https://www.crmextintores.com.mx/producto/CRM-0027"},{"@type":"ListItem","position":6,"name":"Banderín reflejante para señalización","url":"https://www.crmextintores.com.mx/producto/CRM-0028"},{"@type":"ListItem","position":7,"name":"Banderín de alta visibilidad para camión","url":"https://www.crmextintores.com.mx/producto/CRM-0029"},{"@type":"ListItem","position":8,"name":"Cinta roja de delimitación «Peligro»","url":"https://www.crmextintores.com.mx/producto/CRM-0030"},{"@type":"ListItem","position":9,"name":"Cinta amarilla de delimitación «Precaución»","url":"https://www.crmextintores.com.mx/producto/CRM-0031"},{"@type":"ListItem","position":10,"name":"Cinta amarilla de delimitación «Prohibido el paso»","url":"https://www.crmextintores.com.mx/producto/CRM-0032"},{"@type":"ListItem","position":11,"name":"Señal preventiva de piso mojado","url":"https://www.crmextintores.com.mx/producto/CRM-0033"},{"@type":"ListItem","position":12,"name":"Brazalete de identificación para brigadistas","url":"https://www.crmextintores.com.mx/producto/CRM-0034"}]}</script>
+  <script type="module" src="/js/app.min.js?v=rb-31" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
 </body>
 </html>

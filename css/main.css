@@ -3600,12 +3600,16 @@ body.is-nav-open { overflow: hidden; }
   flex: 0 0 auto;
 }
 .client-rail.is-auto .client-rail__track {
-  will-change: transform;
   animation: clients-marquee var(--client-marquee-duration) linear infinite;
 }
+.client-rail.is-auto:not(.is-paused) .client-rail__track {
+  will-change: transform;
+}
+.client-rail.is-auto.is-paused .client-rail__track,
 .client-rail.is-auto:hover .client-rail__track,
 .client-rail.is-auto:focus-within .client-rail__track {
   animation-play-state: paused;
+  will-change: auto;
 }
 .client-rail.is-auto .client-rail__viewport {
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 48px, #000 calc(100% - 48px), transparent);

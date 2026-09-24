@@ -43,7 +43,7 @@ const botHeader = `<div data-header>
       <div class="site-topbar"><div class="wrap topbar__inner"></div></div>
       <header class="site-header">
         <div class="wrap header__inner">
-          <a class="brand" href="/"><picture><source type="image/webp" srcset="/assets/img/logo-crm.webp"><img src="/assets/img/logo-crm.png" alt="Grupo CRM" width="243" height="52" decoding="async"></picture></a>
+          <a class="brand" href="/"><picture><source type="image/webp" srcset="/assets/img/logo-crm.webp"><img src="/assets/img/logo-crm.png" alt="Grupo CRM" title="Grupo CRM" width="243" height="52" decoding="async" fetchpriority="low"></picture></a>
           <span class="header-skel__nav" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span>
           <span class="header-skel__cta" aria-hidden="true"></span>
         </div>

@@ -24,7 +24,7 @@ import {
 } from "../js/data.js";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const CACHE = "rb-30";
+const CACHE = "rb-31";
 
 const MONTHS_ES = [
   "enero",
@@ -136,12 +136,16 @@ function pageShell({ title, description, canonical, bodyAttrs, main, jsonLd = ""
       link.referrerPolicy = "no-referrer";
       document.head.appendChild(link);
     }
-    if ("requestIdleCallback" in window) window.requestIdleCallback(loadFa, { timeout: 6000 });
+    var mobile = window.matchMedia && window.matchMedia("(max-width: 760px)").matches;
+    if (mobile) {
+      var kickFa = function () { setTimeout(loadFa, 400); };
+      if (document.readyState === "complete") kickFa();
+      else window.addEventListener("load", kickFa, { once: true });
+    } else if ("requestIdleCallback" in window) window.requestIdleCallback(loadFa, { timeout: 6000 });
     else window.addEventListener("load", function () { setTimeout(loadFa, 2500); }, { once: true });
   })();
   </script>
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
-${jsonLd}
 </head>
 <body ${bodyAttrs}>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -167,7 +171,7 @@ ${jsonLd}
       <div class="site-topbar"><div class="wrap topbar__inner"></div></div>
       <header class="site-header">
         <div class="wrap header__inner">
-          <a class="brand" href="/"><picture><source type="image/webp" srcset="/assets/img/logo-crm.webp"><img src="/assets/img/logo-crm.png" alt="${escapeHtml(company.name)}" width="720" height="154" decoding="async"></picture></a>
+          <a class="brand" href="/"><picture><source type="image/webp" srcset="/assets/img/logo-crm.webp"><img src="/assets/img/logo-crm.png" alt="${escapeHtml(company.name)}" title="${escapeHtml(company.name)}" width="720" height="154" decoding="async" fetchpriority="low"></picture></a>
           <span class="header-skel__nav" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span>
           <span class="header-skel__cta" aria-hidden="true"></span>
         </div>
@@ -178,6 +182,7 @@ ${jsonLd}
 ${main}
   </main>
   <div data-footer></div>
+${jsonLd}
   <script type="module" src="/js/app.min.js?v=${CACHE}" onerror="document.documentElement.classList.add('is-boot-error','is-booted')"></script>
 </body>
 </html>

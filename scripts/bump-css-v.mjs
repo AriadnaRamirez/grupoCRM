@@ -16,6 +16,9 @@ const olds = [
   "proof-1",
   "h2-1",
   "img-1",
+  "rb-24",
+  "rb-23",
+  "rb-22",
   "rb-21",
   "rb-20",
   "rb-19",
@@ -39,7 +42,7 @@ const olds = [
   "rb-2",
   "rb-1",
 ];
-const neu = "rb-22";
+const neu = "rb-25";
 
 function walk(dir, out = []) {
   for (const name of readdirSync(dir)) {

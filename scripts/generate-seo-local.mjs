@@ -25,7 +25,7 @@ import {
 } from "../js/data.js";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const CACHE = "rb-31";
+const CACHE = "rb-32";
 const MONTHS_ES = [
   "enero",
   "febrero",

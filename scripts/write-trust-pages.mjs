@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import { faIcon } from "../js/fa-svg.js";
 
 const shell = fs.readFileSync("aviso-privacidad.html", "utf8");
 
@@ -85,7 +86,7 @@ makePage({
       <h2>Contacto responsable</h2>
       <p>Grupo CRM Extintores · <a href="mailto:crm.extintores@gmail.com">crm.extintores@gmail.com</a> · <a href="tel:5667481489">56 6748 1489</a> · <a href="tel:5659474605">56 5947 4605</a>.</p>
 
-      <p><a class="btn btn-ink" href="/contacto"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Pedir cotización</a></p>`,
+      <p><a class="btn btn-ink" href="/contacto">${faIcon("fa-brands fa-whatsapp")} Pedir cotización</a></p>`,
 });
 
 makePage({
@@ -138,5 +139,5 @@ makePage({
         <li><a href="/nosotros#validacion">Validación externa en Nosotros</a></li>
       </ul>
 
-      <p><a class="btn btn-ink" href="/contacto"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Pedir cotización</a></p>`,
+      <p><a class="btn btn-ink" href="/contacto">${faIcon("fa-brands fa-whatsapp")} Pedir cotización</a></p>`,
 });

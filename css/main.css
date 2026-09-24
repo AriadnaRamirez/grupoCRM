@@ -168,8 +168,18 @@ p { margin: 0 0 1em; }
   opacity: 0.72;
   transform: none;
 }
-.btn.is-loading .fa-spin {
+.btn.is-loading .fa-spin,
+svg.fa-spin {
   animation: spin 0.7s linear infinite;
+  transform-origin: center;
+}
+svg.icon {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: -0.125em;
+  flex-shrink: 0;
+  overflow: visible;
 }
 .btn svg,
 .btn i { flex-shrink: 0; }
@@ -1716,7 +1726,8 @@ html.is-booted .site-chrome {
   font-weight: 650;
   line-height: 1.35;
 }
-.cursos-home__item i {
+.cursos-home__item i,
+.cursos-home__item svg {
   flex-shrink: 0;
   width: 1.15em;
   color: var(--red);
@@ -3272,14 +3283,17 @@ body.is-nav-open { overflow: hidden; }
   text-transform: uppercase;
   text-decoration: none;
 }
-.shop-item__more i {
+.shop-item__more i,
+.shop-item__more svg {
   font-size: 0.75rem;
   transition: transform 0.28s var(--ease);
 }
 .shop-item:hover .shop-item__more,
 .shop-item:focus-within .shop-item__more { color: var(--red-dark); }
 .shop-item:hover .shop-item__more i,
-.shop-item:focus-within .shop-item__more i { transform: translateX(4px); }
+.shop-item:hover .shop-item__more svg,
+.shop-item:focus-within .shop-item__more i,
+.shop-item:focus-within .shop-item__more svg { transform: translateX(4px); }
 .shop-tools { margin-bottom: 36px; }
 .shop-toolbar {
   display: flex;
@@ -3776,7 +3790,8 @@ body.is-nav-open { overflow: hidden; }
   font-size: 0.9rem;
   color: #fff;
 }
-.sectors-strip__icon i { color: inherit; }
+.sectors-strip__icon i,
+.sectors-strip__icon svg { color: inherit; }
 .sectors-strip__name {
   line-height: 1.2;
 }
@@ -4668,7 +4683,8 @@ body[data-page="inicio"] .home-gallery .slide__photo {
   font-size: 0.85rem;
   line-height: 1;
 }
-.review__stars i { width: 0.9em; }
+.review__stars i,
+.review__stars svg { width: 0.9em; height: 0.9em; }
 .review__star--off { color: var(--line-strong); }
 .review__date {
   margin: 5px 0 0;
@@ -4880,7 +4896,8 @@ body[data-page="inicio"] .home-gallery .slide__photo {
   font-size: 1rem;
   line-height: 1;
 }
-.contact-list__ico i {
+.contact-list__ico i,
+.contact-list__ico svg {
   width: 1em;
   text-align: center;
 }
@@ -5645,7 +5662,9 @@ body[data-page="contacto"] .contact-page__social a:hover {
   color: #fff;
 }
 .lightbox__close i,
-.lightbox__nav i { pointer-events: none; }
+.lightbox__close svg,
+.lightbox__nav i,
+.lightbox__nav svg { pointer-events: none; }
 .lightbox__close {
   position: absolute;
   top: 18px;
@@ -5713,7 +5732,8 @@ body.is-lightbox { overflow: hidden; }
   box-shadow: none;
   opacity: 0.7;
 }
-.value-card i {
+.value-card i,
+.value-card svg {
   color: var(--red);
   font-size: 0.78rem;
   line-height: 1;
@@ -6839,7 +6859,8 @@ body.is-lightbox { overflow: hidden; }
   color: #fff;
   font-size: 1.45rem;
 }
-.sector-card__icon i { color: inherit; }
+.sector-card__icon i,
+.sector-card__icon svg { color: inherit; }
 .sector-card__rule {
   display: block;
   width: 28px;
@@ -9992,7 +10013,8 @@ body[data-page="error"] [data-footer] { flex: 0 0 auto; margin-top: auto; }
   body[data-page="nosotros"] .about-values .value-card:last-child {
     border-bottom: 0;
   }
-  body[data-page="nosotros"] .about-values .value-card i {
+  body[data-page="nosotros"] .about-values .value-card i,
+  body[data-page="nosotros"] .about-values .value-card svg {
     flex: 0 0 1.1rem;
     width: 1.1rem;
     text-align: center;

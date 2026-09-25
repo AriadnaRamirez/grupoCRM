@@ -663,7 +663,7 @@ function bindBackTop() {
   window.addEventListener("scroll", update, { passive: true });
 }
 
-const NAV_DESKTOP_MQ = "(min-width: 1024px)";
+const NAV_DESKTOP_MQ = "(min-width: 1280px)";
 
 function bindChrome() {
   const chrome = document.querySelector(".site-chrome");
